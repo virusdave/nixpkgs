@@ -30,7 +30,8 @@ stdenv.mkDerivation {
       much stronger than the best human chess grandmasters.
       '';
     maintainers = with maintainers; [ luispedro peti ];
-    platforms = ["x86_64-linux" "i686-linux"];
+    #platforms = ["x86_64-linux" "i686-linux"];
+    platforms = platforms.unix;
     license = licenses.gpl2;
   };
 
