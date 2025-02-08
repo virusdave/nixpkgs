@@ -34,12 +34,12 @@ stdenv.mkDerivation (finalAttrs: {
     cmake
     ninja
   ];
-  cmakeFlags = [
-    "-DMI_INSTALL_TOPLEVEL=ON"
-  ]
-  ++ lib.optionals secureBuild [ "-DMI_SECURE=ON" ]
-  ++ lib.optionals stdenv.hostPlatform.isStatic [ "-DMI_BUILD_SHARED=OFF" ]
-  ++ lib.optionals (!finalAttrs.doCheck) [ "-DMI_BUILD_TESTS=OFF" ];
+  cmakeFlags = lib.mapAttrsToList lib.cmakeBool {
+    MI_INSTALL_TOPLEVEL = true;
+    MI_SECURE = secureBuild;
+    MI_BUILD_SHARED = !stdenv.hostPlatform.isStatic;
+    MI_BUILD_TESTS = finalAttrs.doCheck;
+  };
 
   postInstall =
     let
