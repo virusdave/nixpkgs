@@ -3605,6 +3605,8 @@ self: super: with self; {
 
   datashaper = callPackage ../development/python-modules/datashaper { };
 
+  datasketch = callPackage ../development/python-modules/datasketch { };
+
   datauri = callPackage ../development/python-modules/datauri { };
 
   datefinder = callPackage ../development/python-modules/datefinder { };
