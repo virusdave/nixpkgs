@@ -3,6 +3,7 @@
   stdenv,
   fetchfossil,
   openssl,
+  nix-update-script,
 }:
 
 stdenv.mkDerivation {
@@ -22,6 +23,8 @@ stdenv.mkDerivation {
   installPhase = ''
     install -Dm755 -t $out/bin althttpd
   '';
+
+  passthru.updateScript = ./update.sh;
 
   meta = {
     description = "Althttpd webserver";
