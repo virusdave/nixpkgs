@@ -704,7 +704,6 @@ let
               allowedImpureDLLs
               ++ lib.optionals isCygwin [
                 "KERNEL32.dll"
-                "cygwin1.dll"
               ];
           }
           // (
