@@ -81,6 +81,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.mpl20;
     mainProgram = "hx";
     maintainers = with lib.maintainers; [
+      aciceri
       danth
       yusdacra
     ];
