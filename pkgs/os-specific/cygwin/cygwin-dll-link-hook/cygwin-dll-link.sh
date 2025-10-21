@@ -25,6 +25,7 @@ _dllDeps() {
 
 _linkDeps() {
   local target="$1" dir="$2" check="$3"
+  [[ ! -x "$target" ]] && echo "_linkDeps: $target is not executable, skipping." 1>&2 && return
   echo 'target:' "$target"
   local dll
   _dllDeps "$target" | while read -r dll; do
