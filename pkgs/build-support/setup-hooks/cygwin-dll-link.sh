@@ -1,8 +1,11 @@
+# shellcheck shell=bash
+
 addLinkDLLPaths() {
   addToSearchPath "LINK_DLL_FOLDERS" "$1/lib"
   addToSearchPath "LINK_DLL_FOLDERS" "$1/bin"
 }
 
+# shellcheck disable=SC2154
 addEnvHooks "$targetOffset" addLinkDLLPaths
 
 addOutputDLLPaths() {
@@ -24,16 +27,16 @@ _linkDeps() {
   local target="$1" dir="$2" check="$3"
   echo 'target:' "$target"
   local dll
-  _dllDeps "$target" | while read dll; do
+  _dllDeps "$target" | while read -r dll; do
     echo '  dll:' "$dll"
     if [[ -e "$dir/$dll" ]]; then continue; fi
     # Locate the DLL - it should be an *executable* file on $LINK_DLL_FOLDERS.
-    local dllPath="$(PATH="$(dirname "$target"):$LINK_DLL_FOLDERS" type -P "$dll")"
-    if [[ -z "$dllPath" ]]; then
+    local dllPath
+    if ! dllPath="$(PATH="$(dirname "$target"):$LINK_DLL_FOLDERS" type -P "$dll")"; then
       if [[ -z "$check" || -n "${allowedImpureDLLsMap[$dll]}" ]]; then
         continue
       fi
-      echo unable to find $dll in $LINK_DLL_FOLDERS >&2
+      echo unable to find "$dll" in "$LINK_DLL_FOLDERS" >&2
       exit 1
     fi
     echo '    linking to:' "$dllPath"
@@ -45,6 +48,7 @@ _linkDeps() {
 }
 
 linkDLLs() {
+  # shellcheck disable=SC2154
   if [ ! -d "$prefix" ]; then return; fi
   (
     set -e
