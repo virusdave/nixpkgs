@@ -13,6 +13,7 @@
   libxcursor,
   libx11,
   libxi,
+  nix-update-script,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -58,6 +59,8 @@ rustPlatform.buildRustPackage rec {
       categories = [ "Game" ];
     })
   ];
+  passthru.updateScript = nix-update-script { };
+
   meta = {
     description = "Breathtaking 3D space game in the rings of Jupiter";
     homepage = "https://yunicode.itch.io/outfly";
