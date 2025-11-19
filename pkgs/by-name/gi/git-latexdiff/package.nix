@@ -12,7 +12,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchFromGitLab {
     hash = "sha256-DMoGEbCBuqUGjbna3yDpD4WNTikPudYRD4Wy1pPG2mw=";
-    rev = finalAttrs.version;
+    tag = finalAttrs.version;
     repo = "git-latexdiff";
     owner = "git-latexdiff";
   };
