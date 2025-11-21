@@ -21,7 +21,7 @@ stdenv.mkDerivation (finalAttrs: {
     domain = "gitlab.com";
     owner = "DavidGriffith";
     repo = "frotz";
-    rev = finalAttrs.version;
+    tag = finalAttrs.version;
     hash = "sha256-XZjimskjupTtYdgfVaOS2QnQrDIBSwkJqxrffdjgZk0=";
   };
 
@@ -33,6 +33,8 @@ stdenv.mkDerivation (finalAttrs: {
     })
   ];
 
+  strictDeps = true;
+  enableParallelBuilding = true;
   nativeBuildInputs = [
     which
     pkg-config
