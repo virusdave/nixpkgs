@@ -15,21 +15,21 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "frotz";
-  version = "2.54";
+  version = "2.55";
 
   src = fetchFromGitLab {
     domain = "gitlab.com";
     owner = "DavidGriffith";
     repo = "frotz";
     rev = finalAttrs.version;
-    hash = "sha256-GvGxojD8d5GVy/d8h3q6K7KJroz2lsKbfE0F0acjBl8=";
+    hash = "sha256-XZjimskjupTtYdgfVaOS2QnQrDIBSwkJqxrffdjgZk0=";
   };
 
   patches = [
     (fetchpatch {
-      url = "https://github.com/macports/macports-ports/raw/496e5b91e3b6c9dc6820d77ab60dbe400d1924ee/games/frotz/files/Makefile.patch";
+      url = "https://raw.githubusercontent.com/macports/macports-ports/5c70d849addb2df2ea9ad2cc4fd4a15e5d4cc3a5/games/frotz/files/Makefile.patch";
       extraPrefix = "";
-      hash = "sha256-P83ZzSi3bhncQ52Y38Q3F/7v1SJKr5614tytt862HRg=";
+      hash = "sha256-ydIA1Td1ufp4y4Qfm5ijg9AY8z7cQ8BiX9hQz8gkKZY=";
     })
   ];
 
