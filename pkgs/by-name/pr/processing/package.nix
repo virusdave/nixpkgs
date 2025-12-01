@@ -177,6 +177,7 @@ stdenv.mkDerivation rec {
       gpl2Only
       lgpl21Only
     ];
+    mainProgram = "Processing";
     platforms = lib.platforms.linux;
     maintainers = with lib.maintainers; [ evan-goode ];
     sourceProvenance = with lib.sourceTypes; [
