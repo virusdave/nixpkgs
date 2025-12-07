@@ -19,8 +19,12 @@
   coreutils,
   gnugrep,
   gnused,
-  which,
   makeWrapper,
+
+  # test dependencies
+  which,
+  util-linux,
+  tcpdump,
 }:
 let
   withOpensslConfigureFlag = "--with-openssl=${lib.getLib openssl.dev}";
@@ -112,8 +116,18 @@ stdenv.mkDerivation (finalAttrs: {
   doCheck = true;
 
   nativeCheckInputs = [
-    openssl # used to generate certificates used for test services
+    # used to generate certificates used for test services
+    openssl
     procps
+
+    # some tests may need tcpdump to run
+    tcpdump
+
+    # scapy-server imports scapy module
+    (python3.withPackages (ps: with ps; [ scapy ]))
+
+    # scapy tests use flock to start scapy-server
+    util-linux
   ];
 
   postInstall = ''
@@ -156,6 +170,8 @@ stdenv.mkDerivation (finalAttrs: {
     # hack to stop tests from trying to read /etc/resolv.conf
     export OVS_RESOLV_CONF="$PWD/resolv.conf"
     touch $OVS_RESOLV_CONF
+
+    patchShebangs --build tests/scapy-server.py
   '';
 
   checkPhase = ''
