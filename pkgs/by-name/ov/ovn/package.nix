@@ -19,6 +19,7 @@
   coreutils,
   gnugrep,
   gnused,
+  which,
   makeWrapper,
 }:
 let
@@ -72,6 +73,9 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
     python3
     makeWrapper
+    # NOTE: remove if OVN switches to `command -v`:
+    # https://patchwork.ozlabs.org/project/ovn/patch/20260205004956.84602-3-ihar.hrachyshka@gmail.com/
+    which # used in test suite to detect presence of commands
   ];
 
   buildInputs = [
