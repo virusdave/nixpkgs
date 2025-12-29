@@ -18,7 +18,7 @@ addOutputDLLPaths() {
 postInstallHooks+=(addOutputDLLPaths)
 
 _dllDeps() {
-  "$OBJDUMP" -p "$1" \
+  @objdump@ -p "$1" \
     | sed -n 's/.*DLL Name: \(.*\)/\1/p' \
     | sort -u
 }
