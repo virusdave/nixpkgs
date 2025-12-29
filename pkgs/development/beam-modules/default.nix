@@ -101,7 +101,11 @@ let
       webdriver = callPackage ./webdriver { };
 
       inherit (callPackages ./hooks { })
-        mixConfigureHook
+        beamCopySourceHook
+        beamModuleInstallHook
+        mixBuildDirHook
+        mixCompileHook
+        mixAppConfigPatchHook
         ;
     };
 in
