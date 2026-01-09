@@ -5,7 +5,7 @@
 # TODO: add a method to the module system types
 #       see https://github.com/NixOS/nixpkgs/pull/273935#issuecomment-1854173100
 let
-  inherit (builtins)
+  inherit (lib)
     isString
     isInt
     isAttrs
@@ -167,7 +167,7 @@ lib.fix (self: {
           concatMap (
             k:
             if fieldVerifiers ? ${k} then
-              lib.optionals (fieldVerifiers.${k} v.${k}) (self.errors fields.${k} (ctx + ".${k}") v.${k})
+              lib.optionals (!fieldVerifiers.${k} v.${k}) (self.errors fields.${k} "${ctx}.${k}" v.${k})
             else
               [
                 "${ctx}: key '${k}' is unrecognized; expected one of: \n  [${
