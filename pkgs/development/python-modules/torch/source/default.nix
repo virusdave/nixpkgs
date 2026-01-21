@@ -280,7 +280,7 @@ in
 buildPythonPackage.override { inherit stdenv; } (finalAttrs: {
   pname = "torch";
   # Don't forget to update torch-bin to the same version.
-  version = "2.9.1";
+  version = "2.10.0";
   pyproject = true;
 
   outputs = [
@@ -308,11 +308,6 @@ buildPythonPackage.override { inherit stdenv; } (finalAttrs: {
   ++ lib.optionals cudaSupport [
     ./fix-cmake-cuda-toolkit.patch
     ./nvtx3-hpp-path-fix.patch
-  ]
-  ++ lib.optionals stdenv.hostPlatform.isLinux [
-    # Propagate CUPTI to Kineto by overriding the search path with environment variables.
-    # https://github.com/pytorch/pytorch/pull/108847
-    ./pytorch-pr-108847.patch
   ]
   ++ lib.optionals (lib.getName blas.provider == "mkl") [
     # The CMake install tries to add some hardcoded rpaths, incompatible
