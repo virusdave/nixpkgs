@@ -26,37 +26,22 @@
   webkitgtk_4_1,
   wrapGAppsHook4,
   dart-sass,
-  fetchpatch,
 }:
-
-let
-  excludeSpec = spec: [
-    "--exclude"
-    spec
-  ];
-in
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "gitbutler";
-  version = "0.18.3";
+  version = "0.18.8";
 
   src = fetchFromGitHub {
     owner = "gitbutlerapp";
     repo = "gitbutler";
     tag = "release/${finalAttrs.version}";
-    hash = "sha256-N/xs63QjqEgDXAOEZpzBRl1QrwDlcYyFWSyNlku6tKw=";
+    hash = "sha256-OSM2yjiz3I5+SVpcJSWCDyS4y4w9JJ/8CAP2BK0sL7o=";
   };
 
   # Workaround for https://github.com/NixOS/nixpkgs/issues/359340
   cargoPatches = [
     ./gix-from-crates-io.patch
-
-    # This allows building tests with release mode instead of setting checkType = "debug";
-    (fetchpatch {
-      name = "remove-test-askpass-path-workaround.patch";
-      url = "https://github.com/Mrmaxmeier/gitbutler/commit/34bcde7db1fa44b801428535ed4c60881d4fc4e1.patch";
-      hash = "sha256-BjFSkkCdS0HxqeJNA/RmuIVzkfTZZ/kBhMDM+TwCwp4=";
-    })
   ];
 
   # Let Tauri know what version we're building and deactivate the built-in updater
@@ -74,12 +59,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --replace-fail 'checkUpdate = tauriCheck;' 'checkUpdate = () => null;'
   '';
 
-  cargoHash = "sha256-jJ8fUBv9M9aZYSgymh/FeyLOT4h4cynqi/4fnuAbIDQ=";
+  cargoHash = "sha256-L53iIVxv3KtmXiqITad1enIMX3Iu/mWSJJPZk7KAWuM=";
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 2;
-    hash = "sha256-R1EYyMy0oVX9G6GYrjIsWx7J9vfkdM4fLlydteVsi7E=";
+    hash = "sha256-IAsEzM9kmZWnh390CV7mOyOshVlESsyoNT0ZvdY03KY=";
   };
 
   nativeBuildInputs = [
@@ -119,7 +104,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoTestFlags = [
     "--workspace"
   ]
-  ++ lib.concatMap excludeSpec [
+  # Exclude these workspace crates from testing
+  ++ lib.concatMap (crate: [ "--exclude=${crate}" ]) [
     # Requires Git directories
     "but-core"
     "but-rebase"
@@ -133,19 +119,29 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "gitbutler-edit-mode"
     "but-cherry-apply"
     "but-worktrees"
-    # tui::get_text::tests::git_editor_takes_precedence
-    "but"
-    # thread 'hooks::pre_push_hook_failure' (38982) panicked at crates/gitbutler-repo/tests/hooks.rs:83:18:
-    # success: Text file busy (os error 26)
-    "gitbutler-repo"
   ]
   ++ [
+    "--"
+  ]
+  # Skip these specific tests
+  ++ lib.concatMap (test: [ "--skip=${test}" ]) [
     # These tests try connecting to a local address (192.0.2.1) and expect the
     # connection to fail in a certain way. When run on macOS with a network
     # sandbox (?) these tests fail while preparing the socket.
     # https://github.com/NixOS/nixpkgs/pull/473706#issuecomment-3734337124
-    "--"
-    "--skip=test_is_network_error"
+    "test_is_network_error"
+    # assertion `left == right` failed: GIT_EDITOR should take precedence if git is executed correctly
+    #  left: "vi"
+    # right: "from-GIT_EDITOR"
+    "git_editor_takes_precedence"
+    # FLAKY (try again): child exited unsuccessfully: ExitStatus(unix_wait_status(10752))
+    "migrations_in_parallel_with_processes"
+    # Archive at 'tests/fixtures/generated-archives/[...].tar' not found [..] Error: No such file or directory (os error 2)
+    "merge_first_branch_into_gb_local_and_verify_rebase"
+    "json_output_with_dangling_commits"
+    "two_dangling_commits_different_branches"
+    # darwin: Error: timeout waiting for matching event
+    "track_directory_changes_after_rename"
   ];
 
   env = {
@@ -157,7 +153,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     # `fetchPnpmDeps` and `pnpmConfigHook` use a specific version of pnpm, not upstream's
     COREPACK_ENABLE_STRICT = 0;
 
-    # task tracing requires Tokio to be built with RUSTFLAGS="--cfg tokio_unstable"!
+    # task tracing requires Tokio to be built with RUSTFLAGS="--cfg tokio_unstable"
     RUSTFLAGS = "--cfg tokio_unstable";
 
     TUBRO_BINARY_PATH = lib.getExe turbo;
