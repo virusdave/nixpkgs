@@ -23,6 +23,8 @@ let
       cfg.initstepslew.enabled && (cfg.servers != [ ])
     ) "initstepslew ${toString cfg.initstepslew.threshold} ${lib.concatStringsSep " " cfg.servers}"}
 
+    ${lib.optionalString cfg.makestep.enable "makestep ${toString cfg.makestep.threshold} ${toString cfg.makestep.limit}"}
+
     driftfile ${driftFile}
     keyfile ${keyFile}
     ${lib.optionalString (cfg.enableRTCTrimming) "rtcfile ${rtcFile}"}
@@ -134,8 +136,9 @@ in
       initstepslew = {
         enabled = lib.mkOption {
           type = lib.types.bool;
-          default = true;
+          default = false;
           description = ''
+            DEPRECATED. Consider using `services.chrony.makestep` instead.
             Allow chronyd to make a rapid measurement of the system clock error
             at boot time, and to correct the system clock by stepping before
             normal operation begins.
@@ -149,6 +152,35 @@ in
             The threshold of system clock error (in seconds) above which the
             clock will be stepped. If the correction required is less than the
             threshold, a slew is used instead.
+          '';
+        };
+      };
+
+      makestep = {
+        enable = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+          description = ''
+            Allow chronyd to step the system clock if the error is larger than
+            the specified threshold.
+          '';
+        };
+
+        threshold = lib.mkOption {
+          type = lib.types.either lib.types.float lib.types.int;
+          default = 0.1;
+          description = ''
+            The threshold of system clock error (in seconds) above which the
+            clock will be stepped. If the correction required is less than the
+            threshold, a slew is used instead.
+          '';
+        };
+
+        limit = lib.mkOption {
+          type = lib.types.ints.positive;
+          default = 3;
+          description = ''
+            The maximum number of times the system clock will be stepped.
           '';
         };
       };
