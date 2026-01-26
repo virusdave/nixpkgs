@@ -2,20 +2,23 @@
   lib,
   stdenv,
   callPackage,
-  perl,
-  which,
-  coreutils,
-  zenity,
-  curl,
-  cabextract,
-  unzip,
-  p7zip,
-  gnused,
-  gnugrep,
+  makeWrapper,
   bash,
+  cabextract,
+  coreutils,
+  curl,
   gawk,
+  gnugrep,
+  gnused,
   gnutar,
+  unrar-free,
   gzip,
+  p7zip,
+  perl,
+  unzip,
+  which,
+  zenity,
+  versionCheckHook,
 }:
 
 stdenv.mkDerivation rec {
@@ -27,6 +30,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     perl
     which
+    makeWrapper
   ];
 
   # coreutils is for sha1sum
@@ -45,17 +49,45 @@ stdenv.mkDerivation rec {
     gawk
     gnutar
     gzip
+    unrar-free
   ];
 
   makeFlags = [ "PREFIX=$(out)" ];
 
   doCheck = false; # requires "bashate"
 
-  postInstall = ''
-    sed -i \
-      -e '2i PATH="${pathAdd}:$PATH"' \
-      "$out/bin/winetricks"
+  postPatch = ''
+    patchShebangs src/winetricks
+    substituteInPlace src/winetricks \
+      --replace-fail 'command -v unrar' 'command -v unrar-free' \
+      --replace-fail 'w_try unrar' 'w_try unrar-free'
   '';
+
+  postInstall =
+    let
+      runtimeDependencies = [
+        bash
+        cabextract
+        coreutils
+        curl
+        gawk
+        gnugrep
+        gnused
+        gnutar
+        gzip
+        p7zip
+        perl
+        unrar-free
+        unzip
+        which
+        zenity
+      ];
+    in
+    ''
+      wrapProgram $out/bin/winetricks \
+        --prefix PATH : "${lib.makeBinPath runtimeDependencies}" \
+        --set WINETRICKS_LATEST_VERSION_CHECK "disabled"
+    '';
 
   passthru = {
     inherit (src) updateScript;
