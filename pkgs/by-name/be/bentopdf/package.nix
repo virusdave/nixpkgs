@@ -2,6 +2,7 @@
   lib,
   buildNpmPackage,
   fetchFromGitHub,
+  nixosTests,
   simpleMode ? true,
 }:
 buildNpmPackage (finalAttrs: {
@@ -35,6 +36,10 @@ buildNpmPackage (finalAttrs: {
 
     runHook postInstall
   '';
+
+  passthru.tests = {
+    inherit (nixosTests.bentopdf) caddy nginx;
+  };
 
   meta = {
     description = "Privacy-first PDF toolkit";
