@@ -44,7 +44,7 @@
 
 buildPythonPackage (finalAttrs: {
   pname = "triton";
-  version = "3.5.1";
+  version = "3.6.0";
   pyproject = true;
 
   # Remember to bump triton-llvm as well!
@@ -52,7 +52,7 @@ buildPythonPackage (finalAttrs: {
     owner = "triton-lang";
     repo = "triton";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-dyNRtS1qtU8C/iAf0Udt/1VgtKGSvng1+r2BtvT9RB4=";
+    hash = "sha256-JFSpQn+WsNnh7CAPlcpOcUp0nyKXNbJEANdXqmkt4Tc=";
   };
 
   patches = [
