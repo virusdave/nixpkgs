@@ -12,12 +12,12 @@
 let
   lockedEsbuild = esbuild.overrideAttrs (
     finalAttrs: prevAttrs: {
-      version = "0.17.19";
+      version = "0.19.11";
       src = fetchFromGitHub {
         owner = "evanw";
         repo = "esbuild";
         rev = "v${finalAttrs.version}";
-        hash = "sha256-PLC7OJLSOiDq4OjvrdfCawZPfbfuZix4Waopzrj8qsU=";
+        hash = "sha256-NUwjzOpHA0Ijuh0E69KXx8YVS5GTnKmob9HepqugbIU=";
       };
       vendorHash = "sha256-+BfxCyg0KkDQpHt/wycy/8CTG6YBA/VJvJFhhzUnSiQ=";
     }
@@ -25,16 +25,16 @@ let
 in
 buildGoModule (finalAttrs: {
   pname = "syncyomi";
-  version = "1.1.2";
+  version = "1.1.4";
 
   src = fetchFromGitHub {
     owner = "SyncYomi";
     repo = "SyncYomi";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-PPE6UXHo2ZlN0A0VkUH+8pkdfm6WEvpofusk6c3RBHk=";
+    hash = "sha256-pU3zxzixKoYnJsGpfvC/SVWIu0adsaiiVcLn0IZe64w=";
   };
 
-  vendorHash = "sha256-/rpT6SatIZ+GVzmVg6b8Zy32pGybprObotyvEgvdL2w=";
+  vendorHash = "sha256-fzPEljXFskr1/qzTsnASFNNc+8vA7kqO21mhMqwT44w=";
 
   web = stdenvNoCC.mkDerivation (webFinalAttrs: {
     pname = "${finalAttrs.pname}-web";
@@ -50,7 +50,7 @@ buildGoModule (finalAttrs: {
         ;
       pnpm = pnpm_9;
       fetcherVersion = 1;
-      hash = "sha256-edcZIqshnvM3jJpZWIR/UncI0VCMLq26h/n3VvV/384=";
+      hash = "sha256-Gg4nOxqWb692GvvwE7AJKQzGrrLLW7haaooEkUZW7FQ=";
     };
 
     nativeBuildInputs = [
