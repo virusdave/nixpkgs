@@ -1,7 +1,9 @@
 {
   lib,
+  stdenv,
   python3Packages,
   fetchFromGitHub,
+  installShellFiles,
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -23,6 +25,14 @@ python3Packages.buildPythonApplication rec {
   dependencies = with python3Packages; [
     typer-slim
   ];
+
+  nativeBuildInputs = [ installShellFiles ];
+  postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+    installShellCompletion --cmd jj-pre-push \
+      --bash <($out/bin/jj-pre-push --show-completion bash) \
+      --fish <($out/bin/jj-pre-push --show-completion fish) \
+      --zsh <($out/bin/jj-pre-push --show-completion zsh)
+  '';
 
   pythonImportsCheck = [
     "jj_pre_push"
