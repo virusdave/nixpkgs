@@ -14,38 +14,8 @@
   azahar,
   darwin,
   oaknut,
+  mcl-cpp-utility-lib,
 }:
-let
-  mcl = stdenv.mkDerivation {
-    pname = "mcl";
-    version = "0.1.13-unstable-2025-03-16";
-
-    src = fetchFromGitHub {
-      owner = "azahar-emu";
-      repo = "mcl";
-      rev = "7b08d83418f628b800dfac1c9a16c3f59036fbad";
-      hash = "sha256-uTOiOlMzKbZSjKjtVSqFU+9m8v8horoCq3wL0O2E8sI=";
-    };
-
-    nativeBuildInputs = [
-      cmake
-      ninja
-    ];
-
-    buildInputs = [
-      fmt
-    ];
-
-    checkInputs = [
-      catch2_3
-    ];
-
-    doCheck = true;
-    checkPhase = ''
-      tests/mcl-tests
-    '';
-  };
-in
 stdenv.mkDerivation (finalAttrs: {
   pname = "dynarmic";
   version = "6.7.0-unstable-2025-03-16";
@@ -78,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     boost
     robin-map
-    mcl
+    mcl-cpp-utility-lib
     fmt
   ]
   ++ lib.optionals stdenv.hostPlatform.isAarch64 [
@@ -107,8 +77,6 @@ stdenv.mkDerivation (finalAttrs: {
   doCheck = true;
 
   passthru = {
-    inherit mcl;
-
     updateScript = nix-update-script { extraArgs = [ "--version=branch" ]; };
     tests = { inherit azahar; };
   };
