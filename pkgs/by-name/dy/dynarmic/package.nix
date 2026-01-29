@@ -18,18 +18,16 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "dynarmic";
-  version = "6.7.0-unstable-2025-03-16";
+  version = "6.7.0-unstable-2026-01-04";
 
   src = fetchFromGitHub {
     owner = "azahar-emu";
     repo = "dynarmic";
-    rev = "278405bd71999ed3f3c77c5f78344a06fef798b9";
-    hash = "sha256-D7nXn5y0h8FV0V8Tc8uBlRoeEU+gcpt44afujZvG+1A=";
+    rev = "526227eebe1efff3fb14dbf494b9c5b44c2e9c1f";
+    hash = "sha256-WG9mUFUnhEEF0+qsQzslTAj1nox3jaz6rVKs245EtV4=";
   };
 
   patches = [
-    # https://github.com/azahar-emu/dynarmic/pull/2
-    ./0001-CMakeLists-update-mcl-version-to-0.1.13.patch
     # https://github.com/azahar-emu/dynarmic/pull/3
     ./0001-xbyak-Fix-tests-when-using-newer-versions.patch
   ];
