@@ -4,6 +4,9 @@
   python3Packages,
   fetchFromGitHub,
   installShellFiles,
+
+  withPrecommit ? true,
+  pre-commit,
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -22,9 +25,12 @@ python3Packages.buildPythonApplication rec {
     python3Packages.uv-build
   ];
 
-  dependencies = with python3Packages; [
-    typer-slim
-  ];
+  dependencies =
+    with python3Packages;
+    [
+      typer-slim
+    ]
+    ++ lib.optionals withPrecommit [ pre-commit ];
 
   nativeBuildInputs = [ installShellFiles ];
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
