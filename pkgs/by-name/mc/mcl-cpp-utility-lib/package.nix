@@ -7,15 +7,15 @@
   fmt,
   catch2_3,
 }:
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "mcl";
-  version = "0.1.13-unstable-2025-03-16";
+  version = "0.1.14";
 
   src = fetchFromGitHub {
     owner = "azahar-emu";
     repo = "mcl";
-    rev = "7b08d83418f628b800dfac1c9a16c3f59036fbad";
-    hash = "sha256-uTOiOlMzKbZSjKjtVSqFU+9m8v8horoCq3wL0O2E8sI=";
+    tag = finalAttrs.version;
+    hash = "sha256-7lHOjlUvCQsct/pijn0M0OOG5LpExmXwB6kH+ostA2I=";
   };
 
   nativeBuildInputs = [
@@ -43,4 +43,4 @@ stdenv.mkDerivation {
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
   };
-}
+})
