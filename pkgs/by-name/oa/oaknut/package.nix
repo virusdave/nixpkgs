@@ -5,15 +5,15 @@
   cmake,
   ninja,
 }:
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "oaknut";
-  version = "1.2.2-unstable-2024-03-01";
+  version = "2.0.3";
 
   src = fetchFromGitHub {
-    owner = "merryhime";
+    owner = "eden-emulator";
     repo = "oaknut";
-    rev = "94c726ce0338b054eb8cb5ea91de8fe6c19f4392";
-    hash = "sha256-IhP/110NGN42/FvpGIEm9MgsSiPYdtD8kNxL0cAWbqM=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-NWJMottKMiG6Rk2/ACNtBiYfWDsCeSGznPTqVO809P0=";
   };
 
   nativeBuildInputs = [
@@ -23,9 +23,9 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Header-only library that allows one to dynamically assemble code in-memory at runtime";
-    homepage = "https://github.com/merryhime/oaknut";
+    homepage = "https://github.com/eden-emulator/oaknut";
     maintainers = with lib.maintainers; [ marcin-serwin ];
     license = lib.licenses.mit;
     platforms = lib.platforms.all;
   };
-}
+})
