@@ -293,6 +293,7 @@ in
                   perms = [
                     "read"
                     "add"
+                    "player"
                     "control"
                     "admin"
                   ];
@@ -322,6 +323,7 @@ in
             permissions = [
               "read"
               "add"
+              "player"
               "control"
               "admin"
             ];
