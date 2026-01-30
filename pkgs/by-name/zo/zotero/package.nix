@@ -14,7 +14,6 @@
   firefox-esr-140-unwrapped,
   makeDesktopItem,
   copyDesktopItems,
-  makeWrapper,
   libGL,
   pciutils,
   wrapGAppsHook4,
@@ -175,7 +174,6 @@ buildNpmPackage (finalAttrs: {
     gawk
     rsync
     copyDesktopItems
-    makeWrapper
     wrapGAppsHook4
   ];
 
@@ -215,7 +213,9 @@ buildNpmPackage (finalAttrs: {
     done
   '';
 
-  #preBuild = "app/scripts/check_requirements";
+  #preBuild = ''
+  #  ./app/scripts/check_requirements
+  #'';
 
   buildPhase = ''
     runHook preBuild
@@ -294,7 +294,8 @@ buildNpmPackage (finalAttrs: {
     ln -s ../lib/zotero $out/bin/zotero
 
     # Install icons
-    for size in 32 64 128; do      install -Dm444 "app/linux/icons/icon''${size}.png" "$out/share/icons/hicolor/''${size}x''${size}/apps/zotero.png"
+    for size in 32 64 128; do
+      install -Dm444 "app/linux/icons/icon''${size}.png" "$out/share/icons/hicolor/''${size}x''${size}/apps/zotero.png"
     done
     install -Dm444 "app/linux/icons/symbolic.svg" "$out/share/icons/hicolor/scalable/apps/zotero-symbolic.svg"
   ''
