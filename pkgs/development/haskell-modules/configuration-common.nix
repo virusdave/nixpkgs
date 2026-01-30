@@ -3028,7 +3028,7 @@ with haskellLib;
       ]
     ) super)
     what4
-    what4_1_7_2
+    what4_1_7_3
     ;
 
   copilot-theorem = lib.pipe super.copilot-theorem [
@@ -3104,12 +3104,12 @@ with haskellLib;
   # 2025-04-13: jailbreak to allow th-abstraction >= 0.7
   crucible = doJailbreak (
     super.crucible.override {
-      what4 = self.what4_1_7_2;
+      what4 = self.what4_1_7_3;
     }
   );
 
   crucible-llvm = super.crucible-llvm.override {
-    what4 = self.what4_1_7_2;
+    what4 = self.what4_1_7_3;
   };
 
   # Test suite invokes cabal-install in a way incompatible with our generic builder
