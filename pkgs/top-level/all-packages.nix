@@ -10985,8 +10985,6 @@ with pkgs;
     stdenv = clangStdenv;
   };
 
-  super-slicer = callPackage ../applications/misc/prusa-slicer/super-slicer.nix { };
-
   super-slicer-beta = super-slicer.beta;
 
   super-slicer-latest = super-slicer.latest;
