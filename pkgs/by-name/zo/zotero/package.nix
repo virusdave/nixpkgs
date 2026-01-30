@@ -219,16 +219,19 @@ buildNpmPackage (finalAttrs: {
     # Place firefox files at the right place.
     # The correct firefox version can be found in zotero/app/config.sh at `GECKO_VERSION_LINUX`.
     mkdir -p app/xulrunner/
-    if ${lib.boolToString stdenv.targetPlatform.isDarwin}; then
-      cp -r '${firefox-esr-140-unwrapped}/Applications/Firefox ESR.app' app/xulrunner/Firefox.app
-    else
-      cp -r '${firefox-esr-140-unwrapped}/lib/firefox' app/xulrunner/firefox-${stdenv.targetPlatform.parsed.kernel.name}-${
-        lib.replaceString "aarch64" "arm64" stdenv.targetPlatform.parsed.cpu.name
-      }
-    fi
+  ''
+  + lib.optionalString stdenv.targetPlatform.isDarwin ''
+    cp -r "${firefox-esr-140-unwrapped}/Applications/Firefox ESR.app" app/xulrunner/Firefox.app
+  ''
+  + lib.optionalString (!stdenv.targetPlatform.isDarwin) ''
+    cp -r "${firefox-esr-140-unwrapped}/lib/firefox" "app/xulrunner/firefox-${stdenv.targetPlatform.parsed.kernel.name}-${
+      lib.replaceString "aarch64" "arm64" stdenv.targetPlatform.parsed.cpu.name
+    }"
+  ''
+  + ''
     chmod -R u+w app/xulrunner/
 
-    app/scripts/dir_build
+    ./app/scripts/dir_build
 
     runHook postBuild
   '';
@@ -242,7 +245,11 @@ buildNpmPackage (finalAttrs: {
   ];
 
   checkPhase = ''
+    runHook preCheck
+
     CI=true xvfb-run test/runtests.sh
+
+    runHook postCheck
   '';
 
   desktopItem = makeDesktopItem {
@@ -265,30 +272,27 @@ buildNpmPackage (finalAttrs: {
 
   installPhase = ''
     runHook preInstall
+  ''
+  + lib.optionalString stdenv.targetPlatform.isDarwin ''
+    # Copy package contents
+    mkdir -p $out/Applications
+    cp -r app/staging/Zotero.app $out/Applications/
+  ''
+  + lib.optionalString (!stdenv.targetPlatform.isDarwin) ''
+    # Copy package contents
+    mkdir -p $out/lib/
+    cp -r app/staging/*/. $out/lib/
 
-    if ${lib.boolToString stdenv.targetPlatform.isDarwin}; then
+    # Add binary to bin/
+    mkdir -p $out/bin/
+    ln -s ../lib/zotero $out/bin/zotero
 
-      # Copy package contents
-      mkdir -p $out/Applications
-      cp -r app/staging/Zotero.app $out/Applications/
-
-    else
-
-      # Copy package contents
-      mkdir -p $out/lib/ $out/bin/
-      cp -r app/staging/*/. $out/lib/
-
-      # Add binary to bin/
-      ln -s ../lib/zotero $out/bin/zotero
-
-      # Install icons
-      for size in 32 64 128; do
-        install -Dm444 "app/linux/icons/icon$size.png" "$out/share/icons/hicolor/''${size}x$size/apps/zotero.png"
-      done
-      install -Dm444 "app/linux/icons/symbolic.svg" "$out/share/icons/hicolor/scalable/apps/zotero-symbolic.svg"
-
-    fi
-
+    # Install icons
+    for size in 32 64 128; do      install -Dm444 "app/linux/icons/icon''${size}.png" "$out/share/icons/hicolor/''${size}x''${size}/apps/zotero.png"
+    done
+    install -Dm444 "app/linux/icons/symbolic.svg" "$out/share/icons/hicolor/scalable/apps/zotero-symbolic.svg"
+  ''
+  + ''
     runHook postInstall
   '';
 
