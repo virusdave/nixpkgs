@@ -16,7 +16,7 @@
   copyDesktopItems,
   libGL,
   pciutils,
-  wrapGAppsHook4,
+  wrapGAppsHook3,
   nix-update-script,
   xvfb-run,
   doCheck ? false,
@@ -174,7 +174,7 @@ buildNpmPackage (finalAttrs: {
     gawk
     rsync
     copyDesktopItems
-    wrapGAppsHook4
+    wrapGAppsHook3
   ];
 
   patches = [
