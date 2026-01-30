@@ -14,6 +14,10 @@
   firefox-esr-140-unwrapped,
   makeDesktopItem,
   copyDesktopItems,
+  makeWrapper,
+  libGL,
+  pciutils,
+  wrapGAppsHook4,
   nix-update-script,
   xvfb-run,
   doCheck ? false,
@@ -171,6 +175,8 @@ buildNpmPackage (finalAttrs: {
     gawk
     rsync
     copyDesktopItems
+    makeWrapper
+    wrapGAppsHook4
   ];
 
   patches = [
@@ -294,6 +300,15 @@ buildNpmPackage (finalAttrs: {
   ''
   + ''
     runHook postInstall
+  '';
+
+  preFixup = lib.optionalString (!stdenv.targetPlatform.isDarwin) ''
+    gappsWrapperArgs+=(--suffix LD_LIBRARY_PATH : ${
+      lib.makeLibraryPath [
+        libGL
+        pciutils
+      ]
+    })
   '';
 
   passthru.updateScript = nix-update-script { };
