@@ -319,7 +319,7 @@ buildNpmPackage (finalAttrs: {
     description = "Collect, organize, cite, and share your research sources";
     mainProgram = "zotero";
     license = lib.licenses.agpl3Only;
-    platforms = firefox-esr-140-unwrapped.meta.platforms;
+    platforms = lib.platforms.linux ++ lib.platforms.darwin;
     maintainers = with lib.maintainers; [
       atila
       justanotherariel
