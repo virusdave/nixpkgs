@@ -5,10 +5,7 @@
   pkg-config,
   libxcb,
   cmake,
-  qtbase,
-  qtdeclarative,
-  wrapQtAppsHook,
-  qtsvg,
+  qt6,
   ffmpeg,
   gst_all_1,
   libpulseaudio,
@@ -30,9 +27,9 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     libxcb
-    qtbase
-    qtdeclarative
-    qtsvg
+    qt6.qtbase
+    qt6.qtdeclarative
+    qt6.qtsvg
     ffmpeg
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-base
@@ -45,7 +42,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     pkg-config
     cmake
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
   ];
 
   meta = {

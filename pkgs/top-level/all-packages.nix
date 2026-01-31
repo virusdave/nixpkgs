@@ -11360,8 +11360,6 @@ with pkgs;
     ];
   };
 
-  webcamoid = qt6Packages.callPackage ../applications/video/webcamoid { };
-
   webssh = with python3Packages; toPythonApplication webssh;
 
   wrapWeechat = callPackage ../applications/networking/irc/weechat/wrapper.nix { };
