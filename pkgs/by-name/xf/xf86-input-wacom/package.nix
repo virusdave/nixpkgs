@@ -34,6 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
     autoreconfHook
     pkg-config
     udevCheckHook
+    util-macros
   ];
 
   buildInputs = [
@@ -45,7 +46,6 @@ stdenv.mkDerivation (finalAttrs: {
     libxrender
     ncurses
     udev
-    util-macros
     pixman
     xorgproto
     xorg-server
@@ -58,6 +58,8 @@ stdenv.mkDerivation (finalAttrs: {
     "--with-sdkdir=${placeholder "out"}/include/xorg"
     "--with-xorg-conf-dir=${placeholder "out"}/share/X11/xorg.conf.d"
   ];
+
+  strictDeps = true;
 
   meta = {
     maintainers = with lib.maintainers; [ moni ];
