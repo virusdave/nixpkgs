@@ -5,16 +5,10 @@
   cmake,
   pkg-config,
   wrapGAppsHook3,
-  wrapQtAppsHook,
   gst_all_1,
-  qtbase,
-  qtsvg,
-  qtmultimedia,
-  qttools,
-  qtwayland,
   zlib,
-  # only required when using poppler
-  poppler,
+  qt6,
+  qt6Packages,
   # only required when using mupdf
   freetype,
   gumbo,
@@ -27,14 +21,14 @@
   useExternalRenderer ? false,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "beamerpresenter";
   version = "0.2.6";
 
   src = fetchFromGitHub {
     owner = "beamerpresenter";
     repo = "BeamerPresenter";
-    rev = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-sPeWlPkWOPfLAoAC/+T7nyhPqvoaZg6aMOIVLjMqd2k=";
   };
 
@@ -42,7 +36,7 @@ stdenv.mkDerivation rec {
     cmake
     pkg-config
     wrapGAppsHook3
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
   ];
 
   dontWrapGApps = true;
@@ -52,13 +46,13 @@ stdenv.mkDerivation rec {
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
     zlib
-    qtbase
-    qtsvg
-    qtmultimedia
-    qttools
+    qt6.qtbase
+    qt6.qtsvg
+    qt6.qtmultimedia
+    qt6.qttools
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
-    qtwayland
+    qt6.qtwayland
   ]
   ++ lib.optionals useMupdf [
     freetype
@@ -68,7 +62,7 @@ stdenv.mkDerivation rec {
     openjpeg
   ]
   ++ lib.optionals usePoppler [
-    poppler
+    qt6Packages.poppler
   ];
 
   cmakeFlags = [
@@ -81,7 +75,7 @@ stdenv.mkDerivation rec {
     "-DLINK_MUJS=OFF"
     "-DLINK_GUMBO=ON"
     "-DUSE_TRANSLATIONS=ON"
-    "-DQT_VERSION_MAJOR=${lib.versions.major qtbase.version}"
+    "-DQT_VERSION_MAJOR=${lib.versions.major qt6.qtbase.version}"
   ];
 
   preFixup = ''
@@ -102,4 +96,4 @@ stdenv.mkDerivation rec {
     ];
     mainProgram = "beamerpresenter";
   };
-}
+})

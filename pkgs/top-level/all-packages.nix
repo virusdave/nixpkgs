@@ -1976,14 +1976,8 @@ with pkgs;
     inherit (llvmPackages) openmp;
   };
 
-  beamerpresenter = beamerpresenter-mupdf;
-
-  beamerpresenter-mupdf = qt6Packages.callPackage ../applications/office/beamerpresenter {
-    useMupdf = true;
-    usePoppler = false;
-  };
-
-  beamerpresenter-poppler = qt6Packages.callPackage ../applications/office/beamerpresenter {
+  beamerpresenter-mupdf = beamerpresenter;
+  beamerpresenter-poppler = beamerpresenter.override {
     useMupdf = false;
     usePoppler = true;
   };
