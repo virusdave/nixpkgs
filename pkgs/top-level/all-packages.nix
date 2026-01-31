@@ -9839,8 +9839,6 @@ with pkgs;
     fftw = fftwSinglePrec;
   };
 
-  qtwirediff = qt6Packages.callPackage ../applications/networking/sniffers/qtwirediff { };
-
   tshark = wireshark-cli;
   wireshark-cli = wireshark.override { withQt = false; };
 

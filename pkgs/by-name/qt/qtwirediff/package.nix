@@ -2,10 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  qtbase,
-  qmake,
-  qtwayland,
-  wrapQtAppsHook,
+  qt6,
   wireshark-cli,
 }:
 
@@ -21,15 +18,15 @@ stdenv.mkDerivation {
   };
 
   nativeBuildInputs = [
-    qmake
-    wrapQtAppsHook
+    qt6.qmake
+    qt6.wrapQtAppsHook
   ];
 
   buildInputs = [
-    qtbase
+    qt6.qtbase
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
-    qtwayland
+    qt6.qtwayland
   ];
 
   installPhase = ''
