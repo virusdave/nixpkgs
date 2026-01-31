@@ -10729,8 +10729,6 @@ with pkgs;
 
   inherit (pidginPackages) pidgin;
 
-  pineapple-pictures = qt6Packages.callPackage ../applications/graphics/pineapple-pictures { };
-
   plex-mpv-shim = python3Packages.callPackage ../applications/video/plex-mpv-shim { };
 
   plover = recurseIntoAttrs (libsForQt5.callPackage ../applications/misc/plover { });
