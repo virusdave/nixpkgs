@@ -10,6 +10,7 @@
   graphviz,
   libX11,
   libjpeg,
+  libjxl,
   libpng,
   libtiff,
   libtool,
@@ -47,6 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
     graphviz
     libX11
     libjpeg
+    libjxl
     libpng
     libtiff
     libtool
