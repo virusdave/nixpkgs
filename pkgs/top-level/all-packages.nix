@@ -12353,8 +12353,6 @@ with pkgs;
 
   kicadAddons = recurseIntoAttrs (callPackage ../by-name/ki/kicad/addons/package.nix { });
 
-  librepcb = qt6Packages.callPackage ../applications/science/electronics/librepcb { };
-
   ngspice = libngspice.override {
     withNgshared = false;
   };
