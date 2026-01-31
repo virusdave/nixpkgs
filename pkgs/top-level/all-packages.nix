@@ -9975,8 +9975,6 @@ with pkgs;
 
   gtk-pipe-viewer = perlPackages.callPackage ../applications/video/pipe-viewer { withGtk3 = true; };
 
-  kemai = qt6Packages.callPackage ../applications/misc/kemai { };
-
   jetbrains = (
     recurseIntoAttrs (
       callPackages ../applications/editors/jetbrains {
