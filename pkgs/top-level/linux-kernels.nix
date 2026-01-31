@@ -278,7 +278,7 @@ in
 
         linux_6_12_hardened = hardenedKernelFor kernels.linux_6_12 { };
 
-        linux_hardened = hardenedKernelFor packageAliases.linux_default.kernel { };
+        linux_hardened = linux_6_12_hardened;
       }
       // lib.optionalAttrs config.allowAliases {
         linux_libre = throw "linux_libre has been removed due to lack of maintenance";
