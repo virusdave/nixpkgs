@@ -5,32 +5,28 @@
   libx11,
   libxtst,
   cmake,
-  qtbase,
-  qttools,
-  qtwayland,
   openssl,
   libscrypt,
-  wrapQtAppsHook,
   testers,
-  qMasterPassword,
+  qt6,
   x11Support ? true,
   waylandSupport ? false,
 }:
 
-stdenv.mkDerivation rec {
-  pname = "qMasterPassword";
+stdenv.mkDerivation (finalAttrs: {
+  pname = "qmasterpassword";
   version = "2.0.3";
 
   src = fetchFromGitHub {
     owner = "bkueng";
     repo = "qMasterPassword";
-    rev = "v${version}";
+    rev = "v${finalAttrs.version}";
     hash = "sha256-kNVdE42JFzl6HO84b793gseMhcDyiGzQCmhh6zh2epc=";
   };
 
   buildInputs = [
-    qtbase
-    qtwayland
+    qt6.qtbase
+    qt6.qtwayland
     openssl
     libscrypt
   ]
@@ -40,8 +36,8 @@ stdenv.mkDerivation rec {
   ];
   nativeBuildInputs = [
     cmake
-    qttools
-    wrapQtAppsHook
+    qt6.qttools
+    qt6.wrapQtAppsHook
   ];
   cmakeFlags = lib.optionals waylandSupport [
     "-DDISABLE_FILL_FORM_SHORTCUTS=1"
@@ -71,8 +67,8 @@ stdenv.mkDerivation rec {
 
   passthru = {
     tests.version = testers.testVersion {
-      package = qMasterPassword;
-      version = "v${version}";
+      package = finalAttrs.finalPackage;
+      version = "v${finalAttrs.version}";
     };
   };
 
@@ -92,4 +88,4 @@ stdenv.mkDerivation rec {
     maintainers = with lib.maintainers; [ teutat3s ];
     platforms = lib.platforms.all;
   };
-}
+})
