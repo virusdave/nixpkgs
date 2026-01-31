@@ -2,10 +2,9 @@
   lib,
   fetchFromGitHub,
   libxcb,
-  wrapQtAppsHook,
   python3,
   nix-update-script,
-  qtbase,
+  qt6,
 }:
 
 python3.pkgs.buildPythonApplication rec {
@@ -24,12 +23,12 @@ python3.pkgs.buildPythonApplication rec {
 
   build-system = with python3.pkgs; [
     setuptools
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
   ];
 
   dependencies = with python3.pkgs; [
     pyqt6
-    qtbase
+    qt6.qtbase
     argcomplete
     pillow
     pyyaml
