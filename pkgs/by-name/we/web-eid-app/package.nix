@@ -6,8 +6,7 @@
   gtest,
   pcsclite,
   pkg-config,
-  qttools,
-  wrapQtAppsHook,
+  qt6,
 }:
 
 stdenv.mkDerivation rec {
@@ -25,8 +24,8 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     cmake
     pkg-config
-    qttools
-    wrapQtAppsHook
+    qt6.qttools
+    qt6.wrapQtAppsHook
   ];
 
   buildInputs = [
