@@ -194,7 +194,9 @@ let
       hash = data.yarn_hash;
     };
     frontendIslandsYarnOfflineCache = fetchYarnDeps {
-      yarnLock = src + "/ee/frontend_islands/yarn.lock";
+      # Revert to this when GitLab fixes their frontend_islands yarn.lock
+      # yarnLock = src + "/ee/frontend_islands/yarn.lock";
+      yarnLock = ./ee-frontend-islands-yarn.lock;
       hash = data.frontend_islands_yarn_hash;
     };
 
@@ -218,6 +220,14 @@ let
       # [1]: https://gitlab.com/gitlab-org/gitlab/-/commit/99c0fac52b10cd9df62bbe785db799352a2d9028
       ./Remove-unsupported-database-names.patch
     ];
+
+    # Remove once GitLab fixed their frontend_islands yarn.lock
+    postPatch = ''
+      rm ee/frontend_islands/yarn.lock
+      cp ${./ee-frontend-islands-yarn.lock} ee/frontend_islands/yarn.lock
+      chmod 777 ee/frontend_islands/yarn.lock
+    '';
+
     # One of the patches uses this variable - if it's unset, execution
     # of rake tasks fails.
     GITLAB_LOG_PATH = "log";
