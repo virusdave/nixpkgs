@@ -8,11 +8,7 @@
   which,
   python3,
   rsync,
-  wrapQtAppsHook,
-  qtbase,
-  qtpositioning,
-  qtsvg,
-  qtwayland,
+  qt6,
   libGLU,
   libGL,
   zlib,
@@ -66,15 +62,15 @@ stdenv.mkDerivation (finalAttrs: {
     which
     python3
     rsync
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
   ];
 
   # Most dependencies are vendored
   buildInputs = [
-    qtbase
-    qtpositioning
-    qtsvg
-    qtwayland
+    qt6.qtbase
+    qt6.qtpositioning
+    qt6.qtsvg
+    qt6.qtwayland
     libGLU
     libGL
     zlib
