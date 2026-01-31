@@ -10289,8 +10289,6 @@ with pkgs;
 
   k4dirstat = libsForQt5.callPackage ../applications/misc/k4dirstat { };
 
-  kiwix = qt6Packages.callPackage ../applications/misc/kiwix { };
-
   klayout = libsForQt5.callPackage ../applications/misc/klayout { };
 
   kotatogram-desktop =
