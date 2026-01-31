@@ -10291,8 +10291,6 @@ with pkgs;
 
   kiwix = qt6Packages.callPackage ../applications/misc/kiwix { };
 
-  kiwix-tools = callPackage ../applications/misc/kiwix/tools.nix { };
-
   klayout = libsForQt5.callPackage ../applications/misc/klayout { };
 
   kotatogram-desktop =
