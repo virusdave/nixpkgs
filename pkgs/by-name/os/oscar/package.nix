@@ -63,7 +63,10 @@ stdenv.mkDerivation (finalAttrs: {
     description = "Software for reviewing and exploring data produced by CPAP and related machines used in the treatment of sleep apnea";
     mainProgram = "OSCAR";
     license = lib.licenses.gpl3Only;
-    maintainers = [ lib.maintainers.roconnor ];
+    maintainers = with lib.maintainers; [
+      roconnor
+      ilkecan
+    ];
     # Someone needs to create a suitable installPhase for Darwin and Windows.
     # See https://gitlab.com/pholy/OSCAR-code/-/tree/master/Building.
     platforms = lib.platforms.linux;
