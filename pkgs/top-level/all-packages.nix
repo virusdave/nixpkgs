@@ -1089,10 +1089,6 @@ with pkgs;
     wine = wineWowPackages.yabridge;
   };
 
-  yafetch = callPackage ../tools/misc/yafetch {
-    stdenv = clangStdenv;
-  };
-
   ### APPLICATIONS/VERSION-MANAGEMENT
 
   # The full-featured Git.
@@ -9365,12 +9361,24 @@ with pkgs;
       inherit modules;
     };
 
-  nushell = callPackage ../shells/nushell { };
-
-  nushellPlugins = recurseIntoAttrs (
-    callPackage ../shells/nushell/plugins {
-    }
-  );
+  nushellPlugins = recurseIntoAttrs {
+    gstat = callPackage ../by-name/nu/nushell-plugin-gstat/package.nix { };
+    formats = callPackage ../by-name/nu/nushell-plugin-formats/package.nix { };
+    polars = callPackage ../by-name/nu/nushell-plugin-polars/package.nix { };
+    query = callPackage ../by-name/nu/nushell-plugin-query/package.nix { };
+    net = callPackage ../by-name/nu/nushell-plugin-net/package.nix { };
+    units = callPackage ../by-name/nu/nushell-plugin-units/package.nix { };
+    highlight = callPackage ../by-name/nu/nushell-plugin-highlight/package.nix { };
+    dbus = callPackage ../by-name/nu/nushell-plugin-dbus/package.nix {
+      inherit dbus;
+    };
+    skim = callPackage ../by-name/nu/nushell-plugin-skim/package.nix { };
+    semver = callPackage ../by-name/nu/nushell-plugin-semver/package.nix { };
+    hcl = callPackage ../by-name/nu/nushell-plugin-hcl/package.nix { };
+    desktop_notifications =
+      callPackage ../by-name/nu/nushell-plugin-desktop_notifications/package.nix
+        { };
+  };
 
   net-tools =
     # some platforms refer back to this from unixtools, so this is needed to
@@ -9632,7 +9640,7 @@ with pkgs;
     zfs_2_4
     zfs_unstable
     ;
-  zfs = zfs_2_3;
+  zfs = zfs_2_4;
 
   ### DATA
 
@@ -9973,10 +9981,6 @@ with pkgs;
   cudatext-qt = callPackage ../applications/editors/cudatext { widgetset = "qt5"; };
   cudatext-gtk = callPackage ../applications/editors/cudatext { widgetset = "gtk2"; };
   cudatext = cudatext-qt;
-
-  cqrlog = callPackage ../applications/radio/cqrlog {
-    hamlib = hamlib_4;
-  };
 
   darcs = haskell.lib.compose.disableCabalFlag "library" (
     haskell.lib.compose.justStaticExecutables haskellPackages.darcs
@@ -12409,9 +12413,7 @@ with pkgs;
     hdf5 = hdf5-fortran;
   };
 
-  siesta = callPackage ../applications/science/chemistry/siesta { };
-
-  siesta-mpi = callPackage ../applications/science/chemistry/siesta { useMpi = true; };
+  siesta-mpi = callPackage ../by-name/si/siesta/package.nix { useMpi = true; };
 
   ### SCIENCE/BIOLOGY
 
