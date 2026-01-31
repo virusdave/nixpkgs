@@ -108,6 +108,54 @@ let
         '';
       };
 
+      gitlab_query_language = attrs: {
+        cargoDeps = rustPlatform.fetchCargoVendor {
+          src = stdenv.mkDerivation {
+            inherit (buildRubyGem { inherit (attrs) gemName version source; })
+              name
+              src
+              unpackPhase
+              nativeBuildInputs
+              ;
+            installPhase = ''
+              mkdir -p $out
+              cp -R ext $out
+              cp Cargo.* $out
+            '';
+          };
+          hash = "sha256-XGeFht5QRYb4Cu3n9nt4euUeNXHh1kJ6pQ5LJjnVhzc=";
+        };
+
+        dontBuild = false;
+
+        nativeBuildInputs = [
+          cargo
+          rustc
+          rustPlatform.cargoSetupHook
+          rustPlatform.bindgenHook
+        ];
+
+        # The gem builder wrongly copies Cargo.lock within the gem, while it's missing in the outer rust project
+        # before rustc ran.
+        # This fixes this and makes the rustc invocation work.
+        preInstall = ''
+          export CARGO_HOME="$PWD/../.cargo/"
+          # Unpack
+          tar xvf $gempkg
+          # Modify
+          gzip -d data.tar.gz
+          chmod +w data.tar
+          mv Cargo.lock ./ext/gitlab_query_language
+          tar rf data.tar ./ext/gitlab_query_language/Cargo.lock
+          # Repack
+          gzip data.tar
+          tar -cf $gempkg data.tar.gz metadata.gz
+        '';
+        postInstall = ''
+          find $out -type f -name .rustc_info.json -delete
+        '';
+      };
+
       static_holmes = attrs: {
         nativeBuildInputs = [
           icu

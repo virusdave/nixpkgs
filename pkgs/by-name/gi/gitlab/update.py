@@ -182,21 +182,6 @@ def update_rubyenv():
         cwd=rubyenv_dir,
     )
 
-    # Un-vendor sidekiq
-    #
-    # The sidekiq dependency was vendored to maintain compatibility with Redis 6.0 (as
-    # stated in this [comment]) but unfortunately, it seems to cause a crash in the
-    # application, as noted in this [upstream issue].
-    #
-    # We can safely swap out the dependency, as our Redis release in nixpkgs is >= 7.0.
-    #
-    # [comment]: https://gitlab.com/gitlab-org/gitlab/-/issues/468435#note_1979750600
-    # [upstream issue]: https://gitlab.com/gitlab-org/gitlab/-/issues/468435
-    subprocess.check_output(
-        ["sed", "-i", "s|gem 'sidekiq', path: 'vendor/gems/sidekiq', require: 'sidekiq'|gem 'sidekiq', '~> 7.3.9'|g", "Gemfile"],
-        cwd=rubyenv_dir,
-    )
-
     # Fetch vendored dependencies temporarily in order to build the gemset.nix
     subprocess.check_output(["mkdir", "-p", "vendor/gems", "gems"], cwd=rubyenv_dir)
     subprocess.check_output(
