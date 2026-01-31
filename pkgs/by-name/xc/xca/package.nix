@@ -2,12 +2,10 @@
   stdenv,
   lib,
   fetchFromGitHub,
-  wrapQtAppsHook,
   cmake,
   pkg-config,
   openssl,
-  qtbase,
-  qttools,
+  qt6,
   sphinx,
 }:
 
@@ -24,19 +22,19 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     openssl
-    qtbase
+    qt6.qtbase
   ];
 
   nativeBuildInputs = [
     cmake
     pkg-config
-    qttools
+    qt6.qttools
     sphinx
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
   ];
 
   # Needed for qcollectiongenerator (see https://github.com/NixOS/nixpkgs/pull/92710)
-  QT_PLUGIN_PATH = "${qtbase}/${qtbase.qtPluginPrefix}";
+  QT_PLUGIN_PATH = "${qt6.qtbase}/${qt6.qtbase.qtPluginPrefix}";
 
   enableParallelBuilding = true;
 
@@ -56,6 +54,6 @@ stdenv.mkDerivation (finalAttrs: {
       offline
       peterhoeg
     ];
-    inherit (qtbase.meta) platforms;
+    inherit (qt6.qtbase.meta) platforms;
   };
 })

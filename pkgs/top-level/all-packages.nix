@@ -11420,8 +11420,6 @@ with pkgs;
     gbmSupport = true;
   };
 
-  xca = qt6Packages.callPackage ../applications/misc/xca { };
-
   xdg-desktop-portal = callPackage ../development/libraries/xdg-desktop-portal { };
 
   xdg-desktop-portal-hyprland =
