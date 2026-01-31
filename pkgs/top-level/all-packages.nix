@@ -12710,7 +12710,7 @@ with pkgs;
     gtk3 = if stdenv.hostPlatform.isDarwin then gtk3-x11 else gtk3;
   };
 
-  qMasterPassword-wayland = qmasterpassword.override {
+  qmasterpassword-wayland = qmasterpassword.override {
     x11Support = false;
     waylandSupport = true;
   };
