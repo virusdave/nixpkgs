@@ -10358,8 +10358,6 @@ with pkgs;
 
   lenovo-legion = qt6Packages.callPackage ../os-specific/linux/lenovo-legion/app.nix { };
 
-  libkiwix = callPackage ../applications/misc/kiwix/lib.nix { };
-
   libreoffice-bin = callPackage ../applications/office/libreoffice/darwin { };
 
   libreoffice = hiPrio libreoffice-still;
