@@ -23,7 +23,6 @@ python3Packages.buildPythonApplication rec {
     homepage = "https://github.com/PabloCastellano/extract-dtb";
     changelog = "https://github.com/PabloCastellano/extract-dtb/releases/tag/${version}";
     license = lib.licenses.gpl3Plus;
-    platforms = lib.platforms.linux;
     maintainers = with lib.maintainers; [ ungeskriptet ];
     mainProgram = "extract-dtb";
   };
