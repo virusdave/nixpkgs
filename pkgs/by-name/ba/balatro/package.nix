@@ -69,7 +69,24 @@ stdenv.mkDerivation (finalAttrs: {
 
     tmpdir=$(mktemp -d)
     7z x ${finalAttrs.src} -o$tmpdir -y
-    ${if withLinuxPatch then "patch $tmpdir/globals.lua -i ${./globals.patch}" else ""}
+
+    ${
+      let
+        patchMarker = "if love.system.getOS() == 'Nintendo Switch' then";
+      in
+      lib.optionalString withLinuxPatch ''
+        substituteInPlace "$tmpdir/globals.lua" --replace-fail \
+          "${patchMarker}" \
+          "if love.system.getOS() == 'Linux' then
+            self.F_SAVE_TIMER = 5
+            self.F_DISCORD = true
+            self.F_ENGLISH_ONLY = false
+        end
+
+        ${patchMarker}"
+      ''
+    }
+
     patchedExe=$(mktemp -u).zip
     7z a $patchedExe $tmpdir/*
 
