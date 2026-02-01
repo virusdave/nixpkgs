@@ -72,7 +72,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     changelog = "https://github.com/kaii-lb/overskride/blob/v${finalAttrs.version}/CHANGELOG.md";
     license = lib.licenses.gpl3Only;
     mainProgram = "overskride";
-    maintainers = with lib.maintainers; [ mrcjkb ];
+    maintainers = with lib.maintainers; [
+      mrcjkb
+      ilkecan
+    ];
     platforms = lib.platforms.linux;
   };
 })
