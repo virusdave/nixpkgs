@@ -4,7 +4,7 @@
   fetchFromGitHub,
 
   # build-system
-  setuptools-scm,
+  setuptools,
 
   # dependencies
   accelerate,
@@ -65,7 +65,7 @@ buildPythonPackage (finalAttrs: {
   };
 
   build-system = [
-    setuptools-scm
+    setuptools
   ];
 
   dependencies = [
