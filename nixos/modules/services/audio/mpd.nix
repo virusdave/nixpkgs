@@ -223,7 +223,7 @@ in
             };
 
             db_file = lib.mkOption {
-              type = lib.types.path;
+              type = lib.types.nullOr lib.types.path;
               default = "${cfg.dataDir}/tag_cache";
               defaultText = lib.literalExpression ''"''${dataDir}/tag_cache"'';
               description = ''
