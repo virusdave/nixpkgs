@@ -51,7 +51,7 @@
   tomlkit,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "kserve";
   version = "0.16.0";
   pyproject = true;
@@ -59,7 +59,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "kserve";
     repo = "kserve";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-f6ILZMLxfckEpy7wSgCqUx89JWSnn0DbQiqRSHcQHms=";
   };
 
@@ -75,7 +75,7 @@ buildPythonPackage rec {
         "from vllm.entrypoints.pooling.score.protocol import RerankRequest, RerankResponse as Rerank"
   '';
 
-  sourceRoot = "${src.name}/python/kserve";
+  sourceRoot = "${finalAttrs.src.name}/python/kserve";
 
   pythonRelaxDeps = [
     "fastapi"
@@ -142,7 +142,7 @@ buildPythonPackage rec {
     pytestCheckHook
     tomlkit
   ]
-  ++ lib.concatAttrValues optional-dependencies;
+  ++ lib.concatAttrValues finalAttrs.passthru.optional-dependencies;
 
   pythonImportsCheck = [ "kserve" ];
 
@@ -205,8 +205,8 @@ buildPythonPackage rec {
   meta = {
     description = "Standardized Serverless ML Inference Platform on Kubernetes";
     homepage = "https://github.com/kserve/kserve/tree/master/python/kserve";
-    changelog = "https://github.com/kserve/kserve/releases/tag/${src.tag}";
+    changelog = "https://github.com/kserve/kserve/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.asl20;
     maintainers = with lib.maintainers; [ GaetanLepage ];
   };
-}
+})
