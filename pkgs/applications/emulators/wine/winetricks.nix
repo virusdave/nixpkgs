@@ -11,13 +11,13 @@
   gnugrep,
   gnused,
   gnutar,
-  unrar-free,
   gzip,
   p7zip,
   perl,
   unzip,
   which,
   zenity,
+  unrar-free,
   versionCheckHook,
 }:
 
@@ -33,28 +33,12 @@ stdenv.mkDerivation rec {
     makeWrapper
   ];
 
-  # coreutils is for sha1sum
-  pathAdd = lib.makeBinPath [
-    perl
-    which
-    coreutils
-    zenity
-    curl
-    cabextract
-    unzip
-    p7zip
-    gnused
-    gnugrep
-    bash
-    gawk
-    gnutar
-    gzip
-    unrar-free
-  ];
-
   makeFlags = [ "PREFIX=$(out)" ];
 
   doCheck = false; # requires "bashate"
+
+  doInstallCheck = true;
+  nativeInstallCheckInputs = [ versionCheckHook ];
 
   postPatch = ''
     patchShebangs src/winetricks
