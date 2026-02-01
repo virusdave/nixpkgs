@@ -15786,12 +15786,6 @@
     githubId = 36235154;
     name = "Sean Haugh";
   };
-  maaslalani = {
-    email = "maaslalani0@gmail.com";
-    github = "maaslalani";
-    githubId = 42545625;
-    name = "Maas Lalani";
-  };
   mabster314 = {
     name = "Max Haland";
     email = "max@haland.org";
@@ -23262,6 +23256,11 @@
     githubId = 766350;
     name = "Richard Zetterberg";
   };
+  S-K-Tiger = {
+    name = "Vicar Tineamica";
+    github = "S-K-Tiger";
+    githubId = 55139409;
+  };
   S0AndS0 = {
     name = "S0AndS0";
     email = "S0AndS0@digital-mercenaries.com";
@@ -26221,6 +26220,12 @@
     github = "TheColorman";
     githubId = 18369995;
     keys = [ { fingerprint = "3D8C A43C FBA2 5D28 0196  19F0 AB11 0475 B417 291D"; } ];
+  };
+  theconcierge = {
+    name = "TheConcierge";
+    email = "therealconcierge@proton.me";
+    github = "TheConcierge";
+    githubId = 10949861;
   };
   thedavidmeister = {
     email = "thedavidmeister@gmail.com";
