@@ -10,26 +10,56 @@
   makeWrapper,
   makeDesktopItem,
   requireFile,
+  src ? null,
   withMods ? true,
+  withBridgePatch ? true,
   withLinuxPatch ? true,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "balatro";
   version = "1.0.1o";
 
-  src = requireFile {
-    name = "Balatro-${finalAttrs.version}.exe";
-    url = "https://store.steampowered.com/app/2379780/Balatro/";
-    message = ''
-      Balatro cannot be automatically downloaded. Please download
-      it from Steam, locate the Balatro.exe on disk, likely in
-      ~/.local/share/Steam/steamapps/common/Balatro/, then upload it
-      to your nix store with nix-store --add-fixed sha256 Balatro.exe.
-    '';
+  src =
+    if src != null then
+      src
+    else
+      requireFile {
+        name = "Balatro-${finalAttrs.version}.exe";
+        url = "https://store.steampowered.com/app/2379780/Balatro/";
+        message = ''
+          You must own Balatro in order to install it with Nix.  The Steam,
+          Google Play, and Xbox PC versions are supported.
 
-    # Use `nix --extra-experimental-features nix-command hash file --sri --type sha256` to get the correct hash
-    hash = "sha256-DXX+FkrM8zEnNNSzesmHiN0V8Ljk+buLf5DE5Z3pP0c=";
-  };
+          - If you have the Steam version, you can use Balatro.exe.  Find it in
+
+            ~/.local/share/Steam/steamapps/common/Balatro/
+
+            and run
+
+            nix-store --add-fixed sha256 Balatro.exe
+
+          - If you have the Google Play version, you'll need to pull base.apk from
+            your device:
+
+            adb shell pm path com.playstack.balatro.android
+            adb pull ( path from above )/base.apk ~/Downloads/com.playstack.balatro.android.apk
+
+            and add it to /nix/store:
+
+            nix-prefetch-url file:///home/deck/Downloads/com.playstack.balatro.android.apk
+
+          - If you have the Xbox PC version, you can do the same with Assets.zip.
+
+          If you've used nix-prefetch-url to add it to your store, you'll need to
+          pass the resulting path to override:
+
+            balatro.override {
+              src = /nix/store/g44bp7ymc7qlkfv5f03b55cgs1wdmkzl-com.playstack.balatro.android.apk;
+            }
+        '';
+        # Use `nix --extra-experimental-features nix-command hash file --sri --type sha256` to get the correct hash
+        hash = "sha256-DXX+FkrM8zEnNNSzesmHiN0V8Ljk+buLf5DE5Z3pP0c=";
+      };
 
   srcIcon = fetchurl {
     name = "balatro.png";
@@ -70,6 +100,16 @@ stdenv.mkDerivation (finalAttrs: {
     tmpdir=$(mktemp -d)
     7z x ${finalAttrs.src} -o$tmpdir -y
 
+    ${lib.optionalString withBridgePatch ''
+      cp ${./bridge_detour.lua} $tmpdir/bridge_detour.lua
+
+      for file in main.lua engine/load_manager.lua engine/save_manager.lua; do
+        if [ -f "$tmpdir/$file" ]; then
+          sed -i '1i require("bridge_detour")' "$tmpdir/$file"
+        fi
+      done
+    ''}
+
     ${
       let
         patchMarker = "if love.system.getOS() == 'Nintendo Switch' then";
@@ -87,22 +127,20 @@ stdenv.mkDerivation (finalAttrs: {
       ''
     }
 
-    patchedExe=$(mktemp -u).zip
-    7z a $patchedExe $tmpdir/*
+    loveFile=game.love
+    7z a -tzip $loveFile $tmpdir/*
 
     runHook postBuild
   '';
 
-  # The `cat` bit is a hack suggested by whitelje (https://github.com/ethangreen-dev/lovely-injector/pull/66#issuecomment-2319615509)
-  # to make it so that lovely will pick up Balatro as the game name.
-  # The `LD_PRELOAD` bit is used to load lovely and it is the 'official' way of doing it.
-  # The `LD_LIBRARY_PATH` bit adds `curl` as that is the community standard backend for network-related mods on non-Windows systems
   installPhase = ''
     runHook preInstall
 
     install -Dm644 $srcIcon $out/share/icons/hicolor/scalable/apps/balatro.png
 
-    cat ${lib.getExe love} $patchedExe > $out/share/Balatro
+    # Packaging the love file into the executable ensures lovely finds the game's name
+    # https://github.com/ethangreen-dev/lovely-injector/pull/66#issuecomment-2319615509
+    cat ${lib.getExe love} $loveFile > $out/share/Balatro
     chmod +x $out/share/Balatro
 
     makeWrapper $out/share/Balatro $out/bin/balatro ${lib.optionalString withMods ''
