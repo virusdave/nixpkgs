@@ -8332,8 +8332,6 @@ with pkgs;
     ];
   };
 
-  minio = callPackage ../servers/minio { };
-
   mkchromecast = libsForQt5.callPackage ../applications/networking/mkchromecast { };
 
   moodle = callPackage ../servers/web-apps/moodle { };

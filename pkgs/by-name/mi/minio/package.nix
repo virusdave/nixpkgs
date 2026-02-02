@@ -28,14 +28,14 @@ let
   #   => "2021"
   versionToYear = version: builtins.elemAt (lib.splitString "-" version) 0;
 in
-buildGoModule rec {
+buildGoModule (finalAttrs: {
   pname = "minio";
   version = "2025-10-15T17-29-55Z";
 
   src = fetchFromGitHub {
     owner = "minio";
     repo = "minio";
-    rev = "RELEASE.${version}";
+    rev = "RELEASE.${finalAttrs.version}";
     hash = "sha256-HbjmCJYkWyRRHKriLP6QohaXYLk3QEVfi32Krq3ujjo=";
   };
 
@@ -56,10 +56,10 @@ buildGoModule rec {
     [
       "-s"
       "-w"
-      "-X ${t}.Version=${versionToTimestamp version}"
-      "-X ${t}.CopyrightYear=${versionToYear version}"
-      "-X ${t}.ReleaseTag=RELEASE.${version}"
-      "-X ${t}.CommitID=${src.rev}"
+      "-X ${t}.Version=${versionToTimestamp finalAttrs.version}"
+      "-X ${t}.CopyrightYear=${versionToYear finalAttrs.version}"
+      "-X ${t}.ReleaseTag=RELEASE.${finalAttrs.version}"
+      "-X ${t}.CommitID=${finalAttrs.src.rev}"
     ];
 
   passthru.tests.minio = nixosTests.minio;
@@ -67,7 +67,7 @@ buildGoModule rec {
   meta = {
     homepage = "https://www.minio.io/";
     description = "S3-compatible object storage server";
-    changelog = "https://github.com/minio/minio/releases/tag/RELEASE.${version}";
+    changelog = "https://github.com/minio/minio/releases/tag/RELEASE.${finalAttrs.version}";
     maintainers = with lib.maintainers; [
       bachp
       ryan4yin
@@ -75,4 +75,4 @@ buildGoModule rec {
     license = lib.licenses.agpl3Plus;
     mainProgram = "minio";
   };
-}
+})
