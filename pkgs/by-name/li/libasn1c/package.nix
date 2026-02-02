@@ -7,19 +7,19 @@
   talloc,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "libasn1c";
   version = "0.9.38";
 
   src = fetchFromGitHub {
     owner = "osmocom";
     repo = "libasn1c";
-    rev = version;
+    tag = finalAttrs.version;
     hash = "sha256-cnXcUvP6WwHVvpdsIVsMkizlLyg9KMwVj8XYX/nIfic=";
   };
 
   postPatch = ''
-    echo "${version}" > .tarball-version
+    echo "${finalAttrs.version}" > .tarball-version
   '';
 
   nativeBuildInputs = [
@@ -40,4 +40,4 @@ stdenv.mkDerivation rec {
     platforms = lib.platforms.linux;
     maintainers = [ ];
   };
-}
+})
