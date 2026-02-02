@@ -1,16 +1,14 @@
 {
-  nodejs,
   lib,
   python3Packages,
   fetchFromGitHub,
   nixosTests,
   fetchNpmDeps,
+  nodejs_20,
   npmHooks,
 }:
 
-with python3Packages;
-
-buildPythonApplication rec {
+python3Packages.buildPythonApplication (finalAttrs: {
   pname = "isso";
   version = "0.13.0";
   format = "setuptools";
@@ -18,12 +16,12 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "posativ";
     repo = "isso";
-    tag = version;
-    sha256 = "sha256-kZNf7Rlb1DZtQe4dK1B283OkzQQcCX+pbvZzfL65gsA=";
+    tag = finalAttrs.version;
+    hash = "sha256-kZNf7Rlb1DZtQe4dK1B283OkzQQcCX+pbvZzfL65gsA=";
   };
 
   npmDeps = fetchNpmDeps {
-    inherit src;
+    inherit (finalAttrs) src;
     hash = "sha256-RBpuhFI0hdi8bB48Pks9Ac/UdcQ/DJw+WFnNj5f7IYE=";
   };
 
@@ -38,7 +36,7 @@ buildPythonApplication rec {
       --replace "self.client.delete_cookie('localhost.local', '1')" "self.client.delete_cookie(key='1', domain='localhost')"
   '';
 
-  propagatedBuildInputs = [
+  propagatedBuildInputs = with python3Packages; [
     itsdangerous
     jinja2
     misaka
@@ -49,25 +47,25 @@ buildPythonApplication rec {
   ];
 
   nativeBuildInputs = [
-    cffi
-    sphinxHook
-    sphinx
-    nodejs
+    python3Packages.cffi
+    python3Packages.sphinxHook
+    python3Packages.sphinx
+    nodejs_20
     npmHooks.npmConfigHook
   ];
 
   NODE_PATH = "$npmDeps";
 
   preBuild = ''
-    ln -s ${npmDeps}/node_modules ./node_modules
-    export PATH="${npmDeps}/bin:$PATH"
+    ln -s ${finalAttrs.npmDeps}/node_modules ./node_modules
+    export PATH="${finalAttrs.npmDeps}/bin:$PATH"
 
     make js
   '';
 
   nativeCheckInputs = [
-    pytestCheckHook
-    pytest-cov-stub
+    python3Packages.pytestCheckHook
+    python3Packages.pytest-cov-stub
   ];
 
   passthru.tests = { inherit (nixosTests) isso; };
@@ -79,4 +77,4 @@ buildPythonApplication rec {
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fgaz ];
   };
-}
+})
