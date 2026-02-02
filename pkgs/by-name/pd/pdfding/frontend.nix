@@ -1,16 +1,17 @@
 {
   stdenv,
-  nodejs,
-  npmHooks,
   fetchpatch2,
   fetchNpmDeps,
   fetchzip,
   fetchFromGitHub,
+  npmHooks,
+
   tailwindcss_4,
+  nodejs,
 }:
 let
-  pdfjsVersion = "5.4.296"; # see update script
-  pdfjsHash = "sha256-b4W7wETq2CIZm2rJCmXEYvPhQtCbXS76L7GDvng6wn4=";
+  pdfjsVersion = "5.4.394"; # see update script
+  pdfjsHash = "sha256-pd7xwfvR9U1bHT5eblszYU3YJQwQwhuyDDiNj+fnyaQ=";
   pdfjs = fetchzip {
     url = "https://github.com/mozilla/pdf.js/releases/download/v${pdfjsVersion}/pdfjs-${pdfjsVersion}-dist.zip";
     hash = pdfjsHash;
@@ -27,28 +28,19 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "pdfding-frontend";
-  version = "1.4.1";
+  version = "1.5.1";
   src = fetchFromGitHub {
     owner = "mrmn2";
     repo = "PdfDing";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-8e80gMdB6U3977dIU7bIAAEguYmi+AWQgUgYPDLCYLI=";
+    hash = "sha256-PXkD+2k8/LmMWzZAj8qEK4mLoOKS4mDWcqe8AgoCdBU=";
   };
 
   npmDeps = fetchNpmDeps {
     inherit (finalAttrs) src;
     name = "pdfding-frontend-${finalAttrs.version}-npm-deps";
-    hash = "sha256-v1NFqDnFcRK8sd0bV3ck+LLMYQ90Dl1R1OnBTwWUVUg=";
+    hash = "sha256-SgL8QhRGONGhJBu6b8HSVqZPzJ+NojhVClBEH5ajCcc=";
   };
-
-  patches = [
-    # remove patch in 1.4.2
-    # package.json has missing version and name
-    (fetchpatch2 {
-      url = "https://github.com/mrmn2/PdfDing/pull/203.patch?full_index=1";
-      hash = "sha256-lKtpqKdyoGZdU4fTegto+YUIduIWbM82RQU9459NpC0=";
-    })
-  ];
 
   nativeBuildInputs = [
     nodejs
@@ -67,8 +59,10 @@ stdenv.mkDerivation (finalAttrs: {
     tailwindcss -i $out/pdfding/static/css/input.css -o $out/pdfding/static/css/tailwind.css --minify
     rm $out/pdfding/static/css/input.css
 
-    for i in build/pdf.mjs build/pdf.sandbox.mjs build/pdf.worker.mjs web/viewer.mjs; \
-    do node_modules/terser/bin/terser $out/pdfding/static/pdfjs/$i --compress -o $out/pdfding/static/pdfjs/$i; done
+    for i in build/pdf.mjs build/pdf.sandbox.mjs build/pdf.worker.mjs web/viewer.mjs;
+    do
+      node_modules/terser/bin/terser $out/pdfding/static/pdfjs/$i --compress -o $out/pdfding/static/pdfjs/$i;
+    done
 
     npm run build
 
