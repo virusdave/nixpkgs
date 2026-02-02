@@ -8540,6 +8540,11 @@
     github = "felixdorn";
     githubId = 55788595;
   };
+  FelixLusseau = {
+    name = "Félix Lusseau";
+    github = "FelixLusseau";
+    githubId = 94113911;
+  };
   felixscheinost = {
     name = "Felix Scheinost";
     email = "felix.scheinost@posteo.de";
@@ -18969,13 +18974,6 @@
     email = "nipeharefa@gmail.com";
     github = "nipeharefa";
     githubId = 12620257;
-  };
-  niraethm = {
-    name = "Rémi Akirazar";
-    email = "randormi@devcpu.co";
-    matrix = "@lysgonul:bark.lgbt";
-    github = "niraethm";
-    githubId = 20865531;
   };
   NIS = {
     name = "NSC IT Solutions";
