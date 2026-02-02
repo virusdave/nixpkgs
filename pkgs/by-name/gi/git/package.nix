@@ -61,7 +61,7 @@ assert sendEmailSupport -> perlSupport;
 assert svnSupport -> perlSupport;
 
 let
-  version = "2.52.0";
+  version = "2.53.0";
   svn = subversionClient.override { perlBindings = perlSupport; };
   gitwebPerlLibs = with perlPackages; [
     CGI
@@ -103,7 +103,7 @@ stdenv.mkDerivation (finalAttrs: {
         }.tar.xz"
       else
         "https://www.kernel.org/pub/software/scm/git/git-${version}.tar.xz";
-    hash = "sha256-PNj+6G9pqUnLYQ/ujNkmTmhz0H+lhBH2Bgs9YnKe18U=";
+    hash = "sha256-WBi9fYCwYbu9/sikM9YJ3IgYoFmR9zH/xKVh4soYxlM=";
   };
 
   outputs = [ "out" ] ++ lib.optional withManual "doc";
@@ -129,12 +129,6 @@ stdenv.mkDerivation (finalAttrs: {
       name = "expect-gui--askyesno-failure-in-t1517.patch";
       url = "https://lore.kernel.org/git/20251201031040.1120091-1-brianmlyles@gmail.com/raw";
       hash = "sha256-vvhbvg74OIMzfksHiErSnjOZ+W0M/T9J8GOQ4E4wKbU=";
-    })
-    # Fixes t8020 test on big-endian
-    (fetchurl {
-      name = "last-modified-fix-bug-caused-by-inproper-initialized-memory.patch";
-      url = "https://lore.kernel.org/git/20251128-toon-big-endian-ci-v1-1-80da0f629c1e@iotcl.com/raw";
-      hash = "sha256-WdewOwD7hMhnahhUUEYAlM58tT3MkxUlBa3n8IwrESU=";
     })
   ]
   ++ lib.optionals withSsh [
