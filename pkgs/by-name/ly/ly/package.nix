@@ -65,7 +65,6 @@ stdenv.mkDerivation (finalAttrs: {
     license = lib.licenses.wtfpl;
     mainProgram = "ly";
     maintainers = with lib.maintainers; [
-      yiyu
       zacharyarnaise
     ];
     platforms = lib.platforms.unix;
