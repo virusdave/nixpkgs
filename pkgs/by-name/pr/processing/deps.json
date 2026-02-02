@@ -54,11 +54,11 @@
   }
  },
  "https://github.com/processing": {
-  "processing-examples/archive/refs/heads/main": {
-   "zip": "sha256-wdEtav8l32+dvZfbekLAHFSQs80Zb10Ze3+cU5IBEQM="
+  "processing-examples/archive/b10c9e9a05a0d6c20d233ca7f30d315b5047720e": {
+   "zip": "sha256-08ADdtsZ/lkbERbHliM5SSaFcTUnOplJdQx7eYR43qU="
   },
-  "processing-website/archive/refs/heads/main": {
-   "zip": "sha256-Jn9PVtyrNOvFEaft6igDGu1aFw3zjn4aCHsLf6FBVG8="
+  "processing-website/archive/f11676d1b7464291a23ae834f2ef6ab00baaed8e": {
+   "zip": "sha256-MC3Ce5B5bFUA0aCkFQPCMGA5QuUw5vjmSzFnyEfR3Nw="
   }
  },
  "https://jogamp.org/deployment/maven/org/jogamp": {

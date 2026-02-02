@@ -125,6 +125,12 @@ stdenv.mkDerivation rec {
 
   dontWrapGApps = true;
 
+  postPatch = ''
+    substituteInPlace app/build.gradle.kts \
+      --replace-fail "https://github.com/processing/processing-examples/archive/refs/heads/main.zip" "https://github.com/processing/processing-examples/archive/b10c9e9a05a0d6c20d233ca7f30d315b5047720e.zip" \
+      --replace-fail "https://github.com/processing/processing-website/archive/refs/heads/main.zip" "https://github.com/processing/processing-website/archive/f11676d1b7464291a23ae834f2ef6ab00baaed8e.zip"
+  '';
+
   buildPhase = ''
     runHook preBuild
 
