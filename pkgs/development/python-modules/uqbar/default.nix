@@ -12,7 +12,7 @@
   unidecode,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "uqbar";
   version = "0.9.6";
   pyproject = true;
@@ -20,7 +20,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "supriya-project";
     repo = "uqbar";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-1rK40lwZ3YmQZXhia2+iYRZxDCYvijXgBMIL5p7KmR0=";
   };
 
@@ -77,8 +77,8 @@ buildPythonPackage rec {
   meta = {
     description = "Tools for creating Sphinx and Graphviz documentation";
     homepage = "https://github.com/supriya-project/uqbar";
-    changelog = "https://github.com/supriya-project/uqbar/releases/tag/v${version}";
+    changelog = "https://github.com/supriya-project/uqbar/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ davisrichard437 ];
   };
-}
+})
