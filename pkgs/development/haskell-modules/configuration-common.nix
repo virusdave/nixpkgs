@@ -2425,15 +2425,23 @@ with haskellLib;
   NGLess = dontCheck super.NGLess;
 
   # Too strict bound on network (<3.2)
-  hookup = appendPatches [
-    (pkgs.fetchpatch {
-      name = "hookup-network-3.2.patch";
-      url = "https://github.com/glguy/irc-core/commit/a3ec982e729b0f77b2db336ec32c5e4b7283bed5.patch";
-      sha256 = "0qc1qszn3l69xlbpfv8vz9ld0q7sghfcbp0wjds81kwcpdpl4jgv";
-      stripLen = 1;
-      includes = [ "hookup.cabal" ];
-    })
-  ] super.hookup;
+  hookup =
+    appendPatches
+      [
+        (pkgs.fetchpatch {
+          name = "hookup-network-3.2.patch";
+          url = "https://github.com/glguy/irc-core/commit/a3ec982e729b0f77b2db336ec32c5e4b7283bed5.patch";
+          sha256 = "0qc1qszn3l69xlbpfv8vz9ld0q7sghfcbp0wjds81kwcpdpl4jgv";
+          stripLen = 1;
+          includes = [ "hookup.cabal" ];
+        })
+      ]
+      (
+        overrideCabal {
+          revision = null;
+          editedCabalFile = null;
+        } super.hookup
+      );
 
   basic-sop = appendPatch (fetchpatch {
     # https://github.com/well-typed/basic-sop/pull/13
