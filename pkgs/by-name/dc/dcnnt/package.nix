@@ -1,21 +1,20 @@
 {
-  buildPythonApplication,
-  fetchPypi,
   lib,
-  pycryptodome,
+  python3Packages,
+  fetchPypi,
 }:
 
-buildPythonApplication rec {
+python3Packages.buildPythonApplication (finalAttrs: {
   pname = "dcnnt";
   version = "0.10.0";
   format = "setuptools";
 
   src = fetchPypi {
-    inherit pname version;
+    inherit (finalAttrs) pname version;
     hash = "sha256-73ZLgb5YcXlAOjbKLVv8oqgS6pstBdJxa7LFUgIHpUE=";
   };
 
-  propagatedBuildInputs = [
+  propagatedBuildInputs = with python3Packages; [
     pycryptodome
   ];
 
@@ -30,4 +29,4 @@ buildPythonApplication rec {
     maintainers = with lib.maintainers; [ arnoutkroeze ];
     mainProgram = "dcnnt";
   };
-}
+})
