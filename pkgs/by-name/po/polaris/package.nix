@@ -7,14 +7,14 @@
   nixosTests,
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "polaris";
   version = "0.14.3";
 
   src = fetchFromGitHub {
     owner = "agersant";
     repo = "polaris";
-    rev = version;
+    tag = finalAttrs.version;
     hash = "sha256-2GHYIlEzRS7KXahdrxMjyIcPCNw8gXJw5/4ZpB/zT3Y=";
 
     # The polaris version upstream in Cargo.lock is "0.0.0".
@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage rec {
     postFetch = ''
       # 'substituteInPlace' does not support multiline replacements?
       sed -i $out/Cargo.lock -z \
-        -e 's/\[\[package\]\]\nname = "polaris"\nversion = "0.0.0"/[[package]]\nname = "polaris"\nversion = "'"${version}"'"/g'
+        -e 's/\[\[package\]\]\nname = "polaris"\nversion = "0.0.0"/[[package]]\nname = "polaris"\nversion = "'"${finalAttrs.version}"'"/g'
     '';
   };
 
@@ -66,4 +66,4 @@ rustPlatform.buildRustPackage rec {
     platforms = lib.platforms.unix;
     mainProgram = "polaris";
   };
-}
+})
