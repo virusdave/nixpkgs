@@ -13806,12 +13806,6 @@
     githubId = 20063;
     name = "Pascal Hertleif";
   };
-  kiloreux = {
-    email = "kiloreux@gmail.com";
-    github = "kiloreux";
-    githubId = 6282557;
-    name = "Kiloreux Emperex";
-  };
   kim0 = {
     email = "email.ahmedkamal@googlemail.com";
     github = "kim0";
