@@ -32,7 +32,7 @@
   testers,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "python-openstackclient";
   version = "8.3.0";
   pyproject = true;
@@ -40,11 +40,11 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "openstack";
     repo = "python-openstackclient";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-CEz1v4e4NadSZ+qhotFtLB4y/KdhDZbDOohN8D9FB30=";
   };
 
-  env.PBR_VERSION = version;
+  env.PBR_VERSION = finalAttrs.version;
 
   build-system = [
     openstackdocstheme
@@ -112,8 +112,8 @@ buildPythonPackage rec {
     description = "OpenStack Command-line Client";
     mainProgram = "openstack";
     homepage = "https://opendev.org/openstack/python-openstackclient";
-    downloadPage = "https://github.com/openstack/python-openstackclient";
+    downloadPage = "https://github.com/openstack/python-openstackclient/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.asl20;
     teams = [ lib.teams.openstack ];
   };
-}
+})
