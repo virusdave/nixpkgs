@@ -6002,10 +6002,6 @@ with pkgs;
     )
       haskellPackages.haskell-ci;
 
-  nixbang = callPackage ../development/tools/misc/nixbang {
-    pythonPackages = python3Packages;
-  };
-
   nexusmods-app-unfree = nexusmods-app.override {
     pname = "nexusmods-app-unfree";
     _7zz = _7zz-rar;
