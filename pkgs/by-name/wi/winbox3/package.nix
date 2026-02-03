@@ -5,11 +5,11 @@
   copyDesktopItems,
   makeDesktopItem,
   makeBinaryWrapper,
-  wineWowPackages,
+  wineWow64Packages,
 }:
 
 let
-  wine = wineWowPackages.stable;
+  wine = wineWow64Packages.stable;
   # The icon is also from the winbox AUR package (see above).
   icon = fetchurl {
     name = "winbox.png";
