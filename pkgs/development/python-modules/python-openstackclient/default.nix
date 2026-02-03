@@ -45,6 +45,7 @@ buildPythonPackage rec {
   };
 
   env.PBR_VERSION = version;
+
   build-system = [
     openstackdocstheme
     setuptools
@@ -70,10 +71,11 @@ buildPythonPackage rec {
     stestr
   ];
 
+  # test_module failures under python 3.14: https://bugs.launchpad.net/python-openstackclient/+bug/2137223
   checkPhase = ''
     runHook preCheck
     stestr run -E \
-      "openstackclient.tests.unit.volume.v3.test_volume.(TestVolumeCreate|TestVolumeShow)"
+      "openstackclient.tests.unit.(volume.v3.test_volume.(TestVolumeCreate|TestVolumeShow)|common.test_module.TestModuleList)"
     runHook postCheck
   '';
 
