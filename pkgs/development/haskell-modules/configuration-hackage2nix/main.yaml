@@ -493,6 +493,7 @@ package-maintainers:
     - irc-client
     - chatter
     - envy
+    - krank
   t4ccer:
     - aeson-better-errors
     - cheapskate
