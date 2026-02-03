@@ -213,10 +213,6 @@ buildNpmPackage (finalAttrs: {
     done
   '';
 
-  #preBuild = ''
-  #  ./app/scripts/check_requirements
-  #'';
-
   buildPhase = ''
     runHook preBuild
 
