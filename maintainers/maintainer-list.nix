@@ -1744,12 +1744,6 @@
     matrix = "@andrew:kvalhe.im";
     name = "Andrew Kvalheim";
   };
-  andrewrk = {
-    email = "superjoe30@gmail.com";
-    github = "andrewrk";
-    githubId = 106511;
-    name = "Andrew Kelley";
-  };
   andrewzah = {
     name = "Andrew Zah";
     github = "andrewzah";
