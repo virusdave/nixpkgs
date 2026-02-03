@@ -133,7 +133,6 @@ broken-packages:
   - alga # failure in job https://hydra.nixos.org/build/233252723 at 2023-09-02
   - algebra-dag # failure in job https://hydra.nixos.org/build/233191945 at 2023-09-02
   - algebraic # failure in job https://hydra.nixos.org/build/296049876 at 2025-05-02
-  - algebraic-classes # failure in job https://hydra.nixos.org/build/233246872 at 2023-09-02
   - algebraic-prelude # failure in job https://hydra.nixos.org/build/233197561 at 2023-09-02
   - algo-s # failure in job https://hydra.nixos.org/build/233221988 at 2023-09-02
   - AlgorithmW # failure in job https://hydra.nixos.org/build/233245254 at 2023-09-02
@@ -576,7 +575,6 @@ broken-packages:
   - brick-dropdownmenu # failure in job https://hydra.nixos.org/build/233223686 at 2023-09-02
   - brick-filetree # failure in job https://hydra.nixos.org/build/233217076 at 2023-09-02
   - brick-list-search # failure in job https://hydra.nixos.org/build/233193835 at 2023-09-02
-  - brick-panes # failure in job https://hydra.nixos.org/build/233207542 at 2023-09-02
   - bricks-internal # failure in job https://hydra.nixos.org/build/233215572 at 2023-09-02
   - brillig # failure in job https://hydra.nixos.org/build/233208148 at 2023-09-02
   - brillo-algorithms # failure in job https://hydra.nixos.org/build/307517131 at 2025-09-19
@@ -665,7 +663,6 @@ broken-packages:
   - cabal-ghci # failure in job https://hydra.nixos.org/build/233239354 at 2023-09-02
   - cabal-graphdeps # failure in job https://hydra.nixos.org/build/233221966 at 2023-09-02
   - cabal-helper # failure in job https://hydra.nixos.org/build/252732588 at 2024-03-16
-  - cabal-hoogle # failure in job https://hydra.nixos.org/build/233191666 at 2023-09-02
   - Cabal-hooks # failure in job https://hydra.nixos.org/build/307515931 at 2025-09-19
   - Cabal-ide-backend # failure in job https://hydra.nixos.org/build/233258880 at 2023-09-02
   - cabal-info # failure in job https://hydra.nixos.org/build/233225001 at 2023-09-02
@@ -1336,7 +1333,6 @@ broken-packages:
   - derive # failure in job https://hydra.nixos.org/build/233209166 at 2023-09-02
   - derive-enumerable # failure in job https://hydra.nixos.org/build/233254290 at 2023-09-02
   - derive-gadt # failure in job https://hydra.nixos.org/build/233220430 at 2023-09-02
-  - derive-lifted-instances # failure in job https://hydra.nixos.org/build/233194868 at 2023-09-02
   - derive-monoid # failure in job https://hydra.nixos.org/build/233205670 at 2023-09-02
   - derive-prim # failure in job https://hydra.nixos.org/build/307517819 at 2025-09-19
   - derive-storable-plugin # failure in job https://hydra.nixos.org/build/295092800 at 2025-04-22
@@ -1583,7 +1579,6 @@ broken-packages:
   - effectful-st # failure in job https://hydra.nixos.org/build/233248591 at 2023-09-02
   - effectful-zoo # failure in job https://hydra.nixos.org/build/283208805 at 2024-12-31
   - effective-aspects # failure in job https://hydra.nixos.org/build/233223120 at 2023-09-02
-  - effects # failure in job https://hydra.nixos.org/build/307518053 at 2025-09-19
   - effet # failure in job https://hydra.nixos.org/build/233204265 at 2023-09-02
   - effin # failure in job https://hydra.nixos.org/build/233212960 at 2023-09-02
   - eflint # failure in job https://hydra.nixos.org/build/295122827 at 2025-04-22
@@ -1874,7 +1869,6 @@ broken-packages:
   - firestore # failure in job https://hydra.nixos.org/build/295093356 at 2025-04-22
   - first-and-last # failure in job https://hydra.nixos.org/build/233256888 at 2023-09-02
   - first-class-patterns # failure in job https://hydra.nixos.org/build/252739352 at 2024-03-16
-  - FirstPrelude # failure in job https://hydra.nixos.org/build/233256065 at 2023-09-02
   - fit # failure in job https://hydra.nixos.org/build/233239893 at 2023-09-02
   - fitsio # failure in job https://hydra.nixos.org/build/233246119 at 2023-09-02
   - fix-imports # failure in job https://hydra.nixos.org/build/233251518 at 2023-09-02
@@ -2118,7 +2112,6 @@ broken-packages:
   - GeocoderOpenCage # failure in job https://hydra.nixos.org/build/233214852 at 2023-09-02
   - geodetic-types # failure in job https://hydra.nixos.org/build/233209496 at 2023-09-02
   - GeoIp # failure in job https://hydra.nixos.org/build/233257383 at 2023-09-02
-  - geojson # failure in job https://hydra.nixos.org/build/295093530 at 2025-04-22
   - geojson-types # failure in job https://hydra.nixos.org/build/233224929 at 2023-09-02
   - geom2d # failure in job https://hydra.nixos.org/build/233254609 at 2023-09-02
   - geomancy # failure in job https://hydra.nixos.org/build/315096508 at 2025-11-29
@@ -2233,7 +2226,6 @@ broken-packages:
   - GLFW # failure in job https://hydra.nixos.org/build/233234389 at 2023-09-02
   - GLFW-b-demo # failure in job https://hydra.nixos.org/build/233230505 at 2023-09-02
   - gli # failure in job https://hydra.nixos.org/build/233210279 at 2023-09-02
-  - glicko # failure in job https://hydra.nixos.org/build/233200868 at 2023-09-02
   - glider-nlp # failure in job https://hydra.nixos.org/build/233229600 at 2023-09-02
   - gll # failure in job https://hydra.nixos.org/build/307518707 at 2025-09-19
   - GLMatrix # failure in job https://hydra.nixos.org/build/233202880 at 2023-09-02
@@ -2795,7 +2787,6 @@ broken-packages:
   - hills # failure in job https://hydra.nixos.org/build/233215201 at 2023-09-02
   - himari # failure in job https://hydra.nixos.org/build/320159405 at 2026-01-26
   - himg # failure in job https://hydra.nixos.org/build/233213810 at 2023-09-02
-  - hindent # failure in job https://hydra.nixos.org/build/307519252 at 2025-09-19
   - hindley-milner # failure in job https://hydra.nixos.org/build/233195252 at 2023-09-02
   - hindley-milner-type-check # failure in job https://hydra.nixos.org/build/233216545 at 2023-09-02
   - hinotify-bytestring # failure in job https://hydra.nixos.org/build/252716847 at 2024-03-16
@@ -3169,7 +3160,6 @@ broken-packages:
   - http-rfc7807 # failure in job https://hydra.nixos.org/build/233191433 at 2023-09-02
   - http-server # failure in job https://hydra.nixos.org/build/233209925 at 2023-09-02
   - http-shed # failure in job https://hydra.nixos.org/build/233236325 at 2023-09-02
-  - http-slim # failure in job https://hydra.nixos.org/build/252734524 at 2024-03-16
   - http-test # failure in job https://hydra.nixos.org/build/252738556 at 2024-03-16
   - http-wget # failure in job https://hydra.nixos.org/build/233236793 at 2023-09-02
   - http2-client-exe # failure in job https://hydra.nixos.org/build/260189666 at 2024-05-19
@@ -3873,7 +3863,6 @@ broken-packages:
   - lowgl # failure in job https://hydra.nixos.org/build/233216216 at 2023-09-02
   - lp-diagrams # failure in job https://hydra.nixos.org/build/295095167 at 2025-04-22
   - lp-diagrams-svg # failure in job https://hydra.nixos.org/build/233220097 at 2023-09-02
-  - lrclib-client # failure in job https://hydra.nixos.org/build/320160283 at 2026-01-26
   - LRU # failure in job https://hydra.nixos.org/build/233206273 at 2023-09-02
   - lscabal # failure in job https://hydra.nixos.org/build/233253536 at 2023-09-02
   - lsfrom # failure in job https://hydra.nixos.org/build/233211705 at 2023-09-02
@@ -4062,7 +4051,6 @@ broken-packages:
   - minizinc-process # failure in job https://hydra.nixos.org/build/233211497 at 2023-09-02
   - minst-idx # failure in job https://hydra.nixos.org/build/233259901 at 2023-09-02
   - mios # failure in job https://hydra.nixos.org/build/233251863 at 2023-09-02
-  - MIP-glpk # incompatible with extended-reals >=0.2.7.0, https://github.com/msakai/haskell-MIP/commit/60a5ee234fc6667d2c34152761fa5a54a6f6e533
   - mirror-tweet # failure in job https://hydra.nixos.org/build/233216951 at 2023-09-02
   - mismi-p # failure in job https://hydra.nixos.org/build/233257227 at 2023-09-02
   - mit-3qvpPyAi6mH # failure in job https://hydra.nixos.org/build/233229967 at 2023-09-02
@@ -5093,7 +5081,6 @@ broken-packages:
   - prune-juice # failure in job https://hydra.nixos.org/build/233198633 at 2023-09-02
   - psc-ide # failure in job https://hydra.nixos.org/build/267966912 at 2024-07-31
   - pseudo-trie # failure in job https://hydra.nixos.org/build/233230636 at 2023-09-02
-  - psi # failure in job https://hydra.nixos.org/build/233222861 at 2023-09-02
   - pstemmer # failure in job https://hydra.nixos.org/build/233241342 at 2023-09-02
   - psx # failure in job https://hydra.nixos.org/build/233199666 at 2023-09-02
   - ptera-core # failure in job https://hydra.nixos.org/build/295096340 at 2025-04-22
@@ -5166,7 +5153,6 @@ broken-packages:
   - QuickAnnotate # failure in job https://hydra.nixos.org/build/233197428 at 2023-09-02
   - quickbooks # failure in job https://hydra.nixos.org/build/233227666 at 2023-09-02
   - quickcheck-arbitrary-template # failure in job https://hydra.nixos.org/build/233223045 at 2023-09-02
-  - quickcheck-combinators # failure in job https://hydra.nixos.org/build/233209131 at 2023-09-02
   - quickcheck-property-comb # failure in job https://hydra.nixos.org/build/233204877 at 2023-09-02
   - quickcheck-property-monad # failure in job https://hydra.nixos.org/build/233228775 at 2023-09-02
   - quickcheck-rematch # failure in job https://hydra.nixos.org/build/233205449 at 2023-09-02
@@ -5574,7 +5560,6 @@ broken-packages:
   - SecureHash-SHA3 # failure in job https://hydra.nixos.org/build/233216866 at 2023-09-02
   - secureUDP # failure in job https://hydra.nixos.org/build/233215410 at 2023-09-02
   - SegmentTree # failure in job https://hydra.nixos.org/build/233216161 at 2023-09-02
-  - selda-postgresql # failure in job https://hydra.nixos.org/build/245539286 at 2024-01-02
   - selectors # failure in job https://hydra.nixos.org/build/233227433 at 2023-09-02
   - selenium # failure in job https://hydra.nixos.org/build/233214276 at 2023-09-02
   - selinux # failure in job https://hydra.nixos.org/build/233192853 at 2023-09-02
@@ -5773,7 +5758,6 @@ broken-packages:
   - simpleprelude # failure in job https://hydra.nixos.org/build/233259585 at 2023-09-02
   - simplesmtpclient # failure in job https://hydra.nixos.org/build/233235261 at 2023-09-02
   - simplessh # failure in job https://hydra.nixos.org/build/252738958 at 2024-03-16
-  - simplest-sqlite # failure in job https://hydra.nixos.org/build/233248487 at 2023-09-02
   - simplex # failure in job https://hydra.nixos.org/build/252731268 at 2024-03-16
   - simplex-method # failure in job https://hydra.nixos.org/build/295097008 at 2025-04-22
   - simplexmq # failure in job https://hydra.nixos.org/build/233223717 at 2023-09-02
@@ -6341,7 +6325,6 @@ broken-packages:
   - streamproc # failure in job https://hydra.nixos.org/build/233196179 at 2023-09-02
   - streamt # failure in job https://hydra.nixos.org/build/252724093 at 2024-03-16
   - strelka-core # failure in job https://hydra.nixos.org/build/233218594 at 2023-09-02
-  - strict-checked-vars # failure in job https://hydra.nixos.org/build/316128155 at 2025-12-19
   - strict-containers # failure in job https://hydra.nixos.org/build/307522197 at 2025-09-19
   - strict-ghc-plugin # failure in job https://hydra.nixos.org/build/233246830 at 2023-09-02
   - strict-io # failure in job https://hydra.nixos.org/build/295097302 at 2025-04-22
@@ -6864,7 +6847,6 @@ broken-packages:
   - typed-encoding # failure in job https://hydra.nixos.org/build/233208093 at 2023-09-02
   - typed-gui # failure in job https://hydra.nixos.org/build/309817848 at 2025-10-15
   - typed-process-effectful # failure in job https://hydra.nixos.org/build/236684332 at 2023-10-04
-  - typed-protocols # failure in job https://hydra.nixos.org/build/316128170 at 2025-12-19
   - typed-protocols-doc # failure in job https://hydra.nixos.org/build/311460024 at 2025-11-02
   - typed-session # failure in job https://hydra.nixos.org/build/270089993 at 2024-08-31
   - typed-session-state-algorithm # failure in job https://hydra.nixos.org/build/273462641 at 2024-10-01
@@ -6910,7 +6892,6 @@ broken-packages:
   - unbreak # failure in job https://hydra.nixos.org/build/233242560 at 2023-09-02
   - unescaping-print # failure in job https://hydra.nixos.org/build/252736030 at 2024-03-16
   - unfix-binders # failure in job https://hydra.nixos.org/build/233259262 at 2023-09-02
-  - unfoldable # failure in job https://hydra.nixos.org/build/252721990 at 2024-03-16
   - unfork # failure in job https://hydra.nixos.org/build/307522805 at 2025-09-19
   - unfree # failure in job https://hydra.nixos.org/build/295097900 at 2025-04-22
   - uni-util # failure in job https://hydra.nixos.org/build/233219676 at 2023-09-02
@@ -7352,7 +7333,6 @@ broken-packages:
   - yamlparse-applicative # failure in job https://hydra.nixos.org/build/252718434 at 2024-03-16
   - YamlReference # failure in job https://hydra.nixos.org/build/233222700 at 2023-09-02
   - yamlscript # failure in job https://hydra.nixos.org/build/307523231 at 2025-09-19
-  - yampa-canvas # failure in job https://hydra.nixos.org/build/307611616 at 2025-09-19
   - yampa-glfw # failure in job https://hydra.nixos.org/build/233215695 at 2023-09-02
   - yampa-gloss # failure in job https://hydra.nixos.org/build/295098349 at 2025-04-22
   - yampa-glut # failure in job https://hydra.nixos.org/build/234458324 at 2023-09-13
@@ -7486,6 +7466,5 @@ broken-packages:
   - Zwaluw # failure in job https://hydra.nixos.org/build/233216701 at 2023-09-02
   - zwirn-core # failure in job https://hydra.nixos.org/build/295098470 at 2025-04-22
   - zxcvbn-dvorak # failure in job https://hydra.nixos.org/build/233194326 at 2023-09-02
-  - zxcvbn-hs # failure in job https://hydra.nixos.org/build/295098457 at 2025-04-22
   - zydiskell # failure in job https://hydra.nixos.org/build/233259592 at 2023-09-02
   - zyre2 # failure in job https://hydra.nixos.org/build/233215215 at 2023-09-02
