@@ -1804,8 +1804,6 @@ self: super: with self; {
 
   basedmypy = callPackage ../development/python-modules/basedmypy { };
 
-  basedtyping = callPackage ../development/python-modules/basedtyping { };
-
   baseline = callPackage ../development/python-modules/baseline { };
 
   baselines = callPackage ../development/python-modules/baselines { };
