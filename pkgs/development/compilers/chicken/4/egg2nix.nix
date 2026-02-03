@@ -9,7 +9,7 @@
 # the tarball. Is there a nicer way than duplicating code?
 
 eggDerivation rec {
-  name = "egg2nix-${version}";
+  pname = "egg2nix";
   version = "0.5";
 
   src = fetchFromGitHub {
