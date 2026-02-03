@@ -79,6 +79,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
       asl20
       mit
     ];
-    maintainers = with lib.maintainers; [ rapiteanu ];
+    maintainers = with lib.maintainers; [
+      rapiteanu
+      whispersofthedawn
+    ];
   };
 })
