@@ -254,23 +254,25 @@ buildNpmPackage (finalAttrs: {
     runHook postCheck
   '';
 
-  desktopItem = makeDesktopItem {
-    name = "zotero";
-    exec = "zotero -url %U";
-    icon = "zotero";
-    comment = finalAttrs.meta.description;
-    desktopName = "Zotero";
-    genericName = "Reference Management";
-    categories = [
-      "Office"
-      "Database"
-    ];
-    startupNotify = true;
-    mimeTypes = [
-      "x-scheme-handler/zotero"
-      "text/plain"
-    ];
-  };
+  desktopItems = [
+    (makeDesktopItem {
+      name = "zotero";
+      exec = "zotero -url %U";
+      icon = "zotero";
+      comment = finalAttrs.meta.description;
+      desktopName = "Zotero";
+      genericName = "Reference Management";
+      categories = [
+        "Office"
+        "Database"
+      ];
+      startupNotify = true;
+      mimeTypes = [
+        "x-scheme-handler/zotero"
+        "text/plain"
+      ];
+    })
+  ];
 
   installPhase = ''
     runHook preInstall
