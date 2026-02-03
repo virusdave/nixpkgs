@@ -1,7 +1,7 @@
 {
   lib,
   buildPythonPackage,
-  fetchPypi,
+  fetchFromGitHub,
   ddt,
   openstackdocstheme,
   osc-lib,
@@ -37,12 +37,14 @@ buildPythonPackage rec {
   version = "8.3.0";
   pyproject = true;
 
-  src = fetchPypi {
-    pname = "python_openstackclient";
-    inherit version;
-    hash = "sha256-zHsy5F8Lju2SFeAhiuoCUmYZpeewaCsngXaRNK/Xb/g=";
+  src = fetchFromGitHub {
+    owner = "openstack";
+    repo = "python-openstackclient";
+    tag = version;
+    hash = "sha256-CEz1v4e4NadSZ+qhotFtLB4y/KdhDZbDOohN8D9FB30=";
   };
 
+  env.PBR_VERSION = version;
   build-system = [
     openstackdocstheme
     setuptools
@@ -107,7 +109,8 @@ buildPythonPackage rec {
   meta = {
     description = "OpenStack Command-line Client";
     mainProgram = "openstack";
-    homepage = "https://github.com/openstack/python-openstackclient";
+    homepage = "https://opendev.org/openstack/python-openstackclient";
+    downloadPage = "https://github.com/openstack/python-openstackclient";
     license = lib.licenses.asl20;
     teams = [ lib.teams.openstack ];
   };
