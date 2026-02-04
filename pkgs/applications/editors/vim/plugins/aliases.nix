@@ -42,7 +42,7 @@ mapAliases (
     # keep-sorted start case=no
     blueballs-neovim = throw "`blueballs-neovim` has been removed"; # added 2025-06-17
     coc-rls = throw "coc-rls has been removed, as rls has been archived since 2022. You should use coc-rust-analyzer instead, as rust-analyzer is maintained."; # added 2025-10-01
-    coc-sumneko-lua = throw "coc-sumneko-lua was removed, as it is unmaintained and broken. You should switch to lua_ls"; # added 2026-02-04
+    coc-sumneko-lua = throw "'vimPlugins.coc-sumneko-lua' was removed, as it is unmaintained and broken. You should switch to lua_ls"; # added 2026-02-04
     coc-vetur = throw "coc-vetur was removed, as vetur is unmaintained by Vue. You should switch to Volar, which supports Vue 3"; # added 2025-10-01
     completion-treesitter = throw "completion-treesitter has been archived since 2024-01"; # Added 2025-12-18
     feline-nvim = throw "feline.nvim has been removed: upstream deleted repository. Consider using lualine"; # Added 2025-02-09
@@ -58,13 +58,13 @@ mapAliases (
     playground = throw "playground has been archived"; # Added 2025-12-18
     pure-lua = lib.warnOnInstantiate "Please replace 'vimPlugins.pure-lua' with 'vimPlugins.moonlight-nvim' as this name was an error" moonlight-nvim; # Added 2025-11-17
     rust-tools-nvim = lib.warnOnInstantiate "'vimPlugins.rust-tools-nvim' is abandoned by upstream; you should use 'vimPlugins.rustaceanvim'" rust-tools-nvim;
-    Spacegray-vim = throw "Spacegray-vim has been removed: abandoned by upstream"; # Added 2025-03-24
+    Spacegray-vim = throw "'vimPlugins.Spacegray-vim' has been removed: abandoned by upstream"; # Added 2025-03-24
     SpaceVim = throw "this distribution didn't work properly in vimPlugins, please use top-level 'spacevim' instead"; # added 2024-11-27
     spacevim = throw "this distribution was unmaintained for the last 6 years, please use top-level 'spacevim'"; # added 2024-11-27
-    sparkup = throw "the upstream repository got deleted"; # added 2025-08-06
-    syntax-tree-surfer = throw "syntax-tree-surfer has been archived"; # Added 2025-12-18
-    todo-nvim = throw "todo-nvim has been removed: abandoned by upstream"; # Added 2023-08-23
-    vim-sourcetrail = throw "vim-sourcetrail has been removed: abandoned by upstream"; # Added 2022-08-14
+    sparkup = throw "'vimPlugins.sparkup' was removed: the upstream repository got deleted"; # added 2025-08-06
+    syntax-tree-surfer = throw "'vimPlugins.syntax-tree-surfer' has been archived"; # Added 2025-12-18
+    todo-nvim = throw "'vimPlugins.todo-nvim' has been removed: abandoned by upstream"; # Added 2023-08-23
+    vim-sourcetrail = throw "'vimPlugins.vim-sourcetrail' has been removed: abandoned by upstream"; # Added 2022-08-14
     # keep-sorted end
   }
   // deprecations
