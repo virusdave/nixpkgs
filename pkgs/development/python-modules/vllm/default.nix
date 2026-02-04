@@ -324,14 +324,14 @@ in
 
 buildPythonPackage.override { stdenv = torch.stdenv; } (finalAttrs: {
   pname = "vllm";
-  version = "0.15.0";
+  version = "0.15.1";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "vllm-project";
     repo = "vllm";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-E6F69tVN4+uws9X8wJzwRrFYuLsf7Iv88n3zcVH1geg=";
+    hash = "sha256-qsAvcOB8ugGlBqBrLfNHqaIUcxLwaXBTg8xWRnGyd94=";
   };
 
   patches = [
