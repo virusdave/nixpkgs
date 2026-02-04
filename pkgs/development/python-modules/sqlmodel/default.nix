@@ -12,7 +12,7 @@
   sqlalchemy,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "sqlmodel";
   version = "0.0.32";
   pyproject = true;
@@ -20,7 +20,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "tiangolo";
     repo = "sqlmodel";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-+92QPpWFHs2qUUR5au6MKO/wHIk+4lXYX/gFfxKzafo=";
   };
 
@@ -50,8 +50,8 @@ buildPythonPackage rec {
   meta = {
     description = "Module to work with SQL databases";
     homepage = "https://github.com/fastapi/sqlmodel";
-    changelog = "https://github.com/fastapi/sqlmodel/releases/tag/${src.tag}";
+    changelog = "https://github.com/fastapi/sqlmodel/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
