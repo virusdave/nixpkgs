@@ -6,7 +6,7 @@
   libXinerama,
   xcbutil,
   xcbutilkeysyms,
-  xcbutilwm,
+  libxcb-wm,
   nixosTests,
 }:
 
@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXinerama
     xcbutil
     xcbutilkeysyms
-    xcbutilwm
+    libxcb-wm
   ];
 
   makeFlags = [ "PREFIX=$(out)" ];

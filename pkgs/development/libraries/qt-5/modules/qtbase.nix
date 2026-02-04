@@ -46,7 +46,7 @@
   xcbutilimage,
   xcbutilkeysyms,
   xcbutilrenderutil,
-  xcbutilwm,
+  libxcb-wm,
   zlib,
   at-spi2-core,
 
@@ -135,7 +135,7 @@ stdenv.mkDerivation (
           xcbutilimage
           xcbutilkeysyms
           xcbutilrenderutil
-          xcbutilwm
+          libxcb-wm
         ]
         ++ lib.optional libGLSupported libGL
       );

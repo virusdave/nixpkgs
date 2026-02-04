@@ -27,7 +27,7 @@
   xcbutil,
   libxcb-cursor,
   xcbutilkeysyms,
-  xcbutilwm,
+  libxcb-wm,
   xcbutilxrm,
   waylandSupport ? true,
   x11Support ? true,
@@ -90,7 +90,7 @@ stdenv.mkDerivation (finalAttrs: {
     xcbutil
     libxcb-cursor
     xcbutilkeysyms
-    xcbutilwm
+    libxcb-wm
     xcbutilxrm
   ];
 

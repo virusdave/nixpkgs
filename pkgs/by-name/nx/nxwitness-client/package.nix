@@ -20,7 +20,7 @@
   xcbutilimage,
   xcbutilkeysyms,
   xcbutilrenderutil,
-  xcbutilwm,
+  libxcb-wm,
 }:
 let
   version = "6.0.6";
@@ -48,7 +48,7 @@ let
     xcbutilimage
     xcbutilkeysyms
     xcbutilrenderutil
-    xcbutilwm
+    libxcb-wm
   ];
 
   meta = {

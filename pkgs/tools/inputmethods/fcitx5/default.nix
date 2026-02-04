@@ -30,7 +30,7 @@
   libdatrie,
   xcbutilkeysyms,
   xcbutil,
-  xcbutilwm,
+  libxcb-wm,
   xcb-imdkit,
   libxkbfile,
   nixosTests,
@@ -87,7 +87,7 @@ stdenv.mkDerivation rec {
     libXdmcp
     libxkbcommon
     xcbutil
-    xcbutilwm
+    libxcb-wm
     xcbutilkeysyms
     xcb-imdkit
     xkeyboard_config

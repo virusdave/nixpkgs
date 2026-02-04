@@ -30,7 +30,7 @@
   wayland-scanner,
   wlroots,
   libxcb-cursor,
-  xcbutilwm,
+  libxcb-wm,
   xcffib,
   nixosTests,
   extraPackages ? [ ],
@@ -112,7 +112,7 @@ buildPythonPackage (finalAttrs: {
     libxkbcommon
     wayland
     wlroots
-    xcbutilwm
+    libxcb-wm
   ];
 
   propagatedBuildInputs = [

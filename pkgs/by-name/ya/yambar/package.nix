@@ -24,7 +24,7 @@
   xcbutil,
   libxcb-cursor,
   xcbutilerrors,
-  xcbutilwm,
+  libxcb-wm,
   waylandSupport ? true,
   x11Support ? true,
 }:
@@ -78,7 +78,7 @@ stdenv.mkDerivation (finalAttrs: {
     xcbutil
     libxcb-cursor
     xcbutilerrors
-    xcbutilwm
+    libxcb-wm
   ];
 
   strictDeps = true;

@@ -5,7 +5,7 @@
   patches,
   libxcb,
   xcbutilkeysyms,
-  xcbutilwm,
+  libxcb-wm,
   libX11,
   xcbutil,
   xcbutilxrm,
@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     libxcb
     xcbutilkeysyms
-    xcbutilwm
+    libxcb-wm
     libX11
     xcbutil
     xcbutilxrm

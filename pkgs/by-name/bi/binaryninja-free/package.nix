@@ -15,7 +15,7 @@
   xcbutilimage,
   xcbutilkeysyms,
   xcbutilrenderutil,
-  xcbutilwm,
+  libxcb-wm,
   libxml2,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -64,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     xcbutilimage
     xcbutilkeysyms
     xcbutilrenderutil
-    xcbutilwm
+    libxcb-wm
   ];
 
   installPhase = ''

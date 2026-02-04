@@ -4,7 +4,7 @@
   fetchFromGitHub,
   libxcb,
   xcbutil,
-  xcbutilwm,
+  libxcb-wm,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libxcb
-    xcbutilwm
+    libxcb-wm
     xcbutil
   ];
 

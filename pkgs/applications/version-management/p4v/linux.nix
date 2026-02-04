@@ -27,7 +27,7 @@
   xcbutilimage,
   xcbutilkeysyms,
   xcbutilrenderutil,
-  xcbutilwm,
+  libxcb-wm,
 }:
 
 {
@@ -69,7 +69,7 @@ let
       xcbutilimage
       xcbutilkeysyms
       xcbutilrenderutil
-      xcbutilwm
+      libxcb-wm
     ];
 
     dontBuild = true;

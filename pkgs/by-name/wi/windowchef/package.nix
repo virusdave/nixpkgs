@@ -6,7 +6,7 @@
   libXrandr,
   xcbutil,
   xcbutilkeysyms,
-  xcbutilwm,
+  libxcb-wm,
   xcbproto,
 }:
 
@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXrandr
     xcbutil
     xcbutilkeysyms
-    xcbutilwm
+    libxcb-wm
     xcbproto
   ];
 

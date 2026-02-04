@@ -7,7 +7,7 @@
   libxcb,
   xcbutil,
   xcbutilkeysyms,
-  xcbutilwm,
+  libxcb-wm,
   nixosTests,
 }:
 
@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb
     xcbutil
     xcbutilkeysyms
-    xcbutilwm
+    libxcb-wm
   ];
 
   strictDeps = true;

@@ -31,7 +31,7 @@
   pkg-config,
   systemd,
   xcbutil,
-  xcbutilwm,
+  libxcb-wm,
   xcbutilimage,
   xkbcomp,
   xkeyboard_config,
@@ -84,7 +84,7 @@ stdenv.mkDerivation (finalPackages: rec {
     pixman
     systemd
     xcbutil
-    xcbutilwm
+    libxcb-wm
     xcbutilimage
     xkbcomp
     xkeyboard_config
