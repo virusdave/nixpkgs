@@ -9764,6 +9764,8 @@ self: super: with self; {
 
   mistral-common = callPackage ../development/python-modules/mistral-common { };
 
+  mistral-inference = callPackage ../development/python-modules/mistral-inference { };
+
   mistralai = callPackage ../development/python-modules/mistralai { };
 
   mistune = callPackage ../development/python-modules/mistune { };
