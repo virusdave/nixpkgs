@@ -8820,7 +8820,6 @@ with pkgs;
 
   virtualenv-clone = with python3Packages; toPythonApplication virtualenv-clone;
 
-  libFS = libfs;
   libICE = libice;
   libpthreadstubs = libpthread-stubs;
   libSM = libsm;
