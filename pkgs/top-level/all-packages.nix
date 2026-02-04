@@ -8870,7 +8870,6 @@ with pkgs;
   xf86videonouveau = xf86-video-nouveau;
   xkeyboardconfig = xkeyboard-config;
   xorgcffiles = xorg-cf-files;
-  xorgserver = xorg-server;
 
   zabbixFor = version: rec {
     agent = (callPackages ../servers/monitoring/zabbix/agent.nix { }).${version};

@@ -27,7 +27,7 @@
   glib,
   libbsd,
   libX11,
-  xorgserver,
+  xorg-server,
   kmod,
   xf86videonouveau,
   nvidia_x11 ? linuxPackages.nvidia_x11,
@@ -65,12 +65,12 @@ let
 
   bbdPath = lib.makeBinPath [
     kmod
-    xorgserver
+    xorg-server
   ];
 
   xmodules = lib.concatStringsSep "," (
     map (x: "${x.out or x}/lib/xorg/modules") (
-      [ xorgserver ] ++ lib.optional (!useNvidia) xf86videonouveau
+      [ xorg-server ] ++ lib.optional (!useNvidia) xf86videonouveau
     )
   );
 

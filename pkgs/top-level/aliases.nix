@@ -2225,6 +2225,7 @@ mapAliases {
     };
   xorg-autoconf = util-macros; # Added 2025-08-18
   xorgdocs = xorg-docs; # Added 2026-01-19
+  xorgserver = xorg-server; # Added 2026-02-04
   xorgsgmldoctools = xorg-sgml-doctools; # Added 2026-01-19
   xow_dongle-firmware = throw "'xow_dongle-firmware' has been renamed to/replaced by 'xone-dongle-firmware'"; # Added 2025-12-30
   xsw = throw "'xsw' has been removed due to lack of upstream maintenance"; # Added 2025-08-22
