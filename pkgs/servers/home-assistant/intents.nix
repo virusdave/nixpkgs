@@ -21,7 +21,7 @@
 
 buildPythonPackage rec {
   pname = "home-assistant-intents";
-  version = "2026.1.6";
+  version = "2026.2.3";
   pyproject = true;
 
   src = fetchFromGitHub {
