@@ -17394,6 +17394,12 @@
     githubId = 66798382;
     name = "Sebastian Maximilian Scherthan";
   };
+  miniharinn = {
+    name = "Harinn";
+    github = "MiniHarinn";
+    githubId = 52773156;
+    email = "prinn.dev@pm.me";
+  };
   minijackson = {
     email = "minijackson@riseup.net";
     github = "minijackson";
