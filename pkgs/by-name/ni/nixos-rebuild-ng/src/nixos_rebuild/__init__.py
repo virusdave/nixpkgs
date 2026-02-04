@@ -376,9 +376,11 @@ def main() -> None:
 
     try:
         execute(sys.argv)
+    except KeyboardInterrupt:
+        sys.exit(130)
     except CalledProcessError as ex:
         sys.exit(_handle_called_process_error(ex))
-    except (Exception, KeyboardInterrupt) as ex:
+    except Exception as ex:
         if logger.isEnabledFor(logging.DEBUG):
             raise
         else:
