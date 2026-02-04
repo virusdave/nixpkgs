@@ -702,6 +702,7 @@ mapAliases {
   fontscreencyrillic = font-screen-cyrillic; # Added 2026-01-19
   fontsonymisc = font-sony-misc; # Added 2026-01-19
   fontsunmisc = font-sun-misc; # Added 2026-01-19
+  fontutil = font-util; # Added 2026-02-04
   fontwinitzkicyrillic = font-winitzki-cyrillic; # Added 2026-01-19
   fontxfree86type1 = font-xfree86-type1; # Added 2026-01-19
   forceSystem = warnAlias "forceSystem is deprecated in favour of explicitly importing Nixpkgs" (

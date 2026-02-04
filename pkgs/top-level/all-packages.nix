@@ -8822,7 +8822,6 @@ with pkgs;
 
   virtualenv-clone = with python3Packages; toPythonApplication virtualenv-clone;
 
-  fontutil = font-util;
   libAppleWM = libapplewm;
   libFS = libfs;
   libICE = libice;
