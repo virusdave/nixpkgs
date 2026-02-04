@@ -2,6 +2,7 @@
   fetchFromGitHub,
   fetchpatch,
   gns3-gui,
+  gns3-server,
   lib,
   python3Packages,
   qt6,
@@ -68,9 +69,12 @@ python3Packages.buildPythonApplication rec {
     export QT_QPA_PLATFORM=offscreen
   '';
 
-  passthru.tests.version = testers.testVersion {
-    package = gns3-gui;
-    command = "${lib.getExe gns3-gui} --version";
+  passthru = {
+    tests.version = testers.testVersion {
+      package = gns3-gui;
+      command = "${lib.getExe gns3-gui} --version";
+    };
+    inherit (gns3-server.passthru) updateScript;
   };
 
   meta = {
