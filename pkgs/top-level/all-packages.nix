@@ -8856,7 +8856,6 @@ with pkgs;
   libXxf86misc = libxxf86misc;
   libXxf86vm = libxxf86vm;
   mkfontdir = mkfontscale;
-  utilmacros = util-macros;
   xcbproto = xcb-proto;
   xcbutil = libxcb-util;
   xcbutilcursor = libxcb-cursor;

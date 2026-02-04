@@ -5,7 +5,7 @@
   pkg-config,
   xorg-server,
   xorgproto,
-  utilmacros,
+  util-macros,
   libgestures,
   libevdevc,
 }:
@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     xorg-server
     xorgproto
-    utilmacros
+    util-macros
     libgestures
     libevdevc
   ];
