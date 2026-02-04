@@ -7,7 +7,7 @@
   ffmpeg,
   ttyd,
   chromium,
-  makeWrapper,
+  makeBinaryWrapper,
 }:
 
 buildGoModule rec {
@@ -25,7 +25,7 @@ buildGoModule rec {
 
   nativeBuildInputs = [
     installShellFiles
-    makeWrapper
+    makeBinaryWrapper
   ];
 
   ldflags = [
