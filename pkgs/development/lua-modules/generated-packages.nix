@@ -4575,15 +4575,15 @@ final: prev: {
     }:
     buildLuarocksPackage {
       pname = "rocks.nvim";
-      version = "2.47.3-1";
+      version = "2.47.4-1";
       knownRockspec =
         (fetchurl {
-          url = "mirror://luarocks/rocks.nvim-2.47.3-1.rockspec";
-          sha256 = "1a4bcbrmf77wdsly4czc21h3v4sdmpph4j1m263sfm0vdbrw1ny3";
+          url = "mirror://luarocks/rocks.nvim-2.47.4-1.rockspec";
+          sha256 = "0wc3ddd926qq186yvsh5ylyxygr1wg5a72p1ch4d8hrgnddpb3ii";
         }).outPath;
       src = fetchzip {
-        url = "https://github.com/lumen-oss/rocks.nvim/archive/v2.47.3.zip";
-        sha256 = "0smk9vk402wxnx0fksl0dh3s0wa564d1szi5lgwsa9ywysld1nxs";
+        url = "https://github.com/lumen-oss/rocks.nvim/archive/v2.47.4.zip";
+        sha256 = "1gzy55m1d86wg5skf6pczd9d6wxrmh9bly32asw6rbs6k4fz0lpb";
       };
 
       disabled = lua.luaversion != "5.1";
