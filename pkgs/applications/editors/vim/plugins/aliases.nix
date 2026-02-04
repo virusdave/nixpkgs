@@ -29,7 +29,10 @@ let
     ) aliases;
 
   deprecations = lib.mapAttrs (
-    old: info: throw "${old} was renamed to ${info.new} on ${info.date}. Please update to ${info.new}."
+    old: info:
+    lib.warnOnInstantiate "'vimPlugins.${old}' was renamed to 'vimPlugins.${info.new}' on ${info.date}. Please update to 'vimPlugins.${info.new}'." (
+      builtins.getAttr info.new prev
+    )
   ) (lib.importJSON ./deprecated.json);
 
 in
