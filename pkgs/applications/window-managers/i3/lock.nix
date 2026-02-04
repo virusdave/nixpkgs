@@ -7,7 +7,7 @@
   pkg-config,
   libxcb,
   libxcb-keysyms,
-  xcbutilimage,
+  libxcb-image,
   xcbutilxrm,
   pam,
   libX11,
@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     libxcb
     libxcb-keysyms
-    xcbutilimage
+    libxcb-image
     xcbutilxrm
     pam
     libX11

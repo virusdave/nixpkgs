@@ -29,7 +29,7 @@
   libdrm,
   libxkbcommon,
   libxcb-wm,
-  xcbutilimage,
+  libxcb-image,
   libxcb-keysyms,
   libxcb-render-util,
   libgbm,
@@ -85,7 +85,7 @@ let
     pango
     zlib
     libxcb-wm
-    xcbutilimage
+    libxcb-image
     libxcb-keysyms
     libxcb-render-util
     libx11

@@ -41,7 +41,7 @@
   libxcb-wm,
   libxcb-render-util,
   libxcb-keysyms,
-  xcbutilimage,
+  libxcb-image,
   libxcb-cursor,
   libxkbfile,
   libXcomposite,
@@ -174,7 +174,7 @@ let
             libxcb-wm
             libxcb-render-util
             libxcb-keysyms
-            xcbutilimage
+            libxcb-image
             libxcb-cursor
             libice
             libsm

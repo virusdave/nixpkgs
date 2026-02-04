@@ -43,7 +43,7 @@
   sqlite,
   udev,
   xcbutil,
-  xcbutilimage,
+  libxcb-image,
   libxcb-keysyms,
   libxcb-render-util,
   libxcb-wm,
@@ -132,7 +132,7 @@ stdenv.mkDerivation (
           libxcb
           libxkbcommon
           xcbutil
-          xcbutilimage
+          libxcb-image
           libxcb-keysyms
           libxcb-render-util
           libxcb-wm

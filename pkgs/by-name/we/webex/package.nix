@@ -45,7 +45,7 @@
   libXtst,
   libxshmfence,
   xcbutil,
-  xcbutilimage,
+  libxcb-image,
   libxcb-keysyms,
   libxcb-render-util,
   libxcb-wm,
@@ -111,7 +111,7 @@ stdenv.mkDerivation rec {
     libXtst
     libxshmfence
     xcbutil
-    xcbutilimage
+    libxcb-image
     libXScrnSaver
     libxcb-keysyms
     libxcb-render-util

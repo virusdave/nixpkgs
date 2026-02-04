@@ -24,7 +24,7 @@
   qttools,
   qtwebengine,
   qtwebview,
-  xcbutilimage,
+  libxcb-image,
   libxcb-keysyms,
   libxcb-render-util,
   libxcb-wm,
@@ -66,7 +66,7 @@ let
       qttools
       qtwebengine
       qtwebview
-      xcbutilimage
+      libxcb-image
       libxcb-keysyms
       libxcb-render-util
       libxcb-wm

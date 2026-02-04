@@ -32,7 +32,7 @@
   systemd,
   xcbutil,
   libxcb-wm,
-  xcbutilimage,
+  libxcb-image,
   xkbcomp,
   xkeyboard_config,
   xorgproto,
@@ -85,7 +85,7 @@ stdenv.mkDerivation (finalPackages: rec {
     systemd
     xcbutil
     libxcb-wm
-    xcbutilimage
+    libxcb-image
     xkbcomp
     xkeyboard_config
     xorgproto

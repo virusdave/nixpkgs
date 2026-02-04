@@ -17,7 +17,7 @@
   xcbproto,
   xcbutil,
   libxcb-cursor,
-  xcbutilimage,
+  libxcb-image,
   libxcb-render-util,
   libxcb-wm,
   xcbutilxrm,
@@ -73,7 +73,7 @@ stdenv.mkDerivation (finalAttrs: {
     xcbproto
     xcbutil
     libxcb-cursor
-    xcbutilimage
+    libxcb-image
     libxcb-render-util
     libxcb-wm
     xcbutilxrm
