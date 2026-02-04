@@ -8822,11 +8822,6 @@ with pkgs;
 
   virtualenv-clone = with python3Packages; toPythonApplication virtualenv-clone;
 
-  fontadobe100dpi = font-adobe-100dpi;
-  fontadobeutopia100dpi = font-adobe-utopia-100dpi;
-  fontbh100dpi = font-bh-100dpi;
-  fontbhlucidatypewriter100dpi = font-bh-lucidatypewriter-100dpi;
-  fontbitstream100dpi = font-bitstream-100dpi;
   fontutil = font-util;
   libAppleWM = libapplewm;
   libFS = libfs;
