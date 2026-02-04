@@ -12,7 +12,7 @@
   xorgproto,
   libXext,
   libSM,
-  libICE,
+  libice,
   libXi,
   libXt,
   libXrender,
@@ -52,7 +52,7 @@ let
     libXrandr
     libXext
     libSM
-    libICE
+    libice
     libXi
     libXt
     libXrender
@@ -141,7 +141,7 @@ stdenv.mkDerivation (finalAttrs: {
     xorgproto
     libXext
     libSM
-    libICE
+    libice
     libXi
     libXt
     libXrender

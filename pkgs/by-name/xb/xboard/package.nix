@@ -8,7 +8,7 @@
   libXt,
   libXaw,
   libSM,
-  libICE,
+  libice,
   libXmu,
   libXext,
   gnuchess,
@@ -47,7 +47,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXt
     libXaw
     libSM
-    libICE
+    libice
     libXmu
     libXext
     gnuchess

@@ -9,7 +9,7 @@
   copyDesktopItems,
   makeDesktopItem,
   libX11,
-  libICE,
+  libice,
   libSM,
   libXi,
   libXcursor,
@@ -87,7 +87,7 @@ buildDotnetModule rec {
     freetype
     glib
     libX11
-    libICE
+    libice
     libSM
     libXi
     libXcursor

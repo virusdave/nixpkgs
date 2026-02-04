@@ -16,7 +16,7 @@
   libXpm,
   libXext,
   libSM,
-  libICE,
+  libice,
   perl,
 }:
 
@@ -50,7 +50,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXpm
     libXext
     libSM
-    libICE
+    libice
     libv4l
   ];
 
