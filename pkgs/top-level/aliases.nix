@@ -1909,6 +1909,7 @@ mapAliases {
   xcb-util-cursor = libxcb-cursor; # Added 2026-02-04
   xcb-util-cursor-HEAD = warnAlias "'xcb-util-cursor-HEAD' has been removed; use 'libxcb-cursor' instead" libxcb-cursor; # added 2026-01-12
   xcbutilcursor = libxcb-cursor; # Added 2026-02-04
+  xcbutilkeysyms = libxcb-keysyms; # Added 2026-02-04
   xcbutilrenderutil = libxcb-render-util; # Added 2026-02-04
   xcbutilwm = libxcb-wm; # Added 2026-02-04
   xcursorthemes = xcursor-themes; # Added 2026-01-19

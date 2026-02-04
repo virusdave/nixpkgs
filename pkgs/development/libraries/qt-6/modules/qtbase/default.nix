@@ -58,7 +58,7 @@
   udev,
   xcbutil,
   xcbutilimage,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-render-util,
   libxcb-wm,
   zlib,
@@ -155,7 +155,7 @@ stdenv.mkDerivation rec {
     libxkbcommon
     xcbutil
     xcbutilimage
-    xcbutilkeysyms
+    libxcb-keysyms
     libxcb-render-util
     libxcb-wm
     libxdmcp

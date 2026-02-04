@@ -11,7 +11,7 @@
   libxcb,
   xcbutil,
   libxcb-cursor,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxkbcommon,
   libX11,
   libXrandr,
@@ -46,7 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb
     xcbutil
     libxcb-cursor
-    xcbutilkeysyms
+    libxcb-keysyms
     libxkbcommon
     libX11
     libXrandr

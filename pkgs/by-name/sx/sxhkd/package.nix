@@ -6,7 +6,7 @@
   asciidoc,
   libxcb,
   xcbutil,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-wm,
   nixosTests,
 }:
@@ -35,7 +35,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libxcb
     xcbutil
-    xcbutilkeysyms
+    libxcb-keysyms
     libxcb-wm
   ];
 

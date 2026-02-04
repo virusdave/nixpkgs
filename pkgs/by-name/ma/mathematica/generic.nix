@@ -43,7 +43,7 @@
   tre,
   unixODBC,
   xcbutilimage,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   xkeyboard_config,
   libxtst,
   libxscrnsaver,
@@ -128,7 +128,7 @@ stdenv.mkDerivation {
     tre
     unixODBC
     xcbutilimage
-    xcbutilkeysyms
+    libxcb-keysyms
     xkeyboard_config
     libice
     libsm

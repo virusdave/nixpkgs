@@ -25,7 +25,7 @@
   qtwebengine,
   qtwebview,
   xcbutilimage,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-render-util,
   libxcb-wm,
 }:
@@ -67,7 +67,7 @@ let
       qtwebengine
       qtwebview
       xcbutilimage
-      xcbutilkeysyms
+      libxcb-keysyms
       libxcb-render-util
       libxcb-wm
     ];

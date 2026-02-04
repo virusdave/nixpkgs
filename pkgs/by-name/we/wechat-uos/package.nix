@@ -30,7 +30,7 @@
   libxkbcommon,
   libxcb-wm,
   xcbutilimage,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-render-util,
   libgbm,
   alsa-lib,
@@ -86,7 +86,7 @@ let
     zlib
     libxcb-wm
     xcbutilimage
-    xcbutilkeysyms
+    libxcb-keysyms
     libxcb-render-util
     libx11
     libxt

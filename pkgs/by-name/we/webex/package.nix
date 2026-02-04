@@ -46,7 +46,7 @@
   libxshmfence,
   xcbutil,
   xcbutilimage,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-render-util,
   libxcb-wm,
   p7zip,
@@ -113,7 +113,7 @@ stdenv.mkDerivation rec {
     xcbutil
     xcbutilimage
     libXScrnSaver
-    xcbutilkeysyms
+    libxcb-keysyms
     libxcb-render-util
     libxcb-wm
     onetbb

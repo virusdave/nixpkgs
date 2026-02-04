@@ -15,7 +15,7 @@
   pkg-config,
   wayland,
   which,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-wm,
   valijson,
   vulkan-headers,
@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
     vulkan-loader
     vulkan-utility-libraries
     wayland
-    xcbutilkeysyms
+    libxcb-keysyms
     libxcb-wm
     qt6.qtbase
     qt6.qtwayland

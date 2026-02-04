@@ -24,7 +24,7 @@
   vst2-sdk,
   xcbutil,
   libxkbcommon,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-cursor,
   gtk3,
   webkitgtk_4_1,
@@ -114,7 +114,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb
     xcbutil
     libxkbcommon
-    xcbutilkeysyms
+    libxcb-keysyms
     libxcb-cursor
     mount
   ];

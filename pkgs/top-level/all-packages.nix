@@ -8858,7 +8858,6 @@ with pkgs;
   xcbutil = libxcb-util;
   xcbutilerrors = libxcb-errors;
   xcbutilimage = libxcb-image;
-  xcbutilkeysyms = libxcb-keysyms;
 
   zabbixFor = version: rec {
     agent = (callPackages ../servers/monitoring/zabbix/agent.nix { }).${version};

@@ -9,7 +9,7 @@
   libarchive,
   libXdmcp,
   libpthreadstubs,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   qt6,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
     qt6.qtbase
     qt6.qtimageformats
     qt6.qtwebengine
-    xcbutilkeysyms
+    libxcb-keysyms
   ];
 
   cmakeFlags = [

@@ -18,7 +18,7 @@
   qt6Packages,
   wayland,
   xcbutilimage,
-  xcbutilkeysyms,
+  libxcb-keysyms,
   libxcb-render-util,
   libxcb-wm,
 }:
@@ -46,7 +46,7 @@ let
     qt6Packages.qtwebview
     wayland
     xcbutilimage
-    xcbutilkeysyms
+    libxcb-keysyms
     libxcb-render-util
     libxcb-wm
   ];
