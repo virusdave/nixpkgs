@@ -6,7 +6,7 @@
   makeWrapper,
   libX11,
   zlib,
-  libSM,
+  libsm,
   libice,
   libXext,
   freetype,
@@ -38,7 +38,7 @@ let
   rpath = lib.makeLibraryPath [
     libX11
     zlib
-    libSM
+    libsm
     libice
     libXext
     freetype

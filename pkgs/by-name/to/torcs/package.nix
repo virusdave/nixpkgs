@@ -12,7 +12,7 @@
   libXrandr,
   xorgproto,
   libXext,
-  libSM,
+  libsm,
   libice,
   libXi,
   libXt,
@@ -60,7 +60,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXrandr
     xorgproto
     libXext
-    libSM
+    libsm
     libice
     libXi
     libXt

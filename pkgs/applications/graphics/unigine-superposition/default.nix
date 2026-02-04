@@ -9,7 +9,7 @@
   qtquickcontrols2,
   libXinerama,
   libxcb,
-  libSM,
+  libsm,
   libXi,
   libglvnd,
   libXext,
@@ -54,7 +54,7 @@ let
       qtquickcontrols2
       libXinerama
       libxcb
-      libSM
+      libsm
       libXi
       libglvnd
       libXext
@@ -111,7 +111,7 @@ buildFHSEnv {
     qtquickcontrols2
     libXinerama
     libxcb
-    libSM
+    libsm
     libXi
     libglvnd
     libXext

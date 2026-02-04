@@ -8820,7 +8820,6 @@ with pkgs;
 
   virtualenv-clone = with python3Packages; toPythonApplication virtualenv-clone;
 
-  libSM = libsm;
   libX11 = libx11;
   libXau = libxau;
   libXaw = libxaw;

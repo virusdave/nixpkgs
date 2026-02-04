@@ -5,7 +5,7 @@
   fetchurl,
   libGL,
   libice,
-  libSM,
+  libsm,
   libX11,
   libXcursor,
   libXext,
@@ -243,7 +243,7 @@ let
         alsa-lib
         libGL
         libice
-        libSM
+        libsm
         libX11
         libXcursor
         libXext

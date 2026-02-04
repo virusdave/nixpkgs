@@ -6,7 +6,7 @@
   glib,
   libGL,
   libGLU,
-  libSM,
+  libsm,
 
   libXcomposite,
   libXi,
@@ -64,7 +64,7 @@ stdenv.mkDerivation rec {
     gst_all_1.gstreamer
     libGL
     libGLU
-    libSM
+    libsm
     libX11
     libXcomposite
     libXi

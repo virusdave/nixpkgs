@@ -7,7 +7,7 @@
   fltk_1_3,
   gtk2,
   libice,
-  libSM,
+  libsm,
   libtiff,
   pkg-config,
 }:
@@ -61,7 +61,7 @@ stdenv.mkDerivation (finalAttrs: {
     fltk_1_3
     gtk2
     libice
-    libSM
+    libsm
     libtiff
   ];
 

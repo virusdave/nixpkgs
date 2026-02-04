@@ -10,7 +10,7 @@
   makeDesktopItem,
   libX11,
   libice,
-  libSM,
+  libsm,
   libXi,
   libXcursor,
   libXext,
@@ -88,7 +88,7 @@ buildDotnetModule rec {
     glib
     libX11
     libice
-    libSM
+    libsm
     libXi
     libXcursor
     libXext

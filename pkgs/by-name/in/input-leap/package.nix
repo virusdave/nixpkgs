@@ -5,7 +5,7 @@
   cmake,
   curl,
   libice,
-  libSM,
+  libsm,
   libX11,
   libXdmcp,
   libXext,
@@ -56,7 +56,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXrandr
     libXdmcp
     libice
-    libSM
+    libsm
   ]
   ++ lib.optionals withLibei [
     libei
