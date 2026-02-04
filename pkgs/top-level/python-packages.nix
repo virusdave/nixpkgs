@@ -5851,6 +5851,8 @@ self: super: with self; {
 
   fslpy = callPackage ../development/python-modules/fslpy { };
 
+  fspath = callPackage ../development/python-modules/fspath { };
+
   fsspec = callPackage ../development/python-modules/fsspec { };
 
   fsspec-xrootd = callPackage ../development/python-modules/fsspec-xrootd { };
