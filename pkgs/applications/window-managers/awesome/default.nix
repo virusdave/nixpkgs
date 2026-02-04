@@ -22,7 +22,7 @@
   libstartup_notification,
   libxdg_basedir,
   libpthreadstubs,
-  xcb-util-cursor,
+  libxcb-cursor,
   makeWrapper,
   pango,
   gobject-introspection,
@@ -129,7 +129,7 @@ stdenv.mkDerivation rec {
     lua
     net-tools
     pango
-    xcb-util-cursor
+    libxcb-cursor
     libxau
     libxdmcp
     libxcb

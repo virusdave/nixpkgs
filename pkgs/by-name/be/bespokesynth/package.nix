@@ -25,7 +25,7 @@
   xcbutil,
   libxkbcommon,
   xcbutilkeysyms,
-  xcb-util-cursor,
+  libxcb-cursor,
   gtk3,
   webkitgtk_4_1,
   python3,
@@ -115,7 +115,7 @@ stdenv.mkDerivation (finalAttrs: {
     xcbutil
     libxkbcommon
     xcbutilkeysyms
-    xcb-util-cursor
+    libxcb-cursor
     mount
   ];
 

@@ -17,7 +17,7 @@
   pcre2,
   libev,
   yajl,
-  xcb-util-cursor,
+  libxcb-cursor,
   perl,
   pango,
   perlPackages,
@@ -79,7 +79,7 @@ stdenv.mkDerivation (finalAttrs: {
     pcre2
     libev
     yajl
-    xcb-util-cursor
+    libxcb-cursor
     perl
     pango
     perlPackages.AnyEventI3

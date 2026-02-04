@@ -7852,8 +7852,6 @@ with pkgs;
     libmagic = file;
   };
 
-  xcb-util-cursor = libxcb-cursor;
-
   xgboostWithCuda = xgboost.override { cudaSupport = true; };
 
   zlib = callPackage ../development/libraries/zlib {
@@ -8858,7 +8856,6 @@ with pkgs;
   mkfontdir = mkfontscale;
   xcbproto = xcb-proto;
   xcbutil = libxcb-util;
-  xcbutilcursor = libxcb-cursor;
   xcbutilerrors = libxcb-errors;
   xcbutilimage = libxcb-image;
   xcbutilkeysyms = libxcb-keysyms;

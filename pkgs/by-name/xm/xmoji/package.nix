@@ -10,7 +10,7 @@
   libXcursor,
   xcbutilimage,
   libxkbcommon,
-  xcb-util-cursor,
+  libxcb-cursor,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXcursor
     libpng
     libxkbcommon
-    xcb-util-cursor
+    libxcb-cursor
     xcbutil
     xcbutilimage
   ];

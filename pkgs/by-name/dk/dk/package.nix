@@ -5,7 +5,7 @@
   xcbutil,
   xcbutilkeysyms,
   xcbutilwm,
-  xcb-util-cursor,
+  libxcb-cursor,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
     xcbutil
     xcbutilkeysyms
     xcbutilwm
-    xcb-util-cursor
+    libxcb-cursor
   ];
 
   postPatch = ''

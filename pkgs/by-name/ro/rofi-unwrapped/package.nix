@@ -25,7 +25,7 @@
   which,
   xcb-imdkit,
   xcbutil,
-  xcb-util-cursor,
+  libxcb-cursor,
   xcbutilkeysyms,
   xcbutilwm,
   xcbutilxrm,
@@ -88,7 +88,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb
     xcb-imdkit
     xcbutil
-    xcb-util-cursor
+    libxcb-cursor
     xcbutilkeysyms
     xcbutilwm
     xcbutilxrm
