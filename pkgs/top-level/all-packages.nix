@@ -8869,7 +8869,6 @@ with pkgs;
   xf86inputlibinput = xf86-input-libinput;
   xf86videonouveau = xf86-video-nouveau;
   xkeyboardconfig = xkeyboard-config;
-  xorgcffiles = xorg-cf-files;
 
   zabbixFor = version: rec {
     agent = (callPackages ../servers/monitoring/zabbix/agent.nix { }).${version};

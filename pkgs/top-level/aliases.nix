@@ -2224,6 +2224,7 @@ mapAliases {
       # keep-sorted end
     };
   xorg-autoconf = util-macros; # Added 2025-08-18
+  xorgcffiles = xorg-cf-files; # Added 2026-02-04
   xorgdocs = xorg-docs; # Added 2026-01-19
   xorgserver = xorg-server; # Added 2026-02-04
   xorgsgmldoctools = xorg-sgml-doctools; # Added 2026-01-19
