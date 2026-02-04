@@ -8855,7 +8855,6 @@ with pkgs;
   libXxf86vm = libxxf86vm;
   mkfontdir = mkfontscale;
   xcbproto = xcb-proto;
-  xcbutil = libxcb-util;
 
   zabbixFor = version: rec {
     agent = (callPackages ../servers/monitoring/zabbix/agent.nix { }).${version};

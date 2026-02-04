@@ -22,7 +22,7 @@
   libGL,
   libxcb,
   vst2-sdk,
-  xcbutil,
+  libxcb-util,
   libxkbcommon,
   libxcb-keysyms,
   libxcb-cursor,
@@ -112,7 +112,7 @@ stdenv.mkDerivation (finalAttrs: {
     zenity
     alsa-tools
     libxcb
-    xcbutil
+    libxcb-util
     libxkbcommon
     libxcb-keysyms
     libxcb-cursor

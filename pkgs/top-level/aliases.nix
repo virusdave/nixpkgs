@@ -1908,6 +1908,7 @@ mapAliases {
   xbursttools = throw "'xbursttools' has been removed as it is broken and unmaintained upstream."; # Added 2025-06-12
   xcb-util-cursor = libxcb-cursor; # Added 2026-02-04
   xcb-util-cursor-HEAD = warnAlias "'xcb-util-cursor-HEAD' has been removed; use 'libxcb-cursor' instead" libxcb-cursor; # added 2026-01-12
+  xcbutil = libxcb-util; # Added 2026-02-04
   xcbutilcursor = libxcb-cursor; # Added 2026-02-04
   xcbutilerrors = libxcb-errors; # Added 2026-02-04
   xcbutilimage = libxcb-image; # Added 2026-02-04

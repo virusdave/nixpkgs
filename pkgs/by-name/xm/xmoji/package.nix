@@ -6,7 +6,7 @@
   fontconfig,
   harfbuzz,
   libpng,
-  xcbutil,
+  libxcb-util,
   libXcursor,
   libxcb-image,
   libxkbcommon,
@@ -41,7 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
     libpng
     libxkbcommon
     libxcb-cursor
-    xcbutil
+    libxcb-util
     libxcb-image
   ];
 

@@ -3,7 +3,7 @@
   stdenv,
   fetchFromGitHub,
   libxcb,
-  xcbutil,
+  libxcb-util,
   libxcb-cursor,
 }:
 
@@ -20,7 +20,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libxcb
-    xcbutil
+    libxcb-util
     libxcb-cursor
   ];
 

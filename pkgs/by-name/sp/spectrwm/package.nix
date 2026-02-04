@@ -8,7 +8,7 @@
   libXcursor,
   libXft,
   libXt,
-  xcbutil,
+  libxcb-util,
   libxcb-keysyms,
   libxcb-wm,
   writeShellScript,
@@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXcursor
     libXft
     libXt
-    xcbutil
+    libxcb-util
     libxcb-keysyms
     libxcb-wm
     libbsd

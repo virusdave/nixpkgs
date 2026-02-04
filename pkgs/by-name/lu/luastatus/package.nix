@@ -24,7 +24,7 @@
   docutils,
   libxcb,
   libX11,
-  xcbutil,
+  libxcb-util,
   libxcb-wm,
 }:
 
@@ -48,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libxcb
     libX11
-    xcbutil
+    libxcb-util
     libxcb-wm
     libXdmcp
     libXau

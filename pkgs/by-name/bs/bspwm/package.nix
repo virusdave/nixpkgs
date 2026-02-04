@@ -4,7 +4,7 @@
   fetchFromGitHub,
   libxcb,
   libXinerama,
-  xcbutil,
+  libxcb-util,
   libxcb-keysyms,
   libxcb-wm,
   nixosTests,
@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libxcb
     libXinerama
-    xcbutil
+    libxcb-util
     libxcb-keysyms
     libxcb-wm
   ];
