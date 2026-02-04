@@ -47,7 +47,7 @@
   xcbutil,
   xcbutilimage,
   xcbutilkeysyms,
-  xcbutilrenderutil,
+  libxcb-render-util,
   libxcb-wm,
   p7zip,
   onetbb,
@@ -114,7 +114,7 @@ stdenv.mkDerivation rec {
     xcbutilimage
     libXScrnSaver
     xcbutilkeysyms
-    xcbutilrenderutil
+    libxcb-render-util
     libxcb-wm
     onetbb
     wayland

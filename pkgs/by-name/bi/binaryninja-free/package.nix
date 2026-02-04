@@ -14,7 +14,7 @@
   wayland,
   xcbutilimage,
   xcbutilkeysyms,
-  xcbutilrenderutil,
+  libxcb-render-util,
   libxcb-wm,
   libxml2,
 }:
@@ -63,7 +63,7 @@ stdenv.mkDerivation (finalAttrs: {
     wayland
     xcbutilimage
     xcbutilkeysyms
-    xcbutilrenderutil
+    libxcb-render-util
     libxcb-wm
   ];
 

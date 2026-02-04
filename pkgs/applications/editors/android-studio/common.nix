@@ -39,7 +39,7 @@
   libxkbcommon,
   mesa-demos,
   libxcb-wm,
-  xcbutilrenderutil,
+  libxcb-render-util,
   xcbutilkeysyms,
   xcbutilimage,
   libxcb-cursor,
@@ -172,7 +172,7 @@ let
             libxcb
             libxkbcommon
             libxcb-wm
-            xcbutilrenderutil
+            libxcb-render-util
             xcbutilkeysyms
             xcbutilimage
             libxcb-cursor

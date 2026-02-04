@@ -59,7 +59,7 @@
   xcbutil,
   xcbutilimage,
   xcbutilkeysyms,
-  xcbutilrenderutil,
+  libxcb-render-util,
   libxcb-wm,
   zlib,
   at-spi2-core,
@@ -156,7 +156,7 @@ stdenv.mkDerivation rec {
     xcbutil
     xcbutilimage
     xcbutilkeysyms
-    xcbutilrenderutil
+    libxcb-render-util
     libxcb-wm
     libxdmcp
     libxtst

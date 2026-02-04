@@ -19,7 +19,7 @@
   wayland,
   xcbutilimage,
   xcbutilkeysyms,
-  xcbutilrenderutil,
+  libxcb-render-util,
   libxcb-wm,
 }:
 let
@@ -47,7 +47,7 @@ let
     wayland
     xcbutilimage
     xcbutilkeysyms
-    xcbutilrenderutil
+    libxcb-render-util
     libxcb-wm
   ];
 

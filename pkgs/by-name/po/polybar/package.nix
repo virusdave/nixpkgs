@@ -18,7 +18,7 @@
   xcbutil,
   libxcb-cursor,
   xcbutilimage,
-  xcbutilrenderutil,
+  libxcb-render-util,
   libxcb-wm,
   xcbutilxrm,
   makeWrapper,
@@ -74,7 +74,7 @@ stdenv.mkDerivation (finalAttrs: {
     xcbutil
     libxcb-cursor
     xcbutilimage
-    xcbutilrenderutil
+    libxcb-render-util
     libxcb-wm
     xcbutilxrm
   ]
