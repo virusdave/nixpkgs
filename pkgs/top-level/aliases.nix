@@ -1911,8 +1911,10 @@ mapAliases {
   xf86_input_cmt = xf86-input-cmt; # Added 2025-12-12
   xf86_input_wacom = xf86-input-wacom; # Added 2025-12-12
   xf86_video_nested = xf86-video-nested; # added 2026-01-13
+  xf86inputevdev = xf86-input-evdev; # Added 2026-02-04
   xf86inputjoystick = xf86-input-joystick; # Added 2026-01-19
   xf86inputkeyboard = xf86-input-keyboard; # Added 2026-01-19
+  xf86inputlibinput = xf86-input-libinput; # Added 2026-02-04
   xf86inputmouse = xf86-input-mouse; # Added 2026-01-19
   xf86inputsynaptics = xf86-input-synaptics; # Added 2026-01-19
   xf86inputvmmouse = xf86-input-vmmouse; # Added 2026-01-19
@@ -1935,6 +1937,7 @@ mapAliases {
   xf86videomga = xf86-video-mga; # Added 2026-01-19
   xf86videoneomagic = xf86-video-neomagic; # Added 2026-01-19
   xf86videonewport = throw "The Xorg Newport video driver is broken and hasn't had a release since 2012"; # added 2025-12-13
+  xf86videonouveau = xf86-video-nouveau; # Added 2026-02-04
   xf86videonv = xf86-video-nv; # Added 2026-01-19
   xf86videoomap = xf86-video-omap; # Added 2026-01-19
   xf86videoopenchrome = xf86-video-openchrome; # Added 2026-01-19
