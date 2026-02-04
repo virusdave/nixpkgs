@@ -48,6 +48,12 @@ stdenv.mkDerivation rec {
     "release"
   ];
 
+  env.NIX_CFLAGS_COMPILE = lib.concatStringsSep " " (
+    lib.optionals stdenv.cc.isClang [
+      "-Wno-error=implicit-function-declaration"
+    ]
+  );
+
   installPhase = ''
     runHook preInstall
     mkdir -p $out
@@ -65,6 +71,5 @@ stdenv.mkDerivation rec {
     license = lib.licenses.asl20;
     platforms = lib.platforms.all;
     maintainers = [ ];
-    broken = stdenv.isDarwin && stdenv.isAarch64;
   };
 }
