@@ -12067,8 +12067,6 @@ with pkgs;
     gnome49Extensions
     ;
 
-  gnome-extensions-cli = python3Packages.callPackage ../desktops/gnome/misc/gnome-extensions-cli { };
-
   gnome-session-ctl = callPackage ../by-name/gn/gnome-session/ctl.nix { };
 
   lomiri = recurseIntoAttrs (callPackage ../desktops/lomiri { });
