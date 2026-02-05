@@ -77,6 +77,10 @@ in
       serviceConfig = {
         Type = "idle";
         KillSignal = "SIGINT";
+        StateDirectory = "llama-cpp";
+        CacheDirectory = "llama-cpp";
+        WorkingDirectory = "/var/lib/llama-cpp";
+        Environment = [ "LLAMA_CACHE=/var/cache/llama-cpp" ];
         ExecStart =
           let
             args = [
