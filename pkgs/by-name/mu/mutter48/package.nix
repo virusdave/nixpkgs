@@ -20,7 +20,7 @@
   libGL,
   libice,
   libx11,
-  libXcomposite,
+  libxcomposite,
   libXcursor,
   libXdamage,
   libXext,
@@ -160,7 +160,7 @@ stdenv.mkDerivation (finalAttrs: {
     gtk4
     libice
     libx11
-    libXcomposite
+    libxcomposite
     libXcursor
     libXdamage
     libXext

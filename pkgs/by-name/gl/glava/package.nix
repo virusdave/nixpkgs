@@ -10,7 +10,7 @@
   libXrandr,
   libXrender,
   libpulseaudio,
-  libXcomposite,
+  libxcomposite,
   enableGlfw ? false,
   glfw,
   runtimeShell,
@@ -51,7 +51,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXrandr
     libXrender
     libpulseaudio
-    libXcomposite
+    libxcomposite
   ]
   ++ optional enableGlfw glfw;
 
