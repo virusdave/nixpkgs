@@ -2157,6 +2157,12 @@
     githubId = 58516559;
     name = "Alexander Rezvov";
   };
+  argos_nothing = {
+    email = "argosnothing@gmail.com";
+    github = "argosnothing";
+    githubId = 225423001;
+    name = "Argos Nothing";
+  };
   argrat = {
     email = "n.bertazzo@protonmail.com";
     github = "brtz-cs";
