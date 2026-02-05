@@ -9,14 +9,14 @@
 
 buildPythonPackage rec {
   pname = "pytaglib";
-  version = "3.1.0";
+  version = "3.2.0";
   format = "setuptools";
 
   src = fetchFromGitHub {
     owner = "supermihi";
     repo = "pytaglib";
     tag = "v${version}";
-    hash = "sha256-A+RH9mWwtvhBDqTfvOK1RbsPP+0srF9h4mIknAHbG50=";
+    hash = "sha256-529U71Lvs6QufcG3yBeywyGc2ukYYfFHIf6TFjt+k3U=";
   };
 
   buildInputs = [
