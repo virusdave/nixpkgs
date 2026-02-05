@@ -10970,10 +10970,6 @@ with pkgs;
     withXineBackend = true;
   };
 
-  qutebrowser-qt5 = qutebrowser.override {
-    qt6Packages = libsForQt5;
-  };
-
   rakarrack = callPackage ../applications/audio/rakarrack {
     fltk = fltk_1_3;
   };
@@ -11170,8 +11166,6 @@ with pkgs;
   taffybar = callPackage ../applications/window-managers/taffybar {
     inherit (haskellPackages) ghcWithPackages taffybar;
   };
-
-  tagainijisho = libsForQt5.callPackage ../applications/office/tagainijisho { };
 
   telegram-desktop =
     kdePackages.callPackage ../applications/networking/instant-messengers/telegram/telegram-desktop
@@ -11481,10 +11475,6 @@ with pkgs;
   };
 
   webcamoid = qt6Packages.callPackage ../applications/video/webcamoid { };
-
-  webmacs = libsForQt5.callPackage ../applications/networking/browsers/webmacs {
-    stdenv = if stdenv.cc.isClang then gccStdenv else stdenv;
-  };
 
   webssh = with python3Packages; toPythonApplication webssh;
 
@@ -12314,6 +12304,7 @@ with pkgs;
     (callPackage ./rocq-packages.nix {
       inherit (ocaml-ng)
         ocamlPackages_4_14
+        ocamlPackages_5_4
         ;
     })
     mkRocqPackages
@@ -12321,6 +12312,8 @@ with pkgs;
     rocq-core_9_0
     rocqPackages_9_1
     rocq-core_9_1
+    rocqPackages_9_2
+    rocq-core_9_2
     rocqPackages
     rocq-core
     ;
@@ -12332,10 +12325,12 @@ with pkgs;
         ocamlPackages_4_10
         ocamlPackages_4_12
         ocamlPackages_4_14
+        ocamlPackages_5_4
         ;
       inherit
         rocqPackages_9_0
         rocqPackages_9_1
+        rocqPackages_9_2
         rocqPackages
         ;
     })
@@ -12372,6 +12367,8 @@ with pkgs;
     coq_9_0
     coqPackages_9_1
     coq_9_1
+    coqPackages_9_2
+    coq_9_2
     coqPackages
     coq
     ;
