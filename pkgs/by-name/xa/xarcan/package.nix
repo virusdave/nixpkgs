@@ -11,7 +11,7 @@
   libGL,
   libx11,
   libxau,
-  libXdmcp,
+  libxdmcp,
   libXfont2,
   libdrm,
   libgcrypt,
@@ -67,7 +67,7 @@ stdenv.mkDerivation (finalPackages: rec {
     libGL
     libx11
     libxau
-    libXdmcp
+    libxdmcp
     libXfont2
     libdrm
     libgcrypt

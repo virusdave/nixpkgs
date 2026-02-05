@@ -9,7 +9,7 @@
   libsm,
   libXt,
   libxau,
-  libXdmcp,
+  libxdmcp,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -31,7 +31,7 @@ stdenv.mkDerivation (finalAttrs: {
     libsm
     libXt
     libxau
-    libXdmcp
+    libxdmcp
   ];
 
   # Remove when updating to next version

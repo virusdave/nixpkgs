@@ -7,7 +7,7 @@
   libice,
   libsm,
   libx11,
-  libXdmcp,
+  libxdmcp,
   libXext,
   libXinerama,
   libXrandr,
@@ -54,7 +54,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXtst
     libXinerama
     libXrandr
-    libXdmcp
+    libxdmcp
     libice
     libsm
   ]

@@ -15,7 +15,7 @@
   xbitmaps,
   libjpeg,
   libXmu,
-  libXdmcp,
+  libxdmcp,
   libXScrnSaver,
   bdftopcf,
   ncompress,
@@ -81,7 +81,7 @@ stdenv.mkDerivation (finalAttrs: {
     xbitmaps
     libjpeg
     libXmu
-    libXdmcp
+    libxdmcp
     libXScrnSaver
     tcl
     libxaw

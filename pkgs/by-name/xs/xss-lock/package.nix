@@ -8,7 +8,7 @@
   glib,
   libpthread-stubs,
   libxau,
-  libXdmcp,
+  libxdmcp,
   libxcb-util,
   nixosTests,
 }:
@@ -39,7 +39,7 @@ stdenv.mkDerivation {
     glib
     libpthread-stubs
     libxau
-    libXdmcp
+    libxdmcp
     libxcb-util
   ];
 

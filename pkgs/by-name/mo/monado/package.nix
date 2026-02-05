@@ -28,7 +28,7 @@
   libv4l,
   libxau,
   libxcb,
-  libXdmcp,
+  libxdmcp,
   libXext,
   libXrandr,
   nix-update-script,
@@ -110,7 +110,7 @@ stdenv.mkDerivation (finalAttrs: {
     libv4l
     libxau
     libxcb
-    libXdmcp
+    libxdmcp
     libXext
     libXrandr
     onnxruntime
