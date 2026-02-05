@@ -11,7 +11,7 @@
   libxcb-util,
   libXrandr,
   libXinerama,
-  libXcursor,
+  libxcursor,
   alsa-lib,
   libjack2,
   lv2,
@@ -43,7 +43,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb-util
     libXrandr
     libXinerama
-    libXcursor
+    libxcursor
     alsa-lib
     libjack2
     lv2

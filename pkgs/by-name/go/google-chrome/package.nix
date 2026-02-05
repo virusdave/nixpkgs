@@ -28,7 +28,7 @@
   libx11,
   libxcb,
   libxcomposite,
-  libXcursor,
+  libxcursor,
   libXdamage,
   libXext,
   libXfixes,
@@ -138,7 +138,7 @@ let
     libx11
     libxcb
     libxcomposite
-    libXcursor
+    libxcursor
     libXdamage
     libXext
     libXfixes

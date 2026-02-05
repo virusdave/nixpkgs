@@ -60,7 +60,7 @@
   gtk3,
   dbus-glib,
   libXScrnSaver,
-  libXcursor,
+  libxcursor,
   libXtst,
   libxshmfence,
   libGLU,
@@ -366,7 +366,7 @@ let
       gtk3
       dbus-glib
       libXScrnSaver
-      libXcursor
+      libxcursor
       libXtst
       libxshmfence
       libGLU
@@ -426,7 +426,7 @@ let
       gtk3
       dbus-glib
       libXScrnSaver
-      libXcursor
+      libxcursor
       libXtst
       libxshmfence
       libGLU

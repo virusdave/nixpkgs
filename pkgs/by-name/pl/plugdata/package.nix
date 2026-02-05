@@ -10,7 +10,7 @@
   pkg-config,
   alsa-lib,
   libx11,
-  libXcursor,
+  libxcursor,
   libXext,
   libXinerama,
   libXrender,
@@ -64,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     libGLU
     libxkbcommon
     libx11
-    libXcursor
+    libxcursor
     libXext
     libXinerama
     libXrender

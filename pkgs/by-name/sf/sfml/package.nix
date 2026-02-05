@@ -17,7 +17,7 @@
   udev,
   libXi,
   libx11,
-  libXcursor,
+  libxcursor,
   libXrandr,
   libXrender,
   libxcb-image,
@@ -55,7 +55,7 @@ stdenv.mkDerivation (finalAttrs: {
   ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
     libx11
     libXi
-    libXcursor
+    libxcursor
     libXrandr
     libXrender
     libxcb-image

@@ -10,7 +10,7 @@
   alsa-lib,
   wayland,
   libx11,
-  libXcursor,
+  libxcursor,
   libXi,
   libXrandr,
   libXinerama,
@@ -45,7 +45,7 @@ rustPlatform.buildRustPackage rec {
     alsa-lib
     wayland
     libx11
-    libXcursor
+    libxcursor
     libXi
     libXrandr
     libXinerama
@@ -65,7 +65,7 @@ rustPlatform.buildRustPackage rec {
         lib.makeLibraryPath [
           libxkbcommon
           libx11
-          libXcursor
+          libxcursor
           libXi
           libXrandr
           libXinerama

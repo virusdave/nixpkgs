@@ -26,7 +26,7 @@
   libxshmfence,
   libxcb,
   libXi,
-  libXcursor,
+  libxcursor,
   libXdamage,
   libXrandr,
   libxcomposite,
@@ -171,7 +171,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libXScrnSaver
     libxcomposite
-    libXcursor
+    libxcursor
     libXdamage
     libXext
     libXfixes

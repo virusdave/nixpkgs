@@ -21,7 +21,7 @@
   libice,
   libx11,
   libxcomposite,
-  libXcursor,
+  libxcursor,
   libXdamage,
   libXext,
   libXfixes,
@@ -161,7 +161,7 @@ stdenv.mkDerivation (finalAttrs: {
     libice
     libx11
     libxcomposite
-    libXcursor
+    libxcursor
     libXdamage
     libXext
     libXfixes

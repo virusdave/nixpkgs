@@ -6,7 +6,7 @@
   pkg-config,
   glfw,
   libxft,
-  libXcursor,
+  libxcursor,
   libXrandr,
   libXinerama,
   xinput,
@@ -34,7 +34,7 @@ buildGoModule rec {
   buildInputs = lib.optionals enableGUI [
     glfw
     libxft
-    libXcursor
+    libxcursor
     libXrandr
     libXinerama
     libXi
