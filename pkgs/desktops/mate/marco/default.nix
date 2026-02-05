@@ -13,7 +13,7 @@
   libgtop,
   libxdamage,
   libxpresent,
-  libXres,
+  libxres,
   libstartup_notification,
   zenity,
   glib,
@@ -53,7 +53,7 @@ stdenv.mkDerivation (finalAttrs: {
     libgtop
     libxdamage
     libxpresent
-    libXres
+    libxres
     libstartup_notification
     gtk3
     zenity
