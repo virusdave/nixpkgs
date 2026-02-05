@@ -1,5 +1,4 @@
 {
-  aiodns,
   buildPythonPackage,
   fetchFromGitHub,
   lib,
@@ -21,10 +20,6 @@ buildPythonPackage rec {
   };
 
   build-system = [ setuptools ];
-
-  dependencies = [
-    aiodns
-  ];
 
   pythonImportsCheck = [ "jvcprojector" ];
 

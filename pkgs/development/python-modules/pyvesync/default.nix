@@ -5,6 +5,7 @@
   fetchFromGitHub,
   mashumaro,
   pytestCheckHook,
+  python-dateutil,
   pyyaml,
   requests,
   setuptools,
@@ -27,6 +28,7 @@ buildPythonPackage rec {
   dependencies = [
     aiohttp
     mashumaro
+    python-dateutil
   ]
   ++ mashumaro.optional-dependencies.orjson;
 

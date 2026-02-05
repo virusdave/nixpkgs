@@ -6094,6 +6094,12 @@
     name = "David Wood";
     keys = [ { fingerprint = "5B08 313C 6853 E5BF FA91  A817 0176 0B4F 9F53 F154"; } ];
   };
+  davidweisse = {
+    name = "David Weiße";
+    github = "davidweisse";
+    githubId = 98460960;
+    email = "david.weisse@gmx.net";
+  };
   davisrichard437 = {
     email = "davisrichard437@gmail.com";
     github = "davisrichard437";
@@ -26613,6 +26619,12 @@
     github = "thrix";
     githubId = 633969;
     name = "Miroslav Vadkerti";
+  };
+  ths-on = {
+    email = "thore.sommer@tum.de";
+    github = "THS-on";
+    githubId = 10854414;
+    name = "Thore Sommer";
   };
   thtrf = {
     email = "thtrf@proton.me";

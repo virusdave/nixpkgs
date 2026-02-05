@@ -21,7 +21,7 @@ buildPythonPackage rec {
 
   build-system = [ setuptools ];
 
-  propagatedBuildInputs = [ defusedxml ];
+  dependencies = [ defusedxml ];
 
   nativeCheckInputs = [ pytestCheckHook ];
 
