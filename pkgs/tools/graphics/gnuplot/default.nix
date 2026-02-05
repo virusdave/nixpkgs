@@ -20,7 +20,7 @@
   libx11,
   libXt,
   libXpm,
-  libXaw,
+  libxaw,
   aquaterm ? false,
   withWxGTK ? false,
   wxGTK32,
@@ -71,7 +71,7 @@ stdenv.mkDerivation rec {
     libx11
     libXpm
     libXt
-    libXaw
+    libxaw
   ]
   ++ lib.optionals withQt [
     qtbase

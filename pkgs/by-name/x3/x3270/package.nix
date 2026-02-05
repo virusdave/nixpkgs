@@ -7,7 +7,7 @@
   expat,
   libx11,
   libXt,
-  libXaw,
+  libxaw,
   libXmu,
   bdftopcf,
   mkfontdir,
@@ -69,7 +69,7 @@ stdenv.mkDerivation (finalAttrs: {
     expat
     libx11
     libXt
-    libXaw
+    libxaw
     libXmu
     bdftopcf
     mkfontdir

@@ -6,7 +6,7 @@
   pkg-config,
   util-macros,
   libx11,
-  libXaw,
+  libxaw,
   libXmu,
   libXt,
 }:
@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
   ];
   buildInputs = [
     libx11
-    libXaw
+    libxaw
     libXmu
     libXt
   ];

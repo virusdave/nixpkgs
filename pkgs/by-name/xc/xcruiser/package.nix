@@ -5,7 +5,7 @@
   gccmakedep,
   imake,
   libXt,
-  libXaw,
+  libxaw,
   libXpm,
   libXext,
   copyDesktopItems,
@@ -28,7 +28,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     libXt
-    libXaw
+    libxaw
     libXpm
     libXext
   ];

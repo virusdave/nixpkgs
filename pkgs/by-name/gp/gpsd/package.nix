@@ -21,7 +21,7 @@
   libx11,
   libXt,
   libXpm,
-  libXaw,
+  libxaw,
   libXext,
   gobject-introspection,
   pango,
@@ -67,7 +67,7 @@ stdenv.mkDerivation (finalAttrs: {
     dbus-glib
     gdk-pixbuf
     libx11
-    libXaw
+    libxaw
     libXext
     libXpm
     libXt
