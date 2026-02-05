@@ -111,7 +111,7 @@ buildPythonPackage (finalAttrs: {
   meta = {
     description = "OpenStack Command-line Client";
     mainProgram = "openstack";
-    homepage = "https://opendev.org/openstack/python-openstackclient";
+    homepage = "https://docs.openstack.org/python-openstackclient/latest/";
     downloadPage = "https://github.com/openstack/python-openstackclient/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.asl20;
     teams = [ lib.teams.openstack ];
