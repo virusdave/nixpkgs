@@ -21,7 +21,7 @@
   libtiff,
   libx11,
   libxi,
-  libXmu,
+  libxmu,
   libGLU,
   libGL,
   openexr,
@@ -59,7 +59,7 @@ stdenv.mkDerivation (finalAttrs: {
     libtiff
     libx11
     libxi
-    libXmu
+    libxmu
     libGLU
     libGL
     openexr

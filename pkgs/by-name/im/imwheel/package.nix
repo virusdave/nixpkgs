@@ -5,7 +5,7 @@
   libx11,
   libxext,
   libxi,
-  libXmu,
+  libxmu,
   libXt,
   libXtst,
 }:
@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libxext
     libxi
-    libXmu
+    libxmu
     libXt
     libXtst
   ];

@@ -8,7 +8,7 @@
   libxaw,
   libXt,
   libxext,
-  libXmu,
+  libxmu,
   makeWrapper,
   writeScript,
 }:
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxaw
     libXt
     libxext
-    libXmu
+    libxmu
   ];
 
   sourceRoot = "${finalAttrs.src.name}/Sil/src";

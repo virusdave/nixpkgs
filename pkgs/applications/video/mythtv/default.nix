@@ -25,7 +25,7 @@
   libXvMC,
   libxinerama,
   libXxf86vm,
-  libXmu,
+  libxmu,
   yasm,
   libuuid,
   taglib,
@@ -79,10 +79,10 @@ stdenv.mkDerivation rec {
     libXv
     libXrandr
     libXvMC
-    libXmu
+    libxmu
     libxinerama
     libXxf86vm
-    libXmu
+    libxmu
     libuuid
     taglib
     exiv2

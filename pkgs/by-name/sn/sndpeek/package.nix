@@ -8,7 +8,7 @@
   libgbm,
   libGLU,
   libx11,
-  libXmu,
+  libxmu,
   libxext,
   libxi,
 }:
@@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
     libGLU
     libsndfile
     libx11
-    libXmu
+    libxmu
     libxext
     libxi
   ];

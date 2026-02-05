@@ -9,7 +9,7 @@
   libxaw,
   libsm,
   libice,
-  libXmu,
+  libxmu,
   libxext,
   gnuchess,
   texinfo,
@@ -48,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxaw
     libsm
     libice
-    libXmu
+    libxmu
     libxext
     gnuchess
     texinfo

@@ -8,7 +8,7 @@
   libx11,
   libxext,
   libxi,
-  libXmu,
+  libxmu,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -26,7 +26,7 @@ stdenv.mkDerivation (finalAttrs: {
     libglut
     libGLU
     libGL
-    libXmu
+    libxmu
     libxext
     libx11
     libxi
