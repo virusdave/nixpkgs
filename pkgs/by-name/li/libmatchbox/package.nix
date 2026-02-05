@@ -8,7 +8,7 @@
   libpng,
   libx11,
   libxext,
-  libXft,
+  libxft,
   pango,
   pkg-config,
 }:
@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
     libpng
     libx11
     libxext
-    libXft
+    libxft
     pango
   ];
 

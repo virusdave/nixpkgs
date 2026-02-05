@@ -11,7 +11,7 @@
   libxext,
   libtirpc,
   motif,
-  libXft,
+  libxft,
   xbitmaps,
   libjpeg,
   libXmu,
@@ -77,7 +77,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxext
     libtirpc
     motif
-    libXft
+    libxft
     xbitmaps
     libjpeg
     libXmu

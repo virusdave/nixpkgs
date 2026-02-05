@@ -8,7 +8,7 @@
   lv2,
   libpthread-stubs,
   libxdmcp,
-  libXft,
+  libxft,
   ntk,
   pcre,
   fftwFloat,
@@ -35,7 +35,7 @@ stdenv.mkDerivation (finalAttrs: {
     lv2
     libpthread-stubs
     libxdmcp
-    libXft
+    libxft
     ntk
     pcre
     fftwFloat

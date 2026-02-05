@@ -12,7 +12,7 @@
   freetype,
   libXrender,
   fontconfig,
-  libXft,
+  libxft,
   libXinerama,
   libxcursor,
   cairo,
@@ -44,7 +44,7 @@ let
     freetype
     libXrender
     fontconfig
-    libXft
+    libxft
     libXinerama
     stdenv.cc.cc
     libnotify
