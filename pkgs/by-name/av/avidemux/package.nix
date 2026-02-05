@@ -9,7 +9,7 @@
   gettext,
   libvdpau,
   libva,
-  libXv,
+  libxv,
   sqlite,
   yasm,
   freetype,
@@ -109,7 +109,7 @@ stdenv.mkDerivation (finalAttrs: {
     gettext
     libvdpau
     libva
-    libXv
+    libxv
     sqlite
     fribidi
     fontconfig
