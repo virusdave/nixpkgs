@@ -21,6 +21,10 @@
 
   # optional dependencies
   google-auth,
+  boto3,
+  botocore,
+  aiohttp,
+  httpx-aiohttp,
 
   # test
   dirty-equals,
@@ -67,7 +71,15 @@ buildPythonPackage (finalAttrs: {
   ];
 
   optional-dependencies = {
-    vertex = [ google-auth ];
+    aiohttp = [
+      aiohttp
+      httpx-aiohttp
+    ];
+    bedrock = [
+      boto3
+      botocore
+    ];
+    vertex = [ google-auth ] ++ google-auth.optional-dependencies.requests;
   };
 
   nativeCheckInputs = [
