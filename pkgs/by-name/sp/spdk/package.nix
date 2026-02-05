@@ -146,6 +146,6 @@ stdenv.mkDerivation rec {
     homepage = "https://spdk.io/";
     license = lib.licenses.bsd3;
     platforms = [ "x86_64-linux" ];
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ ths-on ];
   };
 }
