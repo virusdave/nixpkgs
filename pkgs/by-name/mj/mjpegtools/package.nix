@@ -16,7 +16,7 @@
 # TODO:
 # - make dependencies optional
 # - libpng-apng as alternative to libpng?
-# - libXxf86dga support? checking for XF86DGAQueryExtension in -lXxf86dga... no
+# - libxxf86dga support? checking for XF86DGAQueryExtension in -lXxf86dga... no
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "mjpegtools";
