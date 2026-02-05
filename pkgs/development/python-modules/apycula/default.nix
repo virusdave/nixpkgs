@@ -6,13 +6,13 @@
   setuptools-scm,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "apycula";
   version = "0.29";
   pyproject = true;
 
   src = fetchPypi {
-    inherit pname version;
+    inherit (finalAttrs) pname version;
     hash = "sha256-awhGSmGQDQ0Pi+4y9KoR1Yw6UZjM/CTxAV0jdfen6Qw=";
   };
 
@@ -28,8 +28,8 @@ buildPythonPackage rec {
   meta = {
     description = "Open Source tools for Gowin FPGAs";
     homepage = "https://github.com/YosysHQ/apicula";
-    changelog = "https://github.com/YosysHQ/apicula/releases/tag/${version}";
+    changelog = "https://github.com/YosysHQ/apicula/releases/tag/${finalAttrs.version}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ newam ];
   };
-}
+})
