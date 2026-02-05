@@ -5,7 +5,7 @@
   imake,
   gccmakedep,
   libx11,
-  libXext,
+  libxext,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     libx11
-    libXext
+    libxext
   ];
 
   makeFlags = [

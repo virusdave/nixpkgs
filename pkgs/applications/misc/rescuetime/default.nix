@@ -7,7 +7,7 @@
   patchelf,
   qt5,
   libXtst,
-  libXext,
+  libxext,
   libx11,
   libXScrnSaver,
   writeScript,
@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
         lib.makeLibraryPath [
           qt5.qtbase
           libXtst
-          libXext
+          libxext
           libx11
           libXScrnSaver
         ]

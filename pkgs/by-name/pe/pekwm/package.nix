@@ -5,7 +5,7 @@
   gawk,
   cmake,
   gnugrep,
-  libXext,
+  libxext,
   libXft,
   libXinerama,
   libXpm,
@@ -34,7 +34,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   buildInputs = [
-    libXext
+    libxext
     libXft
     libXinerama
     libXpm

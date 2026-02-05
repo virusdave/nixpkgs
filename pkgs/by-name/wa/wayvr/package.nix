@@ -4,7 +4,7 @@
   fetchFromGitHub,
   lib,
   libx11,
-  libXext,
+  libxext,
   libXrandr,
   libxcb,
   libxkbcommon,
@@ -45,7 +45,7 @@ rustPlatform.buildRustPackage rec {
     alsa-lib
     dbus
     libx11
-    libXext
+    libxext
     libXrandr
     libxcb
     libxkbcommon

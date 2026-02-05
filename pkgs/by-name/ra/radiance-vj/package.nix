@@ -16,7 +16,7 @@
   libXinerama,
   libXpresent,
   libXfixes,
-  libXext,
+  libxext,
   libxcb,
   yt-dlp,
 }:
@@ -51,7 +51,7 @@ rustPlatform.buildRustPackage rec {
     libXinerama
     libXpresent
     libXfixes
-    libXext
+    libxext
     libxcb
   ];
 
@@ -71,7 +71,7 @@ rustPlatform.buildRustPackage rec {
           libXinerama
           libXpresent
           libXfixes
-          libXext
+          libxext
         ]
       }:$out/lib" \
       $out/bin/radiance \

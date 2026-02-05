@@ -30,7 +30,7 @@
   libxcomposite,
   libxcursor,
   libxdamage,
-  libXext,
+  libxext,
   libXfixes,
   libXi,
   libxkbcommon,
@@ -140,7 +140,7 @@ let
     libxcomposite
     libxcursor
     libxdamage
-    libXext
+    libxext
     libXfixes
     libXi
     libxkbcommon

@@ -8,7 +8,7 @@
   libsm,
   libx11,
   libxdmcp,
-  libXext,
+  libxext,
   libXinerama,
   libXrandr,
   libXtst,
@@ -50,7 +50,7 @@ stdenv.mkDerivation (finalAttrs: {
     qt6.qtbase
     avahi'
     libx11
-    libXext
+    libxext
     libXtst
     libXinerama
     libXrandr

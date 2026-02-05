@@ -8,7 +8,7 @@
   zlib,
   libsm,
   libice,
-  libXext,
+  libxext,
   freetype,
   libXrender,
   fontconfig,
@@ -40,7 +40,7 @@ let
     zlib
     libsm
     libice
-    libXext
+    libxext
     freetype
     libXrender
     fontconfig

@@ -5,7 +5,7 @@
   dockapps-sources,
   font-util,
   libx11,
-  libXext,
+  libxext,
   libXpm,
   mkfontdir,
   pkg-config,
@@ -25,7 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libx11
-    libXext
+    libxext
     libXpm
     font-util
     mkfontdir

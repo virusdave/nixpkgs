@@ -29,7 +29,7 @@
   libxau,
   libxcb,
   libxdmcp,
-  libXext,
+  libxext,
   libXrandr,
   nix-update-script,
   onnxruntime,
@@ -111,7 +111,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxau
     libxcb
     libxdmcp
-    libXext
+    libxext
     libXrandr
     onnxruntime
     opencv4

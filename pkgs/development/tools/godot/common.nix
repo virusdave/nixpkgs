@@ -31,7 +31,7 @@
   libwebp,
   libx11,
   libxcursor,
-  libXext,
+  libxext,
   libXfixes,
   libXi,
   libXinerama,
@@ -325,7 +325,7 @@ let
                         libpulseaudio
                         libx11
                         libxcursor
-                        libXext
+                        libxext
                         libXi
                         libXrandr
                         vulkan-loader
@@ -589,7 +589,7 @@ let
           ++ lib.optionals withX11 [
             libx11
             libxcursor
-            libXext
+            libxext
             libXfixes
             libXi
             libXinerama

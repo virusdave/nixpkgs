@@ -6,7 +6,7 @@
   libXi,
   libXt,
   libXfixes,
-  libXext,
+  libxext,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -18,7 +18,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXi
     libXt
     libXfixes
-    libXext
+    libxext
   ];
 
   src = fetchFromGitHub {

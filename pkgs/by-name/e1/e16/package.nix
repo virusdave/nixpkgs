@@ -8,7 +8,7 @@
   libsm,
   libxcomposite,
   libxdamage,
-  libXext,
+  libxext,
   libXfixes,
   libXft,
   libXinerama,
@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
     libsm
     libxcomposite
     libxdamage
-    libXext
+    libxext
     libXfixes
     libXft
     libXinerama

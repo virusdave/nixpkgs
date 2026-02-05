@@ -11,7 +11,7 @@
   alsa-lib,
   libx11,
   libxcursor,
-  libXext,
+  libxext,
   libXinerama,
   libXrender,
   libXrandr,
@@ -65,7 +65,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxkbcommon
     libx11
     libxcursor
-    libXext
+    libxext
     libXinerama
     libXrender
     libXrandr

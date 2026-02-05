@@ -16,7 +16,7 @@
   libx11,
   libXrandr,
   libXinerama,
-  libXext,
+  libxext,
   libxcursor,
   libXScrnSaver,
   libGL,
@@ -98,7 +98,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libXrandr
     libXinerama
-    libXext
+    libxext
     libxcursor
     libXScrnSaver
     curl
@@ -148,7 +148,7 @@ stdenv.mkDerivation (finalAttrs: {
       libx11
       libXrandr
       libXinerama
-      libXext
+      libxext
       libxcursor
       libXScrnSaver
     ]

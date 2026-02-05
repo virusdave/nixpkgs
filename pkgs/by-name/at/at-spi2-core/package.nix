@@ -21,7 +21,7 @@
   libxml2,
   libXtst,
   libXi,
-  libXext,
+  libxext,
   gnome,
   systemdLibs,
   systemdSupport ? lib.meta.availableOn stdenv.hostPlatform systemdLibs,
@@ -60,8 +60,8 @@ stdenv.mkDerivation rec {
     # at-spi2-core can be build without X support, but due it is a client-side library, GUI-less usage is a very rare case
     libXtst
     libXi
-    # libXext is a transitive dependency of libXi
-    libXext
+    # libxext is a transitive dependency of libXi
+    libxext
   ]
   ++ lib.optionals systemdSupport [
     # libsystemd is a needed for dbus-broker support

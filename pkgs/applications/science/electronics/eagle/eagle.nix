@@ -8,7 +8,7 @@
   libXrandr,
   libxcursor,
   libx11,
-  libXext,
+  libxext,
   libXi,
   libxcb,
   libGL,
@@ -31,7 +31,7 @@ let
     libXrandr
     libxcursor
     libx11
-    libXext
+    libxext
     libXi
     libxcb
     libGL
@@ -76,7 +76,7 @@ stdenv.mkDerivation rec {
     libXrandr
     libxcursor
     libx11
-    libXext
+    libxext
     libXi
     libxcb
     libGL

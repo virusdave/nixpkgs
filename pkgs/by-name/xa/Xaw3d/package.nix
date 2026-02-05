@@ -5,7 +5,7 @@
   bison,
   flex,
   pkg-config,
-  libXext,
+  libxext,
   libXmu,
   libXpm,
   libXp,
@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
     flex
   ];
   buildInputs = [
-    libXext
+    libxext
     libXpm
     libXp
   ];

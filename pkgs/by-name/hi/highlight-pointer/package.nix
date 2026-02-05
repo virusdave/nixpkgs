@@ -5,7 +5,7 @@
   libx11,
   libxi,
   libxfixes,
-  libXext,
+  libxext,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -21,7 +21,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libx11
-    libXext
+    libxext
     libxi
     libxfixes
   ];

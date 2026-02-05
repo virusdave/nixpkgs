@@ -10,7 +10,7 @@
   freealut,
   libXrandr,
   xorgproto,
-  libXext,
+  libxext,
   libsm,
   libice,
   libXi,
@@ -50,7 +50,7 @@ let
     openal
     freealut
     libXrandr
-    libXext
+    libxext
     libsm
     libice
     libXi
@@ -139,7 +139,7 @@ stdenv.mkDerivation (finalAttrs: {
     freealut
     libXrandr
     xorgproto
-    libXext
+    libxext
     libsm
     libice
     libXi

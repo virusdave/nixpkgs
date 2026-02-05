@@ -8,7 +8,7 @@
   perl,
   libXinerama,
   libXt,
-  libXext,
+  libxext,
   libtirpc,
   motif,
   libXft,
@@ -74,7 +74,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libXinerama
     libXt
-    libXext
+    libxext
     libtirpc
     motif
     libXft

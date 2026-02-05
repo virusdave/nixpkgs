@@ -29,7 +29,7 @@
   libGL,
   libGLU,
   libx11,
-  libXext,
+  libxext,
   libXi,
   libXrender,
   libXxf86vm,
@@ -281,7 +281,7 @@ stdenv'.mkDerivation (finalAttrs: {
         libGL
         libGLU
         libx11
-        libXext
+        libxext
         libXi
         libXrender
         libXxf86vm

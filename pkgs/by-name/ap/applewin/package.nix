@@ -25,7 +25,7 @@
   libsysprof-capture,
   lerc,
   libx11,
-  libXext,
+  libxext,
   qt6Packages,
   qt6,
   enableQt6 ? true,
@@ -76,7 +76,7 @@ stdenv.mkDerivation (finalAttrs: {
     libwebp
     libpng
     libx11
-    libXext
+    libxext
   ]
   ++ lib.optionals enableQt6 [
     qt6Packages.qtbase

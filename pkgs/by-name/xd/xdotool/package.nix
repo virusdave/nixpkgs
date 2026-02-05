@@ -10,7 +10,7 @@
   libXi,
   libXinerama,
   libxkbcommon,
-  libXext,
+  libxext,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -35,7 +35,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXi
     libXinerama
     libxkbcommon
-    libXext
+    libxext
   ];
 
   preBuild = ''

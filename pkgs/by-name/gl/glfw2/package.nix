@@ -5,7 +5,7 @@
   libGLU,
   libGL,
   libx11,
-  libXext,
+  libxext,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -21,7 +21,7 @@ stdenv.mkDerivation (finalAttrs: {
     libGLU
     libGL
     libx11
-    libXext
+    libxext
   ];
 
   buildPhase = ''
