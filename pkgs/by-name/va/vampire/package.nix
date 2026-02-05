@@ -13,6 +13,7 @@
       hash = "sha256-Bv7+0J7ilJNFM5feYJqDpYsOjj7h7t1Bx/4OIar43EI=";
     };
   },
+  nix-update-script,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "vampire";
@@ -38,6 +39,8 @@ stdenv.mkDerivation (finalAttrs: {
   prePatch = ''
     rm -rf z3
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     homepage = "https://vprover.github.io/";
