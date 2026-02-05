@@ -10,7 +10,7 @@
   libxinerama,
   libxcb,
   libsm,
-  libXi,
+  libxi,
   libglvnd,
   libxext,
   libXrandr,
@@ -55,7 +55,7 @@ let
       libxinerama
       libxcb
       libsm
-      libXi
+      libxi
       libglvnd
       libxext
       libXrandr
@@ -112,7 +112,7 @@ buildFHSEnv {
     libxinerama
     libxcb
     libsm
-    libXi
+    libxi
     libglvnd
     libxext
     libXrandr

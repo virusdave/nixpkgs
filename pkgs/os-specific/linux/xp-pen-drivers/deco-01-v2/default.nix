@@ -11,7 +11,7 @@
   autoPatchelfHook,
   libx11,
   libXtst,
-  libXi,
+  libxi,
   libXrandr,
   libxinerama,
 }:
@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
     libusb1
     libx11
     libXtst
-    libXi
+    libxi
     libXrandr
     libxinerama
     glibc

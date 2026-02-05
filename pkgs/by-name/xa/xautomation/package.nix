@@ -6,7 +6,7 @@
   libpng,
   libx11,
   libxext,
-  libXi,
+  libxi,
   libXtst,
 }:
 
@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
     libpng
     libx11
     libxext
-    libXi
+    libxi
     libXtst
   ];
 

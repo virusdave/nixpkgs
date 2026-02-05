@@ -9,7 +9,7 @@
   libXrandr,
   libxinerama,
   libxcursor,
-  libXi,
+  libxi,
   libxext,
   libGLU,
   ffmpeg_7,
@@ -36,7 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
     libXrandr
     libxinerama
     libxcursor
-    libXi
+    libxi
     libxext
     libGLU
     ncurses

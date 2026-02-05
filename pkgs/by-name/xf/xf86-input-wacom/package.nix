@@ -6,7 +6,7 @@
   xorgproto,
   libx11,
   libxext,
-  libXi,
+  libxi,
   libxinerama,
   libXrandr,
   libXrender,
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libx11
     libxext
-    libXi
+    libxi
     libxinerama
     libXrandr
     libXrender

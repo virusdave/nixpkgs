@@ -11,7 +11,7 @@
   libx11,
   libxcursor,
   libxext,
-  libXi,
+  libxi,
   freetype,
   fontconfig,
   libjpeg,
@@ -44,7 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libxcursor
     libxext
-    libXi
+    libxi
     freetype
     fontconfig
     libjpeg

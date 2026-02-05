@@ -9,7 +9,7 @@
   libxcursor,
   libx11,
   libxext,
-  libXi,
+  libxi,
   libxcb,
   libGL,
   glib,
@@ -32,7 +32,7 @@ let
     libxcursor
     libx11
     libxext
-    libXi
+    libxi
     libxcb
     libGL
     glib
@@ -77,7 +77,7 @@ stdenv.mkDerivation rec {
     libxcursor
     libx11
     libxext
-    libXi
+    libxi
     libxcb
     libGL
     glib

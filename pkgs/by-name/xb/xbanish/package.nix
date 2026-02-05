@@ -3,7 +3,7 @@
   stdenv,
   fetchFromGitHub,
   libx11,
-  libXi,
+  libxi,
   libXt,
   libxfixes,
   libxext,
@@ -15,7 +15,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libx11
-    libXi
+    libxi
     libXt
     libxfixes
     libxext

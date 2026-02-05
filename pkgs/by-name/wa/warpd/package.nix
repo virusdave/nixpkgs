@@ -8,7 +8,7 @@
   libxkbcommon,
   wayland,
   withX ? true,
-  libXi,
+  libxi,
   libxinerama,
   libxft,
   libxfixes,
@@ -38,7 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
       wayland
     ]
     ++ lib.optionals withX [
-      libXi
+      libxi
       libxinerama
       libxft
       libxfixes

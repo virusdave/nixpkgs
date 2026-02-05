@@ -20,7 +20,7 @@
   libpng,
   libtiff,
   libx11,
-  libXi,
+  libxi,
   libXmu,
   libGLU,
   libGL,
@@ -58,7 +58,7 @@ stdenv.mkDerivation (finalAttrs: {
     libpng
     libtiff
     libx11
-    libXi
+    libxi
     libXmu
     libGLU
     libGL

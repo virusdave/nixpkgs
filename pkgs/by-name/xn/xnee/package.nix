@@ -9,7 +9,7 @@
   gtk2,
   libx11,
   libxext,
-  libXi,
+  libxi,
   libXtst,
   texinfo,
   xorgproto,
@@ -64,7 +64,7 @@ stdenv.mkDerivation (finalAttrs: {
     gtk2
     libx11
     libxext
-    libXi
+    libxi
     libXtst
     texinfo
     xorgproto
@@ -78,7 +78,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   makeFlags = [
     # `cnee' is linked without `-lXi' and as a consequence has a RUNPATH that
-    # lacks libXi.
+    # lacks libxi.
     "LDFLAGS=-lXi"
   ];
 

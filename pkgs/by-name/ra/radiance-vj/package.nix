@@ -11,7 +11,7 @@
   wayland,
   libx11,
   libxcursor,
-  libXi,
+  libxi,
   libXrandr,
   libxinerama,
   libXpresent,
@@ -46,7 +46,7 @@ rustPlatform.buildRustPackage rec {
     wayland
     libx11
     libxcursor
-    libXi
+    libxi
     libXrandr
     libxinerama
     libXpresent
@@ -66,7 +66,7 @@ rustPlatform.buildRustPackage rec {
           libxkbcommon
           libx11
           libxcursor
-          libXi
+          libxi
           libXrandr
           libxinerama
           libXpresent

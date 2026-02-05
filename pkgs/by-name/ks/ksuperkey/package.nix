@@ -6,7 +6,7 @@
   libXtst,
   pkg-config,
   xorgproto,
-  libXi,
+  libxi,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -27,7 +27,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libXtst
     xorgproto
-    libXi
+    libxi
   ];
 
   meta = {

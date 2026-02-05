@@ -13,7 +13,7 @@
   libxext,
   libsm,
   libice,
-  libXi,
+  libxi,
   libXt,
   libXrender,
   libXxf86vm,
@@ -53,7 +53,7 @@ let
     libxext
     libsm
     libice
-    libXi
+    libxi
     libXt
     libXrender
     libXxf86vm
@@ -142,7 +142,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxext
     libsm
     libice
-    libXi
+    libxi
     libXt
     libXrender
     libXxf86vm

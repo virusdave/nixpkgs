@@ -17,7 +17,7 @@
   libsm,
   libx11,
   libxkbfile,
-  libXi,
+  libxi,
   libXtst,
   libXrandr,
   libxinerama,
@@ -74,7 +74,7 @@ stdenv.mkDerivation (finalAttrs: {
     libice
     libsm
     libx11
-    libXi
+    libxi
     libXtst
     libXrandr
     libxinerama

@@ -33,7 +33,7 @@
   libxcursor,
   libxext,
   libxfixes,
-  libXi,
+  libxi,
   libxinerama,
   libxkbcommon,
   libXrandr,
@@ -326,7 +326,7 @@ let
                         libx11
                         libxcursor
                         libxext
-                        libXi
+                        libxi
                         libXrandr
                         vulkan-loader
                       ]
@@ -591,7 +591,7 @@ let
             libxcursor
             libxext
             libxfixes
-            libXi
+            libxi
             libxinerama
             libXrandr
             libXrender

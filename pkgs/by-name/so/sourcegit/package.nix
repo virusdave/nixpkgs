@@ -10,7 +10,7 @@
 
   libxcursor,
   libxext,
-  libXi,
+  libxi,
   libXrandr,
 
   git,
@@ -52,12 +52,12 @@ buildDotnetModule (finalAttrs: {
   ];
 
   # these are dlopen-ed at runtime
-  # libXi is needed for right-click support
+  # libxi is needed for right-click support
   # not sure about what the other ones are needed for, but I'll include them anyways
   runtimeDeps = [
     libxcursor
     libxext
-    libXi
+    libxi
     libXrandr
   ];
 
