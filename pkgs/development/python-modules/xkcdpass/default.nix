@@ -7,13 +7,13 @@
   setuptools,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "xkcdpass";
   version = "1.30.0";
   pyproject = true;
 
   src = fetchPypi {
-    inherit pname version;
+    inherit (finalAttrs) pname version;
     hash = "sha256-ijprYCVdpA0OXIEkWCgCeMgtLBy5DkivvWd327+HlcM=";
   };
 
@@ -32,7 +32,7 @@ buildPythonPackage rec {
 
   postInstall = ''
     installManPage *.?
-    install -Dm444 -t $out/share/doc/${pname} README*
+    install -Dm444 -t $out/share/doc/${finalAttrs.pname} README*
   '';
 
   meta = {
@@ -42,4 +42,4 @@ buildPythonPackage rec {
     maintainers = with lib.maintainers; [ peterhoeg ];
     mainProgram = "xkcdpass";
   };
-}
+})
