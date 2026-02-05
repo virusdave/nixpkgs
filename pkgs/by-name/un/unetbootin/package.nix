@@ -16,8 +16,8 @@ stdenv.mkDerivation rec {
   version = "702";
 
   src = fetchFromGitHub {
-    owner = pname;
-    repo = pname;
+    owner = "unetbootin";
+    repo = "unetbootin";
     rev = version;
     sha256 = "sha256-psX15XicPXAsd36BhuvK0G3GQS8hV/hazzO0HByCqV4=";
   };
