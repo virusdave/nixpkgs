@@ -40,7 +40,7 @@
   wayland-protocols,
   wayland-scanner,
   xdamageSupport ? x11Support,
-  libXdamage ? null,
+  libxdamage ? null,
   doubleBufferSupport ? x11Support,
   imlib2Support ? x11Support,
   imlib2 ? null,
@@ -76,7 +76,7 @@ assert docsSupport -> pandoc != null && python3 != null;
 
 assert ncursesSupport -> ncurses != null;
 
-assert xdamageSupport -> x11Support && libXdamage != null;
+assert xdamageSupport -> x11Support && libxdamage != null;
 assert imlib2Support -> x11Support && imlib2 != null;
 assert luaSupport -> lua != null;
 assert luaImlib2Support -> luaSupport && imlib2Support && toluapp != null;
@@ -149,7 +149,7 @@ stdenv.mkDerivation (finalAttrs: {
     wayland
     wayland-protocols
   ]
-  ++ lib.optional xdamageSupport libXdamage
+  ++ lib.optional xdamageSupport libxdamage
   ++ lib.optional imlib2Support imlib2
   ++ lib.optional luaSupport lua
   ++ lib.optional luaImlib2Support imlib2

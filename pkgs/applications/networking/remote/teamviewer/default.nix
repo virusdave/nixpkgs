@@ -11,7 +11,7 @@
   libXrandr,
   libx11,
   libXext,
-  libXdamage,
+  libxdamage,
   libXtst,
   libsm,
   libXfixes,
@@ -129,7 +129,7 @@ stdenv.mkDerivation rec {
         libXrandr
         libx11
         libXext
-        libXdamage
+        libxdamage
         libXtst
         libsm
         libXfixes

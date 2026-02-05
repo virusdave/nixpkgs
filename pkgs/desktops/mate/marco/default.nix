@@ -11,7 +11,7 @@
   libxml2,
   libcanberra-gtk3,
   libgtop,
-  libXdamage,
+  libxdamage,
   libXpresent,
   libXres,
   libstartup_notification,
@@ -51,7 +51,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libcanberra-gtk3
     libgtop
-    libXdamage
+    libxdamage
     libXpresent
     libXres
     libstartup_notification
