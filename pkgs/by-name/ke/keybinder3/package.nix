@@ -13,7 +13,7 @@
   gtk3' ? (if stdenv.hostPlatform.isDarwin then gtk3-x11 else gtk3),
   libx11,
   libxext,
-  libXrender,
+  libxrender,
   gobject-introspection,
 }:
 
@@ -42,7 +42,7 @@ stdenv.mkDerivation (finalAttrs: {
     gtk3'
     libx11
     libxext
-    libXrender
+    libxrender
   ];
 
   preConfigure = ''

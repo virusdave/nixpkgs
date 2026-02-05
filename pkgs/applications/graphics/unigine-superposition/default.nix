@@ -17,7 +17,7 @@
   mailspring,
   libx11,
   libice,
-  libXrender,
+  libxrender,
   autoPatchelfHook,
   makeWrapper,
   xkeyboard_config,
@@ -62,7 +62,7 @@ let
       mailspring
       libx11
       libice
-      libXrender
+      libxrender
     ];
 
     installPhase = ''
@@ -119,7 +119,7 @@ buildFHSEnv {
     mailspring
     libx11
     libice
-    libXrender
+    libxrender
     openal
   ];
   runScript = "superposition";

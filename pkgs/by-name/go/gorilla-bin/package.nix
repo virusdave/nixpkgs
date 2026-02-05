@@ -8,7 +8,7 @@
   libx11,
   freetype,
   fontconfig,
-  libXrender,
+  libxrender,
   libXScrnSaver,
   libxext,
 }:
@@ -41,7 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
         libx11
         freetype
         fontconfig
-        libXrender
+        libxrender
         libXScrnSaver
         libxext
       ];

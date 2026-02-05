@@ -76,7 +76,7 @@
   fontconfig,
   libx11,
   libxfixes,
-  libXrender,
+  libxrender,
   libxcursor,
   gl2ps,
   libGL,
@@ -157,7 +157,7 @@ stdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     libxfixes
-    libXrender
+    libxrender
     libxcursor
   ]
   ++ lib.optional withQt6 qt6.qttools

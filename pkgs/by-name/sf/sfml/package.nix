@@ -19,7 +19,7 @@
   libx11,
   libxcursor,
   libxrandr,
-  libXrender,
+  libxrender,
   libxcb-image,
 }:
 
@@ -57,7 +57,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxi
     libxcursor
     libxrandr
-    libXrender
+    libxrender
     libxcb-image
   ];
 

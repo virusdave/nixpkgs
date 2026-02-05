@@ -4,7 +4,7 @@
   fetchurl,
   wrapQtAppsHook,
   makeDesktopItem,
-  libXrender,
+  libxrender,
   libxrandr,
   libxcursor,
   libx11,
@@ -27,7 +27,7 @@
 
 let
   libPath = lib.makeLibraryPath [
-    libXrender
+    libxrender
     libxrandr
     libxcursor
     libx11
@@ -72,7 +72,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ wrapQtAppsHook ];
 
   buildInputs = [
-    libXrender
+    libxrender
     libxrandr
     libxcursor
     libx11
