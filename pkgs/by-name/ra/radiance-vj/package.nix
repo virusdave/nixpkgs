@@ -14,7 +14,7 @@
   libxi,
   libXrandr,
   libxinerama,
-  libXpresent,
+  libxpresent,
   libxfixes,
   libxext,
   libxcb,
@@ -49,7 +49,7 @@ rustPlatform.buildRustPackage rec {
     libxi
     libXrandr
     libxinerama
-    libXpresent
+    libxpresent
     libxfixes
     libxext
     libxcb
@@ -69,7 +69,7 @@ rustPlatform.buildRustPackage rec {
           libxi
           libXrandr
           libxinerama
-          libXpresent
+          libxpresent
           libxfixes
           libxext
         ]

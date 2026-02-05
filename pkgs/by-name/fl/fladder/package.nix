@@ -5,7 +5,7 @@
 
   alsa-lib,
   libdisplay-info,
-  libXpresent,
+  libxpresent,
   libXScrnSaver,
   libepoxy,
   mpv-unwrapped,
@@ -50,7 +50,7 @@ flutter.buildFlutterApplication rec {
     alsa-lib
     libdisplay-info
     mpv-unwrapped
-    libXpresent
+    libxpresent
     libXScrnSaver
   ]
   ++ lib.optionals (targetFlutterPlatform == "linux") [

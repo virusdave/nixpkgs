@@ -12,7 +12,7 @@
   libcanberra-gtk3,
   libgtop,
   libxdamage,
-  libXpresent,
+  libxpresent,
   libXres,
   libstartup_notification,
   zenity,
@@ -52,7 +52,7 @@ stdenv.mkDerivation (finalAttrs: {
     libcanberra-gtk3
     libgtop
     libxdamage
-    libXpresent
+    libxpresent
     libXres
     libstartup_notification
     gtk3
