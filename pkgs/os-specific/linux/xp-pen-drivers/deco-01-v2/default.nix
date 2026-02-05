@@ -12,7 +12,7 @@
   libx11,
   libXtst,
   libxi,
-  libXrandr,
+  libxrandr,
   libxinerama,
 }:
 
@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
     libx11
     libXtst
     libxi
-    libXrandr
+    libxrandr
     libxinerama
     glibc
     libGL

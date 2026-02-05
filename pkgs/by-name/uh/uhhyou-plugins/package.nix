@@ -14,7 +14,7 @@
   libxcb-keysyms,
   libxkbcommon,
   libx11,
-  libXrandr,
+  libxrandr,
   libxinerama,
   libxcursor,
   pango,
@@ -49,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb-keysyms
     libxkbcommon
     libx11
-    libXrandr
+    libxrandr
     libxinerama
     libxcursor
     pango

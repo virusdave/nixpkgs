@@ -30,7 +30,7 @@
   libxcb,
   libxdmcp,
   libxext,
-  libXrandr,
+  libxrandr,
   nix-update-script,
   onnxruntime,
   opencv4,
@@ -112,7 +112,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb
     libxdmcp
     libxext
-    libXrandr
+    libxrandr
     onnxruntime
     opencv4
     openvr

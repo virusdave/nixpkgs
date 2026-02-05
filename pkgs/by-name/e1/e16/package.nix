@@ -12,7 +12,7 @@
   libxfixes,
   libxft,
   libxinerama,
-  libXrandr,
+  libxrandr,
   libpulseaudio,
   libsndfile,
   pango,
@@ -44,7 +44,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxfixes
     libxft
     libxinerama
-    libXrandr
+    libxrandr
     libpulseaudio
     libsndfile
     pango

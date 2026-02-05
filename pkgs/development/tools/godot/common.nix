@@ -36,7 +36,7 @@
   libxi,
   libxinerama,
   libxkbcommon,
-  libXrandr,
+  libxrandr,
   libXrender,
   makeWrapper,
   mbedtls,
@@ -327,7 +327,7 @@ let
                         libxcursor
                         libxext
                         libxi
-                        libXrandr
+                        libxrandr
                         vulkan-loader
                       ]
                       ++ lib.optionals stdenv.hostPlatform.isLinux [
@@ -593,7 +593,7 @@ let
             libxfixes
             libxi
             libxinerama
-            libXrandr
+            libxrandr
             libXrender
           ]
           ++ lib.optionals withWayland [

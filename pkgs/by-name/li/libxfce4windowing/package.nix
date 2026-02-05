@@ -14,7 +14,7 @@
   libdisplay-info,
   libwnck,
   libx11,
-  libXrandr,
+  libxrandr,
   wayland,
   wayland-protocols,
   wlr-protocols,
@@ -72,7 +72,7 @@ stdenv.mkDerivation (finalAttrs: {
     libdisplay-info
     libwnck
     libx11
-    libXrandr
+    libxrandr
     wayland
     wayland-protocols
     wlr-protocols

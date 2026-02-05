@@ -9,7 +9,7 @@
   libxcb-cursor,
   libxcb-keysyms,
   libxcb-util,
-  libXrandr,
+  libxrandr,
   libxinerama,
   libxcursor,
   alsa-lib,
@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb-cursor
     libxcb-keysyms
     libxcb-util
-    libXrandr
+    libxrandr
     libxinerama
     libxcursor
     alsa-lib

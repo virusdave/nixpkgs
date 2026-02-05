@@ -5,7 +5,7 @@
   lib,
   libx11,
   libxext,
-  libXrandr,
+  libxrandr,
   libxcb,
   libxkbcommon,
   nix-update-script,
@@ -46,7 +46,7 @@ rustPlatform.buildRustPackage rec {
     dbus
     libx11
     libxext
-    libXrandr
+    libxrandr
     libxcb
     libxkbcommon
     openssl

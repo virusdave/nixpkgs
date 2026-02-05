@@ -34,7 +34,7 @@
   libxfixes,
   libxi,
   libxkbcommon,
-  libXrandr,
+  libxrandr,
   libXrender,
   libXScrnSaver,
   libxshmfence,
@@ -144,7 +144,7 @@ let
     libxfixes
     libxi
     libxkbcommon
-    libXrandr
+    libxrandr
     libXrender
     libXScrnSaver
     libxshmfence

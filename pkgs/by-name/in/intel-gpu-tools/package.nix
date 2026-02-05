@@ -29,7 +29,7 @@
   libunwind,
   libx11,
   libxext,
-  libXrandr,
+  libxrandr,
   libXv,
   openssl,
   peg,
@@ -80,7 +80,7 @@ stdenv.mkDerivation (finalAttrs: {
     libunwind
     libx11
     libxext
-    libXrandr
+    libxrandr
     libXv
     openssl
     peg

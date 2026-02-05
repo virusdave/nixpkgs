@@ -12,7 +12,7 @@
   libx11,
   libxcursor,
   libxi,
-  libXrandr,
+  libxrandr,
   libxinerama,
   libxpresent,
   libxfixes,
@@ -47,7 +47,7 @@ rustPlatform.buildRustPackage rec {
     libx11
     libxcursor
     libxi
-    libXrandr
+    libxrandr
     libxinerama
     libxpresent
     libxfixes
@@ -67,7 +67,7 @@ rustPlatform.buildRustPackage rec {
           libx11
           libxcursor
           libxi
-          libXrandr
+          libxrandr
           libxinerama
           libxpresent
           libxfixes

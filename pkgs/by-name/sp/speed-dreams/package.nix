@@ -8,7 +8,7 @@
   plib,
   openal,
   freealut,
-  libXrandr,
+  libxrandr,
   xorgproto,
   libxext,
   libsm,
@@ -49,7 +49,7 @@ let
     plib
     openal
     freealut
-    libXrandr
+    libxrandr
     libxext
     libsm
     libice
@@ -137,7 +137,7 @@ stdenv.mkDerivation (finalAttrs: {
     plib
     openal
     freealut
-    libXrandr
+    libxrandr
     xorgproto
     libxext
     libsm

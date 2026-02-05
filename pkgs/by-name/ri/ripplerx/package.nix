@@ -13,7 +13,7 @@
   libxcursor,
   libxext,
   libxinerama,
-  libXrandr,
+  libxrandr,
   nix-update-script,
   makeDesktopItem,
   copyDesktopItems,
@@ -49,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcursor
     libxext
     libxinerama
-    libXrandr
+    libxrandr
   ];
 
   env = {

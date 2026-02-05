@@ -31,7 +31,7 @@
   xkeyboard_config,
   libxkbcommon,
   libxcb,
-  libXrandr,
+  libxrandr,
   libxinerama,
   libxau,
   libinput,
@@ -171,7 +171,7 @@ stdenv.mkDerivation (finalAttrs: {
     xkeyboard_config
     libxkbcommon
     libxcb
-    libXrandr
+    libxrandr
     libxinerama
     libxau
 

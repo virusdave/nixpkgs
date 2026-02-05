@@ -6,7 +6,7 @@
   python3,
   libx11,
   libXxf86vm,
-  libXrandr,
+  libxrandr,
   vulkan-headers,
   libGL,
   vulkan-loader,
@@ -38,7 +38,7 @@ stdenv.mkDerivation (finalAttrs: {
   ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
     libx11
     libXxf86vm
-    libXrandr
+    libxrandr
     wayland
   ];
 

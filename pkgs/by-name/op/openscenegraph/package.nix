@@ -9,7 +9,7 @@
   doxygen,
   libx11,
   libxinerama,
-  libXrandr,
+  libxrandr,
   libGLU,
   libGL,
   glib,
@@ -81,7 +81,7 @@ stdenv.mkDerivation (finalAttrs: {
     lib.optionals (!stdenv.hostPlatform.isDarwin) [
       libx11
       libxinerama
-      libXrandr
+      libxrandr
       libGLU
       libGL
     ]

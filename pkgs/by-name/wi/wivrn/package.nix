@@ -30,7 +30,7 @@
   librsvg,
   libva,
   libx11,
-  libXrandr,
+  libxrandr,
   makeDesktopItem,
   nix-update-script,
   nlohmann_json,
@@ -116,7 +116,7 @@ stdenv.mkDerivation (finalAttrs: {
     harfbuzz
     libGL
     libx11
-    libXrandr
+    libxrandr
     openxr-loader
     shaderc
     systemd
