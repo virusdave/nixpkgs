@@ -121,6 +121,6 @@ buildNpmPackage {
     license = lib.licenses.agpl3Only;
     maintainers = with lib.maintainers; [ happysalada ];
     platforms = lib.platforms.unix;
-    mainProgram = pname;
+    mainProgram = "documenso";
   };
 }
