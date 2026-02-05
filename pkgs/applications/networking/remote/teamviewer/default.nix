@@ -12,7 +12,7 @@
   libx11,
   libxext,
   libxdamage,
-  libXtst,
+  libxtst,
   libsm,
   libxfixes,
   coreutils,
@@ -130,7 +130,7 @@ stdenv.mkDerivation rec {
         libx11
         libxext
         libxdamage
-        libXtst
+        libxtst
         libsm
         libxfixes
         dbus

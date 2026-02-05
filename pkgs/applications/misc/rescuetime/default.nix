@@ -6,7 +6,7 @@
   wrapQtAppsHook,
   patchelf,
   qt5,
-  libXtst,
+  libxtst,
   libxext,
   libx11,
   libxscrnsaver,
@@ -53,7 +53,7 @@ stdenv.mkDerivation rec {
       --set-rpath "${
         lib.makeLibraryPath [
           qt5.qtbase
-          libXtst
+          libxtst
           libxext
           libx11
           libxscrnsaver

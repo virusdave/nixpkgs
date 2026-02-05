@@ -7,7 +7,7 @@
   libx11,
   libxext,
   libxi,
-  libXtst,
+  libxtst,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libxext
     libxi
-    libXtst
+    libxtst
   ];
 
   meta = {

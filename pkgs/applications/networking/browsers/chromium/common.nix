@@ -61,7 +61,7 @@
   dbus-glib,
   libxscrnsaver,
   libxcursor,
-  libXtst,
+  libxtst,
   libxshmfence,
   libGLU,
   libGL,
@@ -367,7 +367,7 @@ let
       dbus-glib
       libxscrnsaver
       libxcursor
-      libXtst
+      libxtst
       libxshmfence
       libGLU
       libGL
@@ -427,7 +427,7 @@ let
       dbus-glib
       libxscrnsaver
       libxcursor
-      libXtst
+      libxtst
       libxshmfence
       libGLU
       libGL

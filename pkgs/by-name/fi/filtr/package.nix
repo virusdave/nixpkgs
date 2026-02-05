@@ -14,7 +14,7 @@
   libxext,
   libxinerama,
   libxrandr,
-  libXtst,
+  libxtst,
   writableTmpDirAsHomeHook,
 
   buildVST3 ? true,
@@ -52,7 +52,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxext
     libxinerama
     libxrandr
-    libXtst
+    libxtst
   ];
 
   enableParallelBuilding = true;

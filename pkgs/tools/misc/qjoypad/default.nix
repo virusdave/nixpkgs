@@ -7,7 +7,7 @@
   qttools,
   wrapQtAppsHook,
   libx11,
-  libXtst,
+  libxtst,
   qtbase,
   qtx11extras,
 }:
@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
   ];
   buildInputs = [
     libx11
-    libXtst
+    libxtst
     qtbase
     qtx11extras
   ];

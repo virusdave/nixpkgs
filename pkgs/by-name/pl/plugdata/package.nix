@@ -16,7 +16,7 @@
   libxrender,
   libxrandr,
   libxdmcp,
-  libXtst,
+  libxtst,
   xvfb,
   freetype,
   fontconfig,
@@ -70,7 +70,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxrender
     libxrandr
     libxdmcp
-    libXtst
+    libxtst
     xvfb
     libjack2
     expat

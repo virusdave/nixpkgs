@@ -7,7 +7,7 @@
   libxi,
   libxmu,
   libXt,
-  libXtst,
+  libxtst,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -25,7 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxi
     libxmu
     libXt
-    libXtst
+    libxtst
   ];
 
   env.NIX_CFLAGS_COMPILE = "-Wno-error=incompatible-pointer-types";

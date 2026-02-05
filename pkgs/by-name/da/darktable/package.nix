@@ -70,7 +70,7 @@
   libx11,
   libxdmcp,
   libxkbcommon,
-  libXtst,
+  libxtst,
   ocl-icd,
   # Darwin only
   gtk-mac-integration,
@@ -158,7 +158,7 @@ stdenv.mkDerivation rec {
     libx11
     libxdmcp
     libxkbcommon
-    libXtst
+    libxtst
     ocl-icd
     util-linux
   ]

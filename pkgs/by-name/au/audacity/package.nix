@@ -41,7 +41,7 @@
   dbus,
   libepoxy,
   libxdmcp,
-  libXtst,
+  libxtst,
   libpthread-stubs,
   libsbsms_2_3_0,
   libselinux,
@@ -137,7 +137,7 @@ stdenv.mkDerivation (finalAttrs: {
     dbus
     libepoxy
     libxdmcp
-    libXtst
+    libxtst
     libpthread-stubs
     libxkbcommon
     libselinux

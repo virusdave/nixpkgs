@@ -5,7 +5,7 @@
   pkg-config,
   libx11,
   perl,
-  libXtst,
+  libxtst,
   xorgproto,
   libxi,
   libxinerama,
@@ -30,7 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     libx11
-    libXtst
+    libxtst
     xorgproto
     libxi
     libxinerama

@@ -7,7 +7,7 @@
   ninja,
   qt6,
   libxfixes,
-  libXtst,
+  libxtst,
   wayland,
   pkg-config,
   kdePackages,
@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
     qt6.qttools
     qt6.qtdeclarative
     libxfixes
-    libXtst
+    libxtst
     qt6.qtwayland
     wayland
     kdePackages.kconfig

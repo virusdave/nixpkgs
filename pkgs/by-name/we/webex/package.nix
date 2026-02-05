@@ -42,7 +42,7 @@
   libxi,
   libxrandr,
   libxrender,
-  libXtst,
+  libxtst,
   libxshmfence,
   libxcb-util,
   libxcb-image,
@@ -108,7 +108,7 @@ stdenv.mkDerivation rec {
     libxi
     libxrandr
     libxrender
-    libXtst
+    libxtst
     libxshmfence
     libxcb-util
     libxcb-image
