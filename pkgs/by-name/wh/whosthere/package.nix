@@ -3,8 +3,7 @@
   fetchFromGitHub,
   lib,
   nix-update-script,
-  testers,
-  whosthere,
+  versionCheckHook,
 }:
 
 buildGoModule (finalAttrs: {
@@ -20,6 +19,12 @@ buildGoModule (finalAttrs: {
 
   vendorHash = "sha256-YVPsWpIXC5SLm+T2jEGqF4MBcKOAAk0Vpc7zCIFkNw8=";
 
+  ldflags = [
+    "-s"
+    "-X"
+    "main.versionStr=${finalAttrs.version}"
+  ];
+
   checkFlags =
     let
       # Skip tests that require filesystem access
@@ -30,8 +35,12 @@ buildGoModule (finalAttrs: {
     in
     [ "-skip=^${builtins.concatStringsSep "$|^" skippedTests}$" ];
 
+  nativeInstallCheckInputs = [
+    versionCheckHook
+  ];
+  doInstallCheck = true;
+
   passthru.updateScript = nix-update-script { };
-  passthru.tests.version = testers.testVersion { package = whosthere; };
 
   meta = {
     description = "Local Area Network discovery tool";
