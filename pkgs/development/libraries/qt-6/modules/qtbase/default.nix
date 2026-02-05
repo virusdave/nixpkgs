@@ -41,7 +41,7 @@
   glib,
   harfbuzz,
   icu,
-  libX11,
+  libx11,
   libXcomposite,
   libXext,
   libXi,
@@ -146,7 +146,7 @@ stdenv.mkDerivation rec {
     fontconfig
     freetype
     # X11 libs
-    libX11
+    libx11
     libXcomposite
     libXext
     libXi

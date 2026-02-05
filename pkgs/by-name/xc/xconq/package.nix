@@ -4,7 +4,7 @@
   fetchurl,
   cpio,
   xorgproto,
-  libX11,
+  libx11,
   libXmu,
   libXaw,
   libXt,
@@ -28,7 +28,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     cpio
     xorgproto
-    libX11
+    libx11
     libXmu
     libXaw
     libXt

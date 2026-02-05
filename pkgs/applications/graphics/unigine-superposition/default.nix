@@ -15,7 +15,7 @@
   libXext,
   libXrandr,
   mailspring,
-  libX11,
+  libx11,
   libice,
   libXrender,
   autoPatchelfHook,
@@ -60,7 +60,7 @@ let
       libXext
       libXrandr
       mailspring
-      libX11
+      libx11
       libice
       libXrender
     ];
@@ -117,7 +117,7 @@ buildFHSEnv {
     libXext
     libXrandr
     mailspring
-    libX11
+    libx11
     libice
     libXrender
     openal

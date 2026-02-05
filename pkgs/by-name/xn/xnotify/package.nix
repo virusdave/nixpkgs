@@ -5,7 +5,7 @@
   writeText,
   fontconfig,
   imlib2,
-  libX11,
+  libx11,
   libXft,
   libXinerama,
   conf ? null,
@@ -25,7 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     fontconfig
     imlib2
-    libX11
+    libx11
     libXft
     libXinerama
   ];

@@ -2,7 +2,7 @@
   lib,
   stdenv,
   fetchurl,
-  libX11,
+  libx11,
   bison,
   mksh,
   perl,
@@ -71,7 +71,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   buildInputs = [
-    libX11
+    libx11
     libXinerama
     libXt
     libXext

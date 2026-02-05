@@ -5,7 +5,7 @@
   autoreconfHook,
   pkg-config,
   util-macros,
-  libX11,
+  libx11,
   libXaw,
   libXmu,
   libXt,
@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
     util-macros
   ];
   buildInputs = [
-    libX11
+    libx11
     libXaw
     libXmu
     libXt

@@ -9,7 +9,7 @@
   cmake,
   pkg-config,
   alsa-lib,
-  libX11,
+  libx11,
   libXcursor,
   libXext,
   libXinerama,
@@ -63,7 +63,7 @@ stdenv.mkDerivation (finalAttrs: {
     libGL
     libGLU
     libxkbcommon
-    libX11
+    libx11
     libXcursor
     libXext
     libXinerama

@@ -3,7 +3,7 @@
   stdenv,
   fetchFromGitHub,
   python3,
-  libX11,
+  libx11,
   libXrandr,
 }:
 
@@ -20,7 +20,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     python3
-    libX11
+    libx11
     libXrandr
   ];
 

@@ -6,7 +6,7 @@
   curl,
   libice,
   libsm,
-  libX11,
+  libx11,
   libXdmcp,
   libXext,
   libXinerama,
@@ -49,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
     curl
     qt6.qtbase
     avahi'
-    libX11
+    libx11
     libXext
     libXtst
     libXinerama

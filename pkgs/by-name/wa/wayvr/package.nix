@@ -3,7 +3,7 @@
   dbus,
   fetchFromGitHub,
   lib,
-  libX11,
+  libx11,
   libXext,
   libXrandr,
   libxcb,
@@ -44,7 +44,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [
     alsa-lib
     dbus
-    libX11
+    libx11
     libXext
     libXrandr
     libxcb

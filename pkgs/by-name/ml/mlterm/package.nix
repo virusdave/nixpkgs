@@ -43,7 +43,7 @@
     xft = enableX11;
     cairo = true;
   },
-  libX11,
+  libx11,
   libXft,
   cairo,
   # List of external tools to create, this default list includes all default
@@ -134,7 +134,7 @@ stdenv.mkDerivation (finalAttrs: {
     gdk-pixbuf
   ]
   ++ lib.optionals enableTypeEngines.xcore [
-    libX11
+    libx11
   ]
   ++ lib.optionals enableTypeEngines.xft [
     libXft

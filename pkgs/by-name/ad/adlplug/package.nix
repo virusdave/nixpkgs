@@ -9,7 +9,7 @@
   liblo,
   alsa-lib,
   freetype,
-  libX11,
+  libx11,
   libXrandr,
   libXinerama,
   libXext,
@@ -95,7 +95,7 @@ stdenv.mkDerivation {
   ++ lib.optionals stdenv.hostPlatform.isLinux [
     alsa-lib
     freetype
-    libX11
+    libx11
     libXrandr
     libXinerama
     libXext

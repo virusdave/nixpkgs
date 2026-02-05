@@ -7,7 +7,7 @@
   jq,
   expat,
   jsoncpp,
-  libX11,
+  libx11,
   libXdmcp,
   libXrandr,
   libffi,
@@ -48,7 +48,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     expat
     jsoncpp
-    libX11
+    libx11
     libXdmcp
     libXrandr
     libffi

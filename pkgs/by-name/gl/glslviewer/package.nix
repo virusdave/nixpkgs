@@ -5,7 +5,7 @@
   lib,
   fetchFromGitHub,
   pkg-config,
-  libX11,
+  libx11,
   libXrandr,
   libXinerama,
   libXcursor,
@@ -32,7 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
     pkg-config
   ];
   buildInputs = [
-    libX11
+    libx11
     libXrandr
     libXinerama
     libXcursor

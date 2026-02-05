@@ -13,7 +13,7 @@
   libXft,
   libXfixes,
   libXtst,
-  libX11,
+  libx11,
   libXext,
 }:
 
@@ -43,7 +43,7 @@ stdenv.mkDerivation (finalAttrs: {
       libXft
       libXfixes
       libXtst
-      libX11
+      libx11
       libXext
     ];
 

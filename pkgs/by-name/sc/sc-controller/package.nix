@@ -9,7 +9,7 @@
   librsvg,
   bluez,
   linuxHeaders,
-  libX11,
+  libx11,
   libXext,
   libXfixes,
   libusb1,
@@ -71,7 +71,7 @@ python3Packages.buildPythonApplication rec {
   '';
 
   env.LD_LIBRARY_PATH = lib.makeLibraryPath [
-    libX11
+    libx11
     libXext
     libXfixes
     libusb1

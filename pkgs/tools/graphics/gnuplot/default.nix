@@ -17,7 +17,7 @@
   lua,
   withCaca ? false,
   libcaca,
-  libX11,
+  libx11,
   libXt,
   libXpm,
   libXaw,
@@ -68,7 +68,7 @@ stdenv.mkDerivation rec {
   ++ lib.optional withLua lua
   ++ lib.optional withCaca libcaca
   ++ lib.optionals withX [
-    libX11
+    libx11
     libXpm
     libXt
     libXaw

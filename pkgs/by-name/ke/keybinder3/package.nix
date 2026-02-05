@@ -11,7 +11,7 @@
   gtk3,
   gtk3-x11,
   gtk3' ? (if stdenv.hostPlatform.isDarwin then gtk3-x11 else gtk3),
-  libX11,
+  libx11,
   libXext,
   libXrender,
   gobject-introspection,
@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     gtk3'
-    libX11
+    libx11
     libXext
     libXrender
   ];

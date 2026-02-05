@@ -4,7 +4,7 @@
   libGLU,
   libGL,
   libglut,
-  libX11,
+  libx11,
   plib,
   openal,
   freealut,
@@ -45,7 +45,7 @@ let
     libglut
   ];
   runtimeLibs = glLibs ++ [
-    libX11
+    libx11
     plib
     openal
     freealut
@@ -133,7 +133,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libpng12
-    libX11
+    libx11
     plib
     openal
     freealut

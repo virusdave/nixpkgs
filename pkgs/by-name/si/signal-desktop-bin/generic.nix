@@ -22,7 +22,7 @@
   freetype,
   fontconfig,
   dbus,
-  libX11,
+  libx11,
   libxshmfence,
   libxcb,
   libXi,
@@ -168,7 +168,7 @@ stdenv.mkDerivation (finalAttrs: {
     gdk-pixbuf
     glib
     gtk3
-    libX11
+    libx11
     libXScrnSaver
     libXcomposite
     libXcursor

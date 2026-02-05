@@ -19,7 +19,7 @@
   libsamplerate,
   libbluray,
   lzo,
-  libX11,
+  libx11,
   libXv,
   libXrandr,
   libXvMC,
@@ -75,7 +75,7 @@ stdenv.mkDerivation rec {
     alsa-lib
     libpulseaudio
     fftwSinglePrec
-    libX11
+    libx11
     libXv
     libXrandr
     libXvMC

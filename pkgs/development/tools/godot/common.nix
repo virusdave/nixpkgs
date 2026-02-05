@@ -29,7 +29,7 @@
   libpulseaudio,
   libtheora,
   libwebp,
-  libX11,
+  libx11,
   libXcursor,
   libXext,
   libXfixes,
@@ -323,7 +323,7 @@ let
                       prev.runtimeDependencies or [ ]
                       ++ map lib.getLib [
                         libpulseaudio
-                        libX11
+                        libx11
                         libXcursor
                         libXext
                         libXi
@@ -587,7 +587,7 @@ let
           ++ lib.optional withAlsa alsa-lib
           ++ lib.optional (withX11 || withWayland) libxkbcommon
           ++ lib.optionals withX11 [
-            libX11
+            libx11
             libXcursor
             libXext
             libXfixes

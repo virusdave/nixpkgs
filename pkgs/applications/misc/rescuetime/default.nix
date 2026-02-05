@@ -8,7 +8,7 @@
   qt5,
   libXtst,
   libXext,
-  libX11,
+  libx11,
   libXScrnSaver,
   writeScript,
   common-updater-scripts,
@@ -55,7 +55,7 @@ stdenv.mkDerivation rec {
           qt5.qtbase
           libXtst
           libXext
-          libX11
+          libx11
           libXScrnSaver
         ]
       }" \

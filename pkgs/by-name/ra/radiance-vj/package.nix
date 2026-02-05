@@ -9,7 +9,7 @@
   stdenv,
   alsa-lib,
   wayland,
-  libX11,
+  libx11,
   libXcursor,
   libXi,
   libXrandr,
@@ -44,7 +44,7 @@ rustPlatform.buildRustPackage rec {
     libxkbcommon
     alsa-lib
     wayland
-    libX11
+    libx11
     libXcursor
     libXi
     libXrandr
@@ -64,7 +64,7 @@ rustPlatform.buildRustPackage rec {
       --add-rpath "${
         lib.makeLibraryPath [
           libxkbcommon
-          libX11
+          libx11
           libXcursor
           libXi
           libXrandr

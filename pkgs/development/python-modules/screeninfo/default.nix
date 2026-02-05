@@ -3,7 +3,7 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-  libX11,
+  libx11,
   libXinerama,
   libXrandr,
   poetry-core,
@@ -33,10 +33,10 @@ buildPythonPackage rec {
 
   postPatch = lib.optionalString (stdenv.isLinux) ''
     substituteInPlace screeninfo/enumerators/xinerama.py \
-      --replace 'load_library("X11")' 'ctypes.cdll.LoadLibrary("${libX11}/lib/libX11.so")' \
+      --replace 'load_library("X11")' 'ctypes.cdll.LoadLibrary("${libx11}/lib/libX11.so")' \
       --replace 'load_library("Xinerama")' 'ctypes.cdll.LoadLibrary("${libXinerama}/lib/libXinerama.so")'
     substituteInPlace screeninfo/enumerators/xrandr.py \
-      --replace 'load_library("X11")' 'ctypes.cdll.LoadLibrary("${libX11}/lib/libX11.so")' \
+      --replace 'load_library("X11")' 'ctypes.cdll.LoadLibrary("${libx11}/lib/libX11.so")' \
       --replace 'load_library("Xrandr")' 'ctypes.cdll.LoadLibrary("${libXrandr}/lib/libXrandr.so")'
   '';
 

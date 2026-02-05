@@ -11,7 +11,7 @@
   libXcomposite,
   libXi,
   libXrender,
-  libX11,
+  libx11,
 
   libxcb,
   sqlite,
@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
     libGL
     libGLU
     libsm
-    libX11
+    libx11
     libXcomposite
     libXi
     libXrender
