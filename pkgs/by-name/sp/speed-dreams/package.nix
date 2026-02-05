@@ -14,7 +14,7 @@
   libsm,
   libice,
   libxi,
-  libXt,
+  libxt,
   libxrender,
   libXxf86vm,
   openscenegraph,
@@ -54,7 +54,7 @@ let
     libsm
     libice
     libxi
-    libXt
+    libxt
     libxrender
     libXxf86vm
     openscenegraph
@@ -143,7 +143,7 @@ stdenv.mkDerivation (finalAttrs: {
     libsm
     libice
     libxi
-    libXt
+    libxt
     libxrender
     libXxf86vm
     zlib

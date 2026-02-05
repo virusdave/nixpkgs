@@ -9,7 +9,7 @@
   libxmu,
   libxpm,
   libxp,
-  libXt,
+  libxt,
   xorgproto,
 }:
 
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   propagatedBuildInputs = [
     libxmu
-    libXt
+    libxt
     xorgproto
   ];
 

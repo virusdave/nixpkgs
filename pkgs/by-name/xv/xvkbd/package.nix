@@ -2,7 +2,7 @@
   lib,
   stdenv,
   fetchurl,
-  libXt,
+  libxt,
   libxaw,
   libxtst,
   libxi,
@@ -22,7 +22,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [
-    libXt
+    libxt
     libxaw
     libxtst
     xorgproto
@@ -32,7 +32,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   makeFlags = [
-    # avoid default libXt location
+    # avoid default libxt location
     "appdefaultdir=${placeholder "out"}/share/X11/app-defaults"
     "datarootdir=${placeholder "out"}/share"
   ];

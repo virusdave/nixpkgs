@@ -7,7 +7,7 @@
   libxrandr,
   libxcursor,
   libxft,
-  libXt,
+  libxt,
   libxcb-util,
   libxcb-keysyms,
   libxcb-wm,
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxrandr
     libxcursor
     libxft
-    libXt
+    libxt
     libxcb-util
     libxcb-keysyms
     libxcb-wm

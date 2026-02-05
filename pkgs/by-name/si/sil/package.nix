@@ -6,7 +6,7 @@
   ncurses,
   libx11,
   libxaw,
-  libXt,
+  libxt,
   libxext,
   libxmu,
   makeWrapper,
@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
     ncurses
     libx11
     libxaw
-    libXt
+    libxt
     libxext
     libxmu
   ];
