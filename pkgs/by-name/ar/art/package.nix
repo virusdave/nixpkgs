@@ -17,7 +17,7 @@
   pixman,
   libpthread-stubs,
   gtkmm3,
-  libXau,
+  libxau,
   libXdmcp,
   lcms2,
   libraw,
@@ -76,7 +76,7 @@ stdenv.mkDerivation (finalAttrs: {
     pixman
     libpthread-stubs
     gtkmm3
-    libXau
+    libxau
     libXdmcp
     lcms2
     libraw

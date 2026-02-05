@@ -33,7 +33,7 @@
   libxcb,
   libXrandr,
   libXinerama,
-  libXau,
+  libxau,
   libinput,
   libdrm,
   libgbm,
@@ -173,7 +173,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb
     libXrandr
     libXinerama
-    libXau
+    libxau
 
     # for gdctl shebang
     (python3.withPackages (pp: [

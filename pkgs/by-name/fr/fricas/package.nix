@@ -8,7 +8,7 @@
   libice,
   libsm,
   libXt,
-  libXau,
+  libxau,
   libXdmcp,
 }:
 
@@ -30,7 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
     libice
     libsm
     libXt
-    libXau
+    libxau
     libXdmcp
   ];
 

@@ -10,7 +10,7 @@
   font-util,
   libGL,
   libx11,
-  libXau,
+  libxau,
   libXdmcp,
   libXfont2,
   libdrm,
@@ -66,7 +66,7 @@ stdenv.mkDerivation (finalPackages: rec {
     font-util
     libGL
     libx11
-    libXau
+    libxau
     libXdmcp
     libXfont2
     libdrm
