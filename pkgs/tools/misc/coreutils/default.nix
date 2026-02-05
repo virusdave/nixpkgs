@@ -16,6 +16,7 @@
   selinuxSupport ? false,
   libselinux,
   libsepol,
+  texinfo,
   # No openssl in default version, so openssl-induced rebuilds aren't too big.
   # It makes *sum functions significantly faster.
   minimal ? true,
@@ -45,12 +46,14 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "coreutils" + (optionalString (!minimal) "-full");
-  version = "9.9";
+  version = "9.10"; # TODO: remove texinfo dep and the patch on next release.
 
   src = fetchurl {
     url = "mirror://gnu/coreutils/coreutils-${finalAttrs.version}.tar.xz";
-    hash = "sha256-Gby2yoZxg8V9dxVerpRsXs7YgYMUO0XKUa19JsYoynU=";
+    hash = "sha256-FlNamt8LEANzZOLWEqrT2fTso6NElJztdNEvr0vVHSU=";
   };
+
+  patches = [ ./fix-kill-doctest.patch ];
 
   postPatch = ''
     # The test tends to fail on btrfs, f2fs and maybe other unusual filesystems.
@@ -131,6 +134,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     perl
+    texinfo
     xz.bin
   ];
 
@@ -151,6 +155,8 @@ stdenv.mkDerivation (finalAttrs: {
 
   configureFlags = [
     "--with-packager=https://nixos.org"
+    "--with-selinux"
+    "--enable-install-program=kill,uptime"
   ]
   ++ optional (singleBinary != false) (
     "--enable-single-binary" + optionalString (isString singleBinary) "=${singleBinary}"
