@@ -816,6 +816,10 @@ self: super: with self; {
 
   apiflask = callPackage ../development/python-modules/apiflask { };
 
+  apify-fingerprint-datapoints =
+    callPackage ../development/python-modules/apify-fingerprint-datapoints
+      { };
+
   apipkg = callPackage ../development/python-modules/apipkg { };
 
   apischema = callPackage ../development/python-modules/apischema { };
@@ -3598,8 +3602,6 @@ self: super: with self; {
   datashape = callPackage ../development/python-modules/datashape { };
 
   datashaper = callPackage ../development/python-modules/datashaper { };
-
-  datatable = callPackage ../development/python-modules/datatable { };
 
   datauri = callPackage ../development/python-modules/datauri { };
 
@@ -20013,8 +20015,6 @@ self: super: with self; {
   typesense = callPackage ../development/python-modules/typesense {
     inherit (pkgs) typesense curl;
   };
-
-  typesentry = callPackage ../development/python-modules/typesentry { };
 
   typeshed-client = callPackage ../development/python-modules/typeshed-client { };
 
