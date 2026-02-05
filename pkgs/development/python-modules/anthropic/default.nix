@@ -32,7 +32,7 @@
   respx,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "anthropic";
   version = "0.78.0";
   pyproject = true;
@@ -40,7 +40,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "anthropics";
     repo = "anthropic-sdk-python";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-IN+vlP10KxkuzTgGRKr2k7hBnGTGFWdsW9ams6W+7Ak=";
   };
 
@@ -105,11 +105,11 @@ buildPythonPackage rec {
   meta = {
     description = "Anthropic's safety-first language model APIs";
     homepage = "https://github.com/anthropics/anthropic-sdk-python";
-    changelog = "https://github.com/anthropics/anthropic-sdk-python/releases/tag/${src.tag}";
+    changelog = "https://github.com/anthropics/anthropic-sdk-python/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
     maintainers = [
       lib.maintainers.natsukium
       lib.maintainers.sarahec
     ];
   };
-}
+})
