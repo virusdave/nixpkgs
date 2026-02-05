@@ -33,13 +33,13 @@
 
 stdenv.mkDerivation rec {
   pname = "xournalpp";
-  version = "1.3.1";
+  version = "1.3.2";
 
   src = fetchFromGitHub {
     owner = "xournalpp";
     repo = "xournalpp";
     rev = "v${version}";
-    hash = "sha256-yPuApAmhopMWKROUUsok9rULDVtqXC6WIfm2GEevQkw=";
+    hash = "sha256-adzL/2zQlG4hBPV0rQzkQrOyGROv73GyjIH8Debhhq8=";
   };
 
   nativeBuildInputs = [
