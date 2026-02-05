@@ -90,8 +90,6 @@ stdenv.mkDerivation {
     (
       if emojiSupport then
         [
-          # the required patches to libXft are in nixpkgs by default, see
-          # ../../../servers/x11/xorg/overrides.nix
           (fetchPatchFromAUR {
             name = "enable-wide-glyphs.patch";
             package = "rxvt-unicode-truecolor-wide-glyphs";
