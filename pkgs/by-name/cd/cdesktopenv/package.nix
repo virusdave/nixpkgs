@@ -31,7 +31,7 @@
   autoreconfHook,
   opensp,
   flex,
-  libXpm,
+  libxpm,
   rpcsvc-proto,
   sessreg,
   pkg-config,
@@ -87,7 +87,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxaw
     mksh
     libxcrypt
-    libXpm
+    libxpm
     sessreg
     lmdb
   ];

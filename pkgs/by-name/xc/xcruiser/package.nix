@@ -6,7 +6,7 @@
   imake,
   libXt,
   libxaw,
-  libXpm,
+  libxpm,
   libxext,
   copyDesktopItems,
   makeDesktopItem,
@@ -29,7 +29,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libXt
     libxaw
-    libXpm
+    libxpm
     libxext
   ];
 

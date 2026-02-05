@@ -19,7 +19,7 @@
   libcaca,
   libx11,
   libXt,
-  libXpm,
+  libxpm,
   libxaw,
   aquaterm ? false,
   withWxGTK ? false,
@@ -69,7 +69,7 @@ stdenv.mkDerivation rec {
   ++ lib.optional withCaca libcaca
   ++ lib.optionals withX [
     libx11
-    libXpm
+    libxpm
     libXt
     libxaw
   ]

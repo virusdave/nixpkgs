@@ -7,7 +7,7 @@
   pkg-config,
   libxext,
   libxmu,
-  libXpm,
+  libxpm,
   libXp,
   libXt,
   xorgproto,
@@ -28,7 +28,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   buildInputs = [
     libxext
-    libXpm
+    libxpm
     libXp
   ];
   propagatedBuildInputs = [

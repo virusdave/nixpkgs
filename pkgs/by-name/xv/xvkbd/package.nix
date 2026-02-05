@@ -6,7 +6,7 @@
   libxaw,
   libXtst,
   libxi,
-  libXpm,
+  libxpm,
   pkg-config,
   xorgproto,
   Xaw3d,
@@ -28,7 +28,7 @@ stdenv.mkDerivation (finalAttrs: {
     xorgproto
     libxi
     Xaw3d
-    libXpm
+    libxpm
   ];
 
   makeFlags = [
