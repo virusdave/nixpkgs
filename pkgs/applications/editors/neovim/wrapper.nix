@@ -140,17 +140,17 @@ let
               "--add-flags"
               ''--cmd "set rtp^=${finalPackdir}"''
             ]
-        ++ lib.optionals finalAttrs.withRuby [
-          "--set"
-          "GEM_HOME"
-          "${rubyEnv}/${rubyEnv.ruby.gemPath}"
-        ]
-        ++ lib.optionals (finalAttrs.runtimeDeps != [ ]) [
-          "--suffix"
-          "PATH"
-          ":"
-          (lib.makeBinPath finalAttrs.runtimeDeps)
-        ];
+          ++ lib.optionals finalAttrs.withRuby [
+            "--set"
+            "GEM_HOME"
+            "${rubyEnv}/${rubyEnv.ruby.gemPath}"
+          ]
+          ++ lib.optionals (finalAttrs.runtimeDeps != [ ]) [
+            "--suffix"
+            "PATH"
+            ":"
+            (lib.makeBinPath finalAttrs.runtimeDeps)
+          ];
 
         providerLuaRc = neovimUtils.generateProviderRc {
           inherit (finalAttrs)
