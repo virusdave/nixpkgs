@@ -6172,10 +6172,6 @@ with pkgs;
 
   sqlmap = with python3Packages; toPythonApplication sqlmap;
 
-  c0 = callPackage ../development/compilers/c0 {
-    stdenv = if stdenv.hostPlatform.isDarwin then gccStdenv else stdenv;
-  };
-
   teensyduino = arduino-core.override {
     withGui = true;
     withTeensyduino = true;
