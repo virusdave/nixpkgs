@@ -5,7 +5,7 @@
   cmake,
   python3,
   libx11,
-  libXxf86vm,
+  libxxf86vm,
   libxrandr,
   vulkan-headers,
   libGL,
@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optionals (!stdenv.hostPlatform.isDarwin) [
     libx11
-    libXxf86vm
+    libxxf86vm
     libxrandr
     wayland
   ];

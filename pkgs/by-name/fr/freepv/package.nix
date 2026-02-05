@@ -11,7 +11,7 @@
   libx11,
   libxml2,
   libpng,
-  libXxf86vm,
+  libxxf86vm,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libxml2
     libpng
-    libXxf86vm
+    libxxf86vm
   ];
 
   postPatch = ''

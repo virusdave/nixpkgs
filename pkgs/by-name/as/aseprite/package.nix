@@ -21,7 +21,7 @@
   libxcursor,
   libxext,
   libxi,
-  libXxf86vm,
+  libxxf86vm,
   libxcb,
   libxrandr,
   ninja,
@@ -91,7 +91,7 @@ clangStdenv.mkDerivation (finalAttrs: {
     libxcursor
     libxext
     libxi
-    libXxf86vm
+    libxxf86vm
     libxcb
     libxrandr
     pcre2

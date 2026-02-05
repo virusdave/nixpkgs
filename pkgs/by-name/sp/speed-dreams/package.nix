@@ -16,7 +16,7 @@
   libxi,
   libxt,
   libxrender,
-  libXxf86vm,
+  libxxf86vm,
   openscenegraph,
   expat,
   libpng12,
@@ -56,7 +56,7 @@ let
     libxi
     libxt
     libxrender
-    libXxf86vm
+    libxxf86vm
     openscenegraph
     expat
     libpng12
@@ -145,7 +145,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxi
     libxt
     libxrender
-    libXxf86vm
+    libxxf86vm
     zlib
     bash
     expat

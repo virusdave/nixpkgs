@@ -5,7 +5,7 @@
   cmake,
   ninja,
   libx11,
-  libXxf86vm,
+  libxxf86vm,
   libxrandr,
   samurai,
   fetchpatch,
@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libx11
-    libXxf86vm
+    libxxf86vm
     libxrandr
     samurai
   ];
