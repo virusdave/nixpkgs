@@ -9,12 +9,12 @@
 
 buildPythonPackage rec {
   pname = "xkcdpass";
-  version = "1.20.0";
+  version = "1.30.0";
   pyproject = true;
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-tav9fStZzdpZ+Tf7IiEKxGSa0NLgnh+Hv+dKVOI60Yo=";
+    hash = "sha256-ijprYCVdpA0OXIEkWCgCeMgtLBy5DkivvWd327+HlcM=";
   };
 
   nativeBuildInputs = [ installShellFiles ];
@@ -26,8 +26,8 @@ buildPythonPackage rec {
   pythonImportsCheck = [ "xkcdpass" ];
 
   disabledTests = [
-    # https://github.com/redacted/XKCD-password-generator/issues/138
-    "test_entropy_printout_valid_input"
+    # AssertionError: 29611 != 5670
+    "test_loadwordfile"
   ];
 
   postInstall = ''
