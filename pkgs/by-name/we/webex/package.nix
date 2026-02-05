@@ -52,7 +52,7 @@
   p7zip,
   onetbb,
   wayland,
-  libXScrnSaver,
+  libxscrnsaver,
 }:
 
 stdenv.mkDerivation rec {
@@ -112,7 +112,7 @@ stdenv.mkDerivation rec {
     libxshmfence
     libxcb-util
     libxcb-image
-    libXScrnSaver
+    libxscrnsaver
     libxcb-keysyms
     libxcb-render-util
     libxcb-wm

@@ -18,7 +18,7 @@
   libxinerama,
   libxext,
   libxcursor,
-  libXScrnSaver,
+  libxscrnsaver,
   libGL,
   libxcb,
   vst2-sdk,
@@ -100,7 +100,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxinerama
     libxext
     libxcursor
-    libXScrnSaver
+    libxscrnsaver
     curl
     gtk3
     webkitgtk_4_1
@@ -150,7 +150,7 @@ stdenv.mkDerivation (finalAttrs: {
       libxinerama
       libxext
       libxcursor
-      libXScrnSaver
+      libxscrnsaver
     ]
   }";
 

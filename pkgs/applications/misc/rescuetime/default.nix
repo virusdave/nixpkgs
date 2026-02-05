@@ -9,7 +9,7 @@
   libXtst,
   libxext,
   libx11,
-  libXScrnSaver,
+  libxscrnsaver,
   writeScript,
   common-updater-scripts,
   curl,
@@ -56,7 +56,7 @@ stdenv.mkDerivation rec {
           libXtst
           libxext
           libx11
-          libXScrnSaver
+          libxscrnsaver
         ]
       }" \
       $out/bin/rescuetime
