@@ -1,7 +1,9 @@
 {
   buildGoModule,
   fetchFromGitHub,
+  installShellFiles,
   lib,
+  stdenv,
   nix-update-script,
   versionCheckHook,
 }:
@@ -19,6 +21,10 @@ buildGoModule (finalAttrs: {
 
   vendorHash = "sha256-YVPsWpIXC5SLm+T2jEGqF4MBcKOAAk0Vpc7zCIFkNw8=";
 
+  nativeBuildInputs = [
+    installShellFiles
+  ];
+
   ldflags = [
     "-s"
     "-X"
@@ -34,6 +40,13 @@ buildGoModule (finalAttrs: {
       ];
     in
     [ "-skip=^${builtins.concatStringsSep "$|^" skippedTests}$" ];
+
+  postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
+    installShellCompletion --cmd whosthere \
+      --bash <("$out/bin/whosthere" completion bash) \
+      --fish <("$out/bin/whosthere" completion fish) \
+      --zsh <("$out/bin/whosthere" completion zsh)
+  '';
 
   nativeInstallCheckInputs = [
     versionCheckHook
