@@ -5,6 +5,7 @@
   perl,
   perlPackages,
   stdenv,
+  procps,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -22,7 +23,9 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/imapsync --set PERL5LIB $PERL5LIB
+    wrapProgram $out/bin/imapsync \
+      --set PERL5LIB $PERL5LIB \
+      --prefix PATH : ${lib.makeBinPath [ procps ]}
   '';
 
   nativeBuildInputs = [ makeWrapper ];
