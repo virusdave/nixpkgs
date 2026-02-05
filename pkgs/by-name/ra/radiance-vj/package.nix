@@ -15,7 +15,7 @@
   libXrandr,
   libXinerama,
   libXpresent,
-  libXfixes,
+  libxfixes,
   libxext,
   libxcb,
   yt-dlp,
@@ -50,7 +50,7 @@ rustPlatform.buildRustPackage rec {
     libXrandr
     libXinerama
     libXpresent
-    libXfixes
+    libxfixes
     libxext
     libxcb
   ];
@@ -70,7 +70,7 @@ rustPlatform.buildRustPackage rec {
           libXrandr
           libXinerama
           libXpresent
-          libXfixes
+          libxfixes
           libxext
         ]
       }:$out/lib" \

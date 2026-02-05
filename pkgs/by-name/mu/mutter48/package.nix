@@ -24,7 +24,7 @@
   libxcursor,
   libxdamage,
   libxext,
-  libXfixes,
+  libxfixes,
   libXi,
   libXtst,
   libxkbfile,
@@ -164,7 +164,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcursor
     libxdamage
     libxext
-    libXfixes
+    libxfixes
     libXi
     libXtst
     libxkbfile

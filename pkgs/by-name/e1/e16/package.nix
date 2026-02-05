@@ -9,7 +9,7 @@
   libxcomposite,
   libxdamage,
   libxext,
-  libXfixes,
+  libxfixes,
   libXft,
   libXinerama,
   libXrandr,
@@ -41,7 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcomposite
     libxdamage
     libxext
-    libXfixes
+    libxfixes
     libXft
     libXinerama
     libXrandr

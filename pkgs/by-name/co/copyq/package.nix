@@ -6,7 +6,7 @@
   cmake,
   ninja,
   qt6,
-  libXfixes,
+  libxfixes,
   libXtst,
   wayland,
   pkg-config,
@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
     qt6.qtsvg
     qt6.qttools
     qt6.qtdeclarative
-    libXfixes
+    libxfixes
     libXtst
     qt6.qtwayland
     wayland
