@@ -47,7 +47,7 @@ let
     owner = data.owner;
     repo = data.repo;
     rev = data.rev;
-    sha256 = data.repo_hash;
+    hash = data.repo_hash;
   };
 
   rubyEnv = bundlerEnv rec {
@@ -191,11 +191,11 @@ let
 
     yarnOfflineCache = fetchYarnDeps {
       yarnLock = src + "/yarn.lock";
-      sha256 = data.yarn_hash;
+      hash = data.yarn_hash;
     };
     frontendIslandsYarnOfflineCache = fetchYarnDeps {
       yarnLock = src + "/ee/frontend_islands/yarn.lock";
-      sha256 = data.frontend_islands_yarn_hash;
+      hash = data.frontend_islands_yarn_hash;
     };
 
     nativeBuildInputs = [

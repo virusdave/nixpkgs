@@ -1,8 +1,8 @@
 {
   "version": "18.7.2",
-  "repo_hash": "0jzmy892x0ghp9pdlan27w25s83zgk1dm4fzahsdll022zbfnmgl",
-  "yarn_hash": "1b4ahi47n0wy2jzlyqx71f4xndp1mbvmzcb1mx5ss40dfgiq560q",
-  "frontend_islands_yarn_hash": "1h9nggif6979s2vpsk0vx6ds1j33dgyd10gv0ya6avm68nljvni5",
+  "repo_hash": "sha256-9FXr1hcCUNo0VN+R2sJ8fyBdBD/CKtpuuvCBLhLy9Us=",
+  "yarn_hash": "sha256-GJiC43MNEK1Lr2GxX/eq4TbbiQunY0+/FJ4De0iEiqw=",
+  "frontend_islands_yarn_hash": "sha256-JdotqUWmbmWUB/uB0PxrY8igm+kbTH230Okk4+J7NsE=",
   "owner": "gitlab-org",
   "repo": "gitlab",
   "rev": "v18.7.2-ee",
