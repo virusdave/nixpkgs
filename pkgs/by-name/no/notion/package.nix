@@ -10,7 +10,7 @@
   libx11,
   libxext,
   libxft,
-  libXinerama,
+  libxinerama,
   libXrandr,
   lua,
   makeWrapper,
@@ -54,7 +54,7 @@ stdenv.mkDerivation (finalAttrs: {
     libx11
     libxext
     libxft
-    libXinerama
+    libxinerama
     libXrandr
     lua
     readline

@@ -34,7 +34,7 @@
   libxext,
   libxfixes,
   libXi,
-  libXinerama,
+  libxinerama,
   libxkbcommon,
   libXrandr,
   libXrender,
@@ -592,7 +592,7 @@ let
             libxext
             libxfixes
             libXi
-            libXinerama
+            libxinerama
             libXrandr
             libXrender
           ]

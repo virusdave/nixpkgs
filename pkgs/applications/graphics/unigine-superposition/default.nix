@@ -7,7 +7,7 @@
   fontconfig,
   zlib,
   qtquickcontrols2,
-  libXinerama,
+  libxinerama,
   libxcb,
   libsm,
   libXi,
@@ -52,7 +52,7 @@ let
       fontconfig
       zlib
       qtquickcontrols2
-      libXinerama
+      libxinerama
       libxcb
       libsm
       libXi
@@ -109,7 +109,7 @@ buildFHSEnv {
     fontconfig
     zlib
     qtquickcontrols2
-    libXinerama
+    libxinerama
     libxcb
     libsm
     libXi

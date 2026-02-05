@@ -6,7 +6,7 @@
   pkg-config,
   libx11,
   libXrandr,
-  libXinerama,
+  libxinerama,
   libxext,
   libxcursor,
   freetype,
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libx11
     libXrandr
-    libXinerama
+    libxinerama
     libxext
     libxcursor
     freetype

@@ -10,7 +10,7 @@
   libxcb-keysyms,
   libxcb-util,
   libXrandr,
-  libXinerama,
+  libxinerama,
   libxcursor,
   alsa-lib,
   libjack2,
@@ -41,7 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcb-keysyms
     libxcb-util
     libXrandr
-    libXinerama
+    libxinerama
     libxcursor
     alsa-lib
     libjack2

@@ -23,7 +23,7 @@
   libXv,
   libXrandr,
   libXvMC,
-  libXinerama,
+  libxinerama,
   libXxf86vm,
   libXmu,
   yasm,
@@ -80,7 +80,7 @@ stdenv.mkDerivation rec {
     libXrandr
     libXvMC
     libXmu
-    libXinerama
+    libxinerama
     libXxf86vm
     libXmu
     libuuid

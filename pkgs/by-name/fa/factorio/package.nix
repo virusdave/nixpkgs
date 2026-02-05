@@ -10,7 +10,7 @@
   libxcursor,
   libxext,
   libXi,
-  libXinerama,
+  libxinerama,
   libXrandr,
   libpulseaudio,
   libxkbcommon,
@@ -248,7 +248,7 @@ let
         libxcursor
         libxext
         libXi
-        libXinerama
+        libxinerama
         libXrandr
         libpulseaudio
         libxkbcommon

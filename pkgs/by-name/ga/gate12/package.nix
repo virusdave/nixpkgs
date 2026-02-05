@@ -12,7 +12,7 @@
   libxcursor,
   libxdmcp,
   libxext,
-  libXinerama,
+  libxinerama,
   libXrandr,
   libXtst,
   writableTmpDirAsHomeHook,
@@ -50,7 +50,7 @@ stdenv.mkDerivation (finalAttrs: {
     libxcursor
     libxdmcp
     libxext
-    libXinerama
+    libxinerama
     libXrandr
     libXtst
   ];

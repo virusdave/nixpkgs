@@ -6,7 +6,7 @@
   bison,
   mksh,
   perl,
-  libXinerama,
+  libxinerama,
   libXt,
   libxext,
   libtirpc,
@@ -72,7 +72,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     libx11
-    libXinerama
+    libxinerama
     libXt
     libxext
     libtirpc

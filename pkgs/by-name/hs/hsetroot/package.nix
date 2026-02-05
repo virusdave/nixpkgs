@@ -5,7 +5,7 @@
   pkg-config,
   imlib2,
   libx11,
-  libXinerama,
+  libxinerama,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -23,7 +23,7 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     imlib2
     libx11
-    libXinerama
+    libxinerama
   ];
 
   postPatch = lib.optionalString (!stdenv.cc.isGNU) ''
