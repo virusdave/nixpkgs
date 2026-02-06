@@ -26,13 +26,13 @@ let
   nodejs = nodejs_22;
 
   pname = "zotero";
-  version = "8.0.1";
+  version = "8.0.2";
 
   src = fetchFromGitHub {
     owner = "zotero";
     repo = "zotero";
     tag = version;
-    hash = "sha256-Rm93Xclspb7cp4tTxr6OegLYf+ndyGz3YCwbf+6uGKM=";
+    hash = "sha256-zGcTZjrbFYbE4qJH5g3betnSLCdxYU2nZBOU55HunYU=";
     fetchSubmodules = true;
   };
 
@@ -163,7 +163,7 @@ buildNpmPackage (finalAttrs: {
     nodejs
     ;
 
-  npmDepsHash = "sha256-IVaT/O83kCGT7MGsTSblMKfVWeNBIpA9VJIWyikJrpk=";
+  npmDepsHash = "sha256-dtbA1V38u26gqWoN+kW/tnccl6HFX7p8fPAneq+mw6U=";
 
   nativeBuildInputs = [
     perl
