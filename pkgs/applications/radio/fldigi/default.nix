@@ -45,7 +45,14 @@ stdenv.mkDerivation rec {
     udev
   ];
 
-  env.CXXFLAGS = lib.optionalString stdenv.cc.isClang "-std=c++14";
+  env.CXXFLAGS = lib.concatStringsSep " " (
+    lib.optionals stdenv.cc.isClang [
+      "-std=c++14"
+    ]
+    ++ lib.optionals stdenv.hostPlatform.isDarwin [
+      "-Wno-error=unguarded-availability"
+    ]
+  );
 
   enableParallelBuilding = true;
 
