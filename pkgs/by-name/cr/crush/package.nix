@@ -54,6 +54,7 @@ buildGoModule (finalAttrs: {
     maintainers = with lib.maintainers; [
       x123
       malik
+      davinci42
     ];
     mainProgram = "crush";
   };
