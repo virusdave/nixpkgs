@@ -7,7 +7,7 @@
   callPackage,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "uv-build";
   version = "0.10.0";
   pyproject = true;
@@ -15,7 +15,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "astral-sh";
     repo = "uv";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-nD26zqKMK5LNkeYdqVYteeYL4mYaQQ/QlyjbMDDhLAY=";
   };
 
@@ -25,7 +25,7 @@ buildPythonPackage rec {
   ];
 
   cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit pname version src;
+    inherit (finalAttrs) pname version src;
     hash = "sha256-lEynVemQHCI7ZKD2+1n4K/AtEYRld2+aRLkDMSX8ejM=";
   };
 
@@ -52,4 +52,4 @@ buildPythonPackage rec {
     inherit (pkgs.uv.meta) changelog license;
     maintainers = with lib.maintainers; [ bengsparks ];
   };
-}
+})
