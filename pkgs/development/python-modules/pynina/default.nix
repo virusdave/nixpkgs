@@ -9,7 +9,6 @@
 buildPythonPackage (finalAttrs: {
   pname = "pynina";
   version = "1.0.2";
-  version = "1.0.2";
   pyproject = true;
 
   src = fetchPypi {
