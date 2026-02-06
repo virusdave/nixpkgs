@@ -18,6 +18,7 @@
   wineWow64Packages,
   onnxruntime,
   nix-update-script,
+  v4l-utils,
   withWine ? stdenv.targetPlatform.isx86_64,
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -90,7 +91,8 @@ stdenv.mkDerivation (finalAttrs: {
   # manually wrap just the main binary
   dontWrapQtApps = true;
   preFixup = ''
-    wrapQtApp $out/bin/opentrack
+    wrapQtApp $out/bin/opentrack \
+      --prefix PATH : ${lib.makeBinPath [ v4l-utils ]}
   '';
 
   desktopItems = [
