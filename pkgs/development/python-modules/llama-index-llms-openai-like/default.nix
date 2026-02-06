@@ -8,14 +8,14 @@
   transformers,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "llama-index-llms-openai-like";
   version = "0.6.0";
   pyproject = true;
 
   src = fetchPypi {
     pname = "llama_index_llms_openai_like";
-    inherit version;
+    inherit (finalAttrs) version;
     hash = "sha256-aTjP7WLHeHa6Q/JlGaq/VVd1/Y4Ofhry3fN6n8kdyjI=";
   };
 
@@ -38,4 +38,4 @@ buildPythonPackage rec {
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
