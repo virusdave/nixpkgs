@@ -22,13 +22,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "opentrack";
-  version = "2026.1.0-unstable-2026-01-03";
+  version = "2026.1.0-unstable-2026-01-24";
 
   src = fetchFromGitHub {
     owner = "opentrack";
     repo = "opentrack";
-    rev = "0779d3ce9da19d46919e909d0a1a252d67122db9";
-    hash = "sha256-n7XCNNXgfwU4q27Q7ss9tgc2Z/tmzcRxUP4chwpPN38=";
+    rev = "2d3ab7a61d2514ce51c9656908d33465a788763e";
+    hash = "sha256-+Xb3zlybQrrc1AiTdYXxDhuFNN7g7u7ryM7da2EJpaY=";
   };
 
   aruco = callPackage ./aruco.nix { };
@@ -38,6 +38,13 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-zay5QrHJctllVFl+JhlyTDzH68h5UoxncEt+TpW3UgI=";
     # see license.txt inside the zip file
     meta.license = lib.licenses.free;
+  };
+
+  fusion = fetchFromGitHub {
+    owner = "xioTechnologies";
+    repo = "Fusion";
+    tag = "v1.2.11";
+    hash = "sha256-9bqqP+6kfdRWIRnnP+R0lXSQs6OmZoNlbCjqiJeJjpk=";
   };
 
   patches = [
@@ -69,6 +76,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   cmakeFlags = [
+    (lib.cmakeFeature "FETCHCONTENT_SOURCE_DIR_AHRSFUSION" "${finalAttrs.fusion}")
     (lib.cmakeFeature "OPENTRACK_COMMIT" "opentrack-${finalAttrs.version}")
     (lib.cmakeBool "SDK_WINE" withWine)
     (lib.cmakeFeature "SDK_ARUCO_LIBPATH" "${finalAttrs.aruco}/lib/libaruco.a")
