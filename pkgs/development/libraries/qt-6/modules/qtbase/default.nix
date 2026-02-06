@@ -43,11 +43,11 @@
   glib,
   harfbuzz,
   icu,
-  libX11,
-  libXcomposite,
-  libXext,
-  libXi,
-  libXrender,
+  libx11,
+  libxcomposite,
+  libxext,
+  libxi,
+  libxrender,
   libjpeg,
   libpng,
   libxcb,
@@ -152,11 +152,11 @@ stdenv.mkDerivation {
     fontconfig
     freetype
     # X11 libs
-    libX11
-    libXcomposite
-    libXext
-    libXi
-    libXrender
+    libx11
+    libxcomposite
+    libxext
+    libxi
+    libxrender
     libxcb
     libxkbcommon
     libxcb-util
