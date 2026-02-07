@@ -9556,6 +9556,12 @@
     githubId = 127353;
     name = "Geoffrey Huntley";
   };
+  gibbert = {
+    email = "gbjgms@gmail.com";
+    github = "zgibberish";
+    githubId = 67570424;
+    name = "gibbert";
+  };
   gigahawk = {
     email = "Jasper Chan";
     name = "jasperchan515@gmail.com";
@@ -11779,6 +11785,12 @@
     github = "JamieMagee";
     githubId = 1358764;
     name = "Jamie Magee";
+  };
+  janhencic = {
+    name = "Jan Hencic";
+    email = "jan@hencic.com";
+    github = "janhencic";
+    githubId = 61284133;
   };
   jankaifer = {
     name = "Jan Kaifer";
@@ -18650,6 +18662,11 @@
     github = "NelsonJeppesen";
     githubId = 50854675;
     name = "Nelson Jeppesen";
+  };
+  nemin = {
+    name = "Nemin";
+    github = "Nemin32";
+    githubId = 2953293;
   };
   neosimsim = {
     email = "me@abn.sh";

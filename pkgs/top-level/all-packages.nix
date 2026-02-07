@@ -1519,10 +1519,6 @@ with pkgs;
     stdenv = clangStdenv;
   };
 
-  plausible = callPackage ../by-name/pl/plausible/package.nix {
-    beamPackages = beam27Packages.extend (self: super: { elixir = elixir_1_18; });
-  };
-
   reattach-to-user-namespace = callPackage ../os-specific/darwin/reattach-to-user-namespace { };
 
   xcodeenv = callPackage ../development/mobile/xcodeenv { };
@@ -7291,13 +7287,6 @@ with pkgs;
       url = "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=${commit};sf=tgz";
       hash = "sha256-n3KFrN/mN1SVXfuhEUAQ1fJzrCvhiclxfEIouyj9Z18=";
     };
-    patches = [
-      # Backport GCC 14 build fix
-      (fetchpatch {
-        url = "https://github.com/Open-Cascade-SAS/OCCT/commit/7236e83dcc1e7284e66dc61e612154617ef715d6.patch";
-        hash = "sha256-NoC2mE3DG78Y0c9UWonx1vmXoU4g5XxFUT3eVXqLU60=";
-      })
-    ];
   };
 
   opencascade-occt_7_6_1 = opencascade-occt.overrideAttrs {
@@ -8822,34 +8811,6 @@ with pkgs;
 
   virtualenv-clone = with python3Packages; toPythonApplication virtualenv-clone;
 
-  libX11 = libx11;
-  libXau = libxau;
-  libXaw = libxaw;
-  libXcomposite = libxcomposite;
-  libXcursor = libxcursor;
-  libXdamage = libxdamage;
-  libXdmcp = libxdmcp;
-  libXext = libxext;
-  libXfixes = libxfixes;
-  libXfont2 = libxfont_2;
-  libXft = libxft;
-  libXi = libxi;
-  libXinerama = libxinerama;
-  libXmu = libxmu;
-  libXp = libxp;
-  libXpm = libxpm;
-  libXpresent = libxpresent;
-  libXrandr = libxrandr;
-  libXrender = libxrender;
-  libXres = libxres;
-  libXScrnSaver = libxscrnsaver;
-  libXt = libxt;
-  libXtst = libxtst;
-  libXv = libxv;
-  libXvMC = libxvmc;
-  libXxf86dga = libxxf86dga;
-  libXxf86misc = libxxf86misc;
-  libXxf86vm = libxxf86vm;
   mkfontdir = mkfontscale;
   xcbproto = xcb-proto;
 
@@ -9982,16 +9943,6 @@ with pkgs;
 
   firefox-bin = wrapFirefox firefox-bin-unwrapped {
     pname = "firefox-bin";
-  };
-
-  librewolf-unwrapped = import ../applications/networking/browsers/librewolf {
-    inherit
-      stdenv
-      lib
-      callPackage
-      buildMozillaMach
-      nixosTests
-      ;
   };
 
   librewolf = wrapFirefox librewolf-unwrapped {
@@ -12823,8 +12774,6 @@ with pkgs;
     x11Support = false;
     waylandSupport = true;
   };
-
-  qmake2cmake = python3Packages.callPackage ../tools/misc/qmake2cmake { };
 
   sail-riscv = callPackage ../applications/virtualization/sail-riscv {
     inherit (ocamlPackages) sail;
