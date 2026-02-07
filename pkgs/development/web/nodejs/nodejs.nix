@@ -173,6 +173,8 @@ let
     builtins.attrNames sharedLibDeps
   );
 
+  bundlesCorepack = !lib.versionAtLeast version "25.0.0";
+
   # Currently stdenv sets CC/LD/AR/etc environment variables to program names
   # instead of absolute paths. If we add cctools to nativeBuildInputs, that
   # would shadow stdenv’s bintools and potentially break other parts of the
@@ -275,6 +277,7 @@ let
         "libv8"
         "npm"
       ]
+      ++ lib.optional bundlesCorepack "corepack"
       ++ lib.optionals (stdenv.hostPlatform == stdenv.buildPlatform) [ "dev" ];
       setOutputFlags = false;
       moveToDev = false;
@@ -353,6 +356,7 @@ let
 
       postPatch = ''
         substituteInPlace tools/install.py \
+          --replace-fail '  corepack_files(options, action)' "  oip=options.install_path;options.install_path='$corepack';corepack_files(options, action);options.install_path=oip" \
           --replace-fail '  npm_files(options, action)' "  oip=options.install_path;options.install_path='$npm';npm_files(options, action);options.install_path=oip"
       ''
       + lib.optionalString stdenv.hostPlatform.isDarwin ''
@@ -505,21 +509,29 @@ let
       outputChecks = {
         out = {
           disallowedReferences = [
-            "npm"
             "libv8"
+            "npm"
+          ]
+          ++ lib.optional bundlesCorepack "corepack";
+        };
+        corepack = {
+          disallowedReferences = [
+            "libv8"
+            "npm"
           ];
         };
         libv8 = {
           disallowedReferences = [
             "out"
             "npm"
-          ];
+          ]
+          ++ lib.optional bundlesCorepack "corepack";
         };
         npm = {
           disallowedReferences = [
-            "out"
             "libv8"
-          ];
+          ]
+          ++ lib.optional bundlesCorepack "corepack";
         };
       };
 
@@ -559,8 +571,6 @@ let
           cp out/Release/${tools} $dev/bin
         ''
         + ''
-
-          HOST_PATH=$out/bin patchShebangs --host $out
 
           ${lib.optionalString canExecute ''
             $out/bin/node --completion-bash > node.bash
@@ -609,6 +619,8 @@ let
         '';
 
       postFixup = ''
+        HOST_PATH=$out/bin patchShebangs --host $out ${lib.optionalString bundlesCorepack "$corepack"} $npm
+
         for dir in "$npm/lib/node_modules/npm/man/"*; do
           mkdir -p $npm/share/man/$(basename "$dir")
           for page in "$dir"/*; do
