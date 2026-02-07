@@ -139,26 +139,27 @@ async function handleReviewers({
   }
 
   // We don't want to rerequest reviews from people who already reviewed or were requested
-  const users_not_yet_reached = users_to_reach.difference(users_reached)
-  log(
-    'reviewers - users_not_yet_reached',
-    Array.from(users_not_yet_reached).join(', '),
+  const users_not_yet_reached = Array.from(
+    users_to_reach.difference(users_reached),
   )
+  log('reviewers - users_not_yet_reached', users_not_yet_reached.join(', '))
   // We don't want to rerequest reviews from teams who already reviewed or were requested
-  const teams_not_yet_reached = teams_to_reach.difference(teams_reached)
-  log(
-    'reviewers - teams_not_yet_reached',
-    Array.from(teams_not_yet_reached).join(', '),
+  const teams_not_yet_reached = Array.from(
+    teams_to_reach.difference(teams_reached),
   )
+  log('reviewers - teams_not_yet_reached', teams_not_yet_reached.join(', '))
 
-  if (users_not_yet_reached.size === 0 && teams_not_yet_reached.size === 0) {
+  if (
+    users_not_yet_reached.length === 0 &&
+    teams_not_yet_reached.length === 0
+  ) {
     log('Has reviewer changes', 'false (skipped)')
   } else if (dry) {
     core.info(
-      `Requesting user reviewers for #${pull_number}: ${Array.from(users_not_yet_reached).join(', ')} (dry)`,
+      `Requesting user reviewers for #${pull_number}: ${users_not_yet_reached.join(', ')} (dry)`,
     )
     core.info(
-      `Requesting team reviewers for #${pull_number}: ${Array.from(teams_not_yet_reached).join(', ')} (dry)`,
+      `Requesting team reviewers for #${pull_number}: ${teams_not_yet_reached.join(', ')} (dry)`,
     )
   } else {
     // We had tried the "request all reviewers at once" thing in the past, but it didn't work out:
@@ -175,8 +176,8 @@ async function handleReviewers({
 
   // Return a boolean on whether the "needs: reviewers" label should be set.
   return (
-    users_not_yet_reached.size === 0 &&
-    teams_not_yet_reached.size === 0 &&
+    users_not_yet_reached.length === 0 &&
+    teams_not_yet_reached.length === 0 &&
     users_reached.size === 0 &&
     teams_reached.size === 0
   )
