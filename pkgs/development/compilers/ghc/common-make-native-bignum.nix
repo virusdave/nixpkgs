@@ -536,6 +536,8 @@ stdenv.mkDerivation (
     ]
     ++ lib.optionals enableUnregisterised [
       "--enable-unregisterised"
+      # The C backend generates code incompatible with gnu23
+      "CONF_CC_OPTS_STAGE2=-std=gnu17"
     ];
 
     # Make sure we never relax`$PATH` and hooks support for compatibility.
