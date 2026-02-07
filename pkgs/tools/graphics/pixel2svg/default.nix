@@ -1,25 +1,30 @@
 {
   lib,
-  buildPythonPackage,
+  buildPythonApplication,
   fetchurl,
   pillow,
   svgwrite,
+  versionCheckHook,
 }:
 
-buildPythonPackage rec {
+buildPythonApplication (finalAttrs: {
   pname = "pixel2svg";
   version = "0.3.0";
-  format = "setuptools";
+  pyproject = true;
 
   src = fetchurl {
-    url = "https://static.florian-berger.de/pixel2svg-${version}.zip";
-    sha256 = "sha256-aqcTTmZKcdRdVd8GGz5cuaQ4gjPapVJNtiiZu22TZgQ=";
+    url = "https://static.florian-berger.de/pixel2svg-${finalAttrs.version}.zip";
+    hash = "sha256-aqcTTmZKcdRdVd8GGz5cuaQ4gjPapVJNtiiZu22TZgQ=";
   };
 
-  propagatedBuildInputs = [
+  build-system = with python3Packages; [ setuptools ];
+
+  dependencies = with python3Packages; [
     pillow
     svgwrite
   ];
+
+  nativeCheckInputs = [ versionCheckHook ];
 
   meta = {
     homepage = "https://florian-berger.de/en/software/pixel2svg/";
@@ -28,4 +33,4 @@ buildPythonPackage rec {
     maintainers = with lib.maintainers; [ annaaurora ];
     mainProgram = "pixel2svg.py";
   };
-}
+})
