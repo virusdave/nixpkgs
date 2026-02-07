@@ -7,14 +7,14 @@
 
 buildPythonPackage rec {
   pname = "bhopengraph";
-  version = "1.3.0";
+  version = "1.3.1";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "p0dalirius";
     repo = "bhopengraph";
     tag = "v${version}";
-    hash = "sha256-rpJZhABYsiv3uZdb6zLEYGYMOv8Gyd6kZ9k0d9Ob1FQ=";
+    hash = "sha256-pT+xdcxFLQUrXpZxS0gmXjyhtR1jqDsBAPHgEhxX2R8=";
   };
 
   build-system = [ poetry-core ];
