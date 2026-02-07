@@ -3568,8 +3568,8 @@ let
         mktplcRef = {
           name = "vscode-just-syntax";
           publisher = "nefrob";
-          version = "0.8.0";
-          hash = "sha256-zuDfIxhiUKRpVRxp9BceW6WPBq5NNCuS1Si0/6kfqF8=";
+          version = "0.9.0";
+          hash = "sha256-+9OZ8sRYK9D/JiI+cR1BajqrmLqnOYvrwTIfOaPnoq4=";
         };
         meta = {
           changelog = "https://marketplace.visualstudio.com/items/nefrob.vscode-just-syntax/changelog";
