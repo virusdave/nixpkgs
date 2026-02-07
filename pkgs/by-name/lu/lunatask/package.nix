@@ -41,7 +41,10 @@ appimageTools.wrapType2 {
     changelog = "https://lunatask.app/releases/${version}";
     license = lib.licenses.unfree;
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
-    maintainers = with lib.maintainers; [ zi3m5f ];
+    maintainers = with lib.maintainers; [
+      MrSom3body
+      zi3m5f
+    ];
     platforms = [ "x86_64-linux" ];
     mainProgram = "lunatask";
   };
