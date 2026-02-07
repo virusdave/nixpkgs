@@ -124,6 +124,7 @@ cat <<EOF
   "url": "$url",
   "rev": "$actualRev",
   "date": "$actualDatetime",
+  "path": "$finalPath",
   "$hashType": "$hash",
   "hash": "$(nix-hash --to-sri --type $hashType $hash)"
 }
