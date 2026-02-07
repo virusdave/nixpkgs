@@ -722,6 +722,7 @@ mapAliases {
   fontcursormisc = font-cursor-misc; # Added 2026-01-19
   fontdaewoomisc = font-daewoo-misc; # Added 2026-01-19
   fontdecmisc = font-dec-misc; # Added 2026-01-19
+  fontfinder = throw "'fontfinder' has been remved as it has been unmaintained upstream since April 2023"; # Added 2026-02-07
   fontibmtype1 = font-ibm-type1; # Added 2026-01-19
   fontisasmisc = font-isas-misc; # Added 2026-01-19
   fontjismisc = font-jis-misc; # Added 2026-01-19
