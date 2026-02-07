@@ -1,13 +1,11 @@
 {
   lib,
-  buildPythonApplication,
+  python3Packages,
   fetchurl,
-  pillow,
-  svgwrite,
   versionCheckHook,
 }:
 
-buildPythonApplication (finalAttrs: {
+python3Packages.buildPythonApplication (finalAttrs: {
   pname = "pixel2svg";
   version = "0.3.0";
   pyproject = true;
