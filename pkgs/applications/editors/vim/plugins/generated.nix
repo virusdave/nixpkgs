@@ -4835,6 +4835,19 @@ final: prev: {
     meta.hydraPlatforms = [ ];
   };
 
+  easyread-nvim = buildVimPlugin {
+    pname = "easyread.nvim";
+    version = "0-unstable-2023-04-22";
+    src = fetchFromGitHub {
+      owner = "JellyApple102";
+      repo = "easyread.nvim";
+      rev = "0b07e315a4cd7d700c4a794bdddbec79fdc2628b";
+      hash = "sha256-RSk/KViWw48IX0NcC5hW4IGawZ6prBYxPa/kXPN4KSI=";
+    };
+    meta.homepage = "https://github.com/JellyApple102/easyread.nvim/";
+    meta.hydraPlatforms = [ ];
+  };
+
   echodoc-vim = buildVimPlugin {
     pname = "echodoc.vim";
     version = "0-unstable-2022-11-27";
