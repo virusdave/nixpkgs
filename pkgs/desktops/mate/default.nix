@@ -22,7 +22,6 @@ let
         };
 
       caja = callPackage ./caja { };
-      caja-extensions = callPackage ./caja-extensions { };
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
       mate-panel = callPackage ./mate-panel { };
       mate-panel-with-applets = callPackage ./mate-panel/with-applets.nix { };
@@ -127,4 +126,5 @@ lib.makeScope pkgs.newScope packages
   pluma = lib.warnOnInstantiate "‘mate.pluma’ was moved to top-level. Please use ‘pkgs.pluma’ directly" pkgs.pluma; # Added on 2026-02-08
   python-caja = lib.warnOnInstantiate "‘mate.python-caja’ was moved to top-level. Please use ‘pkgs.python-caja’ directly" pkgs.python-caja; # Added on 2026-02-08
   caja-dropbox = lib.warnOnInstantiate "‘mate.caja-dropbox’ was moved to top-level. Please use ‘pkgs.caja-dropbox’ directly" pkgs.caja-dropbox; # Added on 2026-02-08
+  caja-extensions = lib.warnOnInstantiate "‘mate.caja-extensions’ was moved to top-level. Please use ‘pkgs.caja-extensions’ directly" pkgs.caja-extensions; # Added on 2026-02-08
 }
