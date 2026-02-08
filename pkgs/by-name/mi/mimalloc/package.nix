@@ -40,6 +40,10 @@ stdenv.mkDerivation (finalAttrs: {
     MI_BUILD_SHARED = stdenv.hostPlatform.hasSharedLibraries;
     MI_LIBC_MUSL = stdenv.hostPlatform.libc == "musl";
     MI_BUILD_TESTS = finalAttrs.doCheck;
+
+    # MI_OPT_ARCH is inaccurate (e.g. it assumes aarch64 == armv8.1-a).
+    # Nixpkgs's native platform configuration does a better job.
+    MI_NO_OPT_ARCH = true;
   };
 
   postPatch = ''
