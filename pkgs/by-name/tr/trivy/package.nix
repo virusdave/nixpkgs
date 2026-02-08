@@ -5,9 +5,9 @@
   buildGoModule,
   fetchFromGitHub,
   installShellFiles,
-  testers,
-  trivy,
+  versionCheckHook,
 }:
+
 buildGoModule (finalAttrs: {
   pname = "trivy";
   version = "0.69.0";
@@ -36,6 +36,8 @@ buildGoModule (finalAttrs: {
 
   nativeBuildInputs = [ installShellFiles ];
 
+  nativeInstallCheckInputs = [ versionCheckHook ];
+
   # Tests require network access
   doCheck = false;
 
@@ -47,12 +49,6 @@ buildGoModule (finalAttrs: {
   '';
 
   doInstallCheck = true;
-
-  passthru.tests.version = testers.testVersion {
-    package = trivy;
-    command = "trivy --version";
-    version = "Version: ${finalAttrs.version}";
-  };
 
   meta = {
     description = "Simple and comprehensive vulnerability scanner for containers, suitable for CI";
