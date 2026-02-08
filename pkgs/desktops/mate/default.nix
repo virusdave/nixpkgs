@@ -30,8 +30,6 @@ let
       mate-settings-daemon = callPackage ./mate-settings-daemon { };
       mate-settings-daemon-wrapped = callPackage ./mate-settings-daemon/wrapped.nix { };
 
-      python-caja = callPackage ./python-caja { };
-
       # Caja and mate-panel are managed in NixOS module.
       basePackages = [
         libmatekbd
@@ -128,4 +126,5 @@ lib.makeScope pkgs.newScope packages
   mate-wayland-session = lib.warnOnInstantiate "‘mate.mate-wayland-session’ was moved to top-level. Please use ‘pkgs.mate-wayland-session’ directly" pkgs.mate-wayland-session; # Added on 2026-02-08
   mozo = lib.warnOnInstantiate "‘mate.mozo’ was moved to top-level. Please use ‘pkgs.mozo’ directly" pkgs.mozo; # Added on 2026-02-08
   pluma = lib.warnOnInstantiate "‘mate.pluma’ was moved to top-level. Please use ‘pkgs.pluma’ directly" pkgs.pluma; # Added on 2026-02-08
+  python-caja = lib.warnOnInstantiate "‘mate.python-caja’ was moved to top-level. Please use ‘pkgs.python-caja’ directly" pkgs.python-caja; # Added on 2026-02-08
 }
