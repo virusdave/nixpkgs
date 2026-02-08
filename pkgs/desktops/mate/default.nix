@@ -27,7 +27,6 @@ let
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
       mate-panel = callPackage ./mate-panel { };
       mate-panel-with-applets = callPackage ./mate-panel/with-applets.nix { };
-      mate-polkit = callPackage ./mate-polkit { };
       mate-power-manager = callPackage ./mate-power-manager { };
       mate-sensors-applet = callPackage ./mate-sensors-applet { };
       mate-session-manager = callPackage ./mate-session-manager { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   mate-menus = lib.warnOnInstantiate "‘mate.mate-menus’ was moved to top-level. Please use ‘pkgs.mate-menus’ directly" pkgs.mate-menus; # Added on 2026-02-08
   mate-netbook = lib.warnOnInstantiate "‘mate.mate-netbook’ was moved to top-level. Please use ‘pkgs.mate-netbook’ directly" pkgs.mate-netbook; # Added on 2026-02-08
   mate-notification-daemon = lib.warnOnInstantiate "‘mate.mate-notification-daemon’ was moved to top-level. Please use ‘pkgs.mate-notification-daemon’ directly" pkgs.mate-notification-daemon; # Added on 2026-02-08
+  mate-polkit = lib.warnOnInstantiate "‘mate.mate-polkit’ was moved to top-level. Please use ‘pkgs.mate-polkit’ directly" pkgs.mate-polkit; # Added on 2026-02-08
 }
