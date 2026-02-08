@@ -8,7 +8,7 @@
   libwnck,
   libfakekey,
   libxtst,
-  mate,
+  mate-panel,
   wrapGAppsHook3,
   gitUpdater,
 }:
@@ -37,7 +37,7 @@ stdenv.mkDerivation (finalAttrs: {
     libwnck
     libfakekey
     libxtst
-    mate.mate-panel
+    mate-panel
   ];
 
   enableParallelBuilding = true;

@@ -3,7 +3,11 @@
   fetchFromGitHub,
   python3Packages,
   intltool,
-  mate,
+  mate-applets,
+  mate-panel,
+  marco,
+  libmatekbd,
+  mate-session-manager,
   libnotify,
   gtk3,
   gdk-pixbuf,
@@ -37,11 +41,11 @@ python3Packages.buildPythonApplication rec {
     gdk-pixbuf
     libnotify
     glib
-    mate.mate-applets
-    mate.mate-panel
-    mate.marco
-    mate.libmatekbd
-    mate.mate-session-manager
+    mate-applets
+    mate-panel
+    marco
+    libmatekbd
+    mate-session-manager
   ];
 
   propagatedBuildInputs = with python3Packages; [

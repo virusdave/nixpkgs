@@ -4,7 +4,7 @@
   fetchurl,
   autoreconfHook,
   gtk3,
-  mate,
+  mate-icon-theme,
   hicolor-icon-theme,
   gitUpdater,
 }:
@@ -24,7 +24,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   propagatedBuildInputs = [
-    mate.mate-icon-theme
+    mate-icon-theme
     hicolor-icon-theme
   ];
 

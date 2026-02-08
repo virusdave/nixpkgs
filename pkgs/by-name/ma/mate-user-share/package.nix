@@ -13,7 +13,6 @@
   libcanberra-gtk3,
   apacheHttpdPackages,
   hicolor-icon-theme,
-  mate,
   wrapGAppsHook3,
   gitUpdater,
 }:
