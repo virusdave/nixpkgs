@@ -51,11 +51,6 @@ buildPythonPackage rec {
 
   build-system = [ setuptools ];
 
-  pythonRelaxDeps = [
-    "acme"
-    "snitun"
-  ];
-
   dependencies = [
     acme
     aiohttp
