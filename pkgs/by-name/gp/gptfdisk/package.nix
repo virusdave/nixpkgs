@@ -59,6 +59,11 @@ stdenv.mkDerivation (finalAttrs: {
     done
   '';
 
+  outputs = [
+    "out"
+    "man"
+  ];
+
   passthru.tests = lib.optionalAttrs stdenv.hostPlatform.isx86 {
     installer-simpleLabels = nixosTests.installer.simpleLabels;
   };
