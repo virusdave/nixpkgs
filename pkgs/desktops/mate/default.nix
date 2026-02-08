@@ -25,7 +25,6 @@ let
       caja-dropbox = callPackage ./caja-dropbox { };
       caja-extensions = callPackage ./caja-extensions { };
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
-      mate-desktop = callPackage ./mate-desktop { };
       mate-gsettings-overrides = callPackage ./mate-gsettings-overrides { };
       mate-icon-theme = callPackage ./mate-icon-theme { };
       mate-icon-theme-faenza = callPackage ./mate-icon-theme-faenza { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   mate-calc = lib.warnOnInstantiate "‘mate.mate-calc’ was moved to top-level. Please use ‘pkgs.mate-calc’ directly" pkgs.mate-calc; # Added on 2026-02-08
   mate-common = lib.warnOnInstantiate "‘mate.mate-common’ was moved to top-level. Please use ‘pkgs.mate-common’ directly" pkgs.mate-common; # Added on 2026-02-08
   mate-control-center = lib.warnOnInstantiate "‘mate.mate-control-center’ was moved to top-level. Please use ‘pkgs.mate-control-center’ directly" pkgs.mate-control-center; # Added on 2026-02-08
+  mate-desktop = lib.warnOnInstantiate "‘mate.mate-desktop’ was moved to top-level. Please use ‘pkgs.mate-desktop’ directly" pkgs.mate-desktop; # Added on 2026-02-08
 }
