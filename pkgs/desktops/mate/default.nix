@@ -22,7 +22,6 @@ let
         };
 
       caja = callPackage ./caja { };
-      caja-dropbox = callPackage ./caja-dropbox { };
       caja-extensions = callPackage ./caja-extensions { };
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
       mate-panel = callPackage ./mate-panel { };
@@ -127,4 +126,5 @@ lib.makeScope pkgs.newScope packages
   mozo = lib.warnOnInstantiate "‘mate.mozo’ was moved to top-level. Please use ‘pkgs.mozo’ directly" pkgs.mozo; # Added on 2026-02-08
   pluma = lib.warnOnInstantiate "‘mate.pluma’ was moved to top-level. Please use ‘pkgs.pluma’ directly" pkgs.pluma; # Added on 2026-02-08
   python-caja = lib.warnOnInstantiate "‘mate.python-caja’ was moved to top-level. Please use ‘pkgs.python-caja’ directly" pkgs.python-caja; # Added on 2026-02-08
+  caja-dropbox = lib.warnOnInstantiate "‘mate.caja-dropbox’ was moved to top-level. Please use ‘pkgs.caja-dropbox’ directly" pkgs.caja-dropbox; # Added on 2026-02-08
 }
