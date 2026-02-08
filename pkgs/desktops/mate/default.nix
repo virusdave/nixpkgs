@@ -27,7 +27,6 @@ let
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
       mate-panel = callPackage ./mate-panel { };
       mate-panel-with-applets = callPackage ./mate-panel/with-applets.nix { };
-      mate-session-manager = callPackage ./mate-session-manager { };
       mate-settings-daemon = callPackage ./mate-settings-daemon { };
       mate-settings-daemon-wrapped = callPackage ./mate-settings-daemon/wrapped.nix { };
       mate-system-monitor = callPackage ./mate-system-monitor { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   mate-power-manager = lib.warnOnInstantiate "‘mate.mate-power-manager’ was moved to top-level. Please use ‘pkgs.mate-power-manager’ directly" pkgs.mate-power-manager; # Added on 2026-02-08
   mate-screensaver = lib.warnOnInstantiate "‘mate.mate-screensaver’ was moved to top-level. Please use ‘pkgs.mate-screensaver’ directly" pkgs.mate-screensaver; # Added on 2026-02-08
   mate-sensors-applet = lib.warnOnInstantiate "‘mate.mate-sensors-applet’ was moved to top-level. Please use ‘pkgs.mate-sensors-applet’ directly" pkgs.mate-sensors-applet; # Added on 2026-02-08
+  mate-session-manager = lib.warnOnInstantiate "‘mate.mate-session-manager’ was moved to top-level. Please use ‘pkgs.mate-session-manager’ directly" pkgs.mate-session-manager; # Added on 2026-02-08
 }
