@@ -2,10 +2,13 @@
   lib,
   buildHomeAssistantComponent,
   fetchFromGitHub,
+  fetchNpmDeps,
   aiofiles,
   bcrypt,
   jinja2,
   joserfc,
+  nodejs,
+  npmHooks,
   python-jose,
 }:
 
@@ -21,6 +24,21 @@ buildHomeAssistantComponent rec {
     hash = "sha256-nclrSO6KmPnwXRPuuFwR6iYHsyfqcelPRGERWVJpdyk=";
   };
 
+  postPatch = ''
+    rm custom_components/auth_oidc/static/style.css
+  '';
+
+  env.npmDeps = fetchNpmDeps {
+    name = "${domain}-npm-deps";
+    inherit src;
+    hash = "sha256-i75YeCZVSMFDWzaiDJRTYqQee5I15n9ll0YYX1PXYbA=";
+  };
+
+  nativeBuildInputs = [
+    npmHooks.npmConfigHook
+    nodejs
+  ];
+
   dependencies = [
     aiofiles
     bcrypt
@@ -28,6 +46,10 @@ buildHomeAssistantComponent rec {
     joserfc
     python-jose
   ];
+
+  postBuild = ''
+    npm run css
+  '';
 
   meta = {
     changelog = "https://github.com/christiaangoossens/hass-oidc-auth/releases/tag/v${version}";
