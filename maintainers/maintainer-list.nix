@@ -17151,6 +17151,13 @@
     githubId = 20536514;
     name = "Magdalena Haselsteiner";
   };
+  mhdask = {
+    email = "nixpkgs@mdask.dk";
+    matrix = "@mhdask:matrix.org";
+    github = "mhdask";
+    githubId = 55240757;
+    name = "mhdask";
+  };
   mhemeryck = {
     email = "martijn.hemeryck@gmail.com";
     github = "mhemeryck";
