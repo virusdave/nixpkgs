@@ -51,7 +51,7 @@ let
   };
 in
 
-py.pkgs.buildPythonPackage rec {
+py.pkgs.buildPythonPackage (finalAttrs: {
   pname = "irrd";
   version = "4.5.0";
   pyproject = true;
@@ -59,7 +59,7 @@ py.pkgs.buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "irrdnet";
     repo = "irrd";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-6z94Ha2QQ0LE4o3hzsNl4y/nPv849cSP8on3UeegE4c=";
   };
 
@@ -160,10 +160,10 @@ py.pkgs.buildPythonPackage rec {
   ];
 
   meta = {
-    changelog = "https://irrd.readthedocs.io/en/${src.tag}/releases/";
+    changelog = "https://irrd.readthedocs.io/en/${finalAttrs.src.tag}/releases/";
     description = "Internet Routing Registry database server, processing IRR objects in the RPSL format";
     license = lib.licenses.mit;
     homepage = "https://github.com/irrdnet/irrd";
     maintainers = with lib.maintainers; [ yureka-wdz ];
   };
-}
+})
