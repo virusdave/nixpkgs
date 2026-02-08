@@ -5,7 +5,7 @@
   poetry-core,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "bhopengraph";
   version = "1.3.1";
   pyproject = true;
@@ -13,7 +13,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "p0dalirius";
     repo = "bhopengraph";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-pT+xdcxFLQUrXpZxS0gmXjyhtR1jqDsBAPHgEhxX2R8=";
   };
 
@@ -27,8 +27,8 @@ buildPythonPackage rec {
   meta = {
     description = "Library to create BloodHound OpenGraphs";
     homepage = "https://github.com/p0dalirius/bhopengraph";
-    changelog = "https://github.com/p0dalirius/bhopengraph/releases/tag/${src.tag}";
+    changelog = "https://github.com/p0dalirius/bhopengraph/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
