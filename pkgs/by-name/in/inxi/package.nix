@@ -80,11 +80,15 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [ perl ];
 
   installPhase = ''
+    runHook preInstall
+
     installBin inxi
     wrapProgram $out/bin/inxi \
       --set PERL5LIB "${perlPackages.makePerlPath (with perlPackages; [ CpanelJSONXS ])}" \
       ${prefixPath programs}
     installManPage inxi.1
+
+    runHook postInstall
   '';
 
   outputs = [
