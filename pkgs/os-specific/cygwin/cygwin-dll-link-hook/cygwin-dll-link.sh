@@ -8,13 +8,15 @@ _moveDLLsToLib() {
 
 preFixupHooks+=(_moveDLLsToLib)
 
-addOutputDLLPaths() {
+declare _linkDeps_inputPath _linkDeps_outputPath
+
+_addOutputDLLPaths() {
   for output in $(getAllOutputNames); do
-    addToSearchPath "HOST_PATH" "${!output}/bin"
+    addToSearchPath _linkDeps_outputPath "${!output}/bin"
   done
 }
 
-preFixupHooks+=(addOutputDLLPaths)
+preFixupHooks+=(_addOutputDLLPaths)
 
 _dllDeps() {
   @objdump@ -p "$1" \
@@ -35,12 +37,13 @@ _linkDeps() {
       continue
     fi
     # Locate the DLL - it should be an *executable* file on $HOST_PATH.
-    local dllPath
-    if ! dllPath="$(PATH="$(dirname "$target"):$HOST_PATH" type -P "$dll")"; then
+    local dllPath searchPath
+    searchPath=$(dirname "$target"):$_linkDeps_outputPath:$_linkDeps_inputPath:$HOST_PATH
+    if ! dllPath="$(PATH="$searchPath" type -P "$dll")"; then
       if [[ -z "$check" || -n "${allowedImpureDLLsMap[$dll]}" ]]; then
         continue
       fi
-      echo unable to find "$dll" in "$HOST_PATH" >&2
+      echo unable to find "$dll" in "$searchPath" >&2
       exit 1
     fi
     echo '    linking to:' "$dllPath"
