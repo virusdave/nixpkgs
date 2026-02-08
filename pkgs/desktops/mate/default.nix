@@ -25,7 +25,6 @@ let
       caja-dropbox = callPackage ./caja-dropbox { };
       caja-extensions = callPackage ./caja-extensions { };
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
-      engrampa = callPackage ./engrampa { };
       eom = callPackage ./eom { };
       libmatekbd = callPackage ./libmatekbd { };
       libmatemixer = callPackage ./libmatemixer { };
@@ -127,4 +126,5 @@ in
 lib.makeScope pkgs.newScope packages
 // lib.optionalAttrs config.allowAliases {
   atril = lib.warnOnInstantiate "‘mate.atril’ was moved to top-level. Please use ‘pkgs.atril’ directly" pkgs.atril; # Added on 2026-02-08
+  engrampa = lib.warnOnInstantiate "‘mate.engrampa’ was moved to top-level. Please use ‘pkgs.engrampa’ directly" pkgs.engrampa; # Added on 2026-02-08
 }
