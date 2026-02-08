@@ -24,14 +24,14 @@
 
 buildPythonPackage rec {
   pname = "cf-xarray";
-  version = "0.10.10";
+  version = "0.10.11";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "xarray-contrib";
     repo = "cf-xarray";
     tag = "v${version}";
-    hash = "sha256-t6b4Tog0BLk5y+wi3QH6IKLbJSKw5NkLa3kJRtSBKRs=";
+    hash = "sha256-SHVSHfB80iLz8uONwH1WoUajef/YT4k0CIzTrHTG3kI=";
   };
 
   build-system = [
