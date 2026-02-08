@@ -31,6 +31,8 @@ let
       substituteInPlace $out/share/applications/${pname}.desktop \
         --replace-fail 'Exec=AppRun --no-sandbox' 'Exec=${pname}'
     '';
+
+    passthru.updateScript = ./update.sh;
   };
 
   darwin = stdenv.mkDerivation {
