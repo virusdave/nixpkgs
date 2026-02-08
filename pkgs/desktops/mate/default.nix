@@ -31,7 +31,6 @@ let
       mate-session-manager = callPackage ./mate-session-manager { };
       mate-settings-daemon = callPackage ./mate-settings-daemon { };
       mate-settings-daemon-wrapped = callPackage ./mate-settings-daemon/wrapped.nix { };
-      mate-screensaver = callPackage ./mate-screensaver { };
       mate-system-monitor = callPackage ./mate-system-monitor { };
 
       mate-terminal = callPackage ./mate-terminal { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   mate-notification-daemon = lib.warnOnInstantiate "‘mate.mate-notification-daemon’ was moved to top-level. Please use ‘pkgs.mate-notification-daemon’ directly" pkgs.mate-notification-daemon; # Added on 2026-02-08
   mate-polkit = lib.warnOnInstantiate "‘mate.mate-polkit’ was moved to top-level. Please use ‘pkgs.mate-polkit’ directly" pkgs.mate-polkit; # Added on 2026-02-08
   mate-power-manager = lib.warnOnInstantiate "‘mate.mate-power-manager’ was moved to top-level. Please use ‘pkgs.mate-power-manager’ directly" pkgs.mate-power-manager; # Added on 2026-02-08
+  mate-screensaver = lib.warnOnInstantiate "‘mate.mate-screensaver’ was moved to top-level. Please use ‘pkgs.mate-screensaver’ directly" pkgs.mate-screensaver; # Added on 2026-02-08
 }
