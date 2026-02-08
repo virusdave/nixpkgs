@@ -277,6 +277,16 @@ in
         '';
       };
 
+      man.cache.generateAtRuntime = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Whether to generate the manual page index caches at runtime using
+          a systemd service. Note that this is currently only supported by the
+          man-db module.
+        '';
+      };
+
       info.enable = mkOption {
         type = types.bool;
         default = true;
