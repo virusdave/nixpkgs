@@ -12920,6 +12920,12 @@
     github = "jooooscha";
     githubId = 57965027;
   };
+  josephschmitt = {
+    name = "Joseph Schmitt";
+    email = "dev@joe.sh";
+    github = "josephschmitt";
+    githubId = 136007;
+  };
   josephst = {
     name = "Joseph Stahl";
     email = "hello@josephstahl.com";
