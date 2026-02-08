@@ -23,7 +23,17 @@ python3.pkgs.buildPythonApplication (finalAttrs: {
   outputs = [
     "out"
     "man"
-  ];
+  ]
+  # From some reason upstream installs documentation only for Linux, solaris,
+  # sunos and any gnu system.
+  ++ lib.optionals (lib.pipe stdenv.hostPlatform [
+    (lib.attrVals [
+      "isLinux"
+      "isSunOS"
+      "isGnu"
+    ])
+    (builtins.any lib.id)
+  ]) [ "doc" ];
 
   nativeBuildInputs = [ installShellFiles ];
 
