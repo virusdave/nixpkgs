@@ -8,21 +8,15 @@
 
 buildPythonPackage rec {
   pname = "goodwe";
-  version = "0.4.8";
+  version = "0.4.9";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "marcelblijleven";
     repo = "goodwe";
     tag = "v${version}";
-    hash = "sha256-EsMv4hzGsAV9OTFo2b/omM4hx7XxUcdO6rrMzQ3DmNQ=";
+    hash = "sha256-WHLvfAlwhcA0JFSWfwUPsJ9dWmadIjyonXEP3Bb6WKE=";
   };
-
-  postPatch = ''
-    substituteInPlace setup.cfg \
-      --replace-fail "'marcelblijleven@gmail.com" "marcelblijleven@gmail.com" \
-      --replace-fail "version: file: VERSION" "version = ${version}"
-  '';
 
   build-system = [ setuptools ];
 
