@@ -454,6 +454,9 @@ builtins.intersectAttrs super {
     }))
   ];
 
+  # Wants to execute cabal-install
+  ghci-quickfix = dontCheck super.ghci-quickfix;
+
   # These packages try to access the network.
   amqp = dontCheck super.amqp;
   amqp-conduit = dontCheck super.amqp-conduit;
@@ -925,6 +928,10 @@ builtins.intersectAttrs super {
   splitmix = dontCheck super.splitmix;
   splitmix_0_1_1 = dontCheck super.splitmix_0_1_1;
 
+  # Break infinite recursion
+  # hedgehog (dep)→ async (dep)→ unordered-containers (test)→ nothunks (test)→ hedgehog
+  nothunks = dontCheck super.nothunks;
+
   # Break infinite recursion cycle with OneTuple and quickcheck-instances.
   foldable1-classes-compat = dontCheck super.foldable1-classes-compat;
 
@@ -1361,6 +1368,8 @@ builtins.intersectAttrs super {
     ];
     doCheck = drv.doCheck or true && !(pkgs.postgresqlTestHook.meta.broken);
   }) super.haskell-pgmq;
+  # Needs pgmq available at test time with somehow preinitialized database (?)
+  stakhanov = dontCheck super.stakhanov;
 
   migrant-postgresql-simple = lib.pipe super.migrant-postgresql-simple [
     (overrideCabal {

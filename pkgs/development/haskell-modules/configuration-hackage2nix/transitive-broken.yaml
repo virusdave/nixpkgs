@@ -127,7 +127,6 @@ dont-distribute-packages:
  - arithmetic-circuits
  - array-forth
  - arraylist
- - arx
  - arxiv-client-cli
  - ascii
  - ascii-cows
@@ -190,7 +189,6 @@ dont-distribute-packages:
  - azimuth-hs
  - aztecs-sdl-image
  - aztecs-sdl-text
- - aztecs-transform
  - azure-functions-worker
  - azure-service-api
  - azure-servicebus
@@ -834,7 +832,6 @@ dont-distribute-packages:
  - EditTimeReport
  - effect-monad
  - effective-aspects-mzv
- - effects-parser
  - ekg-carbon
  - elasticsearch-interchange
  - electrs-client
@@ -858,7 +855,6 @@ dont-distribute-packages:
  - enumerator-fd
  - enumerator-tf
  - enumfun
- - ephemeral
  - erf-native
  - eros-client
  - eros-http
@@ -1044,7 +1040,6 @@ dont-distribute-packages:
  - freckle-otel
  - freckle-prelude
  - freckle-stats
- - free-functors
  - free-game
  - free-theorems-seq-webui
  - freekick2
@@ -1427,6 +1422,7 @@ dont-distribute-packages:
  - hasloGUI
  - hasql-postgres
  - hasql-postgres-options
+ - hasql-postgresql-types
  - hasql-queue
  - hasql-streams-core
  - hasql-streams-example
@@ -1646,6 +1642,7 @@ dont-distribute-packages:
  - hs-ffmpeg
  - hs-functors
  - hs-gen-iface
+ - hs-hath
  - hs-ix
  - hs-opentelemetry-instrumentation-cloudflare
  - hs-opentelemetry-instrumentation-http-client
@@ -1778,7 +1775,7 @@ dont-distribute-packages:
  - hylotab
  - hyloutils
  - hyperbole
- - hyperbole_0_5_0
+ - hyperbole_0_6_0
  - hyperpublic
  - ide-backend
  - ide-backend-server
@@ -2384,7 +2381,6 @@ dont-distribute-packages:
  - mysql-simple-typed
  - myTestlll
  - mywatch
- - mywork
  - n2o-web
  - NaCl
  - nakadi-client
@@ -2596,7 +2592,7 @@ dont-distribute-packages:
  - persistent-hssqlppp
  - persistent-iproute
  - persistent-map
- - persistent-postgresql_2_14_2_0
+ - persistent-postgresql_2_14_3_0
  - persistent-protobuf
  - persona-idp
  - peyotls
@@ -2705,11 +2701,14 @@ dont-distribute-packages:
  - postgresql-common-persistent
  - postgresql-pure
  - postgresql-simple-ltree
+ - postgresql-simple-postgresql-types
  - postgresql-simple-queue
  - postgresql-simple-typed
  - postgresql-tx-query
  - postgresql-tx-squeal
  - postgresql-tx-squeal-compat-simple
+ - postgresql-types
+ - postgresql-types-algebra
  - postmark
  - potoki
  - potoki-cereal
@@ -2916,6 +2915,7 @@ dont-distribute-packages:
  - repa-flow
  - repa-plugin
  - repa-v4l2
+ - repl-alliance
  - replicant
  - repo-based-blog
  - repr
@@ -3203,7 +3203,7 @@ dont-distribute-packages:
  - SimpleLog
  - SimpleServer
  - simseq
- - singletons-base_3_5
+ - singletons-base_3_5_1
  - singletons-presburger
  - siphon
  - siren-json
@@ -3399,6 +3399,7 @@ dont-distribute-packages:
  - symantic-http-test
  - symantic-lib
  - symbiote
+ - symbolic-regression
  - symmetry-operations-symbols
  - Synapse
  - synapse
@@ -3597,7 +3598,6 @@ dont-distribute-packages:
  - UMM
  - unagi-bloomfilter
  - unbound
- - unfoldable-restricted
  - uni-events
  - uni-graphs
  - uni-htk
@@ -3855,7 +3855,6 @@ dont-distribute-packages:
  - yesod-articles
  - yesod-auth-ldap
  - yesod-auth-lti13
- - yesod-auth-simple
  - yesod-colonnade
  - yesod-continuations
  - yesod-examples

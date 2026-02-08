@@ -255,7 +255,6 @@ let
         cachix
         # carp broken on 2024-04-09
         changelog-d
-        cedille
         client-ip-echo
         cornelis
         codd

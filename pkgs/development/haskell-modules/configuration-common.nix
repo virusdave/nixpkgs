@@ -340,17 +340,6 @@ with haskellLib;
   # https://github.com/yesodweb/shakespeare/issues/294
   shakespeare = dontCheck super.shakespeare;
 
-  # Fixes test suite with mime-types >= 0.1.2.1
-  yesod-static = appendPatches [
-    (pkgs.fetchpatch {
-      name = "yesod-static-mime-types-0.1.2.1.patch";
-      url = "https://github.com/yesodweb/yesod/commit/5466dc3b984efcd1f963ae3c6c3a5241c4f625ee.patch";
-      sha256 = "sha256-UN8kdnSsZPRt8PdQdortd50cB+j9kUOmhECl6lfxIxI=";
-      includes = [ "**/EmbedProductionTest.hs" ];
-      stripLen = 1;
-    })
-  ] super.yesod-static;
-
   # Work around -Werror failures until a more permanent solution is released
   # https://github.com/haskell-cryptography/HsOpenSSL/issues/88
   # https://github.com/haskell-cryptography/HsOpenSSL/issues/93
@@ -611,7 +600,7 @@ with haskellLib;
         name = "git-annex-${super.git-annex.version}-src";
         url = "git://git-annex.branchable.com/";
         tag = super.git-annex.version;
-        sha256 = "sha256-Cnkohi1sl7kS4JECCsNDbxXKIWBus1gDcWoO3xZtXoM=";
+        sha256 = "sha256-wH/As9KdHLlUgGUuIVjBjC8akqHfCZPBWABFXry6z28=";
         # delete android and Android directories which cause issues on
         # darwin (case insensitive directory). Since we don't need them
         # during the build process, we can delete it to prevent a hash
@@ -2436,15 +2425,23 @@ with haskellLib;
   NGLess = dontCheck super.NGLess;
 
   # Too strict bound on network (<3.2)
-  hookup = appendPatches [
-    (pkgs.fetchpatch {
-      name = "hookup-network-3.2.patch";
-      url = "https://github.com/glguy/irc-core/commit/a3ec982e729b0f77b2db336ec32c5e4b7283bed5.patch";
-      sha256 = "0qc1qszn3l69xlbpfv8vz9ld0q7sghfcbp0wjds81kwcpdpl4jgv";
-      stripLen = 1;
-      includes = [ "hookup.cabal" ];
-    })
-  ] super.hookup;
+  hookup =
+    appendPatches
+      [
+        (pkgs.fetchpatch {
+          name = "hookup-network-3.2.patch";
+          url = "https://github.com/glguy/irc-core/commit/a3ec982e729b0f77b2db336ec32c5e4b7283bed5.patch";
+          sha256 = "0qc1qszn3l69xlbpfv8vz9ld0q7sghfcbp0wjds81kwcpdpl4jgv";
+          stripLen = 1;
+          includes = [ "hookup.cabal" ];
+        })
+      ]
+      (
+        overrideCabal {
+          revision = null;
+          editedCabalFile = null;
+        } super.hookup
+      );
 
   basic-sop = appendPatch (fetchpatch {
     # https://github.com/well-typed/basic-sop/pull/13
@@ -2878,19 +2875,9 @@ with haskellLib;
 
   # 2024-07-27: building test component requires non-trivial custom build steps
   # https://github.com/awakesecurity/proto3-suite/blob/bec9d40e2767143deed5b2d451197191f1d8c7d5/nix/overlays/haskell-packages.nix#L311
-  # Hackage release trails a good deal behind master
   proto3-suite = lib.pipe super.proto3-suite [
     dontCheck
     doJailbreak
-    (overrideSrc {
-      version = "0.9.0-unstable-2025-04-10";
-      src = pkgs.fetchFromGitHub {
-        owner = "awakesecurity";
-        repo = "proto3-suite";
-        rev = "24bb3f9c6c83b4ecc31783fa5a8fa4406e6ef0d8";
-        hash = "sha256-009UNd1rEg/wDCCxReQWhPwHaONwlB6l6qoIPR0mVBU=";
-      };
-    })
   ];
 
   # Tests require docker
@@ -2934,7 +2921,7 @@ with haskellLib;
   http2-tls =
     lib.warnIf (lib.versionAtLeast self.tls.version "2.1.10")
       "haskellPackages.http2-tls: tls override can be removed"
-      (super.http2-tls.override { tls = self.tls_2_1_14; });
+      (super.http2-tls.override { tls = self.tls_2_2_1; });
 
   # Relax http2 version bound (5.3.9 -> 5.3.10)
   # https://github.com/well-typed/grapesy/issues/297
@@ -3012,7 +2999,7 @@ with haskellLib;
       ]
     ) super)
     what4
-    what4_1_7_2
+    what4_1_7_3
     ;
 
   copilot-theorem = lib.pipe super.copilot-theorem [
@@ -3088,12 +3075,12 @@ with haskellLib;
   # 2025-04-13: jailbreak to allow th-abstraction >= 0.7
   crucible = doJailbreak (
     super.crucible.override {
-      what4 = self.what4_1_7_2;
+      what4 = self.what4_1_7_3;
     }
   );
 
   crucible-llvm = super.crucible-llvm.override {
-    what4 = self.what4_1_7_2;
+    what4 = self.what4_1_7_3;
   };
 
   # Test suite invokes cabal-install in a way incompatible with our generic builder
