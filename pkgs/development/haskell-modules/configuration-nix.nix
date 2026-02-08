@@ -1353,6 +1353,8 @@ builtins.intersectAttrs super {
     ];
     doCheck = drv.doCheck or true && !(pkgs.postgresqlTestHook.meta.broken);
   }) super.haskell-pgmq;
+  # Needs pgmq available at test time with somehow preinitialized database (?)
+  stakhanov = dontCheck super.stakhanov;
 
   migrant-postgresql-simple = lib.pipe super.migrant-postgresql-simple [
     (overrideCabal {
