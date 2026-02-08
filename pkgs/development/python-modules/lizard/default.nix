@@ -12,6 +12,7 @@
 buildPythonPackage rec {
   pname = "lizard";
   version = "1.20.0";
+  version = "1.20.0";
   format = "setuptools";
 
   src = fetchFromGitHub {
