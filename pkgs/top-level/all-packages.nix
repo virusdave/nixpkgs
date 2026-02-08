@@ -2820,8 +2820,6 @@ with pkgs;
 
   md2gemini = with python3.pkgs; toPythonApplication md2gemini;
 
-  md2pdf = with python3Packages; toPythonApplication md2pdf;
-
   mdcat = callPackage ../tools/text/mdcat {
     inherit (python3Packages) ansi2html;
   };
