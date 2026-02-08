@@ -81,6 +81,21 @@ in
       serviceConfig.Type = "oneshot";
     };
 
+    systemd.services.post-boot = {
+      description = "Post-boot Actions";
+      # It's not well defined at what point in the bootup sequence this should run
+      # we should eventually just remove this.
+      after = [ "multi-user.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+      };
+      script = ''
+        ${cfg.powerUpCommands}
+      '';
+    };
+
     systemd.services.post-resume = {
       description = "Post-Resume Actions";
       # Pulled in by post-resume.service above
