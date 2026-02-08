@@ -1,10 +1,10 @@
 {
   lib,
-  flutter329,
+  flutter341,
   fetchFromGitHub,
 }:
 
-flutter329.buildFlutterApplication rec {
+flutter341.buildFlutterApplication rec {
   pname = "convertall";
   version = "1.0.2";
 
