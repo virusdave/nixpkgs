@@ -30,7 +30,6 @@ let
       mate-settings-daemon = callPackage ./mate-settings-daemon { };
       mate-settings-daemon-wrapped = callPackage ./mate-settings-daemon/wrapped.nix { };
 
-      mate-user-share = callPackage ./mate-user-share { };
       mate-utils = callPackage ./mate-utils { };
       mate-wayland-session = callPackage ./mate-wayland-session { };
       mozo = callPackage ./mozo { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   mate-themes = lib.warnOnInstantiate "‘mate.mate-themes’ was moved to top-level. Please use ‘pkgs.mate-themes’ directly" pkgs.mate-themes; # Added on 2026-02-08
   mate-tweak = lib.warnOnInstantiate "‘mate.mate-tweak’ was moved to top-level. Please use ‘pkgs.mate-tweak’ directly" pkgs.mate-tweak; # Added on 2026-02-08
   mate-user-guide = lib.warnOnInstantiate "‘mate.mate-user-guide’ was moved to top-level. Please use ‘pkgs.mate-user-guide’ directly" pkgs.mate-user-guide; # Added on 2026-02-08
+  mate-user-share = lib.warnOnInstantiate "‘mate.mate-user-share’ was moved to top-level. Please use ‘pkgs.mate-user-share’ directly" pkgs.mate-user-share; # Added on 2026-02-08
 }
