@@ -21,9 +21,6 @@ let
           url = if url == null then "https://git.mate-desktop.org/${pname}" else url;
         };
 
-      mate-settings-daemon = callPackage ./mate-settings-daemon { };
-      mate-settings-daemon-wrapped = callPackage ./mate-settings-daemon/wrapped.nix { };
-
       # Caja and mate-panel are managed in NixOS module.
       basePackages = [
         libmatekbd
@@ -127,4 +124,6 @@ lib.makeScope pkgs.newScope packages
   caja-with-extensions = lib.warnOnInstantiate "‘mate.caja-with-extensions’ was moved to top-level. Please use ‘pkgs.caja-with-extensions’ directly" pkgs.caja-with-extensions; # Added on 2026-02-08
   mate-panel = lib.warnOnInstantiate "‘mate.mate-panel’ was moved to top-level. Please use ‘pkgs.mate-panel’ directly" pkgs.mate-panel; # Added on 2026-02-08
   mate-panel-with-applets = lib.warnOnInstantiate "‘mate.mate-panel-with-applets’ was moved to top-level. Please use ‘pkgs.mate-panel-with-applets’ directly" pkgs.mate-panel-with-applets; # Added on 2026-02-08
+  mate-settings-daemon = lib.warnOnInstantiate "‘mate.mate-settings-daemon’ was moved to top-level. Please use ‘pkgs.mate-settings-daemon’ directly" pkgs.mate-settings-daemon; # Added on 2026-02-08
+  mate-settings-daemon-wrapped = lib.warnOnInstantiate "‘mate.mate-settings-daemon-wrapped’ was moved to top-level. Please use ‘pkgs.mate-settings-daemon-wrapped’ directly" pkgs.mate-settings-daemon-wrapped; # Added on 2026-02-08
 }
