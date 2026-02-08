@@ -22,7 +22,9 @@ flutter329.buildFlutterApplication rec {
     description = "Graphical unit converter";
     mainProgram = "convertall";
     license = lib.licenses.gpl2Plus;
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [
+      Luflosi
+    ];
     platforms = lib.platforms.linux;
   };
 }
