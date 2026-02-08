@@ -88,7 +88,7 @@ _linkDeps() {
         fi
       fi
       echo '    linking to:' "$dllPath"
-      CYGWIN+=\ winsymlinks:nativestrict ln -sr "$dllPath" "$dir"
+      CYGWIN+=' winsymlinks:nativestrict' ln -sr "$dllPath" "$dir"
       _linkDeps "$dllPath" "$dir"
     fi
     _linkDeps_visited[$dir/$dll]=1
