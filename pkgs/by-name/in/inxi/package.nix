@@ -87,6 +87,11 @@ stdenv.mkDerivation (finalAttrs: {
     installManPage inxi.1
   '';
 
+  outputs = [
+    "out"
+    "man"
+  ];
+
   meta = {
     description = "Full featured CLI system information tool";
     longDescription = ''
