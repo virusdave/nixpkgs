@@ -21,8 +21,6 @@ let
           url = if url == null then "https://git.mate-desktop.org/${pname}" else url;
         };
 
-      caja = callPackage ./caja { };
-      caja-with-extensions = callPackage ./caja/with-extensions.nix { };
       mate-panel = callPackage ./mate-panel { };
       mate-panel-with-applets = callPackage ./mate-panel/with-applets.nix { };
       mate-settings-daemon = callPackage ./mate-settings-daemon { };
@@ -127,4 +125,6 @@ lib.makeScope pkgs.newScope packages
   python-caja = lib.warnOnInstantiate "‘mate.python-caja’ was moved to top-level. Please use ‘pkgs.python-caja’ directly" pkgs.python-caja; # Added on 2026-02-08
   caja-dropbox = lib.warnOnInstantiate "‘mate.caja-dropbox’ was moved to top-level. Please use ‘pkgs.caja-dropbox’ directly" pkgs.caja-dropbox; # Added on 2026-02-08
   caja-extensions = lib.warnOnInstantiate "‘mate.caja-extensions’ was moved to top-level. Please use ‘pkgs.caja-extensions’ directly" pkgs.caja-extensions; # Added on 2026-02-08
+  caja = lib.warnOnInstantiate "‘mate.caja’ was moved to top-level. Please use ‘pkgs.caja’ directly" pkgs.caja; # Added on 2026-02-08
+  caja-with-extensions = lib.warnOnInstantiate "‘mate.caja-with-extensions’ was moved to top-level. Please use ‘pkgs.caja-with-extensions’ directly" pkgs.caja-with-extensions; # Added on 2026-02-08
 }
