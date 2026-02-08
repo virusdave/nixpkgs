@@ -454,6 +454,9 @@ builtins.intersectAttrs super {
     }))
   ];
 
+  # Wants to execute cabal-install
+  ghci-quickfix = dontCheck super.ghci-quickfix;
+
   # These packages try to access the network.
   amqp = dontCheck super.amqp;
   amqp-conduit = dontCheck super.amqp-conduit;
