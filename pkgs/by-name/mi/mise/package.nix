@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "jdx";
     repo = "mise";
-    rev = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-7TsSK3mk6tSxvWPNYq8Viyc8x4BYmR/QrqRT/sfetz4=";
   };
 
@@ -137,7 +137,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   meta = {
     homepage = "https://mise.jdx.dev";
     description = "Front-end to your dev env";
-    changelog = "https://github.com/jdx/mise/releases/tag/v${finalAttrs.version}";
+    changelog = "https://github.com/jdx/mise/blob/${finalAttrs.src.tag}/CHANGELOG.md";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ konradmalik ];
     mainProgram = "mise";
