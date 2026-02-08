@@ -19,6 +19,12 @@ stdenv.mkDerivation (finalAttrs: {
   doCheck = true; # not cross;
   configureFlags = [ "CXX=${stdenv.cc.targetPrefix}c++" ];
 
+  outputs = [
+    "out"
+    "man"
+    "info"
+  ];
+
   meta = {
     description = "GNU ddrescue, a data recovery tool";
     longDescription = ''
