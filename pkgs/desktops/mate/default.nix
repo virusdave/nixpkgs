@@ -22,7 +22,7 @@ let
         };
 
       # Caja and mate-panel are managed in NixOS module.
-      basePackages = [
+      basePackages = with pkgs; [
         libmatekbd
         libmatemixer
         libmateweather
@@ -40,7 +40,7 @@ let
         mate-themes
       ];
 
-      extraPackages = [
+      extraPackages = with pkgs; [
         atril
         caja-extensions # for caja-sendto
         engrampa
@@ -62,11 +62,9 @@ let
         pluma
       ];
 
-      cajaExtensions = [
-        caja-extensions
-      ];
+      cajaExtensions = [ pkgs.caja-extensions ];
 
-      panelApplets = [
+      panelApplets = with pkgs; [
         mate-applets
         mate-indicator-applet
         mate-netbook
