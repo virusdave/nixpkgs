@@ -6,13 +6,13 @@
   lndir,
   marco,
   mate-panel,
-  panelApplets,
+  mate,
   applets ? [ ],
   useDefaultApplets ? true,
 }:
 
 let
-  selectedApplets = applets ++ (lib.optionals useDefaultApplets panelApplets);
+  selectedApplets = applets ++ (lib.optionals useDefaultApplets mate.panelApplets);
 in
 stdenv.mkDerivation {
   pname = "${mate-panel.pname}-with-applets";
