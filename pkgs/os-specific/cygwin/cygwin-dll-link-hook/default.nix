@@ -10,4 +10,6 @@ makeSetupHook {
   substitutions = {
     objdump = "${lib.getBin binutils-unwrapped}/${stdenv.targetPlatform.config}/bin/objdump";
   };
+
+  passthru.tests = callPackage ./tests { };
 } ./cygwin-dll-link.sh
