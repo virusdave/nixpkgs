@@ -5,6 +5,7 @@
   perl,
   perlPackages,
   makeWrapper,
+  installShellFiles,
   ps,
   dnsutils, # dig is recommended for multiple categories
   withRecommends ? false, # Install (almost) all recommended tools (see --recommends)
@@ -72,17 +73,18 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-GpXfLLJhM4L9TB8Qw38uaCCwtCmBYg9nrVC001kDckc=";
   };
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [
+    installShellFiles
+    makeWrapper
+  ];
   buildInputs = [ perl ];
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp inxi $out/bin/
+    installBin inxi
     wrapProgram $out/bin/inxi \
       --set PERL5LIB "${perlPackages.makePerlPath (with perlPackages; [ CpanelJSONXS ])}" \
       ${prefixPath programs}
-    mkdir -p $out/share/man/man1
-    cp inxi.1 $out/share/man/man1/
+    installManPage inxi.1
   '';
 
   meta = {
