@@ -25,7 +25,6 @@ let
       caja-dropbox = callPackage ./caja-dropbox { };
       caja-extensions = callPackage ./caja-extensions { };
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
-      mate-applets = callPackage ./mate-applets { };
       mate-backgrounds = callPackage ./mate-backgrounds { };
       mate-calc = callPackage ./mate-calc { };
       mate-common = callPackage ./mate-common { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   libmatemixer = lib.warnOnInstantiate "‘mate.libmatemixer’ was moved to top-level. Please use ‘pkgs.libmatemixer’ directly" pkgs.libmatemixer; # Added on 2026-02-08
   libmateweather = lib.warnOnInstantiate "‘mate.libmateweather’ was moved to top-level. Please use ‘pkgs.libmateweather’ directly" pkgs.libmateweather; # Added on 2026-02-08
   marco = lib.warnOnInstantiate "‘mate.marco’ was moved to top-level. Please use ‘pkgs.marco’ directly" pkgs.marco; # Added on 2026-02-08
+  mate-applets = lib.warnOnInstantiate "‘mate.mate-applets’ was moved to top-level. Please use ‘pkgs.mate-applets’ directly" pkgs.mate-applets; # Added on 2026-02-08
 }
