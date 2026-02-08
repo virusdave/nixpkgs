@@ -25,7 +25,6 @@ let
       caja-dropbox = callPackage ./caja-dropbox { };
       caja-extensions = callPackage ./caja-extensions { };
       caja-with-extensions = callPackage ./caja/with-extensions.nix { };
-      mate-notification-daemon = callPackage ./mate-notification-daemon { };
       mate-panel = callPackage ./mate-panel { };
       mate-panel-with-applets = callPackage ./mate-panel/with-applets.nix { };
       mate-polkit = callPackage ./mate-polkit { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   mate-media = lib.warnOnInstantiate "‘mate.mate-media’ was moved to top-level. Please use ‘pkgs.mate-media’ directly" pkgs.mate-media; # Added on 2026-02-08
   mate-menus = lib.warnOnInstantiate "‘mate.mate-menus’ was moved to top-level. Please use ‘pkgs.mate-menus’ directly" pkgs.mate-menus; # Added on 2026-02-08
   mate-netbook = lib.warnOnInstantiate "‘mate.mate-netbook’ was moved to top-level. Please use ‘pkgs.mate-netbook’ directly" pkgs.mate-netbook; # Added on 2026-02-08
+  mate-notification-daemon = lib.warnOnInstantiate "‘mate.mate-notification-daemon’ was moved to top-level. Please use ‘pkgs.mate-notification-daemon’ directly" pkgs.mate-notification-daemon; # Added on 2026-02-08
 }
