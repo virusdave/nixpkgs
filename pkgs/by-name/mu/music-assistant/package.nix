@@ -102,7 +102,6 @@ python.pkgs.buildPythonApplication rec {
     "aiofiles"
     "aiohttp"
     "aiosqlite"
-    "aiovban" # PyPi and GitHub versioning is out of sync
     "certifi"
     "colorlog"
     "cryptography"

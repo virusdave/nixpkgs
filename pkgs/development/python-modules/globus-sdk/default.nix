@@ -35,6 +35,8 @@ buildPythonPackage rec {
     pyjwt
   ];
 
+  __darwinAllowLocalNetworking = true;
+
   nativeCheckInputs = [ pytestCheckHook ];
 
   checkInputs = [

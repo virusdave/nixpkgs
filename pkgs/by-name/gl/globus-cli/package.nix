@@ -21,6 +21,7 @@ python3Packages.buildPythonApplication rec {
   build-system = with python3Packages; [
     flit-core
     ruamel-yaml
+    flit-core
   ];
 
   dependencies = with python3Packages; [
