@@ -43,7 +43,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     homepage = "https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp";
     changelog = "https://github.com/microsoft/markitdown/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ malik ];
+    maintainers = python3Packages.markitdown.meta.maintainers;
     mainProgram = "markitdown-mcp";
     platforms = lib.platforms.all;
   };
