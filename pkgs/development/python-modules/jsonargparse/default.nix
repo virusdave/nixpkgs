@@ -21,7 +21,7 @@
   typeshed-client,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "jsonargparse";
   version = "4.46.0";
   pyproject = true;
@@ -29,7 +29,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "omni-us";
     repo = "jsonargparse";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-YLryV70RV4TH86ysllMXyCsZp7xr1LRFwKU1PjvoilA=";
   };
 
@@ -79,8 +79,8 @@ buildPythonPackage rec {
   meta = {
     description = "Module to implement minimal boilerplate CLIs derived from various sources";
     homepage = "https://github.com/omni-us/jsonargparse";
-    changelog = "https://github.com/omni-us/jsonargparse/blob/${src.tag}/CHANGELOG.rst";
+    changelog = "https://github.com/omni-us/jsonargparse/blob/${finalAttrs.src.tag}/CHANGELOG.rst";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
