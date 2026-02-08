@@ -34,6 +34,19 @@ let
         };
         doCheck = false;
       });
+
+      # https://github.com/irrdnet/irrd/blob/0fd95020279060f2bc2816c0533c825e40f4c73c/pyproject.toml#L58C1-L59C1
+      limits = prev.limits.overridePythonAttrs (oldAttrs: rec {
+        version = "5.6.0";
+        src = fetchFromGitHub {
+          owner = "alisaifee";
+          repo = "limits";
+          tag = version;
+          hash = "sha256-kghfF2ihEvyMPEGO1m9BquCdeBsYRoPyIljdLL1hToQ=";
+        };
+        doCheck = false;
+      });
+
     };
   };
 in
