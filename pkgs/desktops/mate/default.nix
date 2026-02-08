@@ -30,7 +30,6 @@ let
       mate-settings-daemon = callPackage ./mate-settings-daemon { };
       mate-settings-daemon-wrapped = callPackage ./mate-settings-daemon/wrapped.nix { };
 
-      mate-terminal = callPackage ./mate-terminal { };
       mate-themes = callPackage ./mate-themes { };
       mate-tweak = callPackage ./mate-tweak { };
       mate-user-guide = callPackage ./mate-user-guide { };
@@ -128,4 +127,5 @@ lib.makeScope pkgs.newScope packages
   mate-sensors-applet = lib.warnOnInstantiate "‘mate.mate-sensors-applet’ was moved to top-level. Please use ‘pkgs.mate-sensors-applet’ directly" pkgs.mate-sensors-applet; # Added on 2026-02-08
   mate-session-manager = lib.warnOnInstantiate "‘mate.mate-session-manager’ was moved to top-level. Please use ‘pkgs.mate-session-manager’ directly" pkgs.mate-session-manager; # Added on 2026-02-08
   mate-system-monitor = lib.warnOnInstantiate "‘mate.mate-system-monitor’ was moved to top-level. Please use ‘pkgs.mate-system-monitor’ directly" pkgs.mate-system-monitor; # Added on 2026-02-08
+  mate-terminal = lib.warnOnInstantiate "‘mate.mate-terminal’ was moved to top-level. Please use ‘pkgs.mate-terminal’ directly" pkgs.mate-terminal; # Added on 2026-02-08
 }
