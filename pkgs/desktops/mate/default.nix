@@ -1,4 +1,8 @@
-{ pkgs, lib }:
+{
+  pkgs,
+  lib,
+  config,
+}:
 
 let
   packages =
@@ -17,7 +21,6 @@ let
           url = if url == null then "https://git.mate-desktop.org/${pname}" else url;
         };
 
-      atril = callPackage ./atril { };
       caja = callPackage ./caja { };
       caja-dropbox = callPackage ./caja-dropbox { };
       caja-extensions = callPackage ./caja-extensions { };
@@ -122,3 +125,6 @@ let
 
 in
 lib.makeScope pkgs.newScope packages
+// lib.optionalAttrs config.allowAliases {
+  atril = lib.warnOnInstantiate "‘mate.atril’ was moved to top-level. Please use ‘pkgs.atril’ directly" pkgs.atril; # Added on 2026-02-08
+}
