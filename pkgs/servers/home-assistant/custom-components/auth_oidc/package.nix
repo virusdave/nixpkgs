@@ -5,25 +5,27 @@
   aiofiles,
   bcrypt,
   jinja2,
+  joserfc,
   python-jose,
 }:
 
 buildHomeAssistantComponent rec {
   owner = "christaangoossens";
   domain = "auth_oidc";
-  version = "0.6.3-alpha";
+  version = "0.6.5-alpha";
 
   src = fetchFromGitHub {
     owner = "christiaangoossens";
     repo = "hass-oidc-auth";
     tag = "v${version}";
-    hash = "sha256-+R2IIs9MixR8epVpk4QycN8PjOfRITlZ+oUbdPEk2eA=";
+    hash = "sha256-nclrSO6KmPnwXRPuuFwR6iYHsyfqcelPRGERWVJpdyk=";
   };
 
   dependencies = [
     aiofiles
     bcrypt
     jinja2
+    joserfc
     python-jose
   ];
 
