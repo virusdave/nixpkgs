@@ -6100,6 +6100,12 @@
     githubId = 98460960;
     email = "david.weisse@gmx.net";
   };
+  davinci42 = {
+    name = "Dan Xin";
+    github = "davinci42";
+    githubId = 4347318;
+    email = "davinci42.cn@gmail.com";
+  };
   davisrichard437 = {
     email = "davisrichard437@gmail.com";
     github = "davisrichard437";
@@ -17414,6 +17420,12 @@
     githubId = 66798382;
     name = "Sebastian Maximilian Scherthan";
   };
+  miniharinn = {
+    name = "Harinn";
+    github = "MiniHarinn";
+    githubId = 52773156;
+    email = "prinn.dev@pm.me";
+  };
   minijackson = {
     email = "minijackson@riseup.net";
     github = "minijackson";
@@ -18934,6 +18946,13 @@
     matrix = "@niklaskorz:matrix.org";
     github = "niklaskorz";
     githubId = 590517;
+  };
+  niklasthorild = {
+    name = "Niklas Thorild";
+    email = "niklas@thorild.se";
+    github = "niklasthorild";
+    githubId = 224864856;
+    keys = [ { fingerprint = "D116 2896 7DD7 4341 DF3C  AB2D 285C 222F EC9C 0336"; } ];
   };
   NiklasVousten = {
     name = "Niklas Vousten";
