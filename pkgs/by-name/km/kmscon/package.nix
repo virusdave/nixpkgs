@@ -12,6 +12,7 @@
   pango,
   pkg-config,
   docbook_xsl,
+  docbook_xml_dtd_42,
   libxslt,
   libgbm,
   ninja,
@@ -60,9 +61,22 @@ stdenv.mkDerivation (finalAttrs: {
     libxslt # xsltproc
   ];
 
+  outputs = [
+    "out"
+    "man"
+  ];
+
   patches = [
     ./sandbox.patch # Generate system units where they should be (nix store) instead of /etc/systemd/system
   ];
+
+  postPatch = ''
+    for i in ./docs/man/*.in; do
+      substituteInPlace "''${i}" \
+        --replace-fail "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" \
+                       "${docbook_xml_dtd_42}/xml/dtd/docbook/docbookx.dtd"
+    done
+  '';
 
   passthru = {
     tests.kmscon = nixosTests.kmscon;
