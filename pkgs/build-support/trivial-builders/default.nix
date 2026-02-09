@@ -1053,7 +1053,7 @@ rec {
       }
       # Carry (and merge) information from the underlying `src` if present.
       // (optionalAttrs (src ? meta) {
-        inherit (src) meta;
+        meta = removeAttrs src.meta [ "position" ];
       })
       // (optionalAttrs (extraPassthru != { } || src ? passthru) {
         passthru = extraPassthru // src.passthru or { };
