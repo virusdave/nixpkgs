@@ -94,6 +94,8 @@ buildPythonPackage (finalAttrs: {
 
   pythonImportsCheck = [ "spyder_kernels" ];
 
+  __darwinAllowLocalNetworking = true;
+
   meta = {
     description = "Jupyter kernels for Spyder's console";
     homepage = "https://docs.spyder-ide.org/current/ipythonconsole.html";
