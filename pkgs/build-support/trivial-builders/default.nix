@@ -1077,14 +1077,12 @@ rec {
         doDist = false;
 
         installPhase = "cp -R ./ $out";
-      }
-      # Carry (and merge) information from the underlying `src` if present.
-      // (optionalAttrs (src ? meta) {
-        meta = removeAttrs src.meta [ "position" ];
-      })
-      // (optionalAttrs (extraPassthru != { } || src ? passthru) {
+
         passthru = extraPassthru // src.passthru or { };
-      });
+
+        # Carry (and merge) information from the underlying `src` if present.
+        meta = lib.optionalAttrs (src ? meta) (removeAttrs src.meta) [ "position" ];
+      };
   };
 
   # TODO: move docs to Nixpkgs manual
