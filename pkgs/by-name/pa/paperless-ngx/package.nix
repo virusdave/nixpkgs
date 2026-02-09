@@ -57,7 +57,7 @@ let
       };
 
       # tesseract5 may be overwritten in the paperless module and we need to propagate that to make the closure reduction effective
-      ocrmypdf = prev.ocrmypdf.override { tesseract = tesseract5; };
+      ocrmypdf = prev.ocrmypdf_16.override { tesseract = tesseract5; };
     };
   };
 
