@@ -1063,7 +1063,15 @@ rec {
           ;
         preferLocalBuild = true;
         allowSubstitutes = false;
-        phases = "unpackPhase patchPhase installPhase";
+
+        # unconditionally disable phases that are we don't want
+        dontConfigure = true;
+        dontBuild = true;
+        doCheck = false;
+        doInstallCheck = false;
+        dontFixup = true;
+        doDist = false;
+
         installPhase = "cp -R ./ $out";
       }
       # Carry (and merge) information from the underlying `src` if present.
