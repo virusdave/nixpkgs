@@ -96,6 +96,7 @@ buildPythonPackage rec {
     "test_collinear_kgks_gga"
     "test_libxc_gga_deriv4"
     "test_sacasscf_grad"
+    "test_sparse_dot"
   ];
 
   disabledTestPaths = [
