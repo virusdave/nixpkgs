@@ -165,6 +165,8 @@ python.pkgs.buildPythonApplication rec {
       --replace-fail '--maxprocesses=16' "--numprocesses=$NIX_BUILD_CORES"
   '';
 
+  build-system = [ python.pkgs.setuptools ];
+
   nativeBuildInputs = [
     gettext
     lndir
