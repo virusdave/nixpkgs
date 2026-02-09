@@ -1000,33 +1000,34 @@ rec {
       ];
     }
   */
-  applyPatches =
-    {
-      src,
-      name ?
-        (
-          if builtins.typeOf src == "path" then
-            baseNameOf src
-          else if builtins.isAttrs src && builtins.hasAttr "name" src then
-            src.name
-          else
-            throw "applyPatches: please supply a `name` argument because a default name can only be computed when the `src` is a path or is an attribute set with a `name` attribute."
-        )
-        + "-patched",
-      patches ? [ ],
-      prePatch ? "",
-      postPatch ? "",
-      ...
-    }@args:
-    assert lib.assertMsg (
-      !args ? meta
-    ) "applyPatches will not merge 'meta', change it in 'src' instead";
-    assert lib.assertMsg (
-      !args ? passthru
-    ) "applyPatches will not merge 'passthru', change it in 'src' instead";
-    if patches == [ ] && prePatch == "" && postPatch == "" then
-      src # nothing to do, so use original src to avoid additional drv
-    else
+  applyPatches = lib.extendMkDerivation {
+    constructDrv = stdenvNoCC.mkDerivation;
+
+    extendDrvArgs =
+      finalAttrs:
+      {
+        src,
+        name ?
+          (
+            if builtins.typeOf src == "path" then
+              baseNameOf src
+            else if builtins.isAttrs src && builtins.hasAttr "name" src then
+              src.name
+            else
+              throw "applyPatches: please supply a `name` argument because a default name can only be computed when the `src` is a path or is an attribute set with a `name` attribute."
+          )
+          + "-patched",
+        patches ? [ ],
+        prePatch ? "",
+        postPatch ? "",
+        ...
+      }@args:
+      assert lib.assertMsg (
+        !args ? meta
+      ) "applyPatches will not merge 'meta', change it in 'src' instead";
+      assert lib.assertMsg (
+        !args ? passthru
+      ) "applyPatches will not merge 'passthru', change it in 'src' instead";
       let
         keepAttrs = names: lib.filterAttrs (name: val: lib.elem name names);
         # enables tools like nix-update to determine what src attributes to replace
@@ -1040,36 +1041,35 @@ rec {
           ] src
         );
       in
-      stdenvNoCC.mkDerivation (
-        {
-          inherit
-            name
-            src
-            patches
-            prePatch
-            postPatch
-            ;
-          preferLocalBuild = true;
-          allowSubstitutes = false;
-          phases = "unpackPhase patchPhase installPhase";
-          installPhase = "cp -R ./ $out";
-        }
-        # Carry (and merge) information from the underlying `src` if present.
-        // (optionalAttrs (src ? meta) {
-          inherit (src) meta;
-        })
-        // (optionalAttrs (extraPassthru != { } || src ? passthru) {
-          passthru = extraPassthru // src.passthru or { };
-        })
-        # Forward any additional arguments to the derivation
-        // (removeAttrs args [
-          "src"
-          "name"
-          "patches"
-          "prePatch"
-          "postPatch"
-        ])
-      );
+      {
+        inherit
+          name
+          src
+          patches
+          prePatch
+          postPatch
+          ;
+        preferLocalBuild = true;
+        allowSubstitutes = false;
+        phases = "unpackPhase patchPhase installPhase";
+        installPhase = "cp -R ./ $out";
+      }
+      # Carry (and merge) information from the underlying `src` if present.
+      // (optionalAttrs (src ? meta) {
+        inherit (src) meta;
+      })
+      // (optionalAttrs (extraPassthru != { } || src ? passthru) {
+        passthru = extraPassthru // src.passthru or { };
+      })
+      # Forward any additional arguments to the derivation
+      // (removeAttrs args [
+        "src"
+        "name"
+        "patches"
+        "prePatch"
+        "postPatch"
+      ]);
+  };
 
   # TODO: move docs to Nixpkgs manual
   # An immutable file in the store with a length of 0 bytes.
