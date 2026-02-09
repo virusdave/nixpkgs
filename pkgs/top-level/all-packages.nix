@@ -2019,8 +2019,6 @@ with pkgs;
     protobuf = protobuf_21;
   };
 
-  circus = with python3Packages; toPythonApplication circus;
-
   inherit (callPackage ../applications/networking/remote/citrix-workspace { })
     citrix_workspace_25_08_10
     ;
