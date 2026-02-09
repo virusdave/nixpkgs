@@ -134,6 +134,9 @@ buildPythonPackage (finalAttrs: {
     description = "Train YOLO models for computer vision tasks";
     mainProgram = "yolo";
     license = lib.licenses.agpl3Only;
-    maintainers = with lib.maintainers; [ osbm ];
+    maintainers = with lib.maintainers; [
+      osbm
+      mana-byte
+    ];
   };
 })
