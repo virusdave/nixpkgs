@@ -4,12 +4,13 @@
   buildPythonPackage,
   fetchFromGitHub,
   requests,
+  setuptools,
 }:
 
 buildPythonPackage {
   pname = "acunetix";
   version = "0.0.7";
-  format = "setuptools";
+  pyproject = true;
 
   src = fetchFromGitHub {
     owner = "hikariatama";
@@ -19,7 +20,9 @@ buildPythonPackage {
     hash = "sha256-ycdCz8CNSP0USxv657jf6Vz4iF//reCeO2tG+und86A=";
   };
 
-  propagatedBuildInputs = [
+  build-system = [ setuptools ];
+
+  dependencies = [
     aiofiles
     requests
   ];
