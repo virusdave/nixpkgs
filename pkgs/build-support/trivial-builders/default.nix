@@ -1044,7 +1044,11 @@ rec {
           ;
         preferLocalBuild = true;
         allowSubstitutes = false;
-        phases = "unpackPhase patchPhase installPhase";
+
+        dontConfigure = true;
+        dontBuild = true;
+        doCheck = false;
+
         installPhase = "cp -R ./ $out";
       }
       # Carry (and merge) information from the underlying `src` if present.
