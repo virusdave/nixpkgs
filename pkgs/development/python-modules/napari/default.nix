@@ -53,7 +53,7 @@
   zarr,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "napari";
   version = "0.6.6";
   pyproject = true;
@@ -61,7 +61,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "napari";
     repo = "napari";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-F0l6GWyZ6n4HNZW7XyUk4ZBPQfrAW4DWixCaRHViDPI=";
   };
 
@@ -202,8 +202,8 @@ buildPythonPackage rec {
   meta = {
     description = "Fast, interactive, multi-dimensional image viewer";
     homepage = "https://github.com/napari/napari";
-    changelog = "https://github.com/napari/napari/releases/tag/${src.tag}";
+    changelog = "https://github.com/napari/napari/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [ SomeoneSerge ];
   };
-}
+})
