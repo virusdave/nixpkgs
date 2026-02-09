@@ -10,9 +10,10 @@
   pytest-django,
   djangorestframework,
   pyyaml,
-  setuptools,
   syrupy,
+  typing-extensions,
   uritemplate,
+  uv-build,
 }:
 
 buildPythonPackage rec {
@@ -27,11 +28,17 @@ buildPythonPackage rec {
     hash = "sha256-ip8izfITsf15GaukXr8N4DcErq22LJzM7nlGBhfLkpU=";
   };
 
-  build-system = [ setuptools ];
+  postPatch = ''
+    substituteInPlace pyproject.toml \
+      --replace-fail "uv_build>=0.9.17,<0.10.0" uv_build
+  '';
+
+  build-system = [ uv-build ];
 
   dependencies = [
     django
     pydantic
+    typing-extensions
   ];
 
   nativeCheckInputs = [
