@@ -44,6 +44,10 @@ buildPythonPackage (finalAttrs: {
     hash = "sha256-CEz1v4e4NadSZ+qhotFtLB4y/KdhDZbDOohN8D9FB30=";
   };
 
+  patches = [
+    ./fix-pyproject.patch
+  ];
+
   env.PBR_VERSION = finalAttrs.version;
 
   build-system = [
@@ -79,7 +83,18 @@ buildPythonPackage (finalAttrs: {
     runHook postCheck
   '';
 
-  pythonImportsCheck = [ "openstackclient" ];
+  pythonImportsCheck = [
+    "openstackclient"
+    "openstackclient.api"
+    "openstackclient.common"
+    "openstackclient.compute"
+    "openstackclient.identity"
+    "openstackclient.image"
+    "openstackclient.network"
+    "openstackclient.object"
+    "openstackclient.volume"
+    "openstackclient.tests"
+  ];
 
   optional-dependencies = {
     # See https://github.com/openstack/python-openstackclient/blob/master/doc/source/contributor/plugins.rst
