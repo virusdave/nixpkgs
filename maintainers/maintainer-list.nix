@@ -16954,7 +16954,7 @@
     githubId = 22659757;
   };
   metalmatze = {
-    email = "matthias.loibl@polarsignals.com";
+    email = "mail@matthiasloibl.com";
     name = "Matthias Loibl";
     github = "metalmatze";
     githubId = 872251;
@@ -19364,6 +19364,12 @@
     name = "nullishamy";
     github = "nullishamy";
     githubId = 99221043;
+  };
+  numbleroot = {
+    email = "hello@lennartoldenburg.de";
+    name = "Lennart Oldenburg";
+    github = "numbleroot";
+    githubId = 1864826;
   };
   numinit = {
     email = "me+nixpkgs@numin.it";
