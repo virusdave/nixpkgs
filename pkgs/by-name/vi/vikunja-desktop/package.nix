@@ -7,7 +7,7 @@
   pnpmConfigHook,
   nodejs,
   electron,
-  unstableGitUpdater,
+  nix-update-script,
   fetchFromGitHub,
   fetchPnpmDeps,
   vikunja,
@@ -94,9 +94,7 @@ stdenv.mkDerivation (finalAttrs: {
     true
   '';
 
-  passthru.updateScript = unstableGitUpdater {
-    url = "${src.meta.homepage}.git";
-  };
+  passthru.updateScript = nix-update-script { };
 
   # The desktop item properties should be kept in sync with data from upstream:
   desktopItem = makeDesktopItem {
