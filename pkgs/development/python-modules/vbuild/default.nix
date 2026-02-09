@@ -26,6 +26,10 @@ buildPythonPackage rec {
       --replace-fail 'version = "0.0.0"' 'version = "${version}"' \
       --replace-fail 'requires = ["poetry>=0.12"]' 'requires = ["poetry-core>=1.0.0"]' \
       --replace-fail 'build-backend = "poetry.masonry.api"' 'build-backend = "poetry.core.masonry.api"'
+    # https://github.com/manatlan/vbuild/commit/b9861bffd5d15491d5b5a4cb2a96bb71ceff0c35 is incomplete
+    substituteInPlace vbuild/__init__.py \
+      --replace-fail ", pkgutil" ", importlib.util" \
+      --replace-fail "pkgutil.find_loader" "importlib.util.find_spec"
   '';
 
   pythonRelaxDeps = [ "pscript" ];
