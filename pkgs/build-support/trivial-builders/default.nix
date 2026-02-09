@@ -1017,9 +1017,6 @@ rec {
               throw "applyPatches: please supply a `name` argument because a default name can only be computed when the `src` is a path or is an attribute set with a `name` attribute."
           )
           + "-patched",
-        patches ? [ ],
-        prePatch ? "",
-        postPatch ? "",
         ...
       }@args:
       assert lib.assertMsg (
@@ -1044,10 +1041,6 @@ rec {
       {
         inherit
           name
-          src
-          patches
-          prePatch
-          postPatch
           ;
         preferLocalBuild = true;
         allowSubstitutes = false;
@@ -1060,15 +1053,7 @@ rec {
       })
       // (optionalAttrs (extraPassthru != { } || src ? passthru) {
         passthru = extraPassthru // src.passthru or { };
-      })
-      # Forward any additional arguments to the derivation
-      // (removeAttrs args [
-        "src"
-        "name"
-        "patches"
-        "prePatch"
-        "postPatch"
-      ]);
+      });
   };
 
   # TODO: move docs to Nixpkgs manual
