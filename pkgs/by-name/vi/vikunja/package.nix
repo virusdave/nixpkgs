@@ -138,6 +138,7 @@ buildGoModule {
   passthru = {
     tests.vikunja = nixosTests.vikunja;
     frontend = frontend;
+    updateScript = ./update.sh;
   };
 
   meta = {
