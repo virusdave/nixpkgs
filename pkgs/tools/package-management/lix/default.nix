@@ -144,6 +144,7 @@ let
 
           nix-init = nix-init.override {
             nix = self.lix;
+            inherit (self) nurl;
           };
 
           nurl = nurl.override {
