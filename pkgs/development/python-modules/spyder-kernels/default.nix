@@ -2,6 +2,7 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
+  pythonAtLeast,
 
   # build-system
   setuptools,
@@ -85,6 +86,10 @@ buildPythonPackage (finalAttrs: {
     "test_multiprocessing"
     "test_np_threshold"
     "test_runfile"
+  ]
+  ++ lib.optionals (pythonAtLeast "3.14") [
+    # AttributeError: 'Frame' object has no attribute 'f_locals'. Did you mean: 'f_globals'?
+    "test_functions_with_locals_in_pdb"
   ];
 
   pythonImportsCheck = [ "spyder_kernels" ];
