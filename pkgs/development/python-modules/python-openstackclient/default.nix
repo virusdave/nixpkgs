@@ -79,7 +79,7 @@ buildPythonPackage (finalAttrs: {
   checkPhase = ''
     runHook preCheck
     stestr run -E \
-      "openstackclient.tests.unit.(volume.v3.test_volume.(TestVolumeCreate|TestVolumeShow)|common.test_module.TestModuleList)"
+      "openstackclient.tests.unit.common.test_module.TestModuleList.(test_module_list_no_options|test_module_list_all)"
     runHook postCheck
   '';
 
