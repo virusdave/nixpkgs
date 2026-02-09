@@ -21708,6 +21708,12 @@
     githubId = 115877;
     name = "Kenny Shen";
   };
+  qrzbing = {
+    email = "qrzbing@foxmail.com";
+    github = "qrzbing";
+    githubId = 23500397;
+    name = "qrzbing";
+  };
   quadradical = {
     email = "nixos@henryhiles.com";
     github = "Henry-Hiles";
