@@ -1,6 +1,7 @@
 {
   lib,
   buildPythonPackage,
+  pythonAtLeast,
   fetchFromGitHub,
 
   # build-system
@@ -57,6 +58,10 @@ buildPythonPackage (finalAttrs: {
   pname = "napari";
   version = "0.6.6";
   pyproject = true;
+
+  # napari uses pydantic v1 which is not compatible with python 3.14
+  # ValueError: '__slots__' in __slots__ conflicts with class variable
+  disabled = pythonAtLeast "3.14";
 
   src = fetchFromGitHub {
     owner = "napari";
