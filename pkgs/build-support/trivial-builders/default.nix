@@ -1007,16 +1007,6 @@ rec {
       finalAttrs:
       {
         src,
-        name ?
-          (
-            if builtins.typeOf src == "path" then
-              baseNameOf src
-            else if builtins.isAttrs src && builtins.hasAttr "name" src then
-              src.name
-            else
-              throw "applyPatches: please supply a `name` argument because a default name can only be computed when the `src` is a path or is an attribute set with a `name` attribute."
-          )
-          + "-patched",
         ...
       }@args:
       assert lib.assertMsg (
@@ -1039,9 +1029,23 @@ rec {
         );
       in
       {
-        inherit
-          name
-          ;
+        name =
+          args.name or (
+            if builtins.isPath src then
+              baseNameOf src + "-patched"
+            else if builtins.isAttrs src && (src ? name) then
+              let
+                srcName = builtins.parseDrvName src;
+              in
+              "${srcName.name}-patched${lib.optionalString (srcName.version != "") "-${srcName.version}"}"
+            else
+              throw "applyPatches: please supply a `name` argument because a default name can only be computed when the `src` is a path or is an attribute set with a `name` attribute."
+          );
+
+        # Manually setting `name` can mess up positioning.
+        # This should fix it.
+        pos = builtins.unsafeGetAttrPos "src" args;
+
         preferLocalBuild = true;
         allowSubstitutes = false;
 
