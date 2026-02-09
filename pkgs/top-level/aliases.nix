@@ -994,6 +994,7 @@ mapAliases {
   libgme = throw "'libgme' has been renamed to/replaced by 'game-music-emu'"; # Converted to throw 2025-10-27
   libgnome-keyring3 = throw "'libgnome-keyring3' has been renamed to/replaced by 'libgnome-keyring'"; # Converted to throw 2025-10-27
   libheimdal = throw "'libheimdal' has been renamed to/replaced by 'heimdal'"; # Converted to throw 2025-10-27
+  libHX = libhx; # Added 2026-02-08
   libICE = libice; # Added 2026-02-04
   libiconv-darwin = throw "'libiconv-darwin' has been renamed to/replaced by 'darwin.libiconv'"; # Converted to throw 2025-10-27
   libixp_hg = throw "'libixp_hg' has been renamed to/replaced by 'libixp'"; # Converted to throw 2025-10-27
