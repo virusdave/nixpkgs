@@ -73,6 +73,7 @@ stdenv.mkDerivation (finalAttrs: {
     description = "KMS/DRM based System Console";
     mainProgram = "kmscon";
     homepage = "https://www.freedesktop.org/wiki/Software/kmscon/";
+    changelog = "https://github.com/kmscon/kmscon/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ ccicnce113424 ];
     platforms = lib.platforms.linux;
