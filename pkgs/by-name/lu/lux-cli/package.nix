@@ -90,6 +90,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.lgpl3Plus;
     maintainers = with lib.maintainers; [
       mrcjkb
+      ALameLlama
     ];
     platforms = lib.platforms.all;
     mainProgram = "lx";
