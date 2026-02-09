@@ -1018,24 +1018,24 @@ rec {
       let
         keepAttrs = names: lib.filterAttrs (name: val: lib.elem name names);
         # enables tools like nix-update to determine what src attributes to replace
-        extraPassthru = lib.optionalAttrs (lib.isAttrs src) (
+        extraPassthru = lib.optionalAttrs (lib.isAttrs finalAttrs.src) (
           keepAttrs [
             "rev"
             "tag"
             "url"
             "outputHash"
             "outputHashAlgo"
-          ] src
+          ] finalAttrs.src
         );
       in
       {
         name =
           args.name or (
-            if builtins.isPath src then
-              baseNameOf src + "-patched"
-            else if builtins.isAttrs src && (src ? name) then
+            if builtins.isPath finalAttrs.src then
+              baseNameOf finalAttrs.src + "-patched"
+            else if builtins.isAttrs finalAttrs.src && (finalAttrs.src ? name) then
               let
-                srcName = builtins.parseDrvName src;
+                srcName = builtins.parseDrvName finalAttrs.src.name;
               in
               "${srcName.name}-patched${lib.optionalString (srcName.version != "") "-${srcName.version}"}"
             else
@@ -1055,10 +1055,13 @@ rec {
 
         installPhase = "cp -R ./ $out";
 
-        passthru = extraPassthru // src.passthru or { };
+        # passthru the git and hash info for nix-update, as well
+        # as all the src's passthru attrs.
+        passthru = extraPassthru // finalAttrs.src.passthru or { };
 
         # Carry (and merge) information from the underlying `src` if present.
-        meta = lib.optionalAttrs (src ? meta) removeAttrs src.meta [ "position" ];
+        # If there is not src.meta, this meta block will be blank regardless.
+        meta = lib.optionalAttrs (finalAttrs.src ? meta) removeAttrs finalAttrs.src.meta [ "position" ];
       };
   };
 
