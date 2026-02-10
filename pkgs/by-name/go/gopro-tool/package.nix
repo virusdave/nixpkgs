@@ -5,7 +5,11 @@
   makeWrapper,
   ffmpeg,
   vlc,
+  vlc' ? vlc.overrideAttrs (old: {
+    buildInputs = old.buildInputs ++ [ x264 ];
+  }),
   jq,
+  x264,
 }:
 
 stdenv.mkDerivation {
@@ -30,7 +34,7 @@ stdenv.mkDerivation {
       --prefix PATH : ${
         lib.makeBinPath [
           ffmpeg
-          vlc
+          vlc'
           jq
         ]
       }
