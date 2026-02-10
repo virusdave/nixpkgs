@@ -28005,8 +28005,9 @@
   };
   vinetos = {
     name = "vinetos";
-    email = "vinetosdev@gmail.com";
+    email = "contact+git@vinetos.fr";
     github = "vinetos";
+    matrix = "@vinetos:matrix.org";
     githubId = 10145351;
   };
   vinnymeller = {
