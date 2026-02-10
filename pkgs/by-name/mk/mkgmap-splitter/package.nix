@@ -94,7 +94,7 @@ stdenv.mkDerivation rec {
   '';
 
   passthru.updateScript = [
-    ../update.sh
+    ./update.sh
     "mkgmap-splitter"
     meta.downloadPage
   ];
