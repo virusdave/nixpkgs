@@ -584,12 +584,12 @@ rec {
 
     extendDrvArgs =
       finalAttrs:
-      args_@{
+      args@{
         name ?
           assert lib.assertMsg (
-            args_ ? pname && args_ ? version
+            args ? pname && args ? version
           ) "symlinkJoin requires either a `name` OR `pname` and `version`";
-          "${args_.pname}-${args_.version}",
+          "${args.pname}-${args.version}",
         paths,
         stripPrefix ? "",
         preferLocalBuild ? true,
@@ -634,12 +634,15 @@ rec {
           ${postBuild}
         '';
       }
-      // lib.optionalAttrs (!args_ ? meta) {
+      // lib.optionalAttrs (!args ? meta) {
         pos =
           let
-            args = builtins.attrNames args_;
+            argNames = builtins.attrNames args;
           in
-          if builtins.length args > 0 then builtins.unsafeGetAttrPos (builtins.head args) args_ else null;
+          if builtins.length argNames > 0 then
+            builtins.unsafeGetAttrPos (builtins.head argNames) args
+          else
+            null;
       };
   };
 
