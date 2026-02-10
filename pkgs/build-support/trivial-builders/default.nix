@@ -587,9 +587,9 @@ rec {
       args@{
         name ?
           assert lib.assertMsg (
-            args ? pname && args ? version
+            finalAttrs ? pname && finalAttrs ? version
           ) "symlinkJoin requires either a `name` OR `pname` and `version`";
-          "${args.pname}-${args.version}",
+          "${finalAttrs.pname}-${finalAttrs.version}",
         paths,
         stripPrefix ? "",
         preferLocalBuild ? true,
