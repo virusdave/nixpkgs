@@ -1,9 +1,9 @@
 { fetchurl }:
 let
   fetchTestInput =
-    { res, sha256 }:
+    { res, hash }:
     fetchurl {
-      inherit sha256;
+      inherit hash;
       url = "https://www.mkgmap.org.uk/testinput/${res}";
       name = builtins.replaceStrings [ "/" ] [ "__" ] res;
     };
@@ -11,58 +11,58 @@ in
 [
   (fetchTestInput {
     res = "osm/lon1.osm.gz";
-    sha256 = "1r8sl67hayjgybxy9crqwp7f1w0ljxvxh0apqcvr888yhsbb8drv";
+    hash = "sha256-Oze0loYeIZQ3w1cB2HeXFPDgzuU4s+T78k96BY+hGuU=";
   })
   (fetchTestInput {
     res = "osm/uk-test-1.osm.gz";
-    sha256 = "0jdngkjn22jvi8q7hrzpqb9mnjlz82h1dwdmc4qrb64kkhzm4dfk";
+    hash = "sha256-0zVSP5yTmJUxYbXxFqBAn0pb08L3Z3gwilsKYeV8tkk=";
   })
   (fetchTestInput {
     res = "osm/uk-test-2.osm.gz";
-    sha256 = "05mw0qcdgki151ldmxayry0gqlb72jm5wrvxq3dkwq5i7jb21qs4";
+    hash = "sha256-ROMgljyxYD7bwH1nXqoUZ1H8gM9e9dpoKCHO1xgGvBY=";
   })
   (fetchTestInput {
     res = "osm/is-in-samples.osm";
-    sha256 = "18vqfbq25ys59bj6dl6dq3q4m2ri3ki2xazim14fm94k1pbyhbh3";
+    hash = "sha256-Ay7o1w2TpOpIqPGrLuIcMYtK8MDN0GbkSkX7IvByeKM=";
   })
   (fetchTestInput {
     res = "mp/test1.mp";
-    sha256 = "1dykr0z84c3fqgm9kdp2dzvxc3galjbx0dn9zxjw8cfk7mvnspj2";
+    hash = "sha256-Ql5tdz3TMcRl/8k20Jek6g3W92/itpnqw24wgj7I07c=";
   })
   (fetchTestInput {
     res = "img/63240001.img";
-    sha256 = "1wmqgy940q1svazw85z8di20xyjm3vpaiaj9hizr47b549klw74q";
+    hash = "sha256-mBxOZyJlHZJ/hEmqqO4eVfoORGzoF8S/2jpgQJJ/uPI=";
   })
   (fetchTestInput {
     res = "img/63240002.img";
-    sha256 = "12ivywkiw6lrglyk0clnx5ff2wqj4z0c3f5yqjsqlsaawbmxqa1f";
+    hash = "sha256-Lijc6+JKaYq1xL64wcAnEnPhXOmWMjA9fZkaHif3O4o=";
   })
   (fetchTestInput {
     res = "img/63240003.img";
-    sha256 = "19mgxqv6kqk8ahs8s819sj7cc79id67373ckwfsq7vvqyfrbasz1";
+    hash = "sha256-4Wu1svN474O145ONM45pMR3GjtQpII00VGjiaTbur6Y=";
   })
   (fetchTestInput {
     res = "hgt/N00W090.hgt.zip";
-    sha256 = "16hb06bgf47sz2mfbbx3xqmrh1nmm04wj4ngm512sng4rjhksxgn";
+    hash = "sha256-9nU9oczkWS1Cqc8SyQmo1QaYK+6jr+Wq+PoQ95YBC5o=";
   })
   (fetchTestInput {
     res = "hgt/N00W091.hgt.zip";
-    sha256 = "153j4wj7170qj81nr7sr6dp9zar62gnrkh6ww62bygpfqqyzdr1x";
+    hash = "sha256-PeT2PcbuPr+E4dzAme0TJqufbjNZn2wDkhiccCQncpQ=";
   })
   (fetchTestInput {
     res = "hgt/S01W090.hgt.zip";
-    sha256 = "0czgs9rhp7bnzmzm7907vprj3nhm2lj6q1piafk8dm9rcqkfg8sj";
+    hash = "sha256-UqPnJmY51YamU/EGbCQVFdoh890HpFN//XadC3PS7zM=";
   })
   (fetchTestInput {
     res = "hgt/S01W091.hgt.zip";
-    sha256 = "0z58q3ai499mflxfjqhqv9i1di3fmp05pkv39886k1na107g3wbn";
+    hash = "sha256-dvHxDgjKhmkQSmPPW8CtbsQWYtoYYuk6dTUlEtXAqHw=";
   })
   (fetchTestInput {
     res = "hgt/S02W090.hgt.zip";
-    sha256 = "0q7817gdxk2vq73ci6ffks288zqywc21f5ns73b6p5ds2lrxhf5n";
+    hash = "sha256-tjjYMxW6lWvWONoWFwTjHn+EhJ7OmcjGwVvM3t4J6GA=";
   })
   (fetchTestInput {
     res = "hgt/S02W091.hgt.zip";
-    sha256 = "1mwpgd85v9n99gmx2bn8md7d312wvhq86w3c9k92y8ayrs20lmdr";
+    hash = "sha256-uVUKhM5eIS/STGxwgzDcXITRTqvILtHrS8mmXVB7l9c=";
   })
 ]
