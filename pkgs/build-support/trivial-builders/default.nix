@@ -576,7 +576,6 @@ rec {
     constructDrv = stdenvNoCC.mkDerivation;
 
     excludeDrvArgNames = [
-      "name"
       "postBuild"
       "stripPrefix"
       "paths"
@@ -606,7 +605,7 @@ rec {
       '';
       let
         mapPaths =
-          f: paths:
+          f:
           map (
             path:
             if path == null then
@@ -615,7 +614,7 @@ rec {
               mapPaths f path
             else
               f path
-          ) paths;
+          );
       in
       {
         enableParallelBuilding = true;
