@@ -6,14 +6,14 @@
   uasm,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation(finalAttrs: {
   pname = "uasm";
   version = "2.57";
 
   src = fetchFromGitHub {
     owner = "Terraspace";
     repo = "uasm";
-    tag = "v${version}r";
+    tag = "v${finalAttrs.version}r";
     hash = "sha256-HaiK2ogE71zwgfhWL7fesMrNZYnh8TV/kE3ZIS0l85w=";
   };
 
@@ -34,7 +34,7 @@ stdenv.mkDerivation rec {
     runHook preInstall
 
     install -Dt "$out/bin" -m0755 GccUnixR/uasm
-    install -Dt "$out/share/doc/${pname}" -m0644 {Readme,History}.txt Doc/*
+    install -Dt "$out/share/doc/uasm" -m0644 {Readme,History}.txt Doc/*
 
     runHook postInstall
   '';
@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
   passthru.tests.version = testers.testVersion {
     package = uasm;
     command = "uasm -h";
-    version = "v${version}";
+    version = "v${finalAttrs.version}";
   };
 
   meta = {
@@ -54,4 +54,4 @@ stdenv.mkDerivation rec {
     license = lib.licenses.watcom;
     broken = stdenv.hostPlatform.isDarwin;
   };
-}
+})
