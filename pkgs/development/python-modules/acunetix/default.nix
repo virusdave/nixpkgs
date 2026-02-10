@@ -7,7 +7,7 @@
   setuptools,
 }:
 
-buildPythonPackage {
+buildPythonPackage (finalAttrs: {
   pname = "acunetix";
   version = "0.0.7";
   pyproject = true;
@@ -38,4 +38,4 @@ buildPythonPackage {
     license = lib.licenses.agpl3Only;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
