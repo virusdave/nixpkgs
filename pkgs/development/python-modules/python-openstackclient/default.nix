@@ -19,7 +19,6 @@
   python-mistralclient,
   python-neutronclient,
   python-octaviaclient,
-  python-openstackclient,
   python-watcherclient,
   python-zaqarclient,
   python-zunclient,
@@ -28,8 +27,8 @@
   setuptools,
   sphinxHook,
   sphinxcontrib-apidoc,
-  stestr,
-  testers,
+  stestrCheckHook,
+  versionCheckHook,
 }:
 
 buildPythonPackage (finalAttrs: {
@@ -72,7 +71,7 @@ buildPythonPackage (finalAttrs: {
   nativeCheckInputs = [
     ddt
     requests-mock
-    stestr
+    stestrCheckHook
   ];
 
   disabledTestsRegex = [
@@ -112,12 +111,10 @@ buildPythonPackage (finalAttrs: {
     ];
   };
 
-  passthru = {
-    tests.version = testers.testVersion {
-      package = python-openstackclient;
-      command = "openstack --version";
-    };
-  };
+  nativeInstallCheckInputs = [
+    versionCheckHook
+  ];
+  doInstallCheck = true;
 
   meta = {
     description = "OpenStack Command-line Client";
