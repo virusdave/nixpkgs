@@ -1,14 +1,11 @@
 {
   lib,
-  gcc13Stdenv,
+  stdenv,
   fetchFromGitHub,
   testers,
   uasm,
 }:
 
-let
-  stdenv = gcc13Stdenv;
-in
 stdenv.mkDerivation rec {
   pname = "uasm";
   version = "2.57";
@@ -23,12 +20,15 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   makefile =
-    if gcc13Stdenv.hostPlatform.isDarwin then
+    if stdenv.hostPlatform.isDarwin then
       "Makefile-OSX-Clang-64.mak"
     else
       "Makefile-Linux-GCC-64.mak";
 
   makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
+
+  # Needed for compiling with GCC > 13
+  env.CFLAGS = "-std=c99 -Wno-incompatible-pointer-types -Wno-implicit-function-declaration -Wno-int-conversion";
 
   installPhase = ''
     runHook preInstall
