@@ -6,7 +6,7 @@
   uasm,
 }:
 
-stdenv.mkDerivation(finalAttrs: {
+stdenv.mkDerivation (finalAttrs: {
   pname = "uasm";
   version = "2.57";
 
@@ -20,10 +20,7 @@ stdenv.mkDerivation(finalAttrs: {
   enableParallelBuilding = true;
 
   makefile =
-    if stdenv.hostPlatform.isDarwin then
-      "Makefile-OSX-Clang-64.mak"
-    else
-      "Makefile-Linux-GCC-64.mak";
+    if stdenv.hostPlatform.isDarwin then "Makefile-OSX-Clang-64.mak" else "Makefile-Linux-GCC-64.mak";
 
   makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
 
