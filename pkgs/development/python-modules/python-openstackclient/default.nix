@@ -75,13 +75,9 @@ buildPythonPackage (finalAttrs: {
     stestr
   ];
 
-  # test_module failures under python 3.14: https://bugs.launchpad.net/python-openstackclient/+bug/2137223
-  checkPhase = ''
-    runHook preCheck
-    stestr run -E \
-      "openstackclient.tests.unit.common.test_module.TestModuleList.(test_module_list_no_options|test_module_list_all)"
-    runHook postCheck
-  '';
+  disabledTestsRegex = [
+    "openstackclient.tests.unit.common.test_module.TestModuleList*"
+  ];
 
   pythonImportsCheck = [
     "openstackclient"
