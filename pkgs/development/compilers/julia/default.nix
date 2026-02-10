@@ -87,8 +87,8 @@ in
   julia_112 = wrapJulia (
     callPackage
       (import ./generic.nix {
-        version = "1.12.4";
-        hash = "sha256-bqYMBTleKQErY5NOaGsNqhzBVZR75CmuCyR7PqfnvpM=";
+        version = "1.12.5";
+        hash = "sha256-3jvzaT2TjX4VU5pcOsIXfFRqzQ17e8TjJ+MNanI48eM=";
       })
       {
         stdenv = gcc14Stdenv;
