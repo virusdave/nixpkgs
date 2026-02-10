@@ -1,19 +1,10 @@
 {
   stdenv,
-  buildPythonApplication,
-  colorclass,
   fetchPypi,
   fetchurl,
   installShellFiles,
   lib,
-  linode-metadata,
-  openapi3,
-  packaging,
-  pyyaml,
-  requests,
-  rich,
-  setuptools,
-  terminaltables,
+  python3Packages,
 }:
 
 let
@@ -28,7 +19,7 @@ let
 
 in
 
-buildPythonApplication rec {
+python3Packages.buildPythonApplication rec {
   pname = "linode-cli";
   version = "5.56.2";
   pyproject = true;
@@ -56,15 +47,15 @@ buildPythonApplication rec {
   nativeBuildInputs = [ installShellFiles ];
 
   propagatedBuildInputs = [
-    colorclass
-    linode-metadata
-    pyyaml
-    requests
-    setuptools
-    terminaltables
-    rich
-    openapi3
-    packaging
+    python3Packages.colorclass
+    python3Packages.linode-metadata
+    python3Packages.pyyaml
+    python3Packages.requests
+    python3Packages.setuptools
+    python3Packages.terminaltables
+    python3Packages.rich
+    python3Packages.openapi3
+    python3Packages.packaging
   ];
 
   doInstallCheck = true;
