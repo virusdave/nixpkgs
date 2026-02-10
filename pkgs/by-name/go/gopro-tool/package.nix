@@ -25,6 +25,9 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [ makeWrapper ];
 
+  strictDeps = true;
+  __structuredAttrs = true;
+
   installPhase = ''
     mkdir -p $out/bin
     cp $src/gopro-tool $out/bin/gopro-tool
