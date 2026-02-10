@@ -537,6 +537,18 @@ def list_generations(profile: Profile) -> list[GenerationJson]:
             reverse=True,
         )
 
+def diff_closures(path_to_config: Path):
+    run_wrapper(
+        [
+            "nix",
+            *FLAKE_FLAGS,
+            "store",
+            "diff-closures",
+            "/run/current-system",
+            path_to_config
+        ]
+    )
+
 
 def repl(build_attr: BuildAttr, nix_flags: Args | None = None) -> None:
     run_args = ["nix", "repl", "--file", build_attr.path]

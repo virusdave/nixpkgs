@@ -321,6 +321,14 @@ def build_and_activate_system(
             grouped_nix_args=grouped_nix_args,
         )
 
+    if args.diff and args.action in (
+        Action.SWITCH.value,
+        Action.BOOT.value,
+        Action.BUILD.value,
+        Action.TEST.value
+    ):
+        nix.diff_closures(path_to_config)
+
     _activate_system(
         path_to_config=path_to_config,
         action=action,
