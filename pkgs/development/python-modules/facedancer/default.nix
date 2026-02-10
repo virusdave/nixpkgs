@@ -2,6 +2,7 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
+  pythonAtLeast,
   pyusb,
   pyserial,
   prompt-toolkit,
@@ -53,5 +54,7 @@ buildPythonPackage rec {
       mog
       carlossless
     ];
+    # https://github.com/greatscottgadgets/facedancer/issues/172
+    broken = pythonAtLeast "3.14";
   };
 }
