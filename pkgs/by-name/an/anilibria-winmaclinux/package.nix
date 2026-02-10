@@ -2,14 +2,9 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  qmake,
+  libsForQt5,
   pkg-config,
-  qtbase,
-  qtquickcontrols2,
-  qtwebsockets,
-  qtmultimedia,
   gst_all_1,
-  wrapQtAppsHook,
   makeDesktopItem,
   copyDesktopItems,
 
@@ -64,17 +59,17 @@ stdenv.mkDerivation rec {
   ];
 
   nativeBuildInputs = [
-    qmake
+    libsForQt5.qmake
     pkg-config
-    wrapQtAppsHook
+    libsForQt5.wrapQtAppsHook
     copyDesktopItems
   ];
 
   buildInputs = [
-    qtbase
-    qtquickcontrols2
-    qtwebsockets
-    qtmultimedia
+    libsForQt5.qtbase
+    libsForQt5.qtquickcontrols2
+    libsForQt5.qtwebsockets
+    libsForQt5.qtmultimedia
   ]
   ++ (with gst_all_1; [
     gst-plugins-bad
@@ -109,7 +104,7 @@ stdenv.mkDerivation rec {
     description = "AniLibria cross platform desktop client";
     license = lib.licenses.gpl3;
     maintainers = with lib.maintainers; [ _3JlOy-PYCCKUi ];
-    inherit (qtbase.meta) platforms;
+    inherit (libsForQt5.qtbase.meta) platforms;
     mainProgram = "AniLibria";
   };
 }
