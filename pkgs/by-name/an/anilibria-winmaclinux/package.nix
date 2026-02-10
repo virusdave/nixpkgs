@@ -14,18 +14,18 @@
   mpv-unwrapped,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "anilibria-winmaclinux";
   version = "2.2.34";
 
   src = fetchFromGitHub {
     owner = "anilibria";
     repo = "anilibria-winmaclinux";
-    rev = version;
+    tag = finalAttrs.version;
     hash = "sha256-58NFlB6viWXG13J+RBzMj6LlYFClpWpGQ/aCNxJ5wKQ=";
   };
 
-  sourceRoot = "${src.name}/src";
+  sourceRoot = "${finalAttrs.src.name}/src";
 
   qmakeFlags = [
     "PREFIX=${placeholder "out"}"
@@ -82,11 +82,11 @@ stdenv.mkDerivation rec {
   ++ lib.optionals withMPV [ mpv-unwrapped.dev ];
 
   desktopItems = [
-    (makeDesktopItem rec {
+    (makeDesktopItem {
       name = "AniLibria";
-      desktopName = name;
+      desktopName = "AniLibria";
       icon = "anilibria";
-      comment = meta.description;
+      comment = finalAttrs.meta.description;
       genericName = "AniLibria desktop client";
       categories = [
         "Qt"
@@ -94,7 +94,7 @@ stdenv.mkDerivation rec {
         "Player"
       ];
       keywords = [ "anime" ];
-      exec = name;
+      exec = "AniLibria";
       terminal = false;
     })
   ];
@@ -107,4 +107,4 @@ stdenv.mkDerivation rec {
     inherit (libsForQt5.qtbase.meta) platforms;
     mainProgram = "AniLibria";
   };
-}
+})
