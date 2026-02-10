@@ -575,6 +575,14 @@ rec {
   symlinkJoin = lib.extendMkDerivation {
     constructDrv = stdenvNoCC.mkDerivation;
 
+    excludeDrvArgNames = [
+      "name"
+      "postBuild"
+      "stripPrefix"
+      "paths"
+      "failOnMissing"
+    ];
+
     extendDrvArgs =
       finalAttrs:
       args_@{
@@ -608,26 +616,15 @@ rec {
             else
               f path
           ) paths;
-        drvArgs =
-          removeAttrs args_ [
-            "name"
-            "postBuild"
-            "stripPrefix"
-            "paths"
-            "failOnMissing"
-          ]
-          // {
-            inherit preferLocalBuild allowSubstitutes;
-            paths = mapPaths (path: "${path}${stripPrefix}") paths;
-          }; # pass the defaults
       in
       {
         enableParallelBuilding = true;
-        inherit name;
+        inherit name allowSubstitutes preferLocalBuild;
         passAsFile = [
           "buildCommand"
           "paths"
         ];
+        paths = mapPaths (path: "${path}${stripPrefix}") paths;
         buildCommand = ''
           mkdir -p $out
           for i in $(cat $pathsPath); do
@@ -638,14 +635,13 @@ rec {
           ${postBuild}
         '';
       }
-      // lib.optionalAttrs (!drvArgs ? meta) {
+      // lib.optionalAttrs (!args_ ? meta) {
         pos =
           let
-            args = builtins.attrNames drvArgs;
+            args = builtins.attrNames args_;
           in
-          if builtins.length args > 0 then builtins.unsafeGetAttrPos (builtins.head args) drvArgs else null;
-      }
-      // drvArgs;
+          if builtins.length args > 0 then builtins.unsafeGetAttrPos (builtins.head args) args_ else null;
+      };
   };
 
   # TODO: move linkFarm docs to the Nixpkgs manual
