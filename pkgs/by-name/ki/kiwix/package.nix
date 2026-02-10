@@ -5,12 +5,7 @@
   nix-update-script,
   libkiwix,
   pkg-config,
-  qmake,
-  qtbase,
-  qtwebengine,
-  qtsvg,
-  qtimageformats,
-  wrapQtAppsHook,
+  qt6,
   aria2,
 }:
 
@@ -30,17 +25,17 @@ stdenv.mkDerivation rec {
   ];
 
   nativeBuildInputs = [
-    qmake
+    qt6.qmake
     pkg-config
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
   ];
 
   buildInputs = [
     libkiwix
-    qtbase
-    qtwebengine
-    qtsvg
-    qtimageformats
+    qt6.qtbase
+    qt6.qtwebengine
+    qt6.qtsvg
+    qt6.qtimageformats
   ];
 
   qtWrapperArgs = [

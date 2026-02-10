@@ -6,19 +6,12 @@
   # buildInputs
   libxscrnsaver,
   magic-enum,
-
-  # nativeBuildInputs
-  qtbase,
-  qtconnectivity,
-  qtlanguageserver,
-  qttools,
+  qt6,
   range-v3,
   spdlog,
-  qtwayland,
 
   # nativeBuildInputs
   cmake,
-  wrapQtAppsHook,
 
   # passthru
   nix-update-script,
@@ -47,14 +40,14 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [
     libxscrnsaver
     magic-enum
-    qtbase
-    qtconnectivity
-    qtlanguageserver
-    qttools
+    qt6.qtbase
+    qt6.qtconnectivity
+    qt6.qtlanguageserver
+    qt6.qttools
     range-v3
     spdlog
   ]
-  ++ lib.optional stdenv.hostPlatform.isLinux qtwayland;
+  ++ lib.optional stdenv.hostPlatform.isLinux qt6.qtwayland;
 
   cmakeFlags = [
     (lib.cmakeBool "KEMAI_ENABLE_UPDATE_CHECK" false)
@@ -63,7 +56,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     cmake
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
   ];
 
   passthru = {

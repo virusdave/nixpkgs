@@ -3,10 +3,7 @@
   cmake,
   lib,
   fetchFromGitLab,
-  qtmultimedia,
-  qttools,
-  qtwayland,
-  wrapQtAppsHook,
+  qt6,
 }:
 
 stdenv.mkDerivation rec {
@@ -22,12 +19,12 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     cmake
-    qttools
-    wrapQtAppsHook
+    qt6.qttools
+    qt6.wrapQtAppsHook
   ];
   buildInputs = [
-    qtmultimedia
-    qtwayland
+    qt6.qtmultimedia
+    qt6.qtwayland
   ];
 
   meta = {

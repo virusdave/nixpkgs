@@ -17,14 +17,7 @@
   bzip2,
   libiconv,
   libxtst,
-  qtbase,
-  qtsvg,
-  qtwebengine,
-  qttools,
-  qtwayland,
-  qt5compat,
-  qtmultimedia,
-  wrapQtAppsHook,
+  qt6,
   wrapGAppsHook3,
 }:
 
@@ -44,18 +37,18 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     pkg-config
     cmake
-    wrapQtAppsHook
+    qt6.wrapQtAppsHook
     wrapGAppsHook3
   ];
 
   buildInputs = [
-    qtbase
-    qtsvg
-    qttools
-    qtwebengine
-    qt5compat
-    qtmultimedia
-    qtwayland
+    qt6.qtbase
+    qt6.qtsvg
+    qt6.qttools
+    qt6.qtwebengine
+    qt6.qt5compat
+    qt6.qtmultimedia
+    qt6.qtwayland
     libvorbis
     tomlplusplus
     fmt

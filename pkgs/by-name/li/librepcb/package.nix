@@ -2,13 +2,10 @@
   stdenv,
   lib,
   fetchFromGitHub,
-  qtbase,
-  qttools,
-  qtsvg,
+  qt6,
   opencascade-occt,
   libGLU,
   cmake,
-  wrapQtAppsHook,
   rustPlatform,
   cargo,
   rustc,
@@ -28,15 +25,15 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     cmake
-    qttools
-    qtsvg
-    wrapQtAppsHook
+    qt6.qttools
+    qt6.qtsvg
+    qt6.wrapQtAppsHook
     opencascade-occt
     libGLU
     cargo
     rustc
   ];
-  buildInputs = [ qtbase ];
+  buildInputs = [ qt6.qtbase ];
 
   cargoDeps1 = rustPlatform.fetchCargoVendor {
     inherit src;
