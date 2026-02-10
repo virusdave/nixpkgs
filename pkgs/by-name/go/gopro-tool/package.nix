@@ -10,6 +10,7 @@
   }),
   jq,
   x264,
+  nixosTests,
 }:
 
 stdenv.mkDerivation {
@@ -42,6 +43,10 @@ stdenv.mkDerivation {
         ]
       }
   '';
+
+  passthru.tests = {
+    inherit (nixosTests) gopro-tool;
+  };
 
   meta = {
     description = "Tool to control GoPro webcam mode in Linux (requires v4l2loopback kernel module and a firewall rule)";
