@@ -96,7 +96,7 @@ neovim.overrideAttrs (oldAttrs: {
 })
 ```
 
-### Specificities for some plugins {#neovim-plugin-specificities}
+## Specificities for some plugins {#neovim-plugin-specificities}
 
 ### Plugin optional configuration {#neovim-plugin-required-snippet}
 
@@ -105,7 +105,7 @@ patch those plugins but expose the necessary configuration under
 `PLUGIN.passthru.initLua` for neovim plugins. For instance, the `unicode-vim` plugin
 needs the path towards a unicode database so we expose the following snippet `vim.g.Unicode_data_directory="${self.unicode-vim}/autoload/unicode"` under `vimPlugins.unicode-vim.passthru.initLua`.
 
-#### LuaRocks based plugins {#neovim-luarocks-based-plugins}
+## LuaRocks based plugins {#neovim-luarocks-based-plugins}
 
 In order to automatically handle plugin dependencies, several Neovim plugins
 upload their package to [LuaRocks](https://www.luarocks.org). This means less work for nixpkgs maintainers in the long term as dependencies get updated automatically.
@@ -122,7 +122,7 @@ For instance:
 ```
 To update these packages, you should use the lua updater rather than vim's.
 
-#### Treesitter {#neovim-plugin-treesitter}
+## Treesitter {#neovim-plugin-treesitter}
 
 [Treesitter](https://tree-sitter.github.io/) provides syntax parsing for Neovim, enabling features like:
 Advanced syntax highlighting, Code folding, Indentation and more.
@@ -142,7 +142,7 @@ In nixpkgs, grammars and queries are precompiled and packaged separately. This m
 - You only need `nvim-treesitter` if you want its custom indentation implementation.
 - Plugins that depend on grammars can reference them directly.
 
-##### Treesitter setup using `nvim-treesitter` {#neovim-plugin-nvim-treesitter}
+### Treesitter setup using `nvim-treesitter` {#neovim-plugin-nvim-treesitter}
 
 ::: {.tip}
 Choose this approach if you want to use `nvim-treesitter`'s custom indentation expression.
@@ -182,7 +182,7 @@ This is expected behavior because:
 **To verify Nix-managed parsers and queries**, use `:checkhealth vim.treesitter` instead.
 :::
 
-##### Treesitter setup using standalone grammars and queries {#neovim-plugin-treesitter-standalone}
+### Treesitter setup using standalone grammars and queries {#neovim-plugin-treesitter-standalone}
 
 ::: {.tip}
 Choose this approach if you
@@ -239,7 +239,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 ```
 
-##### Treesitter grammars as plugin dependencies {#neovim-plugin-treesitter-grammar-dependencies}
+### Treesitter grammars as plugin dependencies {#neovim-plugin-treesitter-grammar-dependencies}
 
 Some Neovim plugins (like `neotest` adapters, `markdoc-nvim`, `hurl-nvim`) depend on treesitter grammars.
 These dependencies are usually declared in plugin overrides.
@@ -287,9 +287,10 @@ If a plugin actually does depend on the `nvim-treesitter` legacy module API, you
 If a Neovim configuration contains both `nvim-treesitter` and `nvim-treesitter-legacy`, it will fail to evaluate.
 :::
 
-### Testing Neovim plugins {#testing-neovim-plugins}
+## Testing Neovim plugins {#testing-neovim-plugins}
 
-#### neovimRequireCheck {#testing-neovim-plugins-neovim-require-check}
+### neovimRequireCheck {#testing-neovim-plugins-neovim-require-check}
+
 `neovimRequireCheck` is a simple test which checks if Neovim can require lua modules without errors. This is often enough to catch missing dependencies.
 
 It accepts a single string for a module, or a list of module strings to test.
