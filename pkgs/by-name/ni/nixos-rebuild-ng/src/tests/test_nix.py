@@ -1,3 +1,4 @@
+import sys
 import textwrap
 import uuid
 from pathlib import Path
@@ -568,7 +569,8 @@ def test_diff_closures(mock_run: Mock) -> None:
             Path("/run/current-system"),
             Path("/nix/var/nix/profiles/system"),
         ],
-        remote=None
+        remote=None,
+        stdout=sys.stderr
     )
 
 

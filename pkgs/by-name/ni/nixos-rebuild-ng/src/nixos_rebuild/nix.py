@@ -540,7 +540,7 @@ def list_generations(profile: Profile) -> list[GenerationJson]:
 
 def diff_closures(current_config: Path, new_config: Path, target_host: Remote | None = None):
     print(
-        f"<<< {current_config}"
+        f"<<< {current_config}\n"
         f">>> {new_config}",
         file=sys.stderr
     )
@@ -554,6 +554,7 @@ def diff_closures(current_config: Path, new_config: Path, target_host: Remote | 
             new_config,
         ],
         remote=target_host,
+        stdout=sys.stderr
     )
 
 
