@@ -6,7 +6,7 @@
   autoconf-archive,
   pkg-config,
   gettext,
-  libssl,
+  openssl,
   txt2man,
 }:
 
@@ -35,7 +35,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     gettext
-    libssl
+    openssl
   ];
 
   installFlags = [ "ETCDIR=${placeholder "out"}/etc" ];
