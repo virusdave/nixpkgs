@@ -321,13 +321,12 @@ def build_and_activate_system(
             grouped_nix_args=grouped_nix_args,
         )
 
-    if args.diff and args.action in (
-        Action.SWITCH.value,
-        Action.BOOT.value,
-        Action.BUILD.value,
-        Action.TEST.value
-    ):
-        nix.diff_closures(path_to_config)
+    current_config = Path("/run/current-system")
+    if args.diff:
+        if current_config.exists():
+            nix.diff_closures(current_config=current_config, new_config=path_to_config, target_host=target_host)
+        else:
+            logger.warn(f"missing '{str(current_config)}', skipping configuration diff...")
 
     _activate_system(
         path_to_config=path_to_config,
