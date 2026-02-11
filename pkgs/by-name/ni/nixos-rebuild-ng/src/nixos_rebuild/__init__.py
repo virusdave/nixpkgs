@@ -266,10 +266,16 @@ def parse_args(
         parser_warn("--no-build-nix is deprecated, we do not build nix anymore")
 
     if args.diff and args.action not in (
+        # case for calling build_and_activate_system
+        # except excluding DRY_BUILD and DRY_ACTIVATE,
+        # in which --diff is uniquely a no-op
         Action.SWITCH.value,
         Action.BOOT.value,
+        Action.TEST.value,
         Action.BUILD.value,
-        Action.TEST.value
+        Action.BUILD_IMAGE.value,
+        Action.BUILD_VM.value,
+        Action.BUILD_VM_WITH_BOOTLOADER.value,
     ):
         parser_warn(f"--diff is a no-op with '{args.action}'")
 
