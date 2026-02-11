@@ -1403,14 +1403,6 @@
     githubId = 60479013;
     name = "Alma Cemerlic";
   };
-  alois31 = {
-    name = "Alois Wohlschlager";
-    email = "alois1@gmx-topmail.de";
-    matrix = "@aloisw:kde.org";
-    github = "alois31";
-    githubId = 36605164;
-    keys = [ { fingerprint = "CA97 A822 FF24 25D4 74AF  3E4B E0F5 9EA5 E521 6914"; } ];
-  };
   Alper-Celik = {
     email = "alper@alper-celik.dev";
     name = "Alper Çelik";
@@ -1754,12 +1746,6 @@
     githubId = 1844746;
     matrix = "@andrew:kvalhe.im";
     name = "Andrew Kvalheim";
-  };
-  andrewrk = {
-    email = "superjoe30@gmail.com";
-    github = "andrewrk";
-    githubId = 106511;
-    name = "Andrew Kelley";
   };
   andrewzah = {
     name = "Andrew Zah";
@@ -13849,12 +13835,6 @@
     github = "killercup";
     githubId = 20063;
     name = "Pascal Hertleif";
-  };
-  kiloreux = {
-    email = "kiloreux@gmail.com";
-    github = "kiloreux";
-    githubId = 6282557;
-    name = "Kiloreux Emperex";
   };
   kim0 = {
     email = "email.ahmedkamal@googlemail.com";
