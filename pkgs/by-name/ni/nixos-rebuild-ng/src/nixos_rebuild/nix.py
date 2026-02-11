@@ -537,16 +537,17 @@ def list_generations(profile: Profile) -> list[GenerationJson]:
             reverse=True,
         )
 
-def diff_closures(path_to_config: Path):
+def diff_closures(current_config: Path, new_config: Path, target_host: Remote | None = None):
     run_wrapper(
         [
             "nix",
             *FLAKE_FLAGS,
             "store",
             "diff-closures",
-            "/run/current-system",
-            path_to_config
-        ]
+            current_config,
+            new_config,
+        ],
+        remote=target_host,
     )
 
 
