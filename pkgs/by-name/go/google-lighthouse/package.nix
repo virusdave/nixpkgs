@@ -9,6 +9,7 @@
   yarnInstallHook,
   nodejs,
   makeWrapper,
+  nix-update-script,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "google-lighthouse";
@@ -50,6 +51,9 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   doDist = false;
+
+  passthru.updateScript = nix-update-script { };
+
   meta = {
     description = "Automated auditing, performance metrics, and best practices for the web";
     homepage = "https://developer.chrome.com/docs/lighthouse/overview";
