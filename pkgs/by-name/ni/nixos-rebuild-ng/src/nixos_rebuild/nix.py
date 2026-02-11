@@ -1,3 +1,4 @@
+import sys
 import json
 import logging
 import os
@@ -538,6 +539,11 @@ def list_generations(profile: Profile) -> list[GenerationJson]:
         )
 
 def diff_closures(current_config: Path, new_config: Path, target_host: Remote | None = None):
+    print(
+        f"<<< {current_config}"
+        f">>> {new_config}",
+        file=sys.stderr
+    )
     run_wrapper(
         [
             "nix",
