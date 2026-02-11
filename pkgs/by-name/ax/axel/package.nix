@@ -10,15 +10,15 @@
   txt2man,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "axel";
   version = "2.17.14";
 
   src = fetchFromGitHub {
     owner = "axel-download-accelerator";
-    repo = pname;
-    rev = "v${version}";
-    sha256 = "sha256-5GUna5k8GhAx1Xe8n9IvXT7IO6gksxCLh+sMANlxTBM=";
+    repo = "axel";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-5GUna5k8GhAx1Xe8n9IvXT7IO6gksxCLh+sMANlxTBM=";
   };
 
   postPatch = ''
@@ -53,4 +53,4 @@ stdenv.mkDerivation rec {
     license = lib.licenses.gpl2Plus;
     mainProgram = "axel";
   };
-}
+})
