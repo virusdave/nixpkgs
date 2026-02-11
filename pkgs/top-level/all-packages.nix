@@ -6840,8 +6840,8 @@ with pkgs;
   libchipcard = callPackage ../development/libraries/aqbanking/libchipcard.nix { };
 
   libdbiDriversBase = libdbiDrivers.override {
-    libmysqlclient = null;
-    sqlite = null;
+    withMysql = false;
+    withSqlite = false;
   };
 
   libdbusmenu-gtk2 = libdbusmenu.override { gtkVersion = "2"; };
