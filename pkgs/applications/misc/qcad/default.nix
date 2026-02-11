@@ -17,15 +17,15 @@
   wrapQtAppsHook,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "qcad";
   version = "3.32.6.0";
 
   src = fetchFromGitHub {
-    name = "qcad-${version}-src";
+    name = "${finalAttrs.pname}-${finalAttrs.version}-src";
     owner = "qcad";
     repo = "qcad";
-    rev = "v${version}";
+    rev = "v${finalAttrs.version}";
     hash = "sha256-7PckPPD7CWd+IQWTLhr5+vizIjPpRdva2yDOyC6t0Uc=";
   };
 
@@ -136,4 +136,4 @@ stdenv.mkDerivation rec {
     maintainers = with lib.maintainers; [ yvesf ];
     platforms = qtbase.meta.platforms;
   };
-}
+})
