@@ -24,7 +24,6 @@ let
       atila
       conradmearns
       zaninime
-      qbit
       kashw2
       w-lfchen
     ];
