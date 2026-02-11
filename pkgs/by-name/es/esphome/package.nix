@@ -195,6 +195,7 @@ python.pkgs.buildPythonApplication rec {
     ];
     maintainers = with lib.maintainers; [
       hexa
+      picnoir
       thanegill
     ];
     mainProgram = "esphome";
