@@ -394,6 +394,8 @@ def test_get_build_image_variants_flake(mock_run: Mock) -> None:
     mock_run.assert_called_with(
         [
             "nix",
+            "--extra-experimental-features",
+            "nix-command flakes",
             "eval",
             "--json",
             "/flake.nix#myAttr.config.system.build.images",

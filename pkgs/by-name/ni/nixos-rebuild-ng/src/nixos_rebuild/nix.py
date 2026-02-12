@@ -314,6 +314,7 @@ def get_build_image_name_flake(
     r = run_wrapper(
         [
             "nix",
+            *FLAKE_FLAGS,
             "eval",
             "--json",
             flake.to_attr(
@@ -365,6 +366,7 @@ def get_build_image_variants_flake(
     r = run_wrapper(
         [
             "nix",
+            *FLAKE_FLAGS,
             "eval",
             "--json",
             flake.to_attr("config.system.build.images"),
