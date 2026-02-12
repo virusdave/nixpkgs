@@ -121,7 +121,8 @@ stdenv.mkDerivation rec {
     # Given that upstream also provides public documentation,
     # we can disable it here.
     "-Ddocumentation=disabled"
-  ] ++ lib.optionals stdenv.hostPlatform.isAarch64 [
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isAarch64 [
     # we don't have tensorflow-lite to build this
     "-Drpi-awb-nn=disabled"
   ];
