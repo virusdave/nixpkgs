@@ -224,6 +224,7 @@ mapAliases {
   inherit (pkgs) jake; # added 2023-08-19
   inherit (pkgs) javascript-typescript-langserver; # added 2023-08-19
   inherit (pkgs) js-beautify; # Added 2025-11-06
+  js-yaml = throw "js-yaml was removed because it was unmaintained in nixpkgs"; # Added 2026-02-12
   inherit (pkgs) jsdoc; # Added 2025-11-29
   inherit (pkgs) jshint; # Added 2025-11-06
   json = throw "'json' has been removed because it was unmaintained upstream"; # Added 2025-11-14

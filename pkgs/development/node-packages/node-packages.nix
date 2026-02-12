@@ -1335,15 +1335,6 @@ let
         sha512 = "PYjyFOLKQ9y57JvQ6QLo8dAgNqswh8M1RMJYdQduT6xbWSgK36P/Z/v+p888pM69jMMfS8Xd8F6I1kQ/I9HUGg==";
       };
     };
-    "argparse-2.0.1" = {
-      name = "argparse";
-      packageName = "argparse";
-      version = "2.0.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz";
-        sha512 = "8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==";
-      };
-    };
     "arr-rotate-1.0.0" = {
       name = "arr-rotate";
       packageName = "arr-rotate";
@@ -7832,27 +7823,6 @@ in
     meta = {
       description = "javascript and typescript language features extension of coc.nvim";
       homepage = "https://github.com/neoclide/coc-tsserver#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
-  js-yaml = nodeEnv.buildNodePackage {
-    name = "js-yaml";
-    packageName = "js-yaml";
-    version = "4.1.0";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz";
-      sha512 = "wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==";
-    };
-    dependencies = [
-      sources."argparse-2.0.1"
-    ];
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "YAML 1.2 parser and serializer";
-      homepage = "https://github.com/nodeca/js-yaml#readme";
       license = "MIT";
     };
     production = true;

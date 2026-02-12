@@ -6,7 +6,6 @@
 , "browserify"
 , "coc-go"
 , "coc-tsserver"
-, "js-yaml"
 , "node2nix"
 , "sass"
 , "semver"
