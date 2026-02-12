@@ -330,21 +330,17 @@ python.pkgs.buildPythonApplication rec {
     # FileNotFoundError(2, 'No such file or directory'): /build/tmp...
     "test_script_with_output"
     "test_script_exit_non_zero"
-    "testDocumentPageCountMigrated"
-    # AssertionError: 10 != 4 (timezone/time issue)
-    # Due to getting local time from modification date in test_consumer.py
-    "testNormalOperation"
     # Something broken with new Tesseract and inline RTL/LTR overrides?
     "test_rtl_language_detection"
-    # django.core.exceptions.FieldDoesNotExist: Document has no field named 'transaction_id'
-    "test_convert"
     # Favicon tests fail due to static file handling in the test environment
+    # https://github.com/NixOS/nixpkgs/issues/421393
     "test_favicon_view"
     "test_favicon_view_missing_file"
     # Requires DNS
     "test_send_webhook_data_or_json"
-    "test_workflow_webhook_send_webhook_retry"
-    "test_workflow_webhook_send_webhook_task"
+    # execnet.gateway_base.DumpError: can't serialize <class 'pathlib._local.PosixPath'>
+    # https://github.com/pytest-dev/pytest-xdist/issues/384
+    "test_subdirectory_upload"
   ];
 
   doCheck = !stdenv.hostPlatform.isDarwin;
