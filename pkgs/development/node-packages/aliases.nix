@@ -203,6 +203,7 @@ mapAliases {
   inherit (pkgs) grunt-cli; # added 2025-12-29
   gtop = pkgs.gtop; # added 2023-07-31
   gulp = self.gulp-cli; # Added 2025-11-04
+  gulp-cli = throw "gulp-cli has been removed because it was unmaintained in nixpkgs"; # Added 2026-02-12
   he = throw "'he' has been removed because it was unmaintained upstream"; # Added 2025-11-14
   hs-airdrop = throw "'hs-airdrop' has been removed because it was unmaintained upstream"; # Added 2025-11-14
   hs-client = pkgs.hsd; # added 2023-08-20

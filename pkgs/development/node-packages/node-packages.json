@@ -6,7 +6,6 @@
 , "browserify"
 , "coc-go"
 , "coc-tsserver"
-, "gulp-cli"
 , "js-yaml"
 , "node2nix"
 , "sass"
