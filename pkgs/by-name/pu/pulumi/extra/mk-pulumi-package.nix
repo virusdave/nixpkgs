@@ -1,4 +1,5 @@
 {
+  lib,
   buildGoModule,
   fetchFromGitHub,
   python3Packages,
@@ -118,6 +119,7 @@ in
   env ? { },
   meta,
   fetchSubmodules ? false,
+  pythonArgs ? { },
   ...
 }@args:
 let
@@ -175,11 +177,14 @@ mkBasePackage (
       VERSION=v${version} go generate cmd/${cmdRes}/main.go
     '';
 
-    passthru.sdks.python = mkPythonPackage {
-      inherit meta src version;
+    passthru.sdks.python = mkPythonPackage (
+      {
+        inherit meta src version;
 
-      pname = repo;
-    };
+        pname = repo;
+      }
+      // pythonArgs
+    );
   }
-  // args
+  // (lib.removeAttrs args [ "pythonArgs" ])
 )
