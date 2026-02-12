@@ -62,8 +62,4 @@ final: prev: {
         wrapProgram "$out/bin/node2nix" --prefix PATH : ${lib.makeBinPath [ pkgs.nix ]}
       '';
   };
-
-  rush = prev."@microsoft/rush".override {
-    name = "rush";
-  };
 }

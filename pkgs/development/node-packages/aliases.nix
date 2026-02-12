@@ -52,6 +52,8 @@ mapAliases {
   "@maizzle/cli" = pkgs.maizzle; # added 2023-08-17
   "@medable/mdctl-cli" = throw "@medable/mdctl-cli was removed because it was broken"; # added 2023-08-21
   "@mermaid-js/mermaid-cli" = pkgs.mermaid-cli; # added 2023-10-01
+  "@microsoft/rush" =
+    throw "@microsoft/rush has been removed because it was unmaintainable within nixpkgs"; # Added 2026-02-12
   "@nerdwallet/shepherd" = pkgs.shepherd; # added 2023-09-30
   "@nestjs/cli" = pkgs.nest-cli; # Added 2023-05-06
   "@prisma/language-server" = throw "@prisma/language-server has been removed because it was broken"; # added 2025-03-23

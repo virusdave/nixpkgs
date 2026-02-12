@@ -1,5 +1,4 @@
 [
-, "@microsoft/rush"
 , "@tailwindcss/aspect-ratio"
 , "@tailwindcss/forms"
 , "@tailwindcss/line-clamp"
