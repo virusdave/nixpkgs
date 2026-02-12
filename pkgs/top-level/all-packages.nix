@@ -11974,10 +11974,6 @@ with pkgs;
 
   ### SCIENCE/BIOLOGY
 
-  cd-hit = callPackage ../applications/science/biology/cd-hit {
-    inherit (llvmPackages) openmp;
-  };
-
   deepdiff = with python3Packages; toPythonApplication deepdiff;
 
   deep-translator = with python3Packages; toPythonApplication deep-translator;
