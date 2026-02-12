@@ -10,7 +10,6 @@
   libxcrypt,
   util-linux,
 }:
-
 stdenv.mkDerivation rec {
   pname = "inetutils";
   version = "2.7";
@@ -78,6 +77,7 @@ stdenv.mkDerivation rec {
   ]
   ++ lib.optional stdenv.hostPlatform.isDarwin "--disable-servers";
 
+  hardeningDisable = lib.optional stdenv.hostPlatform.isDarwin "format";
   doCheck = true;
 
   installFlags = [ "SUIDMODE=" ];
