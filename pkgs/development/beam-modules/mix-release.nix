@@ -16,6 +16,7 @@
   gnused,
   gnugrep,
   gawk,
+  mixBuildDirHook,
 }@inputs:
 
 {
@@ -108,6 +109,7 @@ stdenv.mkDerivation (
           elixir
           hex
           git
+          mixBuildDirHook
         ]
       ++
         # Mix deps
@@ -184,13 +186,12 @@ stdenv.mkDerivation (
         ${lib.optionalString (mixNixDeps != { }) ''
           mkdir -p deps
 
-          ${lib.concatMapStringsSep "\n" (dep: ''
-            dep_name=$(basename ${dep} | cut -d '-' -f2)
-            dep_path="deps/$dep_name"
+          ${lib.concatMapAttrsStringSep "\n" (name: dep: ''
+            dep_path="deps/${name}"
             if [ -d "${dep}/src" ]; then
-              ln -s ${dep}/src $dep_path
+              ln -sv ${dep}/src $dep_path
             fi
-          '') (builtins.attrValues mixNixDeps)}
+          '') mixNixDeps}
         ''}
 
         # Symlink deps to build root. Similar to above, but allows for mixFodDeps
