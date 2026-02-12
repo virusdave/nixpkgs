@@ -4,6 +4,5 @@
   "@microsoft/rush" = "rush";
 
   # Packages that provide a single executable.
-  "@angular/cli" = "ng";
   gulp-cli = "gulp";
 }

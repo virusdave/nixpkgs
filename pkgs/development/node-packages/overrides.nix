@@ -20,19 +20,6 @@ in
 final: prev: {
   inherit nodejs;
 
-  "@angular/cli" = prev."@angular/cli".override {
-    prePatch = ''
-      export NG_CLI_ANALYTICS=false
-    '';
-    nativeBuildInputs = [ pkgs.installShellFiles ];
-    postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
-      for shell in bash zsh; do
-        installShellCompletion --cmd ng \
-          --$shell <($out/bin/ng completion script)
-      done
-    '';
-  };
-
   node2nix = prev.node2nix.override {
     # Get latest commit for misc fixes
     src = fetchFromGitHub {

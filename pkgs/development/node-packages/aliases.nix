@@ -33,6 +33,7 @@ let
 in
 
 mapAliases {
+  "@angular/cli" = throw "@angular/cli was removed because it was unmaintainable in nixpkgs"; # Added 2026-02-12
   "@antfu/ni" = pkgs.ni; # Added 2025-11-08
   "@antora/cli" = pkgs.antora; # Added 2023-05-06
   "@astrojs/language-server" = pkgs.astro-language-server; # Added 2024-02-12
