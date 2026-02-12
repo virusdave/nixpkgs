@@ -17,6 +17,7 @@
 
 mkDerivation {
   pname = "kxmlgui";
+  outputs = [ "out" "dev" ];
   nativeBuildInputs = [ extra-cmake-modules ];
   buildInputs = [
     attica
