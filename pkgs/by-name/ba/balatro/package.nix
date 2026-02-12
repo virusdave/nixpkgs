@@ -100,6 +100,14 @@ stdenv.mkDerivation (finalAttrs: {
     tmpdir=$(mktemp -d)
     7z x ${finalAttrs.src} -o$tmpdir -y
 
+    if [ -d "$tmpdir/assets" ]; then
+      mv "$tmpdir/assets/"* "$tmpdir/"
+      rmdir "$tmpdir/assets"
+    elif [ -d "$tmpdir/Assets" ]; then
+      mv "$tmpdir/Assets/"* "$tmpdir/"
+      rmdir "$tmpdir/Assets"
+    fi
+
     ${lib.optionalString withBridgePatch ''
       cp ${./bridge_detour.lua} $tmpdir/bridge_detour.lua
 
