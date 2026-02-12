@@ -59,6 +59,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     maintainers = with lib.maintainers; [
       pstn
       SchweGELBin
+      Kladki
     ];
     mainProgram = "conduit";
   };
