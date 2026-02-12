@@ -415,6 +415,7 @@ mapAliases {
   inherit (pkgs) uppy-companion; # Added 2025-11-01
   inherit (pkgs) vega-cli; # Added 2025-12-18
   inherit (pkgs) vega-lite; # Added 2025-11-04
+  vercel = throw "vercel has been removed because it was unmaintained in nixpkgs"; # Added 2026-02-12
   inherit (pkgs) vim-language-server; # added 2024-06-25
   vls = throw "vls has been deprecated by upstream as vetur is also deprecated. Upstream suggests migrating to Volar for Vue LSP tooling instead."; # added 2024-12-09
   inherit (pkgs) vsc-leetcode-cli; # Added 2023-08-30

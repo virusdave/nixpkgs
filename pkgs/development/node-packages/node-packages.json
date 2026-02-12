@@ -9,5 +9,4 @@
 , "node2nix"
 , "sass"
 , "semver"
-, "vercel"
 ]
