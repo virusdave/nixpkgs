@@ -1692,8 +1692,6 @@ with pkgs;
 
   dino = callPackage ../applications/networking/instant-messengers/dino { };
 
-  dnschef = python3Packages.callPackage ../tools/networking/dnschef { };
-
   inherit (ocamlPackages) dot-merlin-reader;
 
   inherit (ocamlPackages) dune-release;
