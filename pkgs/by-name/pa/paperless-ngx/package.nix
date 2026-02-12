@@ -308,11 +308,11 @@ python.pkgs.buildPythonApplication rec {
     "src"
   ];
 
-  # The tests require:
-  # - PATH with runtime binaries
-  # - A temporary HOME directory for gnupg
-  # - XDG_DATA_DIRS with test-specific fonts
   preCheck = ''
+    # The tests require:
+    # - PATH with runtime binaries
+    # - A temporary HOME directory for gnupg
+    # - XDG_DATA_DIRS with test-specific fonts
     export PATH="${path}:$PATH"
     export HOME=$(mktemp -d)
     export XDG_DATA_DIRS="${liberation_ttf}/share:$XDG_DATA_DIRS"
@@ -321,6 +321,9 @@ python.pkgs.buildPythonApplication rec {
     # ocrmypdf has an internal limit of 256 jobs and will fail with more:
     # https://github.com/ocrmypdf/OCRmyPDF/blob/66308c281306302fac3470f587814c3b212d0c40/src/ocrmypdf/cli.py#L234
     export PAPERLESS_THREADS_PER_WORKER=$(( NIX_BUILD_CORES > 256 ? 256 : NIX_BUILD_CORES ))
+
+    # the generated pyc files conflict when running the tests
+    rm -r build/lib
   '';
 
   disabledTests = [
