@@ -3,7 +3,7 @@
   fetchzip,
 }:
 fetchzip (finalAttrs: {
-  pname = "bootstrap";
+  pname = "twitter-bootstrap";
   version = "5.3.8";
 
   url = "https://github.com/twbs/bootstrap/releases/download/v${finalAttrs.version}/bootstrap-${finalAttrs.version}-dist.zip";
