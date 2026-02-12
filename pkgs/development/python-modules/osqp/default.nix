@@ -109,6 +109,8 @@ buildPythonPackage (finalAttrs: {
     downloadPage = "https://github.com/oxfordcontrol/osqp-python/releases";
     changelog = "https://github.com/osqp/osqp-python/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.asl20;
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [
+      GaetanLepage
+    ];
   };
 })
