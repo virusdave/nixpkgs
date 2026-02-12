@@ -6,7 +6,6 @@
 , "browserify"
 , "coc-go"
 , "coc-tsserver"
-, "dotenv-vault"
 , "esy"
 , "gulp-cli"
 , "js-yaml"

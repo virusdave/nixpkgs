@@ -162,6 +162,7 @@ mapAliases {
   inherit (pkgs) diff2html-cli; # Added 2025-11-08
   inherit (pkgs) dockerfile-language-server-nodejs; # added 2023-08-18
   inherit (pkgs) dotenv-cli; # added 2024-06-26
+  dotenv-vault = throw "'dotenv-vault' has been removed because it was unmaintained in nixpkgs"; # Added 2026-02-12
   eask = pkgs.eask; # added 2023-08-17
   elasticdump = throw "'elasticdump' has been removed because it was unmaintained in nixpkgs"; # Added 2025-12-26
   inherit (pkgs.elmPackages) elm-test;
