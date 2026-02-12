@@ -71,6 +71,7 @@ mapAliases {
   "@withgraphite/graphite-cli" = pkgs.graphite-cli; # added 2024-01-25
   "@yaegassy/coc-nginx" = pkgs.coc-nginx; # Added 2025-11-08
   "@zwave-js/server" = pkgs.zwave-js-server; # Added 2023-09-09
+  alex = throw "'alex' has been removed because it was unmaintainable in nixpkgs"; # Added 2026-02-12
   audiosprite = throw "'audiosprite' has been removed because it was abandoned upstream"; # Added 2025-11-14
   inherit (pkgs) autoprefixer; # added 2024-06-25
   inherit (pkgs) asar; # added 2023-08-26

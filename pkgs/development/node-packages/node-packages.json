@@ -3,7 +3,6 @@
 , "@tailwindcss/forms"
 , "@tailwindcss/line-clamp"
 , "@tailwindcss/typography"
-, "alex"
 , "browserify"
 , "coc-go"
 , "coc-tsserver"
