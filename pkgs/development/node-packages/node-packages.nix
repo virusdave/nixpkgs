@@ -8306,23 +8306,6 @@ in
     bypassCache = true;
     reconstructLock = true;
   };
-  esy = nodeEnv.buildNodePackage {
-    name = "esy";
-    packageName = "esy";
-    version = "0.8.0";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/esy/-/esy-0.8.0.tgz";
-      sha512 = "f0f22OfNF4aFLNyFKoraIg66q0g9L0icZKEG8i8jWieTjLdUAQSji5WdgI7F5X+55WN1AlhNdcXkPyBQwRzkuQ==";
-    };
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "Package builder for esy";
-      license = "BSD-2-Clause";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
   grunt-cli = nodeEnv.buildNodePackage {
     name = "grunt-cli";
     packageName = "grunt-cli";

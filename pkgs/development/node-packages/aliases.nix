@@ -174,6 +174,7 @@ mapAliases {
   inherit (pkgs) eslint; # Added 2024-08-28
   inherit (pkgs) eslint_d; # Added 2023-05-26
   inherit (pkgs) eas-cli; # added 2025-01-08
+  esy = throw "esy was removed because it was unmaintained within nixpkgs"; # Added 2026-02-12
   expo-cli = throw "expo-cli was removed because it was deprecated upstream. Use `npx expo` or eas-cli instead."; # added 2024-12-02
   fast-cli = throw "'fast-cli' has been removed because it was unmaintainable in nixpkgs"; # Added 2025-11-17
   inherit (pkgs) fauna-shell; # Added 2025-11-27
