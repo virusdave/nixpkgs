@@ -153,7 +153,8 @@ stdenv.mkDerivation (finalAttrs: {
 
     makeWrapper $out/share/Balatro $out/bin/balatro ${lib.optionalString withMods ''
       --prefix LD_PRELOAD : '${lovely-injector}/lib/liblovely.so' \
-      --prefix LD_LIBRARY_PATH : '${lib.makeLibraryPath [ curl ]}''}
+      --prefix LD_LIBRARY_PATH : '${lib.makeLibraryPath [ curl ]}'
+    ''}
 
     runHook postInstall
   '';
