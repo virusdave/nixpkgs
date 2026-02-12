@@ -8,7 +8,7 @@
   lib,
 }:
 stdenv.mkDerivation (finalAttrs: {
-  pname = "simpleDBus";
+  pname = "simpledbus";
 
   version = "0.10.4";
 
