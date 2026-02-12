@@ -47,10 +47,7 @@ let
     );
 
   driverPaths = [
-    # opengl:
-    # NOTE: Since driverLink is just a symlink, we need to include its target as well.
     pkgs.addDriverRunpath.driverLink
-    config.systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".argument
 
     # mesa:
     config.hardware.graphics.package
@@ -62,7 +59,9 @@ let
   defaults = {
     nvidia-gpu.onFeatures = package.allowedPatterns.nvidia-gpu.onFeatures;
     nvidia-gpu.paths = package.allowedPatterns.nvidia-gpu.paths ++ driverPaths;
-    nvidia-gpu.unsafeFollowSymlinks = false;
+    # TODO: Refactor `hardware.graphics` to ease referencing the closure
+    # NOTE: A naive implementation may e.g. introduce a conditional infinite recursion (https://github.com/NixOS/nixpkgs/pull/488199)
+    nvidia-gpu.unsafeFollowSymlinks = true;
   };
 in
 {
