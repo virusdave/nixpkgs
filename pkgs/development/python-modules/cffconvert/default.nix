@@ -2,6 +2,7 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
+  nix-update-script,
   setuptools,
   click,
   requests,
@@ -45,6 +46,10 @@ buildPythonPackage rec {
   ];
 
   pythonImportsCheck = [ "cffconvert" ];
+
+  passthru.updateScript = nix-update-script {
+    extraArgs = [ "--version=branch" ];
+  };
 
   meta = {
     changelog = "https://github.com/citation-file-format/cffconvert/blob/${src.rev}/CHANGELOG.md";
