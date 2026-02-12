@@ -34,8 +34,11 @@ stdenv.mkDerivation (finalAttrs: {
     copyDesktopItems
     makeWrapper
   ];
+
   buildInputs = [ love ] ++ lib.optional withMods lovely-injector;
+
   dontUnpack = true;
+
   desktopItems = [
     (makeDesktopItem {
       name = "balatro";
@@ -46,13 +49,16 @@ stdenv.mkDerivation (finalAttrs: {
       icon = "balatro";
     })
   ];
+
   buildPhase = ''
     runHook preBuild
+
     tmpdir=$(mktemp -d)
     7z x ${finalAttrs.src} -o$tmpdir -y
     ${if withLinuxPatch then "patch $tmpdir/globals.lua -i ${./globals.patch}" else ""}
     patchedExe=$(mktemp -u).zip
     7z a $patchedExe $tmpdir/*
+
     runHook postBuild
   '';
 
@@ -61,12 +67,14 @@ stdenv.mkDerivation (finalAttrs: {
   # 'official' way of doing it.
   installPhase = ''
     runHook preInstall
+
     install -Dm644 $srcIcon $out/share/icons/hicolor/scalable/apps/balatro.png
 
     cat ${lib.getExe love} $patchedExe > $out/share/Balatro
     chmod +x $out/share/Balatro
 
     makeWrapper $out/share/Balatro $out/bin/balatro ${lib.optionalString withMods "--prefix LD_PRELOAD : '${lovely-injector}/lib/liblovely.so'"}
+
     runHook postInstall
   '';
 
