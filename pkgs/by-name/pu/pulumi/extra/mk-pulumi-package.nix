@@ -17,15 +17,7 @@ let
       ...
     }@args:
     buildGoModule (
-      rec {
-        inherit
-          pname
-          src
-          vendorHash
-          version
-          env
-          ;
-
+      {
         sourceRoot = "${src.name}/provider";
 
         subPackages = [ "cmd/${cmd}" ];
@@ -152,16 +144,8 @@ let
 in
 mkBasePackage (
   {
-    inherit
-      meta
-      src
-      version
-      vendorHash
-      extraLdflags
-      env
-      ;
-
     pname = repo;
+    inherit env src;
 
     nativeBuildInputs = [
       pulumi-gen
