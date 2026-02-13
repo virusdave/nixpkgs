@@ -33,7 +33,7 @@ buildGoModule (finalAttrs: {
 
   # Required to workaround install check error:
   # 2022/06/25 10:36:22 Unable to start gops: mkdir /homeless-shelter: permission denied
-  HOME = "$TMPDIR";
+  env.HOME = "$TMPDIR";
 
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     installShellCompletion --cmd cilium \
