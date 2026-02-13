@@ -176,6 +176,10 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
+  postFixup = ''
+    ln -s $out/bin/Processing $out/bin/processing
+  '';
+
   meta = {
     description = "Language and IDE for electronic arts";
     homepage = "https://processing.org";
