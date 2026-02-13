@@ -12,7 +12,7 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "vmfunc";
     repo = "sif";
-    tag = "automated-release-af53185";
+    rev = "af531850dc7fa37bcff2de4d88c4254776ba4afe";
     hash = "sha256-hXFWqAAhkfTiiel5JKi0GOcY+Q1TLhJWZIJTaWlGthk=";
   };
 
@@ -30,7 +30,12 @@ buildGoModule {
   # network-dependent tests
   doCheck = false;
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version=branch"
+      "--version-regex=(0-unstable-.*)"
+    ];
+  };
 
   meta = {
     description = "Modular pentesting toolkit written in Go";
