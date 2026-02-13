@@ -1,6 +1,7 @@
 {
   stdenv,
   lib,
+  buildPackages,
   fetchurl,
   gtk3,
   glib,
@@ -29,6 +30,13 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     pkg-config
     wrapGAppsHook3
+  ];
+
+  # xmedcon looks also for a host c compiler when cross-compiling
+  # otherwise you obtain following error message:
+  # "error: no acceptable C compiler found in $PATH"
+  depsBuildBuild = [
+    buildPackages.stdenv.cc
   ];
 
   meta = {
