@@ -85,7 +85,7 @@ python3.pkgs.buildPythonApplication (finalAttrs: {
     "tests/test_docs.py"
   ];
 
-  HOME = "$TMPDIR"; # for cache generation.
+  env.HOME = "$TMPDIR"; # for cache generation.
 
   # Necessary because it confuse the tests when it does "from ripe.atlas.sagan import X"
   # version.py is used by Sphinx tests.
