@@ -4,29 +4,29 @@
   buildPythonPackage,
   curio-compat,
   fetchFromGitHub,
+  hatchling,
   hypothesis,
   pytest,
   pytestCheckHook,
   pythonOlder,
-  poetry-core,
-  trio,
   trio-asyncio,
+  trio,
   uvloop,
 }:
 
 buildPythonPackage rec {
   pname = "pytest-aio";
-  version = "2.0.0";
+  version = "2.1.7";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "klen";
     repo = "pytest-aio";
-    rev = "43681bcfc6d2ee07bf9397a1b42d1ccfbb891deb";
-    hash = "sha256-IBtiy4pyXblIkYQunFO6HpBkCnBcEpTqcFtVELrULkk=";
+    tag = version;
+    hash = "sha256-HvD7bBT8QX9Au5TON4yLit2AOLVSRGqdkkwenyqzhpo=";
   };
 
-  build-system = [ poetry-core ];
+  build-system = [ hatchling ];
 
   buildInputs = [ pytest ];
 
