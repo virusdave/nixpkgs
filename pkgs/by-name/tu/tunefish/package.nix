@@ -53,7 +53,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
 
   # silences build warnings
-  HOME = "/build";
+  env.HOME = "/build";
 
   postPatch = ''
     patchShebangs src/tunefish4/generate-lv2-ttl.py
