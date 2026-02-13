@@ -14,7 +14,7 @@
   uvloop,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "pytest-aio";
   version = "2.1.7";
   pyproject = true;
@@ -22,7 +22,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "klen";
     repo = "pytest-aio";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-HvD7bBT8QX9Au5TON4yLit2AOLVSRGqdkkwenyqzhpo=";
   };
 
@@ -45,15 +45,15 @@ buildPythonPackage rec {
   ++ lib.optionals (pythonOlder "3.14") [
     trio-asyncio
   ]
-  ++ lib.concatAttrValues optional-dependencies;
+  ++ lib.flatten (builtins.attrValues finalAttrs.passthru.optional-dependencies);
 
   pythonImportsCheck = [ "pytest_aio" ];
 
   meta = {
     description = "Pytest plugin for aiohttp support";
     homepage = "https://github.com/klen/pytest-aio";
-    changelog = "https://github.com/klen/pytest-aio/blob/${version}/CHANGELOG.md";
+    changelog = "https://github.com/klen/pytest-aio/blob/${finalAttrs.src.tag}/CHANGELOG.md";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
