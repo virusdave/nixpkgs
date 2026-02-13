@@ -30,10 +30,11 @@ buildGoModule (finalAttrs: {
 
   subPackages = [ "references/cmd/cli" ];
 
-  env.CGO_ENABLED = 0;
-
-  # Workaround for permission issue in shell completion
-  HOME = "$TMPDIR";
+  env = {
+    CGO_ENABLED = 0;
+    # Workaround for permission issue in shell completion
+    HOME = "$TMPDIR";
+  };
 
   installPhase = ''
     runHook preInstall
