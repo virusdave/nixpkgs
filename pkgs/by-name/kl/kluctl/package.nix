@@ -5,9 +5,9 @@
   buildPackages,
   fetchFromGitHub,
   installShellFiles,
-  testers,
   makeWrapper,
   python310,
+  versionCheckHook,
 }:
 
 buildGoModule (finalAttrs: {
@@ -27,22 +27,16 @@ buildGoModule (finalAttrs: {
 
   ldflags = [
     "-s"
-    "-w"
     "-X main.version=v${finalAttrs.version}"
   ];
-
-  # Depends on docker
-  doCheck = false;
 
   nativeBuildInputs = [
     installShellFiles
     makeWrapper
   ];
 
-  passthru.tests.version = testers.testVersion {
-    package = finalAttrs.finalPackage;
-    version = "v${finalAttrs.version}";
-  };
+  # Depends on docker
+  doCheck = false;
 
   postInstall =
     let
@@ -58,6 +52,11 @@ buildGoModule (finalAttrs: {
         --fish <(${emulator} $out/bin/kluctl completion fish) \
         --zsh  <(${emulator} $out/bin/kluctl completion zsh)
     '';
+
+  nativeInstallCheckInputs = [
+    versionCheckHook
+  ];
+  doInstallCheck = true;
 
   meta = {
     description = "Missing glue to put together large Kubernetes deployments";
