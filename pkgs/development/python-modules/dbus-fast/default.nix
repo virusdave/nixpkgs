@@ -1,6 +1,5 @@
 {
   lib,
-  async-timeout,
   buildPythonPackage,
   cython,
   dbus,
@@ -40,8 +39,6 @@ buildPythonPackage rec {
     poetry-core
     setuptools
   ];
-
-  dependencies = [ async-timeout ];
 
   nativeCheckInputs = [
     dbus
