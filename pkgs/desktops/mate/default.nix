@@ -21,47 +21,6 @@ let
           url = if url == null then "https://git.mate-desktop.org/${pname}" else url;
         };
 
-      # Caja and mate-panel are managed in NixOS module.
-      basePackages = with pkgs; [
-        libmatekbd
-        libmatemixer
-        libmateweather
-        marco
-        mate-common
-        mate-control-center
-        mate-desktop
-        mate-icon-theme
-        mate-menus
-        mate-notification-daemon
-        mate-polkit
-        mate-session-manager
-        mate-settings-daemon
-        mate-settings-daemon-wrapped
-        mate-themes
-      ];
-
-      extraPackages = with pkgs; [
-        atril
-        caja-extensions # for caja-sendto
-        engrampa
-        eom
-        mate-applets
-        mate-backgrounds
-        mate-calc
-        mate-indicator-applet
-        mate-media
-        mate-netbook
-        mate-power-manager
-        mate-screensaver
-        mate-system-monitor
-        mate-terminal
-        mate-user-guide
-        # mate-user-share
-        mate-utils
-        mozo
-        pluma
-      ];
-
       cajaExtensions = [ pkgs.caja-extensions ];
 
       panelApplets = with pkgs; [
@@ -79,6 +38,9 @@ let
 in
 lib.makeScope pkgs.newScope packages
 // lib.optionalAttrs config.allowAliases {
+  basePackages = throw "‘mate.basePackages’ was removed. Please list the packages you need explicitly"; # Added on 2026-02-14
+  extraPackages = throw "‘mate.extraPackages’ was removed. Please list the packages you need explicitly"; # Added on 2026-02-14
+
   atril = lib.warnOnInstantiate "‘mate.atril’ was moved to top-level. Please use ‘pkgs.atril’ directly" pkgs.atril; # Added on 2026-02-08
   engrampa = lib.warnOnInstantiate "‘mate.engrampa’ was moved to top-level. Please use ‘pkgs.engrampa’ directly" pkgs.engrampa; # Added on 2026-02-08
   eom = lib.warnOnInstantiate "‘mate.eom’ was moved to top-level. Please use ‘pkgs.eom’ directly" pkgs.eom; # Added on 2026-02-08

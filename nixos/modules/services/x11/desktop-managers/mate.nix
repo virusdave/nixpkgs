@@ -70,24 +70,58 @@ in
       # Debugging
       environment.sessionVariables.MATE_SESSION_DEBUG = mkIf cfg.debug "1";
 
-      environment.systemPackages = utils.removePackagesByName (
-        pkgs.mate.basePackages
-        ++ pkgs.mate.extraPackages
-        ++ [
-          (pkgs.caja-with-extensions.override {
-            extensions = cfg.extraCajaExtensions;
-          })
-          (pkgs.mate-panel-with-applets.override {
-            applets = cfg.extraPanelApplets;
-          })
-          pkgs.desktop-file-utils
-          pkgs.glib
-          pkgs.gtk3.out
-          pkgs.shared-mime-info
-          pkgs.xdg-user-dirs # Update user dirs as described in https://freedesktop.org/wiki/Software/xdg-user-dirs/
-          pkgs.yelp # for 'Contents' in 'Help' menus
-        ]
-      ) config.environment.mate.excludePackages;
+      environment.systemPackages = utils.removePackagesByName (with pkgs; [
+        # Base packages.
+        libmatekbd
+        libmatemixer
+        libmateweather
+        marco
+        mate-common
+        mate-control-center
+        mate-desktop
+        mate-icon-theme
+        mate-menus
+        mate-notification-daemon
+        mate-polkit
+        mate-session-manager
+        mate-settings-daemon
+        mate-settings-daemon-wrapped
+        mate-themes
+
+        # Extra packages.
+        atril
+        caja-extensions # for caja-sendto
+        engrampa
+        eom
+        mate-applets
+        mate-backgrounds
+        mate-calc
+        mate-indicator-applet
+        mate-media
+        mate-netbook
+        mate-power-manager
+        mate-screensaver
+        mate-system-monitor
+        mate-terminal
+        mate-user-guide
+        # mate-user-share
+        mate-utils
+        mozo
+        pluma
+
+        (caja-with-extensions.override {
+          extensions = cfg.extraCajaExtensions;
+        })
+        (mate-panel-with-applets.override {
+          applets = cfg.extraPanelApplets;
+        })
+        desktop-file-utils
+        glib
+        gtk3.out
+        shared-mime-info
+        xdg-user-dirs # Update user dirs as described in https://freedesktop.org/wiki/Software/xdg-user-dirs/
+        yelp # for 'Contents' in 'Help' menus
+      ]) config.environment.mate.excludePackages;
 
       programs.dconf.enable = true;
       # Shell integration for VTE terminals
