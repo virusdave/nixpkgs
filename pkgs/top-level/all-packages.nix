@@ -10662,8 +10662,6 @@ with pkgs;
 
   scantailor-universal = callPackage ../applications/graphics/scantailor/universal.nix { };
 
-  sfxr-qt = libsForQt5.callPackage ../applications/audio/sfxr-qt { };
-
   stag = callPackage ../applications/misc/stag {
     curses = ncurses;
   };
