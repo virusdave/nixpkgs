@@ -3845,19 +3845,6 @@ final: prev: {
     meta.hydraPlatforms = [ ];
   };
 
-  ctags-lsp-nvim = buildVimPlugin {
-    pname = "ctags-lsp.nvim";
-    version = "0-unstable-2025-09-19";
-    src = fetchFromGitHub {
-      owner = "netmute";
-      repo = "ctags-lsp.nvim";
-      rev = "ef2e57c306493ca6786b2337bf819fff7db55193";
-      hash = "sha256-ZAzqS9kEV4CFOVcQMoFtrpnoLFk619EoDi2T5Wp5f2c=";
-    };
-    meta.homepage = "https://github.com/netmute/ctags-lsp.nvim/";
-    meta.hydraPlatforms = [ ];
-  };
-
   ctrlp-cmatcher = buildVimPlugin {
     pname = "ctrlp-cmatcher";
     version = "0-unstable-2015-10-15";
