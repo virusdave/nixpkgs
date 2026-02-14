@@ -7,20 +7,6 @@
 let
   packages =
     self: with self; {
-
-      # Update script tailored to mate packages from git repository
-      mateUpdateScript =
-        {
-          pname,
-          odd-unstable ? true,
-          rev-prefix ? "v",
-          url ? null,
-        }:
-        pkgs.gitUpdater {
-          inherit odd-unstable rev-prefix;
-          url = if url == null then "https://git.mate-desktop.org/${pname}" else url;
-        };
-
       cajaExtensions = [ pkgs.caja-extensions ];
 
       panelApplets = with pkgs; [
@@ -40,6 +26,7 @@ lib.makeScope pkgs.newScope packages
 // lib.optionalAttrs config.allowAliases {
   basePackages = throw "‘mate.basePackages’ was removed. Please list the packages you need explicitly"; # Added on 2026-02-14
   extraPackages = throw "‘mate.extraPackages’ was removed. Please list the packages you need explicitly"; # Added on 2026-02-14
+  mateUpdateScript = throw "‘mate.mateUpdateScript’ was removed. Please use ‘pkgs.gitUpdater’ directly"; # Added on 2026-02-14
 
   atril = lib.warnOnInstantiate "‘mate.atril’ was moved to top-level. Please use ‘pkgs.atril’ directly" pkgs.atril; # Added on 2026-02-08
   engrampa = lib.warnOnInstantiate "‘mate.engrampa’ was moved to top-level. Please use ‘pkgs.engrampa’ directly" pkgs.engrampa; # Added on 2026-02-08
