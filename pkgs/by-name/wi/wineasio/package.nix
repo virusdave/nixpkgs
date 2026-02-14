@@ -1,17 +1,16 @@
 {
-  multiStdenv,
+  stdenv,
   lib,
   fetchFromGitHub,
   libjack2,
   pkg-config,
   wineWow64Packages,
-  pkgsi686Linux,
   python3,
   python3Packages,
   qt6,
 }:
 
-multiStdenv.mkDerivation rec {
+stdenv.mkDerivation rec {
   pname = "wineasio";
   version = "1.3.0";
 
@@ -57,7 +56,6 @@ multiStdenv.mkDerivation rec {
   ];
 
   buildInputs = [
-    pkgsi686Linux.libjack2
     libjack2
   ];
 
@@ -67,7 +65,6 @@ multiStdenv.mkDerivation rec {
 
   buildPhase = ''
     runHook preBuild
-    make "''${makeFlags[@]}" 32
     make "''${makeFlags[@]}" 64
     runHook postBuild
   '';
@@ -75,8 +72,6 @@ multiStdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    install -D build32/wineasio32.dll    $out/lib/wine/i386-windows/wineasio32.dll
-    install -D build32/wineasio32.dll.so $out/lib/wine/i386-unix/wineasio32.dll.so
     install -D build64/wineasio64.dll    $out/lib/wine/x86_64-windows/wineasio64.dll
     install -D build64/wineasio64.dll.so $out/lib/wine/x86_64-unix/wineasio64.dll.so
 
@@ -95,6 +90,6 @@ multiStdenv.mkDerivation rec {
       lgpl21
     ];
     maintainers = with lib.maintainers; [ lovesegfault ];
-    platforms = lib.platforms.linux;
+    platforms = [ "x86_64-linux" ];
   };
 }
