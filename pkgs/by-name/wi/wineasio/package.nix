@@ -89,7 +89,10 @@ stdenv.mkDerivation (finalAttrs: {
       gpl2
       lgpl21
     ];
-    maintainers = with lib.maintainers; [ lovesegfault ];
+    maintainers = with lib.maintainers; [
+      lovesegfault
+      thunze
+    ];
     platforms = [ "x86_64-linux" ];
   };
 })
