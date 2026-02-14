@@ -39,6 +39,10 @@
     machine.start()
     machine.wait_for_unit("multi-user.target")
 
+    with subtest("/dev/tpmrm0 has correct ownership"):
+        machine.succeed('[ `stat -c "%U" /dev/tpmrm0` = "tss" ]')
+        machine.succeed('[ `stat -c "%G" /dev/tpmrm0` = "tss" ]')
+
     with subtest("tabrmd service started properly"):
         machine.succeed('[ `systemctl show tpm2-abrmd.service --property=Result` = "Result=success" ]')
         machine.succeed('[ `journalctl -b -u tpm2-abrmd.service | grep -c "Starting"` = "1" ]')
