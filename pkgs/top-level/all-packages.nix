@@ -9589,10 +9589,6 @@ with pkgs;
     pulseaudioSupport = false;
   };
 
-  guitarix = callPackage ../applications/audio/guitarix {
-    fftw = fftwSinglePrec;
-  };
-
   tshark = wireshark-cli;
   wireshark-cli = wireshark.override { withQt = false; };
 
