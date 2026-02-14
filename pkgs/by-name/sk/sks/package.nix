@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  pkgsHostHost,
   ocaml-ng,
   perl,
   zlib,
@@ -39,11 +40,23 @@ stdenv.mkDerivation (finalAttrs: {
     "webSamples"
   ];
 
-  nativeBuildInputs = [
-    ocaml
-    findlib
-    perl
-  ];
+  nativeBuildInputs =
+    # use static -> static ocaml because dynamic -> static ocaml doesn't compile
+    (
+      if stdenv.hostPlatform.isStatic then
+        [
+          pkgsHostHost.ocaml-ng.ocamlPackages_4_12.ocaml
+          pkgsHostHost.ocaml-ng.ocamlPackages_4_12.findlib
+        ]
+      else
+        [
+          ocaml
+          findlib
+        ]
+    )
+    ++ [
+      perl
+    ];
   buildInputs = [
     zlib
     db
