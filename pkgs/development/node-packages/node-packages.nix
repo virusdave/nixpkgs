@@ -4944,15 +4944,6 @@ let
         sha512 = "vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==";
       };
     };
-    "typescript-5.8.2" = {
-      name = "typescript";
-      packageName = "typescript";
-      version = "5.8.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/typescript/-/typescript-5.8.2.tgz";
-        sha512 = "aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==";
-      };
-    };
     "uid-number-0.0.5" = {
       name = "uid-number";
       packageName = "uid-number";
@@ -5644,27 +5635,6 @@ in
     meta = {
       description = "browser-side require() the node way";
       homepage = "https://github.com/browserify/browserify#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
-  coc-tsserver = nodeEnv.buildNodePackage {
-    name = "coc-tsserver";
-    packageName = "coc-tsserver";
-    version = "2.2.3";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/coc-tsserver/-/coc-tsserver-2.2.3.tgz";
-      sha512 = "XYMekSGU+2jJ4U53FXUPmcv8WayME0eXUYruVL6PDYyVUUij86UQetliWHt1ai42VLTh3riIIZlcMdQkLot1sQ==";
-    };
-    dependencies = [
-      sources."typescript-5.8.2"
-    ];
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "javascript and typescript language features extension of coc.nvim";
-      homepage = "https://github.com/neoclide/coc-tsserver#readme";
       license = "MIT";
     };
     production = true;
