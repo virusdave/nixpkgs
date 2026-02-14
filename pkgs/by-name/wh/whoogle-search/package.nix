@@ -73,7 +73,10 @@ python3Packages.buildPythonApplication (finalAttrs: {
     homepage = "https://github.com/benbusby/whoogle-search";
     description = "Self-hosted, ad-free, privacy-respecting metasearch engine";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ malte-v ];
+    maintainers = with lib.maintainers; [
+      malte-v
+      SchweGELBin
+    ];
     mainProgram = "whoogle-search";
   };
 })
