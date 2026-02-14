@@ -68,6 +68,6 @@ buildGoModule (finalAttrs: {
     homepage = "https://github.com/google/cel-go";
     license = lib.licenses.asl20;
     mainProgram = "cel-go";
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ hythera ];
   };
 })
