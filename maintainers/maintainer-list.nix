@@ -12587,12 +12587,6 @@
     githubId = 26695750;
     name = "Joakim Holm";
   };
-  joachifm = {
-    email = "joachifm@fastmail.fm";
-    github = "joachifm";
-    githubId = 41977;
-    name = "Joachim Fasting";
-  };
   joachimschmidt557 = {
     email = "joachim.schmidt557@outlook.com";
     github = "joachimschmidt557";
