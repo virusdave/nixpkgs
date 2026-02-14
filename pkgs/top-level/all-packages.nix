@@ -2368,10 +2368,6 @@ with pkgs;
     mkFranzDerivation = callPackage ../applications/networking/instant-messengers/franz/generic.nix { };
   };
 
-  freqtweak = callPackage ../applications/audio/freqtweak {
-    wxGTK = wxGTK32;
-  };
-
   frostwire-bin = callPackage ../applications/networking/p2p/frostwire/frostwire-bin.nix { };
 
   uniscribe = callPackage ../tools/text/uniscribe { };
