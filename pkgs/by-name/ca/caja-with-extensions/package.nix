@@ -5,13 +5,13 @@
   wrapGAppsHook3,
   lndir,
   caja,
-  mate,
+  caja-extensions,
   extensions ? [ ],
   useDefaultExtensions ? true,
 }:
 
 let
-  selectedExtensions = extensions ++ (lib.optionals useDefaultExtensions mate.cajaExtensions);
+  selectedExtensions = extensions ++ (lib.optionals useDefaultExtensions [ caja-extensions ]);
 in
 stdenv.mkDerivation {
   pname = "${caja.pname}-with-extensions";

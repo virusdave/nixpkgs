@@ -4,29 +4,13 @@
   config,
 }:
 
-let
-  packages =
-    self: with self; {
-      cajaExtensions = [ pkgs.caja-extensions ];
-
-      panelApplets = with pkgs; [
-        mate-applets
-        mate-indicator-applet
-        mate-netbook
-        mate-notification-daemon
-        mate-media
-        mate-power-manager
-        mate-sensors-applet
-        mate-utils
-      ];
-    };
-
-in
-lib.makeScope pkgs.newScope packages
+lib.makeScope pkgs.newScope (self: { })
 // lib.optionalAttrs config.allowAliases {
   basePackages = throw "‘mate.basePackages’ was removed. Please list the packages you need explicitly"; # Added on 2026-02-14
+  cajaExtensions = throw "‘mate.cajaExtensions’ was removed. Please list the extensions you need explicitly"; # Added on 2026-02-14
   extraPackages = throw "‘mate.extraPackages’ was removed. Please list the packages you need explicitly"; # Added on 2026-02-14
   mateUpdateScript = throw "‘mate.mateUpdateScript’ was removed. Please use ‘pkgs.gitUpdater’ directly"; # Added on 2026-02-14
+  panelApplets = throw "‘mate.panelApplets’ was removed. Please list the applets you need explicitly"; # Added on 2026-02-14
 
   atril = lib.warnOnInstantiate "‘mate.atril’ was moved to top-level. Please use ‘pkgs.atril’ directly" pkgs.atril; # Added on 2026-02-08
   engrampa = lib.warnOnInstantiate "‘mate.engrampa’ was moved to top-level. Please use ‘pkgs.engrampa’ directly" pkgs.engrampa; # Added on 2026-02-08

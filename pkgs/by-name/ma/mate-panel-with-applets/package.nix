@@ -5,14 +5,32 @@
   wrapGAppsHook3,
   lndir,
   marco,
+  mate-applets,
+  mate-indicator-applet,
+  mate-netbook,
+  mate-notification-daemon,
+  mate-media,
   mate-panel,
-  mate,
+  mate-power-manager,
+  mate-sensors-applet,
+  mate-utils,
   applets ? [ ],
   useDefaultApplets ? true,
 }:
 
 let
-  selectedApplets = applets ++ (lib.optionals useDefaultApplets mate.panelApplets);
+  selectedApplets =
+    applets
+    ++ (lib.optionals useDefaultApplets [
+      mate-applets
+      mate-indicator-applet
+      mate-netbook
+      mate-notification-daemon
+      mate-media
+      mate-power-manager
+      mate-sensors-applet
+      mate-utils
+    ]);
 in
 stdenv.mkDerivation {
   pname = "${mate-panel.pname}-with-applets";
