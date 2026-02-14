@@ -6573,8 +6573,6 @@ self: super: with self; {
 
   graphemeu = callPackage ../development/python-modules/graphemeu { };
 
-  graphemeu = callPackage ../development/python-modules/graphemeu { };
-
   graphene = callPackage ../development/python-modules/graphene { };
 
   graphene-django = callPackage ../development/python-modules/graphene-django { };
