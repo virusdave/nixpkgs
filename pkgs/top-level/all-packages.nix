@@ -3274,8 +3274,6 @@ with pkgs;
 
   platformio = if stdenv.hostPlatform.isLinux then platformio-chrootenv else platformio-core;
 
-  playbar2 = libsForQt5.callPackage ../applications/audio/playbar2 { };
-
   playwright = playwright-driver;
   playwright-driver = (callPackage ../development/web/playwright/driver.nix { }).playwright-core;
   playwright-test = (callPackage ../development/web/playwright/driver.nix { }).playwright-test;
