@@ -104,6 +104,7 @@ mapAliases {
   inherit (pkgs) coc-explorer; # added 2025-10-01
   inherit (pkgs) coc-flutter; # Added 2025-11-05
   inherit (pkgs) coc-git; # added 2025-10-01
+  coc-go = throw "coc-go has been removed because it was unmaintained in nixpkgs"; # Added 2026-02-14
   inherit (pkgs) coc-haxe; # Added 2025-11-05
   inherit (pkgs) coc-highlight; # Added 2025-11-05
   inherit (pkgs) coc-html; # Added 2025-11-05
