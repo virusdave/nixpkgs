@@ -21,6 +21,10 @@ buildGo124Module rec {
     ./updater.patch
   ];
 
+  excludedPackages = [
+    "design"
+  ];
+
   vendorHash = "sha256-Nrw7l3nV1sMVWs1HECQJYohKiD0gPvWQOLD7eohEd1A=";
 
   ldflags = [
