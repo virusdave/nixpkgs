@@ -14,14 +14,14 @@
 
 buildPythonPackage rec {
   pname = "adlfs";
-  version = "2025.8.0";
+  version = "2026.2.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "fsspec";
     repo = "adlfs";
     tag = version;
-    hash = "sha256-e9JO8obFvFHzNeb42Lo2RG21NvLv/eCyWm2fY7MEiTA=";
+    hash = "sha256-wpj0MTpP5fBKTWA7sy4eRQo084pc+oNZgHVieC5NL2A=";
   };
 
   build-system = [
