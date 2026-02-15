@@ -44,7 +44,7 @@ mkDerivation (finalAttrs: {
   # Emulate ldconfig when building the C API
   postConfigure = lib.optionalString (pyProject == "") ''
     substituteInPlace Makefile \
-      --replace ldconfig 'echo ldconfig'
+      --replace-fail ldconfig 'echo ldconfig'
   '';
 
   preBuild = lib.optionalString (pyProject == "PY_LGPIO") ''
