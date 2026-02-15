@@ -5194,12 +5194,6 @@
     githubId = 27779510;
     keys = [ { fingerprint = "FDF5 EF67 8CC1 FE22 1845  6A22 CF7B BB5B C756 1BD3"; } ];
   };
-  codyopel = {
-    email = "codyopel@gmail.com";
-    github = "codyopel";
-    githubId = 5561189;
-    name = "Cody Opel";
-  };
   coffeeispower = {
     email = "tiagodinis33@proton.me";
     github = "coffeeispower";
