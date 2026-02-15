@@ -13,6 +13,7 @@
   python3,
   redis,
   writeShellScriptBin,
+  nixosTests,
   nix-update-script,
 }:
 
@@ -94,6 +95,16 @@ buildGoModule (finalAttrs: {
       vendorHash = null;
 
       subPackages = [ "." ];
+    };
+
+    tests = {
+      inherit (nixosTests)
+        ncps
+        ncps-custom-sqlite-directory
+        ncps-custom-storage-local
+        ncps-ha-pg
+        ncps-ha-pg-redis
+        ;
     };
 
     updateScript = nix-update-script { };
