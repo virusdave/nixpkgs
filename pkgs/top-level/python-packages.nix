@@ -16488,6 +16488,8 @@ self: super: with self; {
 
   requests-gssapi = callPackage ../development/python-modules/requests-gssapi { };
 
+  requests-hardened = callPackage ../development/python-modules/requests-hardened { };
+
   requests-hawk = callPackage ../development/python-modules/requests-hawk { };
 
   requests-http-message-signatures =
