@@ -47,6 +47,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
       asl20
     ];
     mainProgram = "cargo-guppy";
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ hythera ];
   };
 })
