@@ -37,6 +37,7 @@ let
 
   # Dependencies needed by specific checks
   dependenciesForChecks = {
+    "Ping" = [ pkgs.iputils ];
     "Smb" = pkgs.samba;
     "XIdleTime" = [
       pkgs.xprintidle
