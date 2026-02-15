@@ -49,6 +49,7 @@ buildPythonPackage rec {
   meta = {
     description = "Astropy affiliated package for accessing Virtual Observatory data and services";
     homepage = "https://github.com/astropy/pyvo";
+    changelog = "https://github.com/astropy/pyvo/releases/tag/v${version}";
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [ smaret ];
   };
