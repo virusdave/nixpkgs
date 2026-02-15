@@ -7,14 +7,14 @@
 
 buildPythonPackage rec {
   pname = "napari-plugin-engine";
-  version = "0.2.0";
+  version = "0.2.1";
   format = "setuptools";
 
   src = fetchFromGitHub {
     owner = "napari";
     repo = "napari-plugin-engine";
     tag = "v${version}";
-    hash = "sha256-cKpCAEYYRq3UPje7REjzhEe1J9mmrtXs8TBnxWukcNE=";
+    hash = "sha256-GdOip1ekw4MUzGugiaYQQvBKkZaKVoWI/rASelrNmAU=";
   };
 
   nativeBuildInputs = [ setuptools-scm ];
