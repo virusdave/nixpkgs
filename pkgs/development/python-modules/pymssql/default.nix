@@ -13,7 +13,8 @@
   sqlalchemy,
   tomli,
 }:
-buildPythonPackage rec {
+
+buildPythonPackage (finalAttrs: {
   pname = "pymssql";
   version = "2.3.13";
   pyproject = true;
@@ -21,7 +22,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "pymssql";
     repo = "pymssql";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-UOb1gULAg5mNPiOiqcGpZ0Ux3f2Kz204gQ3Xn8fJFfA=";
   };
 
@@ -52,10 +53,10 @@ buildPythonPackage rec {
   pythonImportsCheck = [ "pymssql" ];
 
   meta = {
-    changelog = "https://github.com/pymssql/pymssql/blob/v${version}/ChangeLog.rst";
+    changelog = "https://github.com/pymssql/pymssql/blob/${finalAttrs.src.tag}/ChangeLog.rst";
     description = "Simple database interface for Python that builds on top of FreeTDS to provide a Python DB-API (PEP-249) interface to Microsoft SQL Server";
     homepage = "https://github.com/pymssql/pymssql";
     license = lib.licenses.lgpl21Plus;
     maintainers = [ lib.maintainers.sith-lord-vader ];
   };
-}
+})
