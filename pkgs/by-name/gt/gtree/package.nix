@@ -48,6 +48,6 @@ buildGo126Module (finalAttrs: {
     homepage = "https://github.com/ddddddO/gtree";
     changelog = "https://github.com/ddddddO/gtree/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.bsd2;
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ hythera ];
   };
 })
