@@ -23,7 +23,6 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   makefile = "Makefile.unx";
-  makeFlags = [ "ZPATH=${zlib.static}/lib" ];
 
   nativeBuildInputs = [ installShellFiles ];
 
