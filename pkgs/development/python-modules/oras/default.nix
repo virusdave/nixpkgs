@@ -9,7 +9,7 @@
   setuptools,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "oras";
   version = "0.2.39";
   pyproject = true;
@@ -17,7 +17,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "oras-project";
     repo = "oras-py";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-iR1kTBddElTueN1gamjdmIRTY0keZOZ/tkSxOmHOL6E=";
   };
 
@@ -44,8 +44,8 @@ buildPythonPackage rec {
   meta = {
     description = "ORAS Python SDK";
     homepage = "https://github.com/oras-project/oras-py";
-    changelog = "https://github.com/oras-project/oras-py/blob/${src.tag}/CHANGELOG.md";
+    changelog = "https://github.com/oras-project/oras-py/blob/${finalAttrs.src.tag}/CHANGELOG.md";
     license = lib.licenses.asl20;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
