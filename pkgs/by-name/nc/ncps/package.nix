@@ -13,6 +13,7 @@
   python3,
   redis,
   writeShellScriptBin,
+  nix-update-script,
 }:
 
 let
@@ -93,6 +94,10 @@ let
       source $src/nix/packages/ncps/pre-check-postgres.sh
       source $src/nix/packages/ncps/pre-check-redis.sh
     '';
+
+    passthru = {
+      updateScript = nix-update-script { };
+    };
 
     meta = {
       description = "Nix binary cache proxy service";
