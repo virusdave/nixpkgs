@@ -16,14 +16,14 @@
 
 buildPythonPackage rec {
   pname = "powerfox";
-  version = "2.0.0";
+  version = "2.1.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "klaasnicolaas";
     repo = "python-powerfox";
     tag = "v${version}";
-    hash = "sha256-ygzO4/KZ9XUBjLVq48gvyZVEVRB1VJV6DpuHGKNXP54=";
+    hash = "sha256-JsvLa5zZ6E+d5l4sIngp0KvZlN8BgBxllk9Md19kZLY=";
   };
 
   build-system = [ poetry-core ];
