@@ -568,6 +568,7 @@ let
       cargo
       rustc
     ];
+    harbinger = [ pkgs.glibcLocales ];
     haven = with pkgs; [ zlib.dev ];
     hellorust = [ pkgs.cargo ];
     hgwrr = [ pkgs.gsl ];
@@ -2260,6 +2261,12 @@ let
       hardeningDisable = [ "format" ];
     });
 
+    harbinger = old.harbinger.overrideAttrs (attrs: {
+      env = (attrs.env or { }) // {
+        LC_ALL = "en_US.UTF-8";
+      };
+    });
+
     HilbertVis = old.HilbertVis.overrideAttrs (attrs: {
       hardeningDisable = [ "format" ];
     });
@@ -2913,7 +2920,6 @@ let
         NIX_CFLAGS_COMPILE = attrs.env.NIX_CFLAGS_COMPILE + " -fpermissive";
       };
     });
-
 
     xslt = old.xslt.overrideAttrs (attrs: {
       env = (attrs.env or { }) // {
