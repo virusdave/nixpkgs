@@ -2,6 +2,7 @@
   lib,
   dbus,
   fetchFromGitHub,
+  nixosTests,
   python3,
   sphinxHook,
   withDocs ? true,
@@ -86,6 +87,10 @@ python3.pkgs.buildPythonApplication (finalAttrs: {
     "test_smoke"
     "test_multiple_sessions"
   ];
+
+  passthru.tests = {
+    inherit (nixosTests) autosuspend;
+  };
 
   meta = {
     description = "Daemon to automatically suspend and wake up a system";
