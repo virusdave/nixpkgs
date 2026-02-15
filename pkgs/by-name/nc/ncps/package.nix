@@ -21,17 +21,6 @@ let
     exec ${dbmate}/bin/dbmate "$@"
   '';
 
-  dbmate-wrapper = buildGoModule {
-    pname = "ncps-dbmate-wrapper";
-    inherit (finalAttrs) version;
-
-    src = "${finalAttrs.src}/nix/dbmate-wrapper/src";
-
-    vendorHash = null;
-
-    subPackages = [ "." ];
-  };
-
   finalAttrs = {
     pname = "ncps";
     version = "0.8.5";
@@ -68,7 +57,7 @@ let
       mkdir -p $out/share/ncps
       cp -r db $out/share/ncps/db
 
-      makeWrapper ${dbmate-wrapper}/bin/dbmate-wrapper \
+      makeWrapper ${finalAttrs.passthru.dbmate-wrapper}/bin/dbmate-wrapper \
         $out/bin/dbmate-ncps \
         --prefix PATH : ${dbmate-real}/bin \
         --set NCPS_DB_MIGRATIONS_DIR $out/share/ncps/db/migrations
@@ -96,6 +85,17 @@ let
     '';
 
     passthru = {
+      dbmate-wrapper = buildGoModule {
+        pname = "ncps-dbmate-wrapper";
+        inherit (finalAttrs) version;
+
+        src = "${finalAttrs.src}/nix/dbmate-wrapper/src";
+
+        vendorHash = null;
+
+        subPackages = [ "." ];
+      };
+
       updateScript = nix-update-script { };
     };
 
