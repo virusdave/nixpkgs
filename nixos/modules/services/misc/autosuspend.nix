@@ -235,16 +235,6 @@ in
         ExecStart = "${autosuspend}/bin/autosuspend -l ${autosuspend}/etc/autosuspend-logging.conf -c ${autosuspend-conf} daemon";
       };
     };
-
-    systemd.services.autosuspend-detect-suspend = {
-      description = "Notifies autosuspend about suspension";
-      documentation = [ "https://autosuspend.readthedocs.io/en/latest/systemd_integration.html" ];
-      wantedBy = [ "sleep.target" ];
-      after = [ "sleep.target" ];
-      serviceConfig = {
-        ExecStart = "${autosuspend}/bin/autosuspend -l ${autosuspend}/etc/autosuspend-logging.conf -c ${autosuspend-conf} presuspend";
-      };
-    };
   };
 
   meta = {

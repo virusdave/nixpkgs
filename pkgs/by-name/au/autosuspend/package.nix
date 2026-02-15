@@ -7,14 +7,14 @@
 
 python3.pkgs.buildPythonApplication (finalAttrs: {
   pname = "autosuspend";
-  version = "9.0.1";
+  version = "10.0.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "languitar";
     repo = "autosuspend";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-PVxsdCPGu+bhjfAF5Hu4Xa3lETARitbBUKuy7ursAUE=";
+    hash = "sha256-o9Jpb4i2/SJ3s3h5sclNjpaN/UFk1YbpPf7b3rGXLRg=";
   };
 
   build-system = with python3.pkgs; [
@@ -27,8 +27,8 @@ python3.pkgs.buildPythonApplication (finalAttrs: {
     jsonpath-ng
     lxml
     mpd2
-    portalocker
     psutil
+    pygobject3
     python-dateutil
     requests
     requests-file
