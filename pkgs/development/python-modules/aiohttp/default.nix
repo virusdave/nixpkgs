@@ -95,9 +95,6 @@ buildPythonPackage rec {
     propcache
     yarl
   ]
-  ++ lib.optionals (pythonOlder "3.11") [
-    async-timeout
-  ]
   ++ optional-dependencies.speedups;
 
   optional-dependencies.speedups = [
