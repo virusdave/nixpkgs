@@ -11,14 +11,14 @@
 
 buildPythonPackage rec {
   pname = "oras";
-  version = "0.2.37";
+  version = "0.2.39";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "oras-project";
     repo = "oras-py";
     tag = version;
-    hash = "sha256-pXIA970QBIlbFVFpN1Yl71ojc+atdXQuNoPEW+PrrWc=";
+    hash = "sha256-iR1kTBddElTueN1gamjdmIRTY0keZOZ/tkSxOmHOL6E=";
   };
 
   build-system = [ setuptools ];
