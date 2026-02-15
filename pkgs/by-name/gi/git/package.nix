@@ -130,6 +130,8 @@ stdenv.mkDerivation (finalAttrs: {
       url = "https://lore.kernel.org/git/20251201031040.1120091-1-brianmlyles@gmail.com/raw";
       hash = "sha256-vvhbvg74OIMzfksHiErSnjOZ+W0M/T9J8GOQ4E4wKbU=";
     })
+  ]
+  ++ lib.optionals osxkeychainSupport [
     # Fix build failure on Darwin when building Keychain integration
     # See https://github.com/git/git/pull/2188 and https://github.com/Homebrew/homebrew-core/pull/266961
     (fetchurl {
@@ -138,7 +140,7 @@ stdenv.mkDerivation (finalAttrs: {
       hash = "sha256-7jTiMM5XFRDj/srtVf8olW62T/mesqLcyRp3NZJcid8=";
     })
   ]
-  ++ lib.optionals rustSupport [
+  ++ lib.optionals (rustSupport && osxkeychainSupport) [
     # The above patch doesn’t work with Rust support enabled.
     ./osxkeychain-link-rust_lib.patch
   ]
