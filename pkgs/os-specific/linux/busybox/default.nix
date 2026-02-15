@@ -3,6 +3,7 @@
   lib,
   buildPackages,
   fetchurl,
+  fetchpatch,
   fetchFromGitLab,
   enableStatic ? stdenv.hostPlatform.isStatic,
   enableMinimal ? false,
@@ -79,6 +80,12 @@ stdenv.mkDerivation rec {
     # Fix aarch64 build failure: sha1_process_block64_shaNI is x86-specific
     # https://lists.busybox.net/pipermail/busybox/2024-September/090943.html
     ./fix-aarch64-sha1.patch
+    # archival: disallow path traversals (CVE-2023-39810)
+    (fetchpatch {
+      name = "CVE-2023-39810.patch";
+      url = "https://git.busybox.net/busybox/patch/?id=9a8796436b9b0641e13480811902ea2ac57881d3";
+      hash = "sha256-pOARbCwiucrkNITBoOMpLF3GniYvJiyBeBi2/Aw2JY8=";
+    })
   ]
   ++ lib.optional (stdenv.hostPlatform != stdenv.buildPlatform) ./clang-cross.patch;
 
