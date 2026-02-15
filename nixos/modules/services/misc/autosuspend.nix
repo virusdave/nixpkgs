@@ -226,6 +226,13 @@ in
   };
 
   config = mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = cfg.checks != { };
+        message = "`services.autosuspend.checks` must contain at least one activity check.";
+      }
+    ];
+
     systemd.services.autosuspend = {
       description = "A daemon to suspend your server in case of inactivity";
       documentation = [ "https://autosuspend.readthedocs.io/en/latest/systemd_integration.html" ];
