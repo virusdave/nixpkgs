@@ -37,7 +37,7 @@ let
     };
   };
 in
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "whisperx";
   version = "3.8.1";
   pyproject = true;
@@ -45,7 +45,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "m-bain";
     repo = "whisperX";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-2HjQtb8k3px0kqXowKtCXkiG2GuKLCuCtDOPYYa/tbc=";
   };
 
@@ -90,8 +90,8 @@ buildPythonPackage rec {
     mainProgram = "whisperx";
     description = "Automatic Speech Recognition with Word-level Timestamps (& Diarization)";
     homepage = "https://github.com/m-bain/whisperX";
-    changelog = "https://github.com/m-bain/whisperX/releases/tag/${src.tag}";
+    changelog = "https://github.com/m-bain/whisperX/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.bsd2;
     maintainers = [ lib.maintainers.bengsparks ];
   };
-}
+})
