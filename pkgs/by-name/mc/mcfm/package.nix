@@ -13,13 +13,13 @@ let
     python3 = null;
   };
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "MCFM";
   version = "10.0.1";
 
   src = fetchurl {
-    url = "https://mcfm.fnal.gov/downloads/${pname}-${version}.tar.gz";
-    sha256 = "sha256-3Dg4KoILb0XhgGkzItDh/1opCtYrrIvtbuALYqPUvE8=";
+    url = "https://mcfm.fnal.gov/downloads/MCFM-${finalAttrs.version}.tar.gz";
+    hash = "sha256-3Dg4KoILb0XhgGkzItDh/1opCtYrrIvtbuALYqPUvE8=";
   };
 
   postPatch = ''
@@ -50,4 +50,4 @@ stdenv.mkDerivation rec {
     maintainers = with lib.maintainers; [ veprbl ];
     platforms = lib.platforms.x86_64;
   };
-}
+})
