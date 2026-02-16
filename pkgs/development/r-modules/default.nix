@@ -1545,6 +1545,7 @@ let
         expat
         libxdmcp
       ];
+    XYomics = [ pkgs.boost ];
     HilbertVisGUI = [ pkgs.gtkmm2.dev ];
     textshaping = with pkgs; [
       harfbuzz.dev
