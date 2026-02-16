@@ -1,19 +1,25 @@
 {
   lib,
+  buildPythonPackage,
+  fetchFromGitHub,
+  pythonAtLeast,
+
+  # build-system
+  setuptools,
+
+  # dependencies
   aiodns,
   aiohttp,
   azure-core,
-  buildPythonPackage,
   certifi,
-  fetchFromGitHub,
-  httpretty,
   isodate,
-  pytest-aiohttp,
-  pytestCheckHook,
-  pythonAtLeast,
   requests,
   requests-oauthlib,
-  setuptools,
+
+  # tests
+  pytestCheckHook,
+  pytest-aiohttp,
+  httpretty,
   trio,
 }:
 
@@ -30,12 +36,12 @@ buildPythonPackage {
     hash = "sha256-1EXXXflhDeU+erdI+NsWxSX76ooDTl3+MyQwRzm2xV0=";
   };
 
-  nativeBuildInputs = [ setuptools ];
+  build-system = [ setuptools ];
 
-  propagatedBuildInputs = [
-    azure-core
+  dependencies = [
     aiodns
     aiohttp
+    azure-core
     certifi
     isodate
     requests
