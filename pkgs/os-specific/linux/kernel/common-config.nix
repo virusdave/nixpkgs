@@ -827,6 +827,8 @@ let
       # and enforce signatures which we don't do by default.
       SECURITY_LOCKDOWN_LSM = no;
 
+      IMA = yes;
+
       # provides a register of persistent per-UID keyrings, useful for encrypting storage pools in stratis
       PERSISTENT_KEYRINGS = yes;
       # enable temporary caching of the last request_key() result
