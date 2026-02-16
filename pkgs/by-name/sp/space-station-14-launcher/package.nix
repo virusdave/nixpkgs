@@ -38,7 +38,7 @@
 }:
 buildDotnetModule rec {
   pname = "space-station-14-launcher";
-  version = "0.36.1";
+  version = "0.37.1";
 
   # Workaround to prevent buildDotnetModule from overriding assembly versions.
   name = "space-station-14-launcher-${version}";
@@ -48,7 +48,7 @@ buildDotnetModule rec {
     owner = "space-wizards";
     repo = "SS14.Launcher";
     tag = "v${version}";
-    hash = "sha256-6wH2CkTuwy+a3EGpKrdLDsIaQ7oZc2I1OLdmAREMazw=";
+    hash = "sha256-83eBAT+NuwwpC30Xc5bJEs++tTYlY3akMaizQgNHOsA=";
     fetchSubmodules = true;
   };
 
@@ -66,9 +66,7 @@ buildDotnetModule rec {
     inherit version;
   };
 
-  dotnet-sdk = dotnetCorePackages.sdk_10_0 // {
-    inherit (dotnetCorePackages.sdk_8_0) packages;
-  };
+  dotnet-sdk = dotnetCorePackages.sdk_10_0;
   dotnet-runtime = dotnetCorePackages.runtime_10_0;
 
   dotnetFlags = [
