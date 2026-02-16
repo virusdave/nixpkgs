@@ -374,9 +374,7 @@ in
     generatorPath = mkOption {
       type = types.listOf types.package;
       default = [ ];
-      example = [
-        pkgs.hello
-      ];
+      example = lib.literalExpression "[ pkgs.hello ]";
       description = ''
         Packages added to the `PATH` environment variable of all systemd generators.
       '';
