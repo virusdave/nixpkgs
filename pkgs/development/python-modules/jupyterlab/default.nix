@@ -8,7 +8,6 @@
   hatchling,
   async-lru,
   httpx,
-  importlib-metadata,
   ipykernel,
   jinja2,
   jupyter-core,
@@ -18,10 +17,8 @@
   notebook-shim,
   packaging,
   setuptools,
-  tomli,
   tornado,
   traitlets,
-  pythonOlder,
 }:
 
 buildPythonPackage rec {
@@ -74,9 +71,7 @@ buildPythonPackage rec {
     setuptools
     tornado
     traitlets
-  ]
-  ++ lib.optionals (pythonOlder "3.11") [ tomli ]
-  ++ lib.optionals (pythonOlder "3.10") [ importlib-metadata ];
+  ];
 
   makeWrapperArgs = [
     "--set"

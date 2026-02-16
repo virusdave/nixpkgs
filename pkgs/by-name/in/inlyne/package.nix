@@ -6,7 +6,11 @@
   stdenv,
   pkg-config,
   fontconfig,
-  xorg,
+  libxrandr,
+  libxi,
+  libxcursor,
+  libx11,
+  libxcb,
   libxkbcommon,
   wayland,
   libGL,
@@ -14,14 +18,14 @@
   oniguruma,
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "inlyne";
   version = "0.5.0";
 
   src = fetchFromGitHub {
     owner = "Inlyne-Project";
     repo = "inlyne";
-    rev = "v${version}";
+    rev = "v${finalAttrs.version}";
     hash = "sha256-ueE1NKbCMBUBrrdsHkwZ5Yv6LD3tQL3ZAk2O4xoYOcw=";
   };
 
@@ -29,21 +33,21 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [
     installShellFiles
-  ]
-  ++ lib.optionals stdenv.hostPlatform.isLinux [
     pkg-config
   ];
 
-  buildInputs = lib.optionals stdenv.hostPlatform.isLinux [
+  buildInputs = [
+    oniguruma
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [
     fontconfig
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libxcb
+    libxcursor
+    libxi
+    libxrandr
+    libxcb
     wayland
     libxkbcommon
     openssl
-    oniguruma
   ];
 
   # use system oniguruma since the bundled one fails to build with gcc15
@@ -71,7 +75,7 @@ rustPlatform.buildRustPackage rec {
       --add-rpath ${
         lib.makeLibraryPath [
           libGL
-          xorg.libX11
+          libx11
         ]
       }
   '';
@@ -79,9 +83,9 @@ rustPlatform.buildRustPackage rec {
   meta = {
     description = "GPU powered browserless markdown viewer";
     homepage = "https://github.com/Inlyne-Project/inlyne";
-    changelog = "https://github.com/Inlyne-Project/inlyne/releases/tag/${src.rev}";
+    changelog = "https://github.com/Inlyne-Project/inlyne/releases/tag/${finalAttrs.src.rev}";
     license = lib.licenses.mit;
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ figsoda ];
     mainProgram = "inlyne";
   };
-}
+})

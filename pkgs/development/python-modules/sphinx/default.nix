@@ -2,7 +2,6 @@
   lib,
   buildPythonPackage,
   pythonAtLeast,
-  pythonOlder,
   fetchFromGitHub,
   isPyPy,
 
@@ -14,7 +13,6 @@
   alabaster,
   docutils,
   imagesize,
-  importlib-metadata,
   jinja2,
   packaging,
   pygments,
@@ -28,7 +26,6 @@
   sphinxcontrib-qthelp,
   sphinxcontrib-serializinghtml,
   sphinxcontrib-websupport,
-  tomli,
 
   # check phase
   defusedxml,
@@ -47,8 +44,6 @@ buildPythonPackage rec {
   pname = "sphinx";
   version = "8.2.3";
   pyproject = true;
-
-  disabled = pythonOlder "3.11";
 
   src = fetchFromGitHub {
     owner = "sphinx-doc";
@@ -85,9 +80,7 @@ buildPythonPackage rec {
     sphinxcontrib-serializinghtml
     # extra[docs]
     sphinxcontrib-websupport
-  ]
-  ++ lib.optionals (pythonOlder "3.11") [ tomli ]
-  ++ lib.optionals (pythonOlder "3.10") [ importlib-metadata ];
+  ];
 
   __darwinAllowLocalNetworking = true;
 

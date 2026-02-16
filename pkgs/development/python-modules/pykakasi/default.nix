@@ -2,13 +2,11 @@
   lib,
   buildPythonPackage,
   deprecated,
-  fetchFromGitea,
-  importlib-resources,
+  fetchFromCodeberg,
   jaconv,
   py-cpuinfo,
   pytest-benchmark,
   pytestCheckHook,
-  pythonOlder,
   setuptools-scm,
 }:
 
@@ -17,8 +15,7 @@ buildPythonPackage rec {
   version = "2.3.0";
   pyproject = true;
 
-  src = fetchFromGitea {
-    domain = "codeberg.org";
+  src = fetchFromCodeberg {
     owner = "miurahr";
     repo = "pykakasi";
     tag = "v${version}";
@@ -30,8 +27,7 @@ buildPythonPackage rec {
   dependencies = [
     jaconv
     deprecated
-  ]
-  ++ lib.optionals (pythonOlder "3.9") [ importlib-resources ];
+  ];
 
   nativeCheckInputs = [
     py-cpuinfo

@@ -25,8 +25,8 @@
   hidapi,
   lib3mf,
   libGLU,
-  libICE,
-  libSM,
+  libice,
+  libsm,
   libsForQt5,
   libspnav,
   libzip,
@@ -38,7 +38,7 @@
   wayland,
   wayland-protocols,
   wrapGAppsHook3,
-  xorg,
+  libxdmcp,
   mimalloc,
   opencsg,
   ctestCheckHook,
@@ -106,9 +106,9 @@ clangStdenv.mkDerivation rec {
       qtmultimedia
     ]
     ++ lib.optionals clangStdenv.hostPlatform.isLinux [
-      xorg.libXdmcp
-      libICE
-      libSM
+      libxdmcp
+      libice
+      libsm
       wayland
       wayland-protocols
       qtwayland

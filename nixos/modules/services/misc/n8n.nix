@@ -7,17 +7,29 @@
 let
   cfg = config.services.n8n;
 
-  envVarToCredName = varName: lib.toLower varName;
-
   # Partition environment variables into regular and file-based (_FILE suffix)
-  regularEnv = lib.filterAttrs (name: _value: !(lib.hasSuffix "_FILE" name)) cfg.environment;
-  fileBasedEnv = lib.filterAttrs (name: _value: lib.hasSuffix "_FILE" name) cfg.environment;
+  envVarToCredName = varName: lib.toLower varName;
+  partitionEnv =
+    env:
+    let
+      regular = lib.filterAttrs (name: _value: !(lib.hasSuffix "_FILE" name)) env;
+      fileBased = lib.filterAttrs (name: _value: lib.hasSuffix "_FILE" name) env;
+      fileBasedTransformed = lib.mapAttrs' (
+        varName: _secretPath: lib.nameValuePair varName "%d/${envVarToCredName varName}"
+      ) fileBased;
+    in
+    {
+      inherit regular fileBased fileBasedTransformed;
+    };
 
-  # Transform file-based env vars to point to credentials directory
-  fileBasedEnvTransformed = lib.mapAttrs' (
-    varName: _secretPath: lib.nameValuePair varName "%d/${envVarToCredName varName}"
-  ) fileBasedEnv;
+  n8nEnv = partitionEnv cfg.environment;
 
+  customNodesDir = pkgs.linkFarm "n8n-custom-nodes" (
+    map (pkg: {
+      name = pkg.pname;
+      path = "${pkg}/lib/node_modules/${pkg.pname}";
+    }) cfg.customNodes
+  );
 in
 {
   imports = [
@@ -33,6 +45,17 @@ in
     enable = lib.mkEnableOption "n8n server";
 
     package = lib.mkPackageOption pkgs "n8n" { };
+
+    customNodes = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
+      default = [ ];
+      example = lib.literalExpression "[ pkgs.n8n-nodes-carbonejs ]";
+      description = ''
+        List of custom n8n community node packages to load.
+        Each package is expected to be an npm package with an `n8n.nodes` entry in its `package.json`.
+        The packages are made available to n8n via the `N8N_CUSTOM_EXTENSIONS` environment variable.
+      '';
+    };
 
     openFirewall = lib.mkOption {
       type = lib.types.bool;
@@ -117,11 +140,14 @@ in
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       environment =
-        regularEnv
+        n8nEnv.regular
         // {
-          HOME = config.services.n8n.environment.N8N_USER_FOLDER;
+          HOME = cfg.environment.N8N_USER_FOLDER;
         }
-        // fileBasedEnvTransformed;
+        // lib.optionalAttrs (cfg.customNodes != [ ]) {
+          N8N_CUSTOM_EXTENSIONS = toString customNodesDir;
+        }
+        // n8nEnv.fileBasedTransformed;
       serviceConfig = {
         Type = "simple";
         ExecStart = lib.getExe cfg.package;
@@ -130,7 +156,7 @@ in
 
         LoadCredential = lib.mapAttrsToList (
           varName: secretPath: "${envVarToCredName varName}:${secretPath}"
-        ) fileBasedEnv;
+        ) n8nEnv.fileBased;
 
         # Basic Hardening
         NoNewPrivileges = "yes";

@@ -12,16 +12,17 @@
   darwin,
   copyDesktopItems,
   makeDesktopItem,
+  nix-update-script,
 }:
 let
   pname = "feishin";
-  version = "1.2.0";
+  version = "1.6.0";
 
   src = fetchFromGitHub {
     owner = "jeffvli";
     repo = "feishin";
     tag = "v${version}";
-    hash = "sha256-acNUXvmj964pO8h2fsGfex2BeIshExMWe0w/QmtikkM=";
+    hash = "sha256-PICVNItpMALffpJvQQXLlHcYu1yDtEUclGYjO25f6ew=";
   };
 
   electron = electron_39;
@@ -41,7 +42,7 @@ buildNpmPackage {
       src
       ;
     fetcherVersion = 3;
-    hash = "sha256-gQooubVt2kDOGq4GEZIT+pQcPnzss9QmqTO9kD5Kx58=";
+    hash = "sha256-K9mwEJA0fZXI2OnVo5y4Zmox3mwO8qLvgLiBaoyYAkg=";
   };
 
   env.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
@@ -146,6 +147,8 @@ buildNpmPackage {
       mimeTypes = [ "x-scheme-handler/feishin" ];
     })
   ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Full-featured Jellyfin, Navidrome, and OpenSubsonic Compatible Music Player";

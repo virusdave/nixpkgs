@@ -1,37 +1,42 @@
 {
     "testing": {
-        "version": "6.19-rc5",
-        "hash": "sha256:1kwyxmykzy7z7kp80c85b17wrgqn7jjjvbpic9jgk5ps27zbzvdk",
+        "version": "6.19-rc8",
+        "hash": "sha256:1vwlhsk3cry48p9v2kqqxkmrsw2sjgspfylv3c7r5430yk7fhyg1",
         "lts": false
     },
     "6.1": {
-        "version": "6.1.161",
-        "hash": "sha256:0aasgrq6mv5nj7b8ashzx0pxlaah5y0f3sq7d8w00di2lyync5ml",
+        "version": "6.1.163",
+        "hash": "sha256:1siq1jacl4xrlqn536h5rg73rygk8dp8n839asny05dx44rh6bgx",
         "lts": true
     },
     "5.15": {
-        "version": "5.15.197",
-        "hash": "sha256:12k6c09lgs4ahmxbrg8g3q1ngldajmzyz7y2nr1l8yhhwbw8s8gx",
+        "version": "5.15.200",
+        "hash": "sha256:16193h91mc51p68gsjs6afaai47krf05hxcgp8r0k248cv4b3r7w",
         "lts": true
     },
     "5.10": {
-        "version": "5.10.247",
-        "hash": "sha256:037yv5lryfanpfbk3z60yfsx14nskgf386b6cfkbzn7wl5xvij3h",
+        "version": "5.10.250",
+        "hash": "sha256:0afmjzlkx5ry8w01p7mafy3zq0xf9md5fpdy2ywn9wm94fi4sxa7",
         "lts": true
     },
     "6.6": {
-        "version": "6.6.121",
-        "hash": "sha256:1fhl9pr02s10j4b5nli0isy7ps644cpbmjqzkwf5mk14rr7rvbvn",
+        "version": "6.6.126",
+        "hash": "sha256:0bzfa31h4d3808a6kz1vqccyiiv3kpvkryq5jb6cizmbg172yx0n",
         "lts": true
     },
     "6.12": {
-        "version": "6.12.66",
-        "hash": "sha256:1bvfadb5149sh927f8cbr1rnypn7v0h6znjdrc1mmc30q2hrff5s",
+        "version": "6.12.73",
+        "hash": "sha256:1fj1ggpp19vjk80wbv0l9sn0ji0cm2wf0dvdyf6m9sgqrfad6na0",
         "lts": true
     },
     "6.18": {
-        "version": "6.18.6",
-        "hash": "sha256:06x3z649mzwwkb1hvsy0yh7j5jk9qrnwqcmwy7dx8s1ggccrf927",
+        "version": "6.18.12",
+        "hash": "sha256:1spihc64pp1jd18i4ckvk0fzad0ia5cq5fvznxdsrhn2si52j0z0",
+        "lts": false
+    },
+    "6.19": {
+        "version": "6.19.2",
+        "hash": "sha256:0npfhawx99iwla9j29bnf6bz8g07h7cdk26nsk6vgkicb20ijqc8",
         "lts": false
     }
 }

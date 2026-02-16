@@ -4,15 +4,12 @@
   callPackage,
   fetchFromGitHub,
   pytestCheckHook,
-  pythonOlder,
 
   setuptools,
   build,
   coloredlogs,
-  importlib-metadata,
   packaging,
   pip,
-  toml,
   urllib3,
 }:
 
@@ -44,9 +41,7 @@ buildPythonPackage rec {
     packaging
     pip
     urllib3
-  ]
-  ++ lib.optionals (pythonOlder "3.11") [ toml ]
-  ++ lib.optionals (pythonOlder "3.10") [ importlib-metadata ];
+  ];
 
   pythonImportsCheck = [
     "bork"

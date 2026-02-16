@@ -8,6 +8,7 @@
   yq,
   protobuf,
   installShellFiles,
+  makeBinaryWrapper,
   librusty_v8 ? callPackage ./librusty_v8.nix {
     inherit (callPackage ./fetchers.nix { }) fetchLibrustyV8;
   },
@@ -29,17 +30,17 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "deno";
-  version = "2.6.4";
+  version = "2.6.9";
 
   src = fetchFromGitHub {
     owner = "denoland";
     repo = "deno";
     tag = "v${finalAttrs.version}";
     fetchSubmodules = true; # required for tests
-    hash = "sha256-g2NZz8yLozle9LvEHbG9KIOBKc7x/RIkZLUyPUKd6U8=";
+    hash = "sha256-FSm3X+1cTQURF9V/cCYvjJmPx9udcE/s5J6oRhcDWWU=";
   };
 
-  cargoHash = "sha256-FB/8RuFRKzihGLfyOoUNuhIGgo8RzDTtrUh8nsqp0GE=";
+  cargoHash = "sha256-DgotLiq4xzVH8dhOUA4Fxg0NW0DRnHVCJlxQYVQDaeE=";
 
   patches = [
     ./patches/0002-tests-replace-hardcoded-paths.patch
@@ -67,6 +68,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     # required by deno_kv crate
     protobuf
     installShellFiles
+    makeBinaryWrapper
   ]
   ++ lib.optionals stdenv.hostPlatform.isDarwin [ lld ];
 
@@ -128,7 +130,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoTestFlags = [
     "--lib" # unit tests
-    "--test integration_tests"
+    "--test=integration_tests"
     # Test targets not included here:
     # - node_compat: there are tons of network access in them and it's not trivial to skip test cases.
     # - specs: this target uses a custom test harness that doesn't implement the --skip flag.
@@ -215,6 +217,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
   postInstall = ''
     # Remove non-essential binaries like denort and test_server
     find $out/bin/* -not -name "deno" -delete
+
+    # Do what `deno x --install-alias` would do (it doesn't work with Nix-packaged Deno)
+    makeBinaryWrapper $out/bin/deno $out/bin/dx --add-flags "x"
   ''
   + lib.optionalString canExecute ''
     installShellCompletion --cmd deno \

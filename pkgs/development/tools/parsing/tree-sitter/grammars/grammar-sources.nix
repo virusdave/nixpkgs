@@ -308,9 +308,9 @@
   };
 
   glimmer = {
-    version = "1.4.0";
-    url = "github:ember-tooling/tree-sitter-glimmer?ref=v1.4.0-tree-sitter-glimmer";
-    hash = "sha256-4kEOvObNnZtt2aaf0Df+R/Wvyk/JlFnsvbasDIJxt4w=";
+    version = "1.6.0";
+    url = "github:ember-tooling/tree-sitter-glimmer?ref=v1.6.0-tree-sitter-glimmer";
+    hash = "sha256-AW+jd1Kl3krTgnPc8NoXfSM91fOan/wIB/mo/feWj74=";
     meta = {
       license = lib.licenses.mit;
     };
@@ -390,9 +390,9 @@
   };
 
   hcl = {
-    version = "1.1.0";
+    version = "1.2.0";
     url = "github:tree-sitter-grammars/tree-sitter-hcl";
-    hash = "sha256-saVKSYUJY7OuIuNm9EpQnhFO/vQGKxCXuv3EKYOJzfs=";
+    hash = "sha256-Kq0KtkF6xtZcN2s8KzYGyguJH2iOTlA2WRytZ+KGTUE=";
     meta = {
       license = lib.licenses.asl20;
     };
@@ -598,9 +598,9 @@
   };
 
   markdown = {
-    version = "0.3.2";
+    version = "0.5.2";
     url = "github:tree-sitter-grammars/tree-sitter-markdown";
-    hash = "sha256-OlVuHz9/5lxsGVT+1WhKx+7XtQiezMW1odiHGinzro8=";
+    hash = "sha256-JJCFksPDwaiOmU+nZ3PHeLHlPKWTZBTnqcD/tQorWdU=";
     location = "tree-sitter-markdown";
     meta = {
       license = lib.licenses.mit;
@@ -609,9 +609,9 @@
 
   markdown-inline = {
     language = "markdown_inline";
-    version = "0.3.2";
+    version = "0.5.2";
     url = "github:tree-sitter-grammars/tree-sitter-markdown";
-    hash = "sha256-OlVuHz9/5lxsGVT+1WhKx+7XtQiezMW1odiHGinzro8=";
+    hash = "sha256-JJCFksPDwaiOmU+nZ3PHeLHlPKWTZBTnqcD/tQorWdU=";
     location = "tree-sitter-markdown-inline";
     meta = {
       license = lib.licenses.mit;
@@ -692,7 +692,7 @@
   };
 
   org-nvim = {
-    version = "0-unstable-2023-06-19";
+    version = "1.3.1-unstable-2023-06-19";
     url = "github:emiasims/tree-sitter-org/64cfbc213f5a83da17632c95382a5a0a2f3357c1";
     hash = "sha256-/03eZBbv23W5s/GbDgPgaJV5TyK+/lrWUVeINRS5wtA=";
     meta = {
@@ -710,9 +710,9 @@
   };
 
   pgn = {
-    version = "1.4.2";
+    version = "1.4.3";
     url = "github:rolandwalker/tree-sitter-pgn";
-    hash = "sha256-pGUSsmm+YUvfvt5c4tPs6tmEcFh3DZoDtVf+EpFhOo0=";
+    hash = "sha256-7N0irNJt/tiKywUSZAIVt/E1urNXDMG+hYvu+EPpfXA=";
     meta = {
       license = lib.licenses.bsd2;
     };
@@ -724,6 +724,18 @@
     hash = "sha256-jI7yzcoHS/tNxUqJI4aD1rdEZV3jMn1GZD0J+81Dyf0=";
     meta = {
       license = lib.licenses.mit;
+    };
+  };
+
+  phpdoc = {
+    version = "0.1.8";
+    url = "github:claytonrcarter/tree-sitter-phpdoc";
+    hash = "sha256-X+ElKI0ZMLCmxEanKsDRL/1KzGZfBrG7zITsT+jSrtQ=";
+    meta = {
+      license = lib.licenses.mit;
+      maintainers = with lib.maintainers; [
+        Stebalien
+      ];
     };
   };
 
@@ -950,9 +962,9 @@
   };
 
   sparql = {
-    version = "0-unstable-2024-06-26";
-    url = "github:GordianDziwis/tree-sitter-sparql/d853661ca680d8ff7f8d800182d5782b61d0dd58";
-    hash = "sha256-0BV0y8IyeIPpuxTixlJL1PsDCuhXbGaImu8JU8WFoPU=";
+    version = "0.1.0-unstable-2025-10-15";
+    url = "github:GordianDziwis/tree-sitter-sparql/1ef52d35a73a2a5f2e433ecfd1c751c1360a923b";
+    hash = "sha256-9DaV12dkcwF7/jWc4QaTQaHcKu5zO5evWlXGNZMdRqc=";
     meta = {
       license = lib.licenses.mit;
     };
@@ -1080,7 +1092,7 @@
   };
 
   turtle = {
-    version = "0-unstable-2024-07-02";
+    version = "0.1.0-unstable-2024-07-02";
     url = "github:GordianDziwis/tree-sitter-turtle/7f789ea7ef765080f71a298fc96b7c957fa24422";
     hash = "sha256-z6f73euFAG9du5owz7V9WLbWK81Jg0DwxN1metKPbTA=";
     meta = {
@@ -1134,7 +1146,7 @@
   };
 
   vim = {
-    version = "0-unstable-2023-05-05";
+    version = "0.2.0-unstable-2023-05-05";
     url = "github:vigoux/tree-sitter-viml/7c317fbade4b40baa7babcd6c9097c157d148e60";
     hash = "sha256-/TyPUBsKRcF9Ig8psqd4so2IMbHtTu4weJXgfd96Vrs=";
     meta = {
