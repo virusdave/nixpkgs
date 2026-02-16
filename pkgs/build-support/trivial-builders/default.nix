@@ -1053,10 +1053,7 @@ rec {
             if builtins.isPath finalAttrs.src then
               baseNameOf finalAttrs.src + "-patched"
             else if builtins.isAttrs finalAttrs.src && (finalAttrs.src ? name) then
-              let
-                srcName = builtins.parseDrvName finalAttrs.src.name;
-              in
-              "${srcName.name}-patched${lib.optionalString (srcName.version != "") "-${srcName.version}"}"
+              finalAttrs.src.name + "-patched"
             else
               throw "applyPatches: please supply a `name` argument because a default name can only be computed when the `src` is a path or is an attribute set with a `name` attribute."
           );
@@ -1082,7 +1079,7 @@ rec {
         passthru = extraPassthru // finalAttrs.src.passthru or { };
 
         # Carry (and merge) information from the underlying `src` if present.
-        meta = lib.optionalAttrs (src ? meta) (removeAttrs finalAttrs.src.meta) [ "position" ];
+        meta = lib.optionalAttrs (src ? meta) (removeAttrs finalAttrs.src.meta [ "position" ]);
       };
   };
 
