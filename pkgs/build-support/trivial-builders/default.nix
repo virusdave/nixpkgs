@@ -636,13 +636,10 @@ rec {
       }
       // lib.optionalAttrs (!args ? meta) {
         pos =
-          let
-            argNames = builtins.attrNames args;
-          in
-          if builtins.length argNames > 0 then
-            builtins.unsafeGetAttrPos (builtins.head argNames) args
+          if args ? pname then
+            builtins.unsafeGetAttrPos "pname" args
           else
-            null;
+            builtins.unsafeGetAttrPos "name" args;
       };
   };
 
