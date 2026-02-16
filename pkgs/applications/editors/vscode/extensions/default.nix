@@ -989,6 +989,8 @@ let
         };
       };
 
+      claui.packaging = callPackage ./claui.packaging { };
+
       cmschuetz12.wal = buildVscodeMarketplaceExtension {
         mktplcRef = {
           name = "wal";
