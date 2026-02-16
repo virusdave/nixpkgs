@@ -20480,6 +20480,8 @@ self: super: with self; {
 
   viser = callPackage ../development/python-modules/viser { };
 
+  visionpluspython = callPackage ../development/python-modules/visionpluspython { };
+
   visions = callPackage ../development/python-modules/visions { };
 
   visitor = callPackage ../development/python-modules/visitor { };
