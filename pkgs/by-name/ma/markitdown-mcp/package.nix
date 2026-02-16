@@ -39,7 +39,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
   passthru.updateScripts = gitUpdater { };
 
   meta = {
-    description = "An MCP server for the \"markitdown\" library";
+    description = "MCP server for the markitdown library";
     homepage = "https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp";
     changelog = "https://github.com/microsoft/markitdown/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
