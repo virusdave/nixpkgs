@@ -1,12 +1,18 @@
 {
   lib,
-  stdenv,
   fetchurl,
   cmake,
   gfortran,
+  gccStdenv,
   lhapdf,
 }:
-
+let
+  stdenv = gccStdenv;
+  lhapdf' = lhapdf.override {
+    stdenv = gccStdenv;
+    python3 = null;
+  };
+in
 stdenv.mkDerivation rec {
   pname = "MCFM";
   version = "10.0.1";
@@ -18,15 +24,19 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     substituteInPlace CMakeLists.txt \
-      --replace 'target_link_libraries(mcfm lhapdf_lib)' \
+      --replace-fail 'target_link_libraries(mcfm lhapdf_lib)' \
                 'target_link_libraries(mcfm ''${lhapdf_lib})'
+
+    substituteInPlace qcdloop-2.0.5/CMakeLists.txt \
+    --replace-fail 'cmake_minimum_required (VERSION 3.0.2)' \
+    'cmake_minimum_required (VERSION 3.15)'
   '';
 
   nativeBuildInputs = [
     cmake
     gfortran
   ];
-  buildInputs = [ lhapdf ];
+  buildInputs = [ lhapdf' ];
 
   cmakeFlags = [
     "-Duse_external_lhapdf=ON"
