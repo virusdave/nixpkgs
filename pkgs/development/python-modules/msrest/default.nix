@@ -66,7 +66,10 @@ buildPythonPackage {
     "test_conf_async_trio_requests"
   ]
   ++ lib.optionals (pythonAtLeast "3.12") [
-    # AttributeError: 'TestAuthentication' object has no attribute...
+    # See https://github.com/Azure/msrest-for-python/issues/261
+    # Upstream ignores the following patch that should fix it:
+    # https://github.com/Azure/msrest-for-python/pull/262
+    # And it doesn't apply anymore.
     "test_apikey_auth"
     "test_cs_auth"
     "test_eventgrid_auth"
