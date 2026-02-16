@@ -23,14 +23,14 @@
   withBfbInstall ? true,
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "rshim-user-space";
   version = "2.6.6";
 
   src = fetchFromGitHub {
     owner = "Mellanox";
     repo = "rshim-user-space";
-    rev = "rshim-${version}";
+    rev = "rshim-${finalAttrs.version}";
     hash = "sha256-OdrJnOm0QegQ2ex1hFSWPfwYuBnXpGeMJ2YfvNyIwTU=";
   };
 
@@ -99,4 +99,4 @@ stdenv.mkDerivation rec {
       thillux
     ];
   };
-}
+})
