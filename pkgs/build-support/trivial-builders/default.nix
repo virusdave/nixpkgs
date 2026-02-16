@@ -774,7 +774,7 @@ rec {
           # turn off __structuredAttrs to unbreak substituteAll
           __structuredAttrs = false;
           pname = name;
-          inherit (lib.trivial) version;
+          version = lib.trivial.release + "pre-git";
           inherit meta;
           inherit depsTargetTargetPropagated;
           inherit propagatedBuildInputs;
