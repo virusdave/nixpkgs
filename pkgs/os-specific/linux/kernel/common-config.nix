@@ -1248,6 +1248,7 @@ let
         KEXEC_FILE = option yes;
         KEXEC_JUMP = option yes;
         KEXEC_HANDOVER = whenAtLeast "6.16" (option yes);
+        LIVEUPDATE = whenAtLeast "6.19" (option yes);
 
         PARTITION_ADVANCED = yes; # Needed for LDM_PARTITION
         # Windows Logical Disk Manager (Dynamic Disk) support
