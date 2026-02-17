@@ -22683,6 +22683,12 @@
     githubId = 496447;
     name = "Robert Hensing";
   };
+  robertjakub = {
+    email = "rjakub@pm.me";
+    github = "robertjakub";
+    githubId = 7160579;
+    name = "Robert Jakub";
+  };
   robertodr = {
     email = "roberto.diremigio@gmail.com";
     github = "robertodr";
