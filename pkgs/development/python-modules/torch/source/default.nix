@@ -420,35 +420,76 @@ buildPythonPackage.override { inherit stdenv; } rec {
   # causes possible redefinition of _FORTIFY_SOURCE
   hardeningDisable = [ "fortify3" ];
 
-  BUILD_NAMEDTENSOR = setBool true;
-  BUILD_DOCS = setBool buildDocs;
+  env = rec {
+    BUILD_NAMEDTENSOR = setBool true;
+    BUILD_DOCS = setBool buildDocs;
 
-  # We only do an imports check, so do not build tests either.
-  BUILD_TEST = setBool false;
+    # We only do an imports check, so do not build tests either.
+    BUILD_TEST = setBool false;
 
-  # ninja hook doesn't automatically turn on ninja
-  # because pytorch setup.py is responsible for this
-  CMAKE_GENERATOR = "Ninja";
+    # ninja hook doesn't automatically turn on ninja
+    # because pytorch setup.py is responsible for this
+    CMAKE_GENERATOR = "Ninja";
 
-  # Unlike MKL, oneDNN (née MKLDNN) is FOSS, so we enable support for
-  # it by default. PyTorch currently uses its own vendored version
-  # of oneDNN through Intel iDeep.
-  USE_MKLDNN = setBool mklDnnSupport;
-  USE_MKLDNN_CBLAS = setBool mklDnnSupport;
+    # Unlike MKL, oneDNN (née MKLDNN) is FOSS, so we enable support for
+    # it by default. PyTorch currently uses its own vendored version
+    # of oneDNN through Intel iDeep.
+    USE_MKLDNN = setBool mklDnnSupport;
+    USE_MKLDNN_CBLAS = setBool mklDnnSupport;
 
-  # Avoid using pybind11 from git submodule
-  # Also avoids pytorch exporting the headers of pybind11
-  USE_SYSTEM_PYBIND11 = true;
+    # Avoid using pybind11 from git submodule
+    # Also avoids pytorch exporting the headers of pybind11
+    USE_SYSTEM_PYBIND11 = true;
 
-  # Multicore CPU convnet support
-  USE_NNPACK = 1;
+    # Multicore CPU convnet support
+    USE_NNPACK = 1;
 
-  # Explicitly enable MPS for Darwin
-  USE_MPS = setBool stdenv.hostPlatform.isDarwin;
+    # Explicitly enable MPS for Darwin
+    USE_MPS = setBool stdenv.hostPlatform.isDarwin;
 
-  # building torch.distributed on Darwin is disabled by default
-  # https://pytorch.org/docs/stable/distributed.html#torch.distributed.is_available
-  USE_DISTRIBUTED = setBool true;
+    # building torch.distributed on Darwin is disabled by default
+    # https://pytorch.org/docs/stable/distributed.html#torch.distributed.is_available
+    USE_DISTRIBUTED = setBool true;
+
+    # Override the (weirdly) wrong version set by default. See
+    # https://github.com/NixOS/nixpkgs/pull/52437#issuecomment-449718038
+    # https://github.com/pytorch/pytorch/blob/v1.0.0/setup.py#L267
+    PYTORCH_BUILD_VERSION = version;
+    PYTORCH_BUILD_NUMBER = 0;
+
+    # In-tree builds of NCCL are not supported.
+    # Use NCCL when cudaSupport is enabled and nccl is available.
+    USE_NCCL = setBool useSystemNccl;
+    USE_SYSTEM_NCCL = USE_NCCL;
+    USE_STATIC_NCCL = USE_NCCL;
+
+    # Set the correct Python library path, broken since
+    # https://github.com/pytorch/pytorch/commit/3d617333e
+    PYTHON_LIB_REL_PATH = "${placeholder "out"}/${python.sitePackages}";
+    # disable warnings as errors as they break the build on every compiler
+    # bump, among other things.
+    # Also of interest: pytorch ignores CXXFLAGS uses CFLAGS for both C and C++:
+    # https://github.com/pytorch/pytorch/blob/v1.11.0/setup.py#L17
+    NIX_CFLAGS_COMPILE = toString (
+      [
+        "-Wno-error"
+      ]
+      # fix build aarch64-linux build failure with GCC14
+      ++ lib.optionals (stdenv.hostPlatform.isLinux && stdenv.hostPlatform.isAarch64) [
+        "-Wno-error=incompatible-pointer-types"
+      ]
+    );
+    USE_VULKAN = setBool vulkanSupport;
+  }
+  // lib.optionalAttrs vulkanSupport {
+    VULKAN_SDK = shaderc.bin;
+  }
+  // lib.optionalAttrs rocmSupport {
+    AOTRITON_INSTALLED_PREFIX = "${rocmPackages.aotriton}";
+    # Broken HIP flag setup, fails to compile due to not finding rocthrust
+    # Only supports gfx942 so let's turn it off for now
+    USE_FBGEMM_GENAI = setBool false;
+  };
 
   cmakeFlags = [
     (lib.cmakeFeature "PYTHON_SIX_SOURCE_DIR" "${six.src}")
@@ -481,48 +522,6 @@ buildPythonPackage.override { inherit stdenv; } rec {
       strip2 $f
     done
   '';
-
-  # Override the (weirdly) wrong version set by default. See
-  # https://github.com/NixOS/nixpkgs/pull/52437#issuecomment-449718038
-  # https://github.com/pytorch/pytorch/blob/v1.0.0/setup.py#L267
-  PYTORCH_BUILD_VERSION = version;
-  PYTORCH_BUILD_NUMBER = 0;
-
-  # In-tree builds of NCCL are not supported.
-  # Use NCCL when cudaSupport is enabled and nccl is available.
-  USE_NCCL = setBool useSystemNccl;
-  USE_SYSTEM_NCCL = USE_NCCL;
-  USE_STATIC_NCCL = USE_NCCL;
-
-  # Set the correct Python library path, broken since
-  # https://github.com/pytorch/pytorch/commit/3d617333e
-  PYTHON_LIB_REL_PATH = "${placeholder "out"}/${python.sitePackages}";
-
-  env = {
-    # disable warnings as errors as they break the build on every compiler
-    # bump, among other things.
-    # Also of interest: pytorch ignores CXXFLAGS uses CFLAGS for both C and C++:
-    # https://github.com/pytorch/pytorch/blob/v1.11.0/setup.py#L17
-    NIX_CFLAGS_COMPILE = toString (
-      [
-        "-Wno-error"
-      ]
-      # fix build aarch64-linux build failure with GCC14
-      ++ lib.optionals (stdenv.hostPlatform.isLinux && stdenv.hostPlatform.isAarch64) [
-        "-Wno-error=incompatible-pointer-types"
-      ]
-    );
-    USE_VULKAN = setBool vulkanSupport;
-  }
-  // lib.optionalAttrs vulkanSupport {
-    VULKAN_SDK = shaderc.bin;
-  }
-  // lib.optionalAttrs rocmSupport {
-    AOTRITON_INSTALLED_PREFIX = "${rocmPackages.aotriton}";
-    # Broken HIP flag setup, fails to compile due to not finding rocthrust
-    # Only supports gfx942 so let's turn it off for now
-    USE_FBGEMM_GENAI = setBool false;
-  };
 
   nativeBuildInputs = [
     cmake
