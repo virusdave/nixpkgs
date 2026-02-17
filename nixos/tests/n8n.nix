@@ -6,7 +6,11 @@ let
 in
 {
   name = "n8n";
-  meta.maintainers = with lib.maintainers; [ k900 ];
+  meta.maintainers = with lib.maintainers; [
+    k900
+    sweenu
+    gepbird
+  ];
 
   node.pkgsReadOnly = false;
 
