@@ -8,8 +8,8 @@
   pdm-backend,
 
   # dependencies
+  annotated-doc,
   click,
-  typing-extensions,
 
   # optional-dependencies
   rich,
@@ -24,14 +24,14 @@
 
 buildPythonPackage rec {
   pname = "typer-slim";
-  version = "0.21.0";
+  version = "0.21.2";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "fastapi";
     repo = "typer";
     tag = version;
-    hash = "sha256-MvrwHemciLa2m0QUTZNuCLa7x63RKWFzJ5k6Ask25ZY=";
+    hash = "sha256-VvCd2Csn9v15RAQSdgayl16oQfxyDSge925jJOTbVuw=";
   };
 
   postPatch = ''
@@ -46,8 +46,8 @@ buildPythonPackage rec {
   build-system = [ pdm-backend ];
 
   dependencies = [
+    annotated-doc
     click
-    typing-extensions
   ];
 
   optional-dependencies = {
