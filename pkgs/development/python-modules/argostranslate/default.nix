@@ -7,8 +7,10 @@
   # dependencies
   ctranslate2,
   ctranslate2-cpp,
+  minisbd,
   sacremoses,
   sentencepiece,
+  spacy,
   stanza,
   # tests
   pytestCheckHook,
@@ -25,22 +27,24 @@ let
 in
 buildPythonPackage (finalAttrs: {
   pname = "argostranslate";
-  version = "1.9.6";
+  version = "1.11.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "argosopentech";
     repo = "argos-translate";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-OFF2DAcuRwEJxZebgRq5Ukb/TaNsP/rsO7BUAcD+lz8=";
+    hash = "sha256-8uzWS0YZEteeLTYAp9qpnnJhxyhxbWkKt1krqe/RF4M=";
   };
 
   build-system = [ setuptools ];
 
   dependencies = [
     ctranslate2OneDNN
+    minisbd
     sacremoses
     sentencepiece
+    spacy
     stanza
   ];
 
@@ -51,7 +55,6 @@ buildPythonPackage (finalAttrs: {
 
   pythonRelaxDeps = [
     "stanza"
-    "sentencepiece"
   ];
 
   pythonImportsCheck = [
