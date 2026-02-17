@@ -52,7 +52,10 @@ buildGoModule (finalAttrs: {
     homepage = "https://github.com/entireio/cli";
     changelog = "https://github.com/entireio/cli/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ sheeeng ];
+    maintainers = with lib.maintainers; [
+      sheeeng
+      squishykid
+    ];
     mainProgram = "entire";
   };
 })
