@@ -10,14 +10,14 @@
 
 buildPythonPackage rec {
   pname = "adafruit-io";
-  version = "2.8.0";
+  version = "2.8.2";
   format = "setuptools";
 
   src = fetchFromGitHub {
     owner = "adafruit";
     repo = "Adafruit_IO_Python";
     tag = version;
-    hash = "sha256-OwTHMyc2ePSdYVuY1h3PY+uDBl6/7fTMXiZC3sZm8fU=";
+    hash = "sha256-JYQKrGg4FRzqq3wy/TqafC16rldvPEi+/xEI7XGvWM8=";
   };
 
   nativeBuildInputs = [ setuptools-scm ];
