@@ -32,6 +32,11 @@ let
   );
 in
 {
+  meta.maintainers = with lib.maintainers; [
+    sweenu
+    gepbird
+  ];
+
   imports = [
     (lib.mkRemovedOptionModule [ "services" "n8n" "settings" ] "Use services.n8n.environment instead.")
     (lib.mkRemovedOptionModule [
