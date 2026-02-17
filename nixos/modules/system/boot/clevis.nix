@@ -106,6 +106,7 @@ in
       systemd = {
         extraBin = lib.mkIf systemd.enable {
           clevis = "${cfg.package}/bin/clevis";
+          curl = "${pkgs.curl}/bin/curl";
         };
 
         storePaths = lib.mkIf systemd.enable [
