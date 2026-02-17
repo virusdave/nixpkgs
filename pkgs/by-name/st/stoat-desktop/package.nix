@@ -20,14 +20,14 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "stoat-desktop";
-  version = "1.1.12";
+  version = "1.2.0";
 
   src = fetchFromGitHub {
     owner = "stoatchat";
     repo = "for-desktop";
     tag = "v${finalAttrs.version}";
     fetchSubmodules = true;
-    hash = "sha256-xyJ2yoFqMZyamvf4UEU/iUPnrQhMTFETHWQqQ91Rhpw=";
+    hash = "sha256-Q1FKQBxtlrGmdfx7gLd0aQx/5Pqd4atFdMykxK997Rw=";
   };
 
   postPatch = ''
