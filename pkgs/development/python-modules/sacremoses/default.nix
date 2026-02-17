@@ -3,29 +3,29 @@
   lib,
   fetchFromGitHub,
   click,
-  six,
-  tqdm,
   joblib,
+  tqdm,
+  regex,
   pytest,
 }:
 
 buildPythonPackage rec {
   pname = "sacremoses";
-  version = "0.0.35";
+  version = "0.1.1";
   format = "setuptools";
 
   src = fetchFromGitHub {
-    owner = "alvations";
+    owner = "hplt-project";
     repo = "sacremoses";
     rev = version;
-    sha256 = "1gzr56w8yx82mn08wax5m0xyg15ym4ri5l80gmagp8r53443j770";
+    sha256 = "sha256-ked6/8oaGJwVW1jvpjrWtJYfr0GKUHdJyaEuzid/S3M=";
   };
 
   propagatedBuildInputs = [
     click
-    six
-    tqdm
     joblib
+    tqdm
+    regex
   ];
 
   nativeCheckInputs = [ pytest ];
