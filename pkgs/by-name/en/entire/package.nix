@@ -50,7 +50,7 @@ buildGoModule (finalAttrs: {
       of how code was written in your repo.
     '';
     homepage = "https://github.com/entireio/cli";
-    changelog = "https://github.com/entireio/cli/releases/tag/v${finalAttrs.version}";
+    changelog = "https://github.com/entireio/cli/blob/${finalAttrs.src.rev}/CHANGELOG.md";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [
       sheeeng
