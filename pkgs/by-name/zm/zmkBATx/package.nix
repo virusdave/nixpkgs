@@ -5,12 +5,12 @@
   qt6,
   pkg-config,
   dbus,
-  simpleBluez,
+  simplebluez,
   simpledbus,
 }:
 let
   # zmkBATx is incompatible against the new ABI
-  simpleBluez' = simpleBluez.overrideAttrs rec {
+  simplebluez' = simplebluez.overrideAttrs rec {
     version = "0.7.3";
     src = fetchFromGitHub {
       owner = "OpenBluetoothToolbox";
@@ -43,7 +43,7 @@ stdenv.mkDerivation (finalAttrs: {
     qt6.qtconnectivity
     dbus.lib
     simpledbus
-    simpleBluez'
+    simplebluez'
   ];
 
   postPatch = ''

@@ -8,7 +8,7 @@
   lib,
 }:
 stdenv.mkDerivation (finalAttrs: {
-  pname = "simpleBluez";
+  pname = "simplebluez";
 
   version = "0.11.0";
 
