@@ -133,6 +133,14 @@ in
               When enabled, n8n sends notifications of new versions and security updates.
             '';
           };
+          N8N_CUSTOM_EXTENSIONS = lib.mkOption {
+            internal = true;
+            type = with lib.types; nullOr path;
+            default = if cfg.customNodes != [ ] then toString customNodesDir else null;
+            description = ''
+              Specify the path to directories containing your custom nodes.
+            '';
+          };
         };
       };
       default = { };
@@ -149,15 +157,12 @@ in
         // {
           HOME = cfg.environment.N8N_USER_FOLDER;
         }
-        // lib.optionalAttrs (cfg.customNodes != [ ]) {
-          N8N_CUSTOM_EXTENSIONS = toString customNodesDir;
-        }
         // n8nEnv.fileBasedTransformed;
       serviceConfig = {
         Type = "simple";
         ExecStart = lib.getExe cfg.package;
         Restart = "on-failure";
-        StateDirectory = "n8n";
+        StateDirectory = baseNameOf cfg.environment.N8N_USER_FOLDER;
 
         LoadCredential = lib.mapAttrsToList (
           varName: secretPath: "${envVarToCredName varName}:${secretPath}"
