@@ -113,7 +113,7 @@ stdenv.mkDerivation (finalAttrs: {
       PNM, TIFF, and WebP.
     '';
     license = with lib.licenses; [ mit ];
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ ambossmann ];
     mainProgram = "gm";
     platforms = lib.platforms.all;
   };
