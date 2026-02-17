@@ -1933,6 +1933,14 @@ let
       postPatch = "patchShebangs configure";
     });
 
+    yaml12 = old.yaml12.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+      nativeBuildInputs = attrs.nativeBuildInputs ++ [
+        pkgs.cargo
+        pkgs.rustc
+      ];
+    });
+
     SynExtend = old.SynExtend.overrideAttrs (attrs: {
       # build might fail due to race condition
       enableParallelBuilding = false;
