@@ -839,6 +839,10 @@ let
       cargo
       rustc
     ];
+    caugi = with pkgs; [
+      cargo
+      rustc
+    ];
     sdcTable = with pkgs; [
       gmp
       glpk
@@ -1912,6 +1916,10 @@ let
     });
 
     cartogramR = old.cartogramR.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
+    caugi = old.caugi.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
 
