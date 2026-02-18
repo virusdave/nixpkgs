@@ -19288,6 +19288,12 @@
     githubId = 810877;
     name = "Tom Doggett";
   };
+  noderyos = {
+    email = "vincent.bsod@gmail.com";
+    github = "Noderyos";
+    githubId = 56077132;
+    name = "Noderyos";
+  };
   noiioiu = {
     github = "noiioiu";
     githubId = 151288161;
@@ -27837,10 +27843,11 @@
     githubId = 68829907;
   };
   v3rm1n0 = {
-    name = "Niklas Choinowski";
-    email = "niklas.choinowski@proton.me";
+    name = "V3RM1N";
+    email = "mail@v3rm1n.dev";
     github = "v3rm1n0";
     githubId = 57269010;
+    keys = [ { fingerprint = "58E4 2840 D274 49A5 5948  78AA 85F3 7D09 1304 5718"; } ];
   };
   vaavaav = {
     name = "Pedro Peixoto";
