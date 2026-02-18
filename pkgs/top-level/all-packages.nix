@@ -8524,7 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-varnish-exporter = callPackage ../servers/monitoring/prometheus/varnish-exporter.nix { };
   prometheus-wireguard-exporter =
     callPackage ../servers/monitoring/prometheus/wireguard-exporter.nix
       {
