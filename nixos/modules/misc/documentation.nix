@@ -228,6 +228,10 @@ in
     (mkRenamedOptionModule [ "programs" "info" "enable" ] [ "documentation" "info" "enable" ])
     (mkRenamedOptionModule [ "programs" "man" "enable" ] [ "documentation" "man" "enable" ])
     (mkRenamedOptionModule [ "services" "nixosManual" "enable" ] [ "documentation" "nixos" "enable" ])
+    (mkRenamedOptionModule
+      [ "documentation" "man" "generateCaches" ]
+      [ "documentation" "man" "cache" "enable" ]
+    )
     (mkRemovedOptionModule [
       "documentation"
       "nixos"
@@ -261,7 +265,7 @@ in
         '';
       };
 
-      man.generateCaches = mkOption {
+      man.cache.enable = mkOption {
         type = types.bool;
         default = false;
         description = ''

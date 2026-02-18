@@ -39,7 +39,7 @@ in
         };
         defaultText = lib.literalMD "all man pages in {option}`config.environment.systemPackages`";
         description = ''
-          The manual pages to generate caches for if {option}`documentation.man.generateCaches`
+          The manual pages to generate caches for if {option}`documentation.man.cache.enable`
           is enabled. Must be a path to a directory with man pages under
           `/share/man`; see the source for an example.
           Advanced users can make this a content-addressed derivation to save a few rebuilds.
@@ -94,7 +94,7 @@ in
         MANPATH_MAP /run/current-system/sw/bin /run/current-system/sw/share/man
         MANPATH_MAP /run/wrappers/bin          /run/current-system/sw/share/man
 
-        ${lib.optionalString config.documentation.man.generateCaches ''
+        ${lib.optionalString config.documentation.man.cache.enable ''
           # Generated manual pages cache for NixOS (immutable)
           MANDB_MAP /run/current-system/sw/share/man ${manualCache}
         ''}
