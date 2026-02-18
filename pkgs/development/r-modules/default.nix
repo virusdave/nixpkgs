@@ -648,6 +648,10 @@ let
       which
       curl.dev
     ];
+    roxigraph = with pkgs; [
+      cargo
+      rustc
+    ];
     rsbml = [ pkgs.pkg-config ];
     rvg = [ pkgs.libpng.dev ];
     MAGEE = [
@@ -1928,6 +1932,13 @@ let
     });
 
     ironseed = old.ironseed.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
+    roxigraph = old.roxigraph.overrideAttrs (attrs: {
+      env = (attrs.env or { }) // {
+        LIBCLANG_PATH = "${lib.getLib pkgs.libclang}/lib";
+      };
       postPatch = "patchShebangs configure";
     });
 
