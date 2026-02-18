@@ -277,7 +277,7 @@ let
   # From here on, `stdenv` shall be `stdenv'`.
   stdenv = stdenv';
 in
-buildPythonPackage.override { inherit stdenv; } rec {
+buildPythonPackage.override { inherit stdenv; } (finalAttrs: {
   pname = "torch";
   # Don't forget to update torch-bin to the same version.
   version = "2.9.1";
@@ -293,10 +293,12 @@ buildPythonPackage.override { inherit stdenv; } rec {
 
   src = callPackage ./src.nix {
     inherit
-      version
       fetchFromGitHub
       fetchFromGitLab
       runCommand
+      ;
+    inherit (finalAttrs)
+      version
       ;
   };
 
@@ -420,7 +422,7 @@ buildPythonPackage.override { inherit stdenv; } rec {
   # causes possible redefinition of _FORTIFY_SOURCE
   hardeningDisable = [ "fortify3" ];
 
-  env = rec {
+  env = {
     BUILD_NAMEDTENSOR = setBool true;
     BUILD_DOCS = setBool buildDocs;
 
@@ -454,14 +456,14 @@ buildPythonPackage.override { inherit stdenv; } rec {
     # Override the (weirdly) wrong version set by default. See
     # https://github.com/NixOS/nixpkgs/pull/52437#issuecomment-449718038
     # https://github.com/pytorch/pytorch/blob/v1.0.0/setup.py#L267
-    PYTORCH_BUILD_VERSION = version;
+    PYTORCH_BUILD_VERSION = finalAttrs.version;
     PYTORCH_BUILD_NUMBER = 0;
 
     # In-tree builds of NCCL are not supported.
     # Use NCCL when cudaSupport is enabled and nccl is available.
     USE_NCCL = setBool useSystemNccl;
-    USE_SYSTEM_NCCL = USE_NCCL;
-    USE_STATIC_NCCL = USE_NCCL;
+    USE_SYSTEM_NCCL = finalAttrs.env.USE_NCCL;
+    USE_STATIC_NCCL = finalAttrs.env.USE_NCCL;
 
     # Set the correct Python library path, broken since
     # https://github.com/pytorch/pytorch/commit/3d617333e
@@ -649,7 +651,7 @@ buildPythonPackage.override { inherit stdenv; } rec {
         # ^^^^^^^^^^^^ NOTE: while test_dataloader does return errors, these are acceptable errors and do not interfere with the build
 
         # tensorboard has acceptable failures for pytorch 1.3.x due to dependencies on tensorboard-plugins
-        (optionalString (majorMinor version == "1.3") "tensorboard")
+        (optionalString (majorMinor finalAttrs.version == "1.3") "tensorboard")
       ])
       "runHook postCheck"
     ];
@@ -691,7 +693,7 @@ buildPythonPackage.override { inherit stdenv; } rec {
       --replace-fail "\''${_IMPORT_PREFIX}/lib64" "$lib/lib"
 
     substituteInPlace $dev/share/cmake/ATen/ATenConfig.cmake \
-      --replace-fail "/build/${src.name}/torch/include" "$dev/include"
+      --replace-fail "/build/${finalAttrs.src.name}/torch/include" "$dev/include"
   '';
 
   postFixup = ''
@@ -750,7 +752,7 @@ buildPythonPackage.override { inherit stdenv; } rec {
   };
 
   meta = {
-    changelog = "https://github.com/pytorch/pytorch/releases/tag/v${version}";
+    changelog = "https://github.com/pytorch/pytorch/releases/tag/v${finalAttrs.version}";
     # keep PyTorch in the description so the package can be found under that name on search.nixos.org
     description = "PyTorch: Tensors and Dynamic neural networks in Python with strong GPU acceleration";
     homepage = "https://pytorch.org/";
@@ -766,4 +768,4 @@ buildPythonPackage.override { inherit stdenv; } rec {
       lib.platforms.linux ++ lib.optionals (!cudaSupport && !rocmSupport) lib.platforms.darwin;
     broken = builtins.any trivial.id (builtins.attrValues brokenConditions);
   };
-}
+})
