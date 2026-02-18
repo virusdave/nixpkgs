@@ -171,8 +171,6 @@ stdenv.mkDerivation (finalAttrs: {
     maintainers = with lib.maintainers; [
       adamcstephens
       booxter
-      kmcopper
-      netixx
       xddxdd
     ];
     platforms = lib.platforms.linux;
