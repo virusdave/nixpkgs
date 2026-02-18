@@ -8524,9 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-imap-mailstat-exporter =
-    callPackage ../servers/monitoring/prometheus/imap-mailstat-exporter.nix
-      { };
   prometheus-influxdb-exporter =
     callPackage ../servers/monitoring/prometheus/influxdb-exporter.nix
       { };
