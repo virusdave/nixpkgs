@@ -8439,12 +8439,6 @@ with pkgs;
 
   pypiserver = with python3Packages; toPythonApplication pypiserver;
 
-  rethinkdb = callPackage ../servers/nosql/rethinkdb {
-    stdenv = clangStdenv;
-    libtool = cctools;
-    protobuf = protobuf_21;
-  };
-
   samba4 = callPackage ../servers/samba/4.x.nix { };
 
   samba = samba4;
