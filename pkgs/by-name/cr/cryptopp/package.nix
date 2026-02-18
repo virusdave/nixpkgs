@@ -64,6 +64,6 @@ stdenv.mkDerivation rec {
       publicDomain
     ];
     platforms = lib.platforms.all;
-    maintainers = with lib.maintainers; [ c0bw3b ];
+    maintainers = [ ];
   };
 }
