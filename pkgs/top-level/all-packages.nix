@@ -10094,8 +10094,6 @@ with pkgs;
     callPackage ../applications/networking/cluster/kubectl-view-allocations
       { };
 
-  kthxbye = callPackage ../servers/monitoring/prometheus/kthxbye.nix { };
-
   linkerd = callPackage ../applications/networking/cluster/linkerd { };
   linkerd_edge = callPackage ../applications/networking/cluster/linkerd/edge.nix { };
   linkerd_stable = linkerd;
