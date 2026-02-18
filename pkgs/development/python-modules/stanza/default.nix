@@ -56,6 +56,9 @@ buildPythonPackage (finalAttrs: {
     homepage = "https://github.com/stanfordnlp/stanza/";
     changelog = "https://github.com/stanfordnlp/stanza/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.asl20;
-    maintainers = with lib.maintainers; [ riotbib ];
+    maintainers = with lib.maintainers; [
+      riotbib
+      Stebalien
+    ];
   };
 })
