@@ -10054,10 +10054,7 @@ self: super: with self; {
 
   monkeytype = callPackage ../development/python-modules/monkeytype { };
 
-  monosat = pkgs.monosat.python {
-    inherit buildPythonPackage;
-    inherit (self) cython pytestCheckHook;
-  };
+  monosat = callPackage pkgs.monosat.python { };
 
   monotonic = callPackage ../development/python-modules/monotonic { };
 
@@ -19373,6 +19370,8 @@ self: super: with self; {
   trectools = callPackage ../development/python-modules/trectools { };
 
   tree-sitter = callPackage ../development/python-modules/tree-sitter { };
+
+  tree-sitter-bash = callPackage ../development/python-modules/tree-sitter-bash { };
 
   tree-sitter-c-sharp = callPackage ../development/python-modules/tree-sitter-c-sharp { };
 
