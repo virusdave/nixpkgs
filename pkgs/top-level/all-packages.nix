@@ -8524,8 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-xmpp-alerts = callPackage ../servers/monitoring/prometheus/xmpp-alerts.nix { };
-
   public-inbox = perlPackages.callPackage ../servers/mail/public-inbox { };
 
   pypiserver = with python3Packages; toPythonApplication pypiserver;
