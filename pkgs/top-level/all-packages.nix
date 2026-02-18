@@ -8524,7 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-knot-exporter = callPackage ../servers/monitoring/prometheus/knot-exporter.nix { };
   prometheus-lnd-exporter = callPackage ../servers/monitoring/prometheus/lnd-exporter.nix { };
   prometheus-mail-exporter = callPackage ../servers/monitoring/prometheus/mail-exporter.nix { };
   prometheus-mikrotik-exporter =
