@@ -1695,6 +1695,7 @@ let
     "csodata"
     "DiceView"
     "facmodTS"
+    "fwtraits"
     "gasanalyzer"
     "margaret"
     "MSnID"
