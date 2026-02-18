@@ -8524,9 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-nextcloud-exporter =
-    callPackage ../servers/monitoring/prometheus/nextcloud-exporter.nix
-      { };
   prometheus-nginx-exporter = callPackage ../servers/monitoring/prometheus/nginx-exporter.nix { };
   prometheus-nginxlog-exporter =
     callPackage ../servers/monitoring/prometheus/nginxlog-exporter.nix
