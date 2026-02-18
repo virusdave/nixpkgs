@@ -11852,7 +11852,7 @@ with pkgs;
 
   ### SCIENCE/CHEMISTY
 
-  avogadrolibs = libsForQt5.callPackage ../development/libraries/science/chemistry/avogadrolibs { };
+  avogadrolibs = callPackage ../development/libraries/science/chemistry/avogadrolibs { };
 
   molequeue = libsForQt5.callPackage ../development/libraries/science/chemistry/molequeue { };
 
