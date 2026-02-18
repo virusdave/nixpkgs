@@ -8524,9 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-fritzbox-exporter =
-    callPackage ../servers/monitoring/prometheus/fritzbox-exporter.nix
-      { };
   prometheus-gitlab-ci-pipelines-exporter =
     callPackage ../servers/monitoring/prometheus/gitlab-ci-pipelines-exporter.nix
       { };
