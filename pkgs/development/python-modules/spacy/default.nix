@@ -57,6 +57,11 @@ buildPythonPackage rec {
     hash = "sha256-pLn3fq6SDstkRIv+1fj1yEGTlAd1IAiVgRu25CnEV8E=";
   };
 
+  postPatch = ''
+    substituteInPlace requirements.txt setup.cfg \
+      --replace-fail typer-slim typer
+  '';
+
   build-system = [
     cymem
     cython
