@@ -4,6 +4,7 @@
   makeBinaryWrapper,
   jre,
   maven,
+  nix-update-script,
 }:
 
 maven.buildMavenPackage rec {
@@ -37,6 +38,8 @@ maven.buildMavenPackage rec {
 
     runHook postInstall
   '';
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Checks Java source against a coding standard";
