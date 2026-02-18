@@ -8524,7 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-sachet = callPackage ../servers/monitoring/prometheus/sachet.nix { };
   prometheus-script-exporter = callPackage ../servers/monitoring/prometheus/script-exporter.nix { };
   prometheus-shelly-exporter = callPackage ../servers/monitoring/prometheus/shelly-exporter.nix { };
   prometheus-smokeping-prober = callPackage ../servers/monitoring/prometheus/smokeping-prober.nix { };
