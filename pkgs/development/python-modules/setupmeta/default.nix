@@ -13,14 +13,14 @@
 
 buildPythonPackage rec {
   pname = "setupmeta";
-  version = "3.8.0";
+  version = "3.9.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "codrsquad";
     repo = "setupmeta";
     tag = "v${version}";
-    hash = "sha256-2SKiIkwfmXVOQBKBNUmw4SjiVpyLjIMpSHNA9IQxqwY=";
+    hash = "sha256-ONl+hFvMkUmPbzbeduCrqidGrKZvbWE0wTvaZMhs64w=";
   };
 
   preBuild = ''
