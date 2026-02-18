@@ -8524,9 +8524,6 @@ with pkgs;
   postgres-websockets = haskellPackages.postgres-websockets.bin;
   postgrest = haskellPackages.postgrest.bin;
 
-  prometheus-cloudflare-exporter =
-    callPackage ../servers/monitoring/prometheus/cloudflare-exporter.nix
-      { };
   prometheus-collectd-exporter =
     callPackage ../servers/monitoring/prometheus/collectd-exporter.nix
       { };
