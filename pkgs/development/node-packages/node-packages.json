@@ -1,5 +1,4 @@
 [
-  "@tailwindcss/typography",
   "browserify",
   "node2nix",
   "sass",
