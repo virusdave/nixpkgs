@@ -17,14 +17,14 @@
 
 buildPythonPackage rec {
   pname = "webdav4";
-  version = "0.10.0";
+  version = "0.11.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "skshetry";
     repo = "webdav4";
     tag = "v${version}";
-    hash = "sha256-LgWYgERRuUODFzUnC08kDJTVRx9vanJ+OU8sREEMVwM=";
+    hash = "sha256-vWOxFoPxXFf5hmzbu9Ik3Mqg/70eFehqMF46gC6aDzQ=";
   };
 
   build-system = [
