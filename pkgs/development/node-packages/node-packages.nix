@@ -5298,27 +5298,6 @@ let
   };
 in
 {
-  "@tailwindcss/aspect-ratio" = nodeEnv.buildNodePackage {
-    name = "_at_tailwindcss_slash_aspect-ratio";
-    packageName = "@tailwindcss/aspect-ratio";
-    version = "0.4.2";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/@tailwindcss/aspect-ratio/-/aspect-ratio-0.4.2.tgz";
-      sha512 = "8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==";
-    };
-    dependencies = [
-      sources."tailwindcss-4.0.14"
-    ];
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "Composable API for giving elements a fixed aspect ratio";
-      homepage = "https://github.com/tailwindlabs/tailwindcss-aspect-ratio#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
   "@tailwindcss/forms" = nodeEnv.buildNodePackage {
     name = "_at_tailwindcss_slash_forms";
     packageName = "@tailwindcss/forms";

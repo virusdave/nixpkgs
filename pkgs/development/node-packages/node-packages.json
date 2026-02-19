@@ -1,10 +1,9 @@
 [
-  "@tailwindcss/aspect-ratio"
-, "@tailwindcss/forms"
-, "@tailwindcss/line-clamp"
-, "@tailwindcss/typography"
-, "browserify"
-, "node2nix"
-, "sass"
-, "semver"
+  "@tailwindcss/forms",
+  "@tailwindcss/line-clamp",
+  "@tailwindcss/typography",
+  "browserify",
+  "node2nix",
+  "sass",
+  "semver"
 ]
