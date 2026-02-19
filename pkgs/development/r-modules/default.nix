@@ -1544,6 +1544,10 @@ let
     psbcGroup = [ pkgs.gsl.dev ];
     rrd = [ pkgs.rrdtool ];
     flowWorkspace = [ pkgs.zlib.dev ];
+    MethScope = with pkgs; [
+      ncurses
+      zlib.dev
+    ];
     RITCH = [ pkgs.zlib.dev ];
     RcppMeCab = [ pkgs.mecab ];
     PING = [ pkgs.gsl ];
