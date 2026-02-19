@@ -12,11 +12,12 @@
   automake,
   autoconf,
   libtool,
+  unstableGitUpdater,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "alliance";
-  version = "unstable-2025-02-24";
+  version = "5.1.1-unstable-2025-02-24";
 
   src = fetchFromGitHub {
     owner = "lip6";
@@ -67,6 +68,8 @@ stdenv.mkDerivation (finalAttrs: {
     mkdir -p $out/icons/hicolor/48x48/apps/
     cp -p distrib/*.png $out/icons/hicolor/48x48/apps/
   '';
+
+  passthru.updateScript = unstableGitUpdater { tagPrefix = "v"; };
 
   meta = {
     description = "(deprecated) Complete set of free CAD tools and portable libraries for VLSI design";
