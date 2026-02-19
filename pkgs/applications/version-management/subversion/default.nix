@@ -90,10 +90,18 @@ let
           rm subversion/bindings/swig/proxy/{perlrun.swg,pyrun.swg,python.swg,rubydef.swg,rubyhead.swg,rubytracking.swg,runtime.swg,swigrun.swg}
         '';
 
-        # We are hitting the following issue even with APR 1.6.x
-        # -> https://issues.apache.org/jira/browse/SVN-4813
-        # "-P" CPPFLAG is needed to build Python bindings and subversionClient
-        CPPFLAGS = [ "-P" ];
+        env = {
+          # We are hitting the following issue even with APR 1.6.x
+          # -> https://issues.apache.org/jira/browse/SVN-4813
+          # "-P" CPPFLAG is needed to build Python bindings and subversionClient
+          CPPFLAGS = toString [ "-P" ];
+        }
+        // lib.optionalAttrs stdenv.hostPlatform.isDarwin {
+          CXX = "clang++";
+          CC = "clang";
+          CPP = "clang -E";
+          CXXCPP = "clang++ -E";
+        };
 
         preConfigure = ''
           ./autogen.sh
@@ -167,13 +175,6 @@ let
           maintainers = with lib.maintainers; [ lovek323 ];
           platforms = lib.platforms.linux ++ lib.platforms.darwin;
         };
-
-      }
-      // lib.optionalAttrs stdenv.hostPlatform.isDarwin {
-        CXX = "clang++";
-        CC = "clang";
-        CPP = "clang -E";
-        CXXCPP = "clang++ -E";
       }
     );
 
