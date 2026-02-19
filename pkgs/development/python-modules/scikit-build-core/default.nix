@@ -49,6 +49,8 @@ buildPythonPackage rec {
     })
   ];
 
+  postPatch = "";
+
   build-system = [
     hatch-vcs
     hatchling
