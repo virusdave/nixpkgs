@@ -27,7 +27,7 @@
   wheel,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "scikit-build-core";
   version = "0.11.6";
   pyproject = true;
@@ -35,7 +35,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "scikit-build";
     repo = "scikit-build-core";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-zBTDacTkeclz+/X0SUl1xkxLz4zsfeLOD4Ew0V1Y1iU=";
   };
 
@@ -96,8 +96,8 @@ buildPythonPackage rec {
   meta = {
     description = "Next generation Python CMake adaptor and Python API for plugins";
     homepage = "https://github.com/scikit-build/scikit-build-core";
-    changelog = "https://github.com/scikit-build/scikit-build-core/blob/${src.tag}/docs/about/changelog.md";
+    changelog = "https://github.com/scikit-build/scikit-build-core/blob/${finalAttrs.src.tag}/docs/about/changelog.md";
     license = with lib.licenses; [ asl20 ];
     maintainers = with lib.maintainers; [ veprbl ];
   };
-}
+})
