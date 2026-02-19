@@ -435,6 +435,10 @@ let
       cargo
       rustc
     ];
+    RPesto = with pkgs; [
+      cargo
+      rustc
+    ];
     audio = [ pkgs.portaudio ];
     BayesChange = [ pkgs.gsl ];
     BayesSAE = [ pkgs.gsl ];
@@ -3148,6 +3152,10 @@ let
     });
 
     b32 = old.b32.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
+    });
+
+    RPesto = old.RPesto.overrideAttrs (_: {
       preConfigure = "patchShebangs configure";
     });
 
