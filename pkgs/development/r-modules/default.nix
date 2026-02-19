@@ -431,6 +431,10 @@ let
       cargo
       rustc
     ];
+    b32 = with pkgs; [
+      cargo
+      rustc
+    ];
     audio = [ pkgs.portaudio ];
     BayesChange = [ pkgs.gsl ];
     BayesSAE = [ pkgs.gsl ];
@@ -3141,6 +3145,10 @@ let
         patchShebangs src/library/pkgdepends/configure
         patchShebangs src/library/ps/configure
       '';
+    });
+
+    b32 = old.b32.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
     });
 
     pkgdepends = old.pkgdepends.overrideAttrs (attrs: {
