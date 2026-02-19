@@ -81,6 +81,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     maintainers = with lib.maintainers; [
       Cameo007
       quadradical
+      claymorwan
     ];
     mainProgram = "gradia";
     platforms = lib.platforms.linux;
