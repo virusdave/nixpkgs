@@ -1899,6 +1899,10 @@ let
       ];
     });
 
+    trajeR = old.trajeR.overrideAttrs (attrs: {
+      patches = [ ./patches/trajeR.patch ];
+    });
+
     arcpbf = old.arcpbf.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
