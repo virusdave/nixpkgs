@@ -170,6 +170,7 @@ in
 
     # Required for man completions
     documentation.man.cache.enable = lib.mkDefault true;
+    documentation.man.cache.generateAtRuntime = lib.mkDefault true;
 
     environment = lib.mkMerge [
       (lib.mkIf cfg.useBabelfish {
