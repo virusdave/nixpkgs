@@ -467,6 +467,7 @@ let
       which
     ];
     bio3d = [ pkgs.zlib ];
+    BigDataStatMeth = [ pkgs.pkg-config ];
     BiocCheck = [ pkgs.which ];
     Biostrings = [ pkgs.zlib ];
     blosc = [ pkgs.pkg-config ];
@@ -1549,6 +1550,7 @@ let
     PROJ = [ pkgs.proj.dev ];
     RcppAlgos = [ pkgs.gmp.dev ];
     RcppBigIntAlgos = [ pkgs.gmp.dev ];
+    BigDataStatMeth = [ pkgs.zlib ];
     spaMM = [ pkgs.gsl ];
     shrinkTVP = [ pkgs.gsl ];
     sbrl = with pkgs; [
@@ -3160,6 +3162,10 @@ let
     });
 
     b32 = old.b32.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
+    });
+
+    BigDataStatMeth = old.BigDataStatMeth.overrideAttrs (_: {
       preConfigure = "patchShebangs configure";
     });
 
