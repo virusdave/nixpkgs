@@ -443,6 +443,10 @@ let
       cargo
       rustc
     ];
+    fastgeojson = with pkgs; [
+      cargo
+      rustc
+    ];
     audio = [ pkgs.portaudio ];
     BayesChange = [ pkgs.gsl ];
     BayesSAE = [ pkgs.gsl ];
