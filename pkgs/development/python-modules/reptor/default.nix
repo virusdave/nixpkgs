@@ -22,7 +22,7 @@
   xmltodict,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "reptor";
   version = "0.33";
   pyproject = true;
@@ -30,7 +30,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "Syslifters";
     repo = "reptor";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-Jr8Gr5oGrASK/QAgO7r78/kjtxVsxn1skfkVe3Hx2HM=";
   };
 
@@ -61,7 +61,7 @@ buildPythonPackage rec {
   nativeCheckInputs = [
     pytestCheckHook
   ]
-  ++ lib.concatAttrValues optional-dependencies;
+  ++ lib.flatten (builtins.attrValues finalAttrs.passthru.optional-dependencies);
 
   preCheck = ''
     export PATH="$PATH:$out/bin";
@@ -77,9 +77,9 @@ buildPythonPackage rec {
   meta = {
     description = "Module to do automated pentest reporting with SysReptor";
     homepage = "https://github.com/Syslifters/reptor";
-    changelog = "https://github.com/Syslifters/reptor/releases/tag/${src.tag}";
+    changelog = "https://github.com/Syslifters/reptor/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
     mainProgram = "reptor";
   };
-}
+})
