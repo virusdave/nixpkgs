@@ -6,7 +6,6 @@
   deepl,
   django,
   fetchFromGitHub,
-  fetchpatch,
   gql,
   pytestCheckHook,
   pyyaml,
@@ -25,23 +24,15 @@
 
 buildPythonPackage rec {
   pname = "reptor";
-  version = "0.32";
+  version = "0.33";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "Syslifters";
     repo = "reptor";
     tag = version;
-    hash = "sha256-nNG4rQHloOqcPZPnvw3hbw0+wCbB2XAdQ5/XnJtCHnE=";
+    hash = "sha256-Jr8Gr5oGrASK/QAgO7r78/kjtxVsxn1skfkVe3Hx2HM=";
   };
-
-  patches = [
-    # https://github.com/Syslifters/reptor/pull/221
-    (fetchpatch {
-      url = "https://github.com/Syslifters/reptor/commit/0fc43c246e2f99aaac9e78af818f360a3a951980.patch";
-      hash = "sha256-eakbI7hMJdshD0OA6n7dEO4+qPB21sYl09uZgepiWu0=";
-    })
-  ];
 
   pythonRelaxDeps = true;
 
