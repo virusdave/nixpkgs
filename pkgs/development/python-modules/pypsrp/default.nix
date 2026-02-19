@@ -19,14 +19,14 @@
 
 buildPythonPackage rec {
   pname = "pypsrp";
-  version = "0.8.1";
+  version = "0.9.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "jborean93";
     repo = "pypsrp";
     tag = "v${version}";
-    hash = "sha256-Pwfc9e39sYPdcHN1cZtxxGEglEYzPp4yOYLD5/4SSiU=";
+    hash = "sha256-EFe587tLTlNEzxhACtlbB0FspDOUvfF3ly0DRtAomuY=";
   };
 
   propagatedBuildInputs = [
