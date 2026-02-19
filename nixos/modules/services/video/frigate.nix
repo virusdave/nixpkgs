@@ -699,6 +699,17 @@ in
       environment = {
         CONFIG_FILE = "/run/frigate/frigate.yml";
         HOME = "/var/lib/frigate";
+        # Extract libavformat version in the same way Docker scripts in frigate directory do. This
+        # environment variable changes the flags given to `ffmpeg` improving compatibility.
+        LIBAVFORMAT_VERSION_MAJOR = lib.strings.trim (
+          builtins.readFile (
+            pkgs.runCommandLocal "libavformat-major-version" { } ''
+              ${cfg.settings.ffmpeg.path}/bin/ffmpeg -version 2>&1 \
+                | sed -n 's/.*libavformat[[:space:]]*\([0-9]*\).*/\1/p' \
+                | head -1 > $out
+            ''
+          )
+        );
         PYTHONPATH = cfg.package.pythonPath;
       }
       // optionalAttrs (cfg.vaapiDriver != null) {
