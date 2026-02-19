@@ -3189,15 +3189,6 @@ let
         sha512 = "ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==";
       };
     };
-    "mini-svg-data-uri-1.4.4" = {
-      name = "mini-svg-data-uri";
-      packageName = "mini-svg-data-uri";
-      version = "1.4.4";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz";
-        sha512 = "r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==";
-      };
-    };
     "minimalistic-assert-1.0.1" = {
       name = "minimalistic-assert";
       packageName = "minimalistic-assert";
@@ -5298,28 +5289,6 @@ let
   };
 in
 {
-  "@tailwindcss/forms" = nodeEnv.buildNodePackage {
-    name = "_at_tailwindcss_slash_forms";
-    packageName = "@tailwindcss/forms";
-    version = "0.5.10";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.10.tgz";
-      sha512 = "utI1ONF6uf/pPNO68kmN1b8rEwNXv3czukalo8VtJH8ksIkZXr3Q3VYudZLkCsDd4Wku120uF02hYK25XGPorw==";
-    };
-    dependencies = [
-      sources."mini-svg-data-uri-1.4.4"
-      sources."tailwindcss-4.0.14"
-    ];
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "Basic reset for form styles that makes form elements easy to override with utilities";
-      homepage = "https://github.com/tailwindlabs/tailwindcss-forms#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
   "@tailwindcss/line-clamp" = nodeEnv.buildNodePackage {
     name = "_at_tailwindcss_slash_line-clamp";
     packageName = "@tailwindcss/line-clamp";
