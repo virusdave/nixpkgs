@@ -439,6 +439,10 @@ let
       cargo
       rustc
     ];
+    fru = with pkgs; [
+      cargo
+      rustc
+    ];
     audio = [ pkgs.portaudio ];
     BayesChange = [ pkgs.gsl ];
     BayesSAE = [ pkgs.gsl ];
