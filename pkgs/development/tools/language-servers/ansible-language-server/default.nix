@@ -8,35 +8,28 @@
   python3,
   writableTmpDirAsHomeHook,
 }:
-
-let
-  yarn-berry = yarn-berry_4;
+stdenv.mkDerivation (finalAttrs: {
+  pname = "ansible-language-server";
   version = "26.1.3";
 
   src = fetchFromGitHub {
     owner = "ansible";
     repo = "vscode-ansible";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-DsEW3xP8Fa9nwPuyEFVqG6rvAZgr4TDB6jhyixdvqt8=";
   };
 
   missingHashes = ./missing-hashes.json;
 
-  offlineCache = yarn-berry.fetchYarnBerryDeps {
-    inherit src missingHashes;
+  offlineCache = yarn-berry_4.fetchYarnBerryDeps {
+    inherit (finalAttrs) src missingHashes;
     hash = "sha256-GScYVFdG8MMtPjtXfz7e6Y+A1tFMF9T8suvU+/BhsHY=";
   };
-in
-stdenv.mkDerivation {
-  pname = "ansible-language-server";
-  inherit version src;
-
-  inherit offlineCache missingHashes;
 
   nativeBuildInputs = [
     nodejs
-    yarn-berry
-    yarn-berry.yarnBerryConfigHook
+    yarn-berry_4
+    yarn-berry_4.yarnBerryConfigHook
     makeWrapper
     writableTmpDirAsHomeHook
   ];
@@ -72,7 +65,7 @@ stdenv.mkDerivation {
   '';
 
   meta = {
-    changelog = "https://github.com/ansible/vscode-ansible/releases/tag/v${version}";
+    changelog = "https://github.com/ansible/vscode-ansible/releases/tag/v${finalAttrs.version}";
     description = "Ansible Language Server";
     mainProgram = "ansible-language-server";
     homepage = "https://github.com/ansible/vscode-ansible";
@@ -82,4 +75,4 @@ stdenv.mkDerivation {
       robsliwi
     ];
   };
-}
+})
