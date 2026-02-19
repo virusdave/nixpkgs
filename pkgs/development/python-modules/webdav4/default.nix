@@ -15,7 +15,7 @@
   wsgidav,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "webdav4";
   version = "0.11.0";
   pyproject = true;
@@ -23,7 +23,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "skshetry";
     repo = "webdav4";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-vWOxFoPxXFf5hmzbu9Ik3Mqg/70eFehqMF46gC6aDzQ=";
   };
 
@@ -37,16 +37,6 @@ buildPythonPackage rec {
     python-dateutil
   ];
 
-  nativeCheckInputs = [
-    cheroot
-    colorama
-    pytest-xdist
-    pytestCheckHook
-    pytest-cov-stub
-    wsgidav
-  ]
-  ++ optional-dependencies.fsspec;
-
   optional-dependencies = {
     fsspec = [ fsspec ];
     http2 = [ httpx.optional-dependencies.http2 ];
@@ -55,6 +45,16 @@ buildPythonPackage rec {
       httpx.optional-dependencies.http2
     ];
   };
+
+  nativeCheckInputs = [
+    cheroot
+    colorama
+    pytest-xdist
+    pytestCheckHook
+    pytest-cov-stub
+    wsgidav
+  ]
+  ++ lib.flatten (builtins.attrValues finalAttrs.passthru.optional-dependencies);
 
   pythonImportsCheck = [ "webdav4" ];
 
@@ -81,8 +81,8 @@ buildPythonPackage rec {
     description = "Library for interacting with WebDAV";
     mainProgram = "dav";
     homepage = "https://skshetry.github.io/webdav4/";
-    changelog = "https://github.com/skshetry/webdav4/releases/tag/v${version}";
-    license = with lib.licenses; [ mit ];
+    changelog = "https://github.com/skshetry/webdav4/releases/tag/${finalAttrs.src.tag}";
+    license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
