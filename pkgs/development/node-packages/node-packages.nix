@@ -5289,27 +5289,6 @@ let
   };
 in
 {
-  "@tailwindcss/line-clamp" = nodeEnv.buildNodePackage {
-    name = "_at_tailwindcss_slash_line-clamp";
-    packageName = "@tailwindcss/line-clamp";
-    version = "0.4.4";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/@tailwindcss/line-clamp/-/line-clamp-0.4.4.tgz";
-      sha512 = "5U6SY5z8N42VtrCrKlsTAA35gy2VSyYtHWCsg1H87NU1SXnEfekTVlrga9fzUDrrHcGi2Lb5KenUWb4lRQT5/g==";
-    };
-    dependencies = [
-      sources."tailwindcss-4.0.14"
-    ];
-    buildInputs = globalBuildInputs;
-    meta = {
-      description = "Utilities for visually truncating text after a fixed number of lines";
-      homepage = "https://github.com/tailwindlabs/tailwindcss-line-clamp#readme";
-      license = "MIT";
-    };
-    production = true;
-    bypassCache = true;
-    reconstructLock = true;
-  };
   "@tailwindcss/typography" = nodeEnv.buildNodePackage {
     name = "_at_tailwindcss_slash_typography";
     packageName = "@tailwindcss/typography";

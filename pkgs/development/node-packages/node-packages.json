@@ -1,5 +1,4 @@
 [
-  "@tailwindcss/line-clamp",
   "@tailwindcss/typography",
   "browserify",
   "node2nix",
