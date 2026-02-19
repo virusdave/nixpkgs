@@ -14,10 +14,11 @@
   pyyaml,
   requests,
   requests-credssp,
+  setuptools,
   xmldiff,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "pypsrp";
   version = "0.9.0";
   pyproject = true;
@@ -25,11 +26,13 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "jborean93";
     repo = "pypsrp";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-EFe587tLTlNEzxhACtlbB0FspDOUvfF3ly0DRtAomuY=";
   };
 
-  propagatedBuildInputs = [
+  build-system = [ setuptools ];
+
+  dependencies = [
     cryptography
     httpcore
     httpx
@@ -38,19 +41,19 @@ buildPythonPackage rec {
     requests
   ];
 
-  nativeCheckInputs = [
-    pytest-mock
-    pytestCheckHook
-    pyyaml
-    xmldiff
-  ];
-
   optional-dependencies = {
     credssp = [ requests-credssp ];
     kerberos = pyspnego.optional-dependencies.kerberos;
     named_pipe = [ psutil ];
     ssh = [ asyncssh ];
   };
+
+  nativeCheckInputs = [
+    pytest-mock
+    pytestCheckHook
+    pyyaml
+    xmldiff
+  ];
 
   pythonImportsCheck = [ "pypsrp" ];
 
@@ -64,8 +67,8 @@ buildPythonPackage rec {
   meta = {
     description = "PowerShell Remoting Protocol Client library";
     homepage = "https://github.com/jborean93/pypsrp";
-    changelog = "https://github.com/jborean93/pypsrp/blob/v${version}/CHANGELOG.md";
+    changelog = "https://github.com/jborean93/pypsrp/blob/${finalAttrs.src.tag}/CHANGELOG.md";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
