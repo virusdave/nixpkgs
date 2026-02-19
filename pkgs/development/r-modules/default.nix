@@ -3169,6 +3169,10 @@ let
       preConfigure = "patchShebangs configure";
     });
 
+    bigPLSR = old.bigPLSR.overrideAttrs (_: {
+      preConfigure = "patchShebangs configure";
+    });
+
     RPesto = old.RPesto.overrideAttrs (_: {
       preConfigure = "patchShebangs configure";
     });
