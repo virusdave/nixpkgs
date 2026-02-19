@@ -46,6 +46,7 @@ let
       mathcomp-solvable = self.mathcomp.solvable;
       mathcomp-field = self.mathcomp.field;
       mathcomp-character = self.mathcomp.character;
+      mathcomp-bigenough = callPackage ../development/rocq-modules/mathcomp-bigenough { };
       parseque = callPackage ../development/rocq-modules/parseque { };
       relation-algebra = callPackage ../development/rocq-modules/relation-algebra { };
       rocq-elpi = callPackage ../development/rocq-modules/rocq-elpi { };
