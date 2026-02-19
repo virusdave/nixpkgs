@@ -67,7 +67,9 @@ let
 
   nixosJobs = import (path + "/nixos/release.nix") {
     inherit attrNamesOnly;
-    supportedSystems = if systems == null then [ builtins.currentSystem ] else systems;
+    supportedSystems = lib.filter (lib.hasSuffix "-linux") (
+      if systems == null then [ builtins.currentSystem ] else systems
+    );
   };
 
   recurseIntoAttrs = attrs: attrs // { recurseForDerivations = true; };
@@ -101,6 +103,6 @@ in
 tweak (
   (removeAttrs nixpkgsJobs blacklist)
   // {
-    nixosTests.simple = nixosJobs.tests.simple;
+    nixosTests = lib.filterAttrs (name: _: name == "simple") nixosJobs.tests;
   }
 )
