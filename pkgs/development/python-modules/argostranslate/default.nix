@@ -67,6 +67,9 @@ buildPythonPackage (finalAttrs: {
     homepage = "https://www.argosopentech.com";
     changelog = "https://github.com/argosopentech/argos-translate/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ misuzu ];
+    maintainers = with lib.maintainers; [
+      misuzu
+      Stebalien
+    ];
   };
 })
