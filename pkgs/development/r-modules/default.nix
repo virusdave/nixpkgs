@@ -1749,6 +1749,7 @@ let
     "teal_code"
     "TreeTools"
     "TreeSearch"
+    "PKbioanalysis"
     "ACNE"
     "APAlyzer"
     "BAT"
