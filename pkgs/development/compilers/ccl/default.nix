@@ -14,25 +14,25 @@ let
     # TODO: there are also FreeBSD and Windows versions
     x86_64-linux = {
       arch = "linuxx86";
-      sha256 = "sha256-cAae50xvBoXfg+tiJM4i8+eRnheyM0dseE5EDWDia/E=";
+      hash = "sha256-cAae50xvBoXfg+tiJM4i8+eRnheyM0dseE5EDWDia/E=";
       runtime = "lx86cl64";
       kernel = "linuxx8664";
     };
     i686-linux = {
       arch = "linuxx86";
-      sha256 = x86_64-linux.sha256;
+      hash = x86_64-linux.hash;
       runtime = "lx86cl";
       kernel = "linuxx8632";
     };
     armv7l-linux = {
       arch = "linuxarm";
-      sha256 = "sha256-iyUMTDuHbyfEAxAAhjXANjh6HhpLkWG5+diXI6aFUUc=";
+      hash = "sha256-iyUMTDuHbyfEAxAAhjXANjh6HhpLkWG5+diXI6aFUUc=";
       runtime = "armcl";
       kernel = "linuxarm";
     };
     x86_64-darwin = {
       arch = "darwinx86";
-      sha256 = "sha256-r+OhkU0b+QDgoZpZb0Xpc3V0yRq8GBKcNLt2IzeOSdE=";
+      hash = "sha256-r+OhkU0b+QDgoZpZb0Xpc3V0yRq8GBKcNLt2IzeOSdE=";
       runtime = "dx86cl64";
       kernel = "darwinx8664";
     };
@@ -49,7 +49,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "https://github.com/Clozure/ccl/releases/download/v${finalAttrs.version}/ccl-${finalAttrs.version}-${cfg.arch}.tar.gz";
-    sha256 = cfg.sha256;
+    hash = cfg.hash;
   };
 
   buildInputs =
