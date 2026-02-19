@@ -10,12 +10,13 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "ansible-language-server";
-  version = "26.1.3";
+  version = "1.2.4"; # Language server version from the repo at packages/ansible-language-server/package.json
+  vscodeAnsibleVersion = "26.1.3"; # vscode-ansible version
 
   src = fetchFromGitHub {
     owner = "ansible";
     repo = "vscode-ansible";
-    tag = "v${finalAttrs.version}";
+    tag = "v${finalAttrs.vscodeAnsibleVersion}";
     hash = "sha256-DsEW3xP8Fa9nwPuyEFVqG6rvAZgr4TDB6jhyixdvqt8=";
   };
 
@@ -65,7 +66,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   meta = {
-    changelog = "https://github.com/ansible/vscode-ansible/releases/tag/v${finalAttrs.version}";
+    changelog = "https://github.com/ansible/vscode-ansible/releases/tag/v${finalAttrs.vscodeAnsibleVersion}";
     description = "Ansible Language Server";
     mainProgram = "ansible-language-server";
     homepage = "https://github.com/ansible/vscode-ansible";
