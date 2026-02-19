@@ -2502,7 +2502,6 @@ let
     });
 
     RAppArmor = old.RAppArmor.overrideAttrs (attrs: {
-      patches = [ ./patches/RAppArmor.patch ];
       LIBAPPARMOR_HOME = pkgs.libapparmor;
     });
 
