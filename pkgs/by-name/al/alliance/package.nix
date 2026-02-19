@@ -14,20 +14,18 @@
   libtool,
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "alliance";
   version = "unstable-2025-02-24";
 
-  src =
-    let
-      src = fetchFromGitHub {
-        owner = "lip6";
-        repo = "alliance";
-        rev = "a8502d32df0a4ad1bd29ab784c4332319669ecd2";
-        hash = "sha256-b2uaYZEzHMB3qCMRVANNnjTxr6OYb1Unswxjq5knYzM=";
-      };
-    in
-    "${src}/alliance/src";
+  src = fetchFromGitHub {
+    owner = "lip6";
+    repo = "alliance";
+    rev = "a8502d32df0a4ad1bd29ab784c4332319669ecd2";
+    hash = "sha256-b2uaYZEzHMB3qCMRVANNnjTxr6OYb1Unswxjq5knYzM=";
+  };
+
+  sourceRoot = "${finalAttrs.src.name}/alliance/src";
 
   nativeBuildInputs = [
     libtool
@@ -77,4 +75,4 @@ stdenv.mkDerivation {
     maintainers = [ ];
     platforms = with lib.platforms; linux;
   };
-}
+})
