@@ -30,6 +30,7 @@ stdenv.mkDerivation {
   cmakeFlags = [
     "-DVIDEO_SUPPORT=ON"
     "-DUSE_QT5=OFF"
+    "-DKDE_SUPPORT=ON"
   ];
 
   buildInputs = [
@@ -41,6 +42,7 @@ stdenv.mkDerivation {
     kdePackages.qtsvg
     kdePackages.qttools
     kdePackages.kimageformats
+    kdePackages.kwindowsystem
   ];
 
   postPatch = ''
