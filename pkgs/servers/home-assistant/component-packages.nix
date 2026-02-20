@@ -1775,7 +1775,8 @@
       ];
     "fing" =
       ps: with ps; [
-      ]; # missing inputs: fing_agent_api
+        fing-agent-api
+      ];
     "fints" =
       ps: with ps; [
         fints
@@ -7410,6 +7411,7 @@
     "file_upload"
     "filesize"
     "filter"
+    "fing"
     "fints"
     "firefly_iii"
     "fireservicerota"
