@@ -21,7 +21,7 @@ stdenv.mkDerivation (finalAttrs: {
   meta = {
     description = "Graphite versions of Linux Libertine and Linux Biolinum font families for LibreOffice and OpenOffice.org";
     homepage = "https://numbertext.org/linux/";
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ qweered ];
     license = lib.licenses.ofl;
   };
 })
