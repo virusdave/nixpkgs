@@ -694,8 +694,7 @@ let
 
           handled = if elem warning.reason showWarnings then trace msg true else true;
         in
-        warning
-        // {
+        {
           valid = "warn";
           handled = handled;
         }
@@ -713,8 +712,7 @@ let
 
         handled = if config ? handleEvalIssue then config.handleEvalIssue invalid.reason msg else throw msg;
       in
-      invalid
-      // {
+      {
         valid = "no";
         handled = handled;
       };
