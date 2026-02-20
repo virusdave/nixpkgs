@@ -31,7 +31,7 @@
   nixosTests,
 }:
 
-buildPythonApplication rec {
+buildPythonApplication (finalAttrs: {
   pname = "devpi-server";
   version = "6.19.1";
   pyproject = true;
@@ -39,18 +39,18 @@ buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "devpi";
     repo = "devpi";
-    rev = "server-${version}";
+    tag = "server-${finalAttrs.version}";
     hash = "sha256-YFY2iLnORzFxnfGYU2kCpJL8CZi+lALIkL1bRpfd4NE=";
   };
 
-  sourceRoot = "${src.name}/server";
+  sourceRoot = "${finalAttrs.src.name}/server";
 
-  nativeBuildInputs = [
+  build-system = [
     setuptools
     setuptools-changelog-shortener
   ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     aiohttp
     appdirs
     defusedxml
@@ -123,11 +123,11 @@ buildPythonApplication rec {
   meta = {
     homepage = "http://doc.devpi.net";
     description = "Github-style pypi index server and packaging meta tool";
-    changelog = "https://github.com/devpi/devpi/blob/${src.rev}/server/CHANGELOG";
+    changelog = "https://github.com/devpi/devpi/blob/${finalAttrs.src.tag}/server/CHANGELOG";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [
       confus
       makefu
     ];
   };
-}
+})
