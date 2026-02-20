@@ -4,12 +4,12 @@
   fetchzip,
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "linux-libertine-g";
-  version = "2012-01-16";
+  version = "20120116";
 
   src = fetchzip {
-    url = "http://www.numbertext.org/linux/e7a384790b13c29113e22e596ade9687-LinLibertineG-20120116.zip";
+    url = "http://www.numbertext.org/linux/e7a384790b13c29113e22e596ade9687-LinLibertineG-${finalAttrs.version}.zip";
     hash = "sha256-UGTB7jsI6peivCtEt96RCSi5XHCrnjCSs0Ud5bF7uxk=";
   };
 
@@ -24,4 +24,4 @@ stdenv.mkDerivation {
     maintainers = [ ];
     license = lib.licenses.ofl;
   };
-}
+})
