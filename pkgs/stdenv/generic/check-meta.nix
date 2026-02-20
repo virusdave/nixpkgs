@@ -421,7 +421,7 @@ let
   # e.g brokenness or license.
   #
   # Return { valid: "yes", "warn" or "no" } and additionally
-  # { reason: String; errormsg: String, remediation: String } if it is not valid, where
+  # { reason: String; msg: String, remediation: String } if it is not valid, where
   # reason is one of "unfree", "blocklisted", "broken", "insecure", ...
   # !!! reason strings are hardcoded into OfBorg, make sure to keep them in sync
   # Along with a boolean flag for each reason
@@ -432,7 +432,7 @@ let
     if metaInvalid (attrs.meta or { }) then
       {
         reason = "unknown-meta";
-        errormsg = "has an invalid meta attrset:${
+        msg = "has an invalid meta attrset:${
           concatMapStrings (x: "\n  - " + x) (metaType.errors "${getName attrs}.meta" attrs.meta)
         }\n";
         remediation = "";
@@ -442,7 +442,7 @@ let
     else if checkOutputsToInstall attrs then
       {
         reason = "broken-outputs";
-        errormsg = "has invalid meta.outputsToInstall";
+        msg = "has invalid meta.outputsToInstall";
         remediation = remediateOutputsToInstall attrs;
       }
 
@@ -450,25 +450,25 @@ let
     else if hasDeniedUnfreeLicense attrs && !(hasAllowlistedLicense attrs) then
       {
         reason = "unfree";
-        errormsg = "has an unfree license (‘${showLicense attrs.meta.license}’)";
+        msg = "has an unfree license (‘${showLicense attrs.meta.license}’)";
         remediation = remediate_allowlist "Unfree" (remediate_predicate "allowUnfreePredicate" attrs);
       }
     else if hasBlocklistedLicense attrs then
       {
         reason = "blocklisted";
-        errormsg = "has a blocklisted license (‘${showLicense attrs.meta.license}’)";
+        msg = "has a blocklisted license (‘${showLicense attrs.meta.license}’)";
         remediation = "";
       }
     else if hasDeniedNonSourceProvenance attrs then
       {
         reason = "non-source";
-        errormsg = "contains elements not built from source (‘${showSourceType attrs.meta.sourceProvenance}’)";
+        msg = "contains elements not built from source (‘${showSourceType attrs.meta.sourceProvenance}’)";
         remediation = remediate_allowlist "NonSource" (remediate_predicate "allowNonSourcePredicate" attrs);
       }
     else if hasDeniedBroken attrs then
       {
         reason = "broken";
-        errormsg = "is marked as broken";
+        msg = "is marked as broken";
         remediation = remediate_allowlist "Broken" "";
       }
     else if hasUnsupportedPlatform attrs && !allowUnsupportedSystem then
@@ -480,7 +480,7 @@ let
       in
       {
         reason = "unsupported";
-        errormsg = ''
+        msg = ''
           is not available on the requested hostPlatform:
             hostPlatform.system = "${hostPlatform.system}"
             package.meta.platforms = ${toPretty' (attrs.meta.platforms or [ ])}
@@ -491,7 +491,7 @@ let
     else if hasDisallowedInsecure attrs then
       {
         reason = "insecure";
-        errormsg = "is marked as insecure";
+        msg = "is marked as insecure";
         remediation = remediate_insecure attrs;
       }
     else
@@ -503,7 +503,7 @@ let
     if hasNoMaintainers attrs then
       {
         reason = "maintainerless";
-        errormsg = "has no maintainers or teams";
+        msg = "has no maintainers or teams";
         remediation = "";
       }
     else
@@ -687,9 +687,9 @@ let
         let
           msg =
             if inHydra then
-              "Warning while evaluating ${getNameWithVersion attrs}: «${warning.reason}»: ${warning.errormsg}"
+              "Warning while evaluating ${getNameWithVersion attrs}: «${warning.reason}»: ${warning.msg}"
             else
-              "Package ${getNameWithVersion attrs} in ${pos_str meta} ${warning.errormsg}, continuing anyway."
+              "Package ${getNameWithVersion attrs} in ${pos_str meta} ${warning.msg}, continuing anyway."
               + (optionalString (warning.remediation != "") "\n${warning.remediation}");
 
           handled = if elem warning.reason showWarnings then trace msg true else true;
@@ -702,10 +702,10 @@ let
       let
         msg =
           if inHydra then
-            "Failed to evaluate ${getNameWithVersion attrs}: «${invalid.reason}»: ${invalid.errormsg}"
+            "Failed to evaluate ${getNameWithVersion attrs}: «${invalid.reason}»: ${invalid.msg}"
           else
             ''
-              Package ‘${getNameWithVersion attrs}’ in ${pos_str meta} ${invalid.errormsg}, refusing to evaluate.
+              Package ‘${getNameWithVersion attrs}’ in ${pos_str meta} ${invalid.msg}, refusing to evaluate.
 
             ''
             + invalid.remediation;
