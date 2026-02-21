@@ -12700,8 +12700,6 @@ with pkgs;
 
   chrome-token-signing = libsForQt5.callPackage ../tools/security/chrome-token-signing { };
 
-  linode-cli = python3Packages.callPackage ../tools/virtualization/linode-cli { };
-
   phonetisaurus = callPackage ../development/libraries/phonetisaurus {
     # https://github.com/AdolfVonKleist/Phonetisaurus/issues/70
     openfst = openfst.overrideAttrs rec {
