@@ -14,12 +14,12 @@
 
 buildPythonPackage rec {
   pname = "standardwebhooks";
-  version = "1.0.0";
+  version = "1.0.1";
   pyproject = true;
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-2UuZwNzqhBVuA62tlPjboy1UVMxo4S7CyCQFG1W7Z/8=";
+    hash = "sha256-tVe7LksWraF5pRfsD+bL7FrPl2xWGZIr8pxFf4mkUb0=";
   };
 
   build-system = [ setuptools ];
