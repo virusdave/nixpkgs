@@ -4,7 +4,7 @@
   fetchFromGitHub,
   lib,
   writableTmpDirAsHomeHook,
-  writeTextDir,
+  nix-update-script,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -29,8 +29,11 @@ stdenv.mkDerivation (finalAttrs: {
   # The MicroCabal that is installed by `make install` is pregenerated, does not respect MCABAL above, and so is not useable
   postInstall = "rm $out/bin/mcabal";
 
-  passthru.tests = {
-    hello-world = callPackage ./test-hello-world.nix { microhs = finalAttrs.finalPackage; };
+  passthru = {
+    updateScript = nix-update-script { };
+    tests = {
+      hello-world = callPackage ./test-hello-world.nix { microhs = finalAttrs.finalPackage; };
+    };
   };
 
   meta = {
