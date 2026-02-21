@@ -11,19 +11,19 @@
 
 buildPythonPackage rec {
   pname = "fast-query-parsers";
-  version = "1.0.3";
+  version = "1.1.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "litestar-org";
     repo = "fast-query-parsers";
     tag = "v${version}";
-    hash = "sha256-08xL0sOmUzsZYtM1thYUV93bj9ERr3LaVrW46zBrzeE=";
+    hash = "sha256-gxKySLbBtX/6bXuTtiFw50UhmUwZE8lDaQ5P/g09Qnk=";
   };
 
   cargoDeps = rustPlatform.fetchCargoVendor {
     inherit pname version src;
-    hash = "sha256-kp5bCmHYMS/e8eM6HrRw0JlVaxwPscFGDLQ0PX4ZIC4=";
+    hash = "sha256-eMZBKG5j9v3EVVwa7ooZcuIZK5ljeyc+2k1dw3O/TcQ=";
   };
 
   build-system = [
