@@ -16,12 +16,12 @@
 
 buildPythonPackage rec {
   pname = "cmd2";
-  version = "3.1.0";
+  version = "3.2.1";
   pyproject = true;
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-zOOuzgGLCxBVmIraoraHrJwd84v9Kr/Cnb61GpcH3jM=";
+    hash = "sha256-bGNyobJs0Uu2IJZTyJ1zAP58FDno3KMPW2tv/bXyFPo=";
   };
 
   build-system = [ setuptools-scm ];
