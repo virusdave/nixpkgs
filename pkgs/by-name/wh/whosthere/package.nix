@@ -31,16 +31,6 @@ buildGoModule (finalAttrs: {
     "main.versionStr=${finalAttrs.version}"
   ];
 
-  checkFlags =
-    let
-      # Skip tests that require filesystem access
-      skippedTests = [
-        "TestResolveLogPath"
-        "TestStateDir"
-      ];
-    in
-    [ "-skip=^${builtins.concatStringsSep "$|^" skippedTests}$" ];
-
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     installShellCompletion --cmd whosthere \
       --bash <("$out/bin/whosthere" completion bash) \
