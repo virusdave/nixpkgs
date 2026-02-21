@@ -55,7 +55,7 @@ buildGoModule (finalAttrs: {
     homepage = "https://github.com/ramonvermeulen/whosthere";
     license = lib.licenses.asl20;
     maintainers = with lib.maintainers; [ matthiasbeyer ];
-    platforms = lib.platforms.linux;
+    platforms = lib.platforms.unix;
     mainProgram = "whosthere";
   };
 })
