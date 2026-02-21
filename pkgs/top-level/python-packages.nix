@@ -5492,6 +5492,8 @@ self: super: with self; {
 
   fiscalyear = callPackage ../development/python-modules/fiscalyear { };
 
+  fish-audio-sdk = callPackage ../development/python-modules/fish-audio-sdk { };
+
   fissix = callPackage ../development/python-modules/fissix { };
 
   fitbit = callPackage ../development/python-modules/fitbit { };
