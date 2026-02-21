@@ -150,6 +150,7 @@ stdenv.mkDerivation rec {
     maintainers = with lib.maintainers; [
       ilian
       viraptor
+      pancaek
     ];
   };
 }
