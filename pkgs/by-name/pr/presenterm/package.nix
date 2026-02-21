@@ -14,13 +14,13 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "presenterm";
-  version = "0.16.0";
+  version = "0.16.1";
 
   src = fetchFromGitHub {
     owner = "mfontanini";
     repo = "presenterm";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-wQP3tLa6+GZAhNkAaIrbpIMBnQD7UoH6O5N/wDKtfrQ=";
+    hash = "sha256-mIJktrgBweaaLD2YaRcs0vP5hKRy/kMN/HEnwO323DA=";
   };
 
   nativeBuildInputs =
@@ -35,7 +35,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     libsixel
   ];
 
-  cargoHash = "sha256-mDbzZZDsGCpbOKJ9/lX23VgSH0LGzHvYo2nxnRay15A=";
+  cargoHash = "sha256-OlZXf8Wg32mXGDGbavLVf1ELoqqSmc8z9DNpvGOfAJ8=";
 
   env = lib.optionalAttrs (isDarwin && isx86_64) {
     NIX_CFLAGS_LINK = "-fuse-ld=lld";
