@@ -101,6 +101,7 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://github.com/jarun/nnn/blob/v${finalAttrs.version}/CHANGELOG";
     license = lib.licenses.bsd2;
     platforms = lib.platforms.all;
+    maintainers = with lib.maintainers; [ sikmir ];
     mainProgram = "nnn";
   };
 })
