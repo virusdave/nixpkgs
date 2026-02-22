@@ -150,11 +150,18 @@ def run_wrapper(
             remote_run_args = _prefix_env_cmd_remote(run_args, normalized_env)
 
         if sudo:
+            sudo_args = shlex.split(os.getenv("NIX_SUDOOPTS", ""))
             if remote.sudo_password:
-                remote_run_args = ["sudo", "--prompt=", "--stdin", *remote_run_args]
+                remote_run_args = [
+                    "sudo",
+                    "--prompt=",
+                    "--stdin",
+                    *sudo_args,
+                    *remote_run_args,
+                ]
                 process_input = remote.sudo_password + "\n"
             else:
-                remote_run_args = ["sudo", *remote_run_args]
+                remote_run_args = ["sudo", *sudo_args, *remote_run_args]
 
         ssh_args: list[Arg] = [
             "ssh",

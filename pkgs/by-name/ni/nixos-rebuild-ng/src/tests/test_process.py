@@ -199,3 +199,36 @@ def test_custom_sudo_args(mock_run: Any) -> None:
         text=True,
         errors="surrogateescape",
     )
+
+    with patch.dict(
+        p.os.environ,
+        {"NIX_SUDOOPTS": "--custom foo --args", "PATH": "/path/to/bin"},
+        clear=True,
+    ):
+        p.run_wrapper(
+            ["test"],
+            check=False,
+            sudo=True,
+            remote=m.Remote("user@localhost", [], None),
+        )
+    mock_run.assert_called_with(
+        [
+            "ssh",
+            *p.SSH_DEFAULT_OPTS,
+            "user@localhost",
+            "--",
+            "sudo",
+            "--custom",
+            "foo",
+            "--args",
+            "env",
+            "-i",
+            "PATH=${PATH-}",
+            "test",
+        ],
+        check=False,
+        env=None,
+        input=None,
+        text=True,
+        errors="surrogateescape",
+    )
