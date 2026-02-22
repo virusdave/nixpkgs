@@ -1,7 +1,7 @@
 {
   lib,
   buildPythonPackage,
-  fetchPypi,
+  fetchFromGitHub,
   setuptools,
   fastcore,
   numpy,
@@ -14,9 +14,11 @@ buildPythonPackage (finalAttrs: {
   version = "1.1.3";
   pyproject = true;
 
-  src = fetchPypi {
-    inherit (finalAttrs) pname version;
-    hash = "sha256-L3Bxvrk84mHdtR1mskOoUXtCFWOgEHSY5Yhe0tkTb8o=";
+  src = fetchFromGitHub {
+    owner = "fastai";
+    repo = "fastprogress";
+    tag = finalAttrs.version;
+    hash = "sha256-hP61+gbETHlkQMy0KMAW5uGPyo2Kga/yJ5u9LvA+lgs=";
   };
 
   build-system = [ setuptools ];
@@ -34,7 +36,7 @@ buildPythonPackage (finalAttrs: {
 
   meta = {
     homepage = "https://github.com/fastai/fastprogress";
-    changelog = "https://github.com/AnswerDotAI/fastprogress/blob/${finalAttrs.version}/CHANGELOG.md";
+    changelog = "https://github.com/AnswerDotAI/fastprogress/blob/${finalAttrs.src.tag}/CHANGELOG.md";
     description = "Simple and flexible progress bar for Jupyter Notebook and console";
     license = lib.licenses.asl20;
     maintainers = with lib.maintainers; [ ris ];
