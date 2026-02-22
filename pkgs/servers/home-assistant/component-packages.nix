@@ -1936,7 +1936,8 @@
       ];
     "fressnapf_tracker" =
       ps: with ps; [
-      ]; # missing inputs: fressnapftracker
+        fressnapftracker
+      ];
     "fritz" =
       ps:
       with ps;
@@ -7433,6 +7434,7 @@
     "freebox"
     "freedns"
     "freedompro"
+    "fressnapf_tracker"
     "fritz"
     "fritzbox"
     "fritzbox_callmonitor"
