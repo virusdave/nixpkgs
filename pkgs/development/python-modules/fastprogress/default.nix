@@ -5,6 +5,8 @@
   setuptools,
   fastcore,
   numpy,
+  fasthtml,
+  ipython,
 }:
 
 buildPythonPackage rec {
@@ -22,6 +24,8 @@ buildPythonPackage rec {
   dependencies = [
     fastcore
     numpy
+    fasthtml
+    ipython
   ];
 
   # no real tests
