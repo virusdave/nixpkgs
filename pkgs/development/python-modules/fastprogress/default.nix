@@ -11,14 +11,14 @@
 
 buildPythonPackage (finalAttrs: {
   pname = "fastprogress";
-  version = "1.1.3";
+  version = "1.1.5";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "fastai";
     repo = "fastprogress";
     tag = finalAttrs.version;
-    hash = "sha256-hP61+gbETHlkQMy0KMAW5uGPyo2Kga/yJ5u9LvA+lgs=";
+    hash = "sha256-n4FwOgxYn2JWlF8VwtO7m7mOXg1l27lT/3Rd+GeDlvw=";
   };
 
   build-system = [ setuptools ];
