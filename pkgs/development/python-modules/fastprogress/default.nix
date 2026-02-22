@@ -34,6 +34,7 @@ buildPythonPackage (finalAttrs: {
 
   meta = {
     homepage = "https://github.com/fastai/fastprogress";
+    changelog = "https://github.com/AnswerDotAI/fastprogress/blob/${finalAttrs.version}/CHANGELOG.md";
     description = "Simple and flexible progress bar for Jupyter Notebook and console";
     license = lib.licenses.asl20;
     maintainers = with lib.maintainers; [ ris ];
