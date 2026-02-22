@@ -9,13 +9,13 @@
   ipython,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "fastprogress";
   version = "1.1.3";
   pyproject = true;
 
   src = fetchPypi {
-    inherit pname version;
+    inherit (finalAttrs) pname version;
     hash = "sha256-L3Bxvrk84mHdtR1mskOoUXtCFWOgEHSY5Yhe0tkTb8o=";
   };
 
@@ -38,4 +38,4 @@ buildPythonPackage rec {
     license = lib.licenses.asl20;
     maintainers = with lib.maintainers; [ ris ];
   };
-}
+})
