@@ -5841,6 +5841,8 @@ self: super: with self; {
 
   frelatage = callPackage ../development/python-modules/frelatage { };
 
+  fressnapftracker = callPackage ../development/python-modules/fressnapftracker { };
+
   freud = callPackage ../development/python-modules/freud { };
 
   frictionless = callPackage ../development/python-modules/frictionless { };
