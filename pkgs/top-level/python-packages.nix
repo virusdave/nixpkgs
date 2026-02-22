@@ -5357,6 +5357,8 @@ self: super: with self; {
 
   fastjsonschema = callPackage ../development/python-modules/fastjsonschema { };
 
+  fastlite = callPackage ../development/python-modules/fastlite { };
+
   fastmcp = callPackage ../development/python-modules/fastmcp { };
 
   fastmri = callPackage ../development/python-modules/fastmri { };
