@@ -135,7 +135,6 @@ buildGoModule (finalAttrs: {
         ncps
         ncps-custom-sqlite-directory
         ncps-custom-storage-local
-        ncps-ha-pg
         ncps-ha-pg-redis
         ;
     };
