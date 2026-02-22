@@ -119,28 +119,18 @@
 
 buildPythonPackage (finalAttrs: {
   pname = "beets";
-  version = "2.6.1";
+  version = "2.6.2";
   src = fetchFromGitHub {
     owner = "beetbox";
     repo = "beets";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-TJFno1Hm3swG0qNDjWcVG0YE6zoRTumKqmEyrFGDh7Q=";
+    hash = "sha256-1euYkoM66gnElCbgCgIpj1waq1QvHApUgioJTbSQJ0U=";
   };
   pyproject = true;
   # Waiting for https://github.com/beetbox/beets/pull/6267
   disabled = pythonAtLeast "3.14";
 
-  patches = [
-    # Fixes https://github.com/beetbox/beets/issues/6335
-    (fetchpatch {
-      url = "https://github.com/beetbox/beets/commit/07d3e05a9113668d94a1ab3604ee42e76c641b07.patch";
-      excludes = [
-        "docs/changelog.rst"
-      ];
-      hash = "sha256-+OJLGeByTIuUL0XpneHU5Jzxiq8FSujPPT5Oha0IJEA=";
-    })
-  ]
-  ++ extraPatches;
+  patches = extraPatches;
 
   build-system = [
     poetry-core
