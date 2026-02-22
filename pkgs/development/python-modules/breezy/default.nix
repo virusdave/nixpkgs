@@ -35,7 +35,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "breezy-team";
     repo = "breezy";
-    rev = "brz-${version}";
+    tag = "brz-${version}";
     hash = "sha256-S8YHFEWiSnkBFO75jMuEcvVZSnoV9SGCH/Ueodq2zow=";
   };
 
@@ -46,18 +46,21 @@ buildPythonPackage rec {
   '';
 
   nativeBuildInputs = [
-    cython
     installShellFiles
     rustPlatform.cargoSetupHook
     cargo
     rustc
-    setuptools-gettext
-    setuptools-rust
   ];
 
   buildInputs = lib.optionals stdenv.hostPlatform.isDarwin [ libiconv ];
 
-  propagatedBuildInputs = [
+  build-system = [
+    cython
+    setuptools-gettext
+    setuptools-rust
+  ];
+
+  dependencies = [
     configobj
     dulwich
     fastbencode
@@ -114,7 +117,7 @@ buildPythonPackage rec {
   meta = {
     description = "Friendly distributed version control system";
     homepage = "https://www.breezy-vcs.org/";
-    changelog = "https://github.com/breezy-team/breezy/blob/${src.rev}/doc/en/release-notes/brz-${lib.versions.majorMinor version}.txt";
+    changelog = "https://github.com/breezy-team/breezy/blob/${src.tag}/doc/en/release-notes/brz-${lib.versions.majorMinor version}.txt";
     license = lib.licenses.gpl2Only;
     maintainers = [ ];
     mainProgram = "brz";
