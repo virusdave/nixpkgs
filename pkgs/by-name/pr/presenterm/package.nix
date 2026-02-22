@@ -66,7 +66,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     changelog = "https://github.com/mfontanini/presenterm/releases/tag/v${finalAttrs.version}";
     homepage = "https://github.com/mfontanini/presenterm";
     license = lib.licenses.bsd2;
-    maintainers = with lib.maintainers; [ mikaelfangel ];
+    maintainers = with lib.maintainers; [
+      GaetanLepage
+      mikaelfangel
+    ];
     mainProgram = "presenterm";
   };
 })
