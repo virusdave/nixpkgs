@@ -24773,6 +24773,12 @@
     github = "Skyb0rg007";
     githubId = 30806179;
   };
+  skyethepinkcat = {
+    name = "Skye Jonke";
+    email = "skye@skyenet.online";
+    github = "skyethepinkcat";
+    githubId = 29717600;
+  };
   skykanin = {
     github = "skykanin";
     githubId = 3789764;
