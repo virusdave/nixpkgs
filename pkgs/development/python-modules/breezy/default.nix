@@ -29,14 +29,14 @@
 
 buildPythonPackage rec {
   pname = "breezy";
-  version = "3.3.12";
+  version = "3.3.21";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "breezy-team";
     repo = "breezy";
     rev = "brz-${version}";
-    hash = "sha256-V/SnzpslFGjISg+YxViFa+Lpnn0+9enPA3xmvwfXnUM=";
+    hash = "sha256-S8YHFEWiSnkBFO75jMuEcvVZSnoV9SGCH/Ueodq2zow=";
   };
 
   cargoDeps = rustPlatform.importCargoLock { lockFile = ./Cargo.lock; };
