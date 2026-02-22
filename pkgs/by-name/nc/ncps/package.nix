@@ -9,12 +9,12 @@
   mariadb,
   minio,
   minio-client,
+  nix-update-script,
+  nixosTests,
   postgresql,
   python3,
   redis,
   writeShellScriptBin,
-  nixosTests,
-  nix-update-script,
 }:
 
 let
