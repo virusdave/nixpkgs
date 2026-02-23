@@ -608,6 +608,13 @@
     "hash": "sha256-SSW6qtKarGtCPsi88PWG4IWX5YzTQ9WoyNqiKbx8mok=",
     "description": "Microsoft Azure Command-Line Tools K8sRuntime Extension"
   },
+  "keyvault-preview": {
+    "pname": "keyvault-preview",
+    "version": "1.0.2",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/keyvault_preview-1.0.2-py3-none-any.whl",
+    "hash": "sha256-2O5Pzvs7z/So+CqgiLe+BOJuvClJIhQABGM4Cxsfmu0=",
+    "description": "Microsoft Azure Command-Line Tools Keyvault-preview Extension"
+  },
   "kusto": {
     "pname": "kusto",
     "version": "0.5.0",
