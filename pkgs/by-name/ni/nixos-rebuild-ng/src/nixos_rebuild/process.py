@@ -7,8 +7,9 @@ import shlex
 import subprocess
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from enum import Enum
 from ipaddress import AddressValueError, IPv6Address
-from typing import Final, Self, TextIO, TypedDict, Unpack, override
+from typing import Final, Literal, Self, TextIO, TypedDict, Unpack, override
 
 from . import tmpdir
 
@@ -24,15 +25,20 @@ SSH_DEFAULT_OPTS: Final = [
 ]
 
 
-class _PreserveEnv:
-    __slots__ = ()
+class _Env(Enum):
+    PRESERVE_ENV = "PRESERVE"
 
     @override
     def __repr__(self) -> str:
-        return "PRESERVE"
+        return self.value
 
 
-PRESERVE_ENV: Final = _PreserveEnv()
+PRESERVE_ENV: Final = _Env.PRESERVE_ENV
+
+
+type Arg = str | bytes | os.PathLike[str] | os.PathLike[bytes]
+type Args = Sequence[Arg]
+type EnvValue = str | Literal[_Env.PRESERVE_ENV]
 
 
 @dataclass(frozen=True)
@@ -42,11 +48,6 @@ class _RawShellArg:
     @override
     def __str__(self) -> str:
         return self.value
-
-
-type Arg = str | bytes | os.PathLike[str] | os.PathLike[bytes]
-type Args = Sequence[Arg]
-type EnvValue = str | _PreserveEnv
 
 
 @dataclass(frozen=True)
@@ -253,7 +254,7 @@ def _resolve_env_local(env: dict[str, EnvValue]) -> dict[str, str]:
     result: dict[str, str] = {}
 
     for k, v in env.items():
-        if isinstance(v, _PreserveEnv):
+        if v == PRESERVE_ENV:
             cur = os.environ.get(k)
             if cur is not None:
                 result[k] = cur
