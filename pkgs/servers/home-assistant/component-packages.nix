@@ -2060,7 +2060,8 @@
       ];
     "gentex_homelink" =
       ps: with ps; [
-      ]; # missing inputs: homelink-integration-api
+        homelink-integration-api
+      ];
     "geo_json_events" =
       ps: with ps; [
         aio-geojson-generic-client
@@ -7449,6 +7450,7 @@
     "generic_hygrostat"
     "generic_thermostat"
     "geniushub"
+    "gentex_homelink"
     "geo_json_events"
     "geo_location"
     "geo_rss_events"
