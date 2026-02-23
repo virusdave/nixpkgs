@@ -21,13 +21,13 @@
 
 buildGoModule (finalAttrs: {
   pname = "ncps";
-  version = "0.9.0";
+  version = "0.9.1";
 
   src = fetchFromGitHub {
     owner = "kalbasit";
     repo = "ncps";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-jZxh4y1bKHbSSGphN3TSR9TiQqfkNhdr8GQekldC1FM=";
+    hash = "sha256-cu7fgzQTpo8aLpK0/kJ3xcCVFCmFMQ6RKwUWW5Zwu6s=";
   };
 
   # XXX: ncps is built with Go 1.25.6 that is available in release-25.11 but
