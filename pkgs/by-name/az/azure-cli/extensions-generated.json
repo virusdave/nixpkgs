@@ -939,9 +939,9 @@
   },
   "scheduled-query": {
     "pname": "scheduled-query",
-    "version": "1.0.0b1",
-    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/scheduled_query-1.0.0b1-py2.py3-none-any.whl",
-    "hash": "sha256-/V5p0EOLgInb4ZfVukxBd2rtkGlBysN0dVpMkETErwQ=",
+    "version": "1.0.0b2",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/scheduled_query-1.0.0b2-py2.py3-none-any.whl",
+    "hash": "sha256-UuY4rZntL543bBkYaAwNzCtmGVsZ5npROl0ozVizUJw=",
     "description": "Microsoft Azure Command-Line Tools Scheduled_query Extension"
   },
   "scvmm": {
