@@ -995,9 +995,9 @@
   },
   "stack-hci-vm": {
     "pname": "stack-hci-vm",
-    "version": "1.11.6",
-    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/stack_hci_vm-1.11.6-py3-none-any.whl",
-    "hash": "sha256-JyLErSQLS0cMKClSc9q97gdwCtfr0X2ilcP4EuE0V60=",
+    "version": "1.11.9",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/stack_hci_vm-1.11.9-py3-none-any.whl",
+    "hash": "sha256-MX5rPOARe9r9kglMz+R8EnMrZ/nxL9ICK5hzXEWXjWk=",
     "description": "Microsoft Azure Command-Line Tools Stack-HCi-VM Extension"
   },
   "standbypool": {
