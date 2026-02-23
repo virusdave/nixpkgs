@@ -111,6 +111,13 @@
     "hash": "sha256-re+iMmNO+fYl5j5oTGy4vm6OHATHytv5TIaYl2k6fVg=",
     "description": "Microsoft Azure Command-Line Tools ArizeAi Extension"
   },
+  "artifact-signing": {
+    "pname": "artifact-signing",
+    "version": "1.0.0",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/artifact_signing-1.0.0-py3-none-any.whl",
+    "hash": "sha256-u9BK1SQm5p6aJBkvL+Di7S21WuYfuRtrizoDA739DH8=",
+    "description": "Microsoft Azure Command-Line Tools Artifact Signing Extension"
+  },
   "astronomer": {
     "pname": "astronomer",
     "version": "1.0.1",
