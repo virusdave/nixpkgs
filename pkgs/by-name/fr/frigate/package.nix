@@ -98,6 +98,8 @@ python3Packages.buildPythonApplication rec {
     })
     # https://github.com/microsoft/onnxruntime/issues/26717
     ./onnxruntime-compat.patch
+    # https://github.com/blakeblackshear/frigate/pull/22089
+    ./proc-cmdline-strip.patch
   ];
 
   postPatch = ''
