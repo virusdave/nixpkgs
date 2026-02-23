@@ -1128,9 +1128,9 @@
   },
   "vmware": {
     "pname": "vmware",
-    "version": "8.0.0",
-    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/vmware-8.0.0-py2.py3-none-any.whl",
-    "hash": "sha256-Y+3qoZWD1Jx+BrRsHoTZp2lwuFp/NI/l7EYTP8bebuw=",
+    "version": "8.1.0",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/vmware-8.1.0-py2.py3-none-any.whl",
+    "hash": "sha256-QlwHakDfpj37o5mNUbt0MyPhgRyD/aNPfn4oRO5JtWo=",
     "description": "Azure VMware Solution commands"
   },
   "webapp": {
