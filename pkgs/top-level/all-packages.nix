@@ -2371,10 +2371,6 @@ with pkgs;
     mkFranzDerivation = callPackage ../applications/networking/instant-messengers/franz/generic.nix { };
   };
 
-  freqtweak = callPackage ../applications/audio/freqtweak {
-    wxGTK = wxGTK32;
-  };
-
   frostwire-bin = callPackage ../applications/networking/p2p/frostwire/frostwire-bin.nix { };
 
   uniscribe = callPackage ../tools/text/uniscribe { };
@@ -3274,8 +3270,6 @@ with pkgs;
   };
 
   platformio = if stdenv.hostPlatform.isLinux then platformio-chrootenv else platformio-core;
-
-  playbar2 = libsForQt5.callPackage ../applications/audio/playbar2 { };
 
   playwright = playwright-driver;
   playwright-driver = (callPackage ../development/web/playwright/driver.nix { }).playwright-core;
@@ -6280,10 +6274,6 @@ with pkgs;
 
   clucene-core = clucene-core_2;
 
-  codecserver = callPackage ../applications/audio/codecserver {
-    protobuf = protobuf_21;
-  };
-
   inherit (cosmopolitan) cosmocc;
 
   ustream-ssl = callPackage ../development/libraries/ustream-ssl { ssl_implementation = openssl; };
@@ -7192,7 +7182,7 @@ with pkgs;
 
   ogre = ogre_14;
 
-  openal = openalSoft;
+  openal = openal-soft;
 
   opencascade-occt_7_6 = opencascade-occt.overrideAttrs rec {
     pname = "opencascade-occt";
@@ -9607,10 +9597,6 @@ with pkgs;
     pulseaudioSupport = false;
   };
 
-  guitarix = callPackage ../applications/audio/guitarix {
-    fftw = fftwSinglePrec;
-  };
-
   tshark = wireshark-cli;
   wireshark-cli = wireshark.override { withQt = false; };
 
@@ -10604,10 +10590,6 @@ with pkgs;
     withXineBackend = true;
   };
 
-  rakarrack = callPackage ../applications/audio/rakarrack {
-    fltk = fltk_1_3;
-  };
-
   rawtherapee = callPackage ../applications/graphics/rawtherapee {
     fftw = fftwSinglePrec;
   };
@@ -10664,8 +10646,6 @@ with pkgs;
   scantailor-advanced = callPackage ../applications/graphics/scantailor/advanced.nix { };
 
   scantailor-universal = callPackage ../applications/graphics/scantailor/universal.nix { };
-
-  sfxr-qt = libsForQt5.callPackage ../applications/audio/sfxr-qt { };
 
   stag = callPackage ../applications/misc/stag {
     curses = ncurses;
@@ -11889,14 +11869,6 @@ with pkgs;
   );
 
   ### SCIENCE/PHYSICS
-
-  mcfm = callPackage ../applications/science/physics/MCFM {
-    stdenv = gccStdenv;
-    lhapdf = lhapdf.override {
-      stdenv = gccStdenv;
-      python3 = null;
-    };
-  };
 
   xflr5 = libsForQt5.callPackage ../applications/science/physics/xflr5 { };
 
