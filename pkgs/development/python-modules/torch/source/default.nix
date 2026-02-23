@@ -5,6 +5,7 @@
   fetchFromGitLab,
   git-unroll,
   buildPythonPackage,
+  fetchpatch,
   python,
   runCommand,
   writeShellScript,
@@ -304,6 +305,14 @@ buildPythonPackage.override { inherit stdenv; } (finalAttrs: {
 
   patches = [
     ./clang19-template-warning.patch
+    # [CPUBLAS] Fix UB: use vector::resize() instead of reserve() before operator[] access
+    # Merged in https://github.com/pytorch/pytorch/pull/175315
+    # TODO: drop at the next release
+    (fetchpatch {
+      name = "fix-ub-in-cpublas";
+      url = "https://github.com/pytorch/pytorch/commit/f08aafa9e82c5ae142b97dbfcac1ebd5d9ca7fde.patch";
+      hash = "sha256-J9QNKDWytA0nBpKr5q4kVnufyMEJHev0mfmyQCxog/w=";
+    })
   ]
   ++ lib.optionals cudaSupport [
     ./fix-cmake-cuda-toolkit.patch
