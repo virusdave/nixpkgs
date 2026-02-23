@@ -141,9 +141,9 @@
   },
   "automation": {
     "pname": "automation",
-    "version": "1.0.0b1",
-    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/automation-1.0.0b1-py3-none-any.whl",
-    "hash": "sha256-0x/gQz+jCm4An3ub7mxBemhu2HUC3Zh7msitETODkVs=",
+    "version": "1.0.0b2",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/automation-1.0.0b2-py3-none-any.whl",
+    "hash": "sha256-sdk0uNtQX6yBiEboywNE8FAreY1pBiimah0PdmCDRYg=",
     "description": "Microsoft Azure Command-Line Tools AutomationClient Extension"
   },
   "azure-firewall": {
