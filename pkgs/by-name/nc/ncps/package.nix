@@ -45,7 +45,10 @@ buildGoModule (finalAttrs: {
     "-X github.com/kalbasit/ncps/pkg/ncps.Version=v${finalAttrs.version}"
   ];
 
-  subPackages = [ "." ];
+  excludedPackages = [
+    "nix/dbmate-wrapper/src"
+    "nix/gen-db-wrappers/src"
+  ];
 
   buildInputs = [ xz ];
 
