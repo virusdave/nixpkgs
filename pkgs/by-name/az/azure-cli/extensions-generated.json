@@ -561,9 +561,9 @@
   },
   "hpc-cache": {
     "pname": "hpc-cache",
-    "version": "0.1.5",
-    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/hpc_cache-0.1.5-py2.py3-none-any.whl",
-    "hash": "sha256-hSy0F6rfCtB+PFFBOFjEE79x6my0m6WCidlXL5o1BQc=",
+    "version": "0.1.6",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/hpc_cache-0.1.6-py2.py3-none-any.whl",
+    "hash": "sha256-aUNk9avjsiJnqOVNULsANeO/IXkjRV76a8u+c5O4Bso=",
     "description": "Microsoft Azure Command-Line Tools StorageCache Extension"
   },
   "image-copy-extension": {
