@@ -105,7 +105,9 @@ let
       ++ lib.optional finalAttrs.enableXWayland xwayland
       ++ extraBuildInputs;
 
-      mesonFlags = lib.optional (!finalAttrs.enableXWayland) "-Dxwayland=disabled";
+      mesonFlags = [
+        (lib.mesonEnable "xwayland" finalAttrs.enableXWayland)
+      ];
 
       postFixup = ''
         # Install ALL example programs to $examples:
