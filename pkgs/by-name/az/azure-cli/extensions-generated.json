@@ -335,6 +335,13 @@
     "hash": "sha256-8agBvQw46y6/nC+04LQ6mEcK57QLvNBesqpZbWlXnJ4=",
     "description": "Microsoft Azure Command-Line Tools DataShareManagementClient Extension"
   },
+  "dell": {
+    "pname": "dell",
+    "version": "1.0.0b1",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/dell-1.0.0b1-py3-none-any.whl",
+    "hash": "sha256-v3Ue6o9sjuG9/Nn2nPuNx9O61bWr0h8MS792bYztVFw=",
+    "description": "Support for managing Dell.Storage filesystem resources"
+  },
   "dependency-map": {
     "pname": "dependency-map",
     "version": "1.0.0b1",
