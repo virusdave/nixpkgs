@@ -183,9 +183,9 @@
   },
   "blueprint": {
     "pname": "blueprint",
-    "version": "1.0.0b1",
-    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/blueprint-1.0.0b1-py3-none-any.whl",
-    "hash": "sha256-WVBTayQ3Asbs5Q8sE8d4q68xIJN6i0cZiNHV+8szmlQ=",
+    "version": "1.0.0b2",
+    "url": "https://azcliprod.blob.core.windows.net/cli-extensions/blueprint-1.0.0b2-py3-none-any.whl",
+    "hash": "sha256-KVtkhYL1+HnnJnmZt7AtZpfFvve/hcpmFw2EfzSHGLc=",
     "description": "Microsoft Azure Command-Line Tools Blueprint Extension"
   },
   "carbon": {
