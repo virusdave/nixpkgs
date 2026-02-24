@@ -1396,6 +1396,7 @@ mapAliases {
   newlib-nanoCross = throw "'newlib-nanoCross' has been renamed to/replaced by 'newlib-nano'"; # Converted to throw 2025-10-27
   newlibCross = throw "'newlibCross' has been renamed to/replaced by 'newlib'"; # Converted to throw 2025-10-27
   newt-go = fosrl-newt; # Added 2025-06-24
+  next-ls = throw "'next-ls' has been removed because it was deprecated and archived upstream. Consider using 'beamPackages.expert' instead"; # Added 2026-02-24
   nextcloud31 = throw "
     Nextcloud v31 has been removed from `nixpkgs` as the support for is dropped
     by upstream in 2025-09. Please upgrade to at least Nextcloud v32 by declaring
