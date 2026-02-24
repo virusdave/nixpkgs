@@ -3,6 +3,7 @@
   stdenv,
   buildPythonPackage,
   fetchFromGitHub,
+  pythonAtLeast,
 
   # build-system
   setuptools,
@@ -34,6 +35,9 @@ buildPythonPackage (finalAttrs: {
     tag = finalAttrs.version;
     hash = "sha256-XsQRP186ISarMMES3P+ov4t/1KKJdl0tXBrfpjyM3XA=";
   };
+
+  #  RuntimeError("torch.compile is not supported on Python 3.14+")
+  disabled = pythonAtLeast "3.14";
 
   postPatch = ''
     substituteInPlace pyproject.toml \
