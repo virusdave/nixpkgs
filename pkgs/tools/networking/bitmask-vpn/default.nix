@@ -125,6 +125,19 @@ buildGoModule rec {
   ]
   ++ lib.optionals stdenv.hostPlatform.isLinux [ qtwayland ];
 
+  # Workaround qmake looking for lrelease in wrong package
+  # Issue: https://github.com/NixOS/nixpkgs/issues/214765
+  qmakeFlags = [
+    "QT_TOOL.lrelease.binary=${lib.getDev qttools}/bin/lrelease"
+  ];
+
+  preConfigure = ''
+    # Workaround QMAKE being set by qtbase-setup-hook.sh
+    # https://github.com/NixOS/nixpkgs/blob/f6ca41c08b059c0836d6868a4e43be346d8e2a7c/pkgs/development/libraries/qt-6/hooks/qtbase-setup-hook.sh#L19
+    # to @qttools@/bin/qmake, which does not exist.
+    unset QMAKE
+  '';
+
   # FIXME: building on Darwin currently fails
   # due to missing debug symbols for Qt,
   # this should be fixable once darwin.apple_sdk >= 10.13
