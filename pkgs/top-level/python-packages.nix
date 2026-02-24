@@ -13199,6 +13199,8 @@ self: super: with self; {
 
   pycdio = callPackage ../development/python-modules/pycdio { };
 
+  pycdlib = callPackage ../development/python-modules/pycdlib { };
+
   pycec = callPackage ../development/python-modules/pycec { };
 
   pycep-parser = callPackage ../development/python-modules/pycep-parser { };
