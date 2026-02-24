@@ -100,6 +100,6 @@ buildPythonPackage (finalAttrs: {
     homepage = "https://github.com/neuralmagic/compressed-tensors";
     changelog = "https://github.com/neuralmagic/compressed-tensors/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.asl20;
-    maintainers = [ ];
+    maintainers = with lib.maintainers; [ sarahec ];
   };
 })
