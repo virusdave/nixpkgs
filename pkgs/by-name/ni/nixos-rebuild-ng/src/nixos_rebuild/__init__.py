@@ -265,7 +265,16 @@ def parse_args(
     if args.no_build_nix:
         parser_warn("--no-build-nix is deprecated, we do not build nix anymore")
 
-    if args.action == Action.DRY_BUILD.value and args.diff:
+    if (
+        args.action
+        in (
+            Action.DRY_BUILD.value,  # --diff breaks dry-build
+            Action.EDIT.value,
+            Action.LIST_GENERATIONS.value,
+            Action.REPL.value,
+        )
+        and args.diff
+    ):
         parser_warn(f"--diff is a no-op with '{args.action}'")
         args.diff = False
 
