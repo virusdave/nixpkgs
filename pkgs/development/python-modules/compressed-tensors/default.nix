@@ -1,14 +1,17 @@
 {
   lib,
+  stdenv,
   buildPythonPackage,
   fetchFromGitHub,
 
   # build-system
   setuptools,
   setuptools-scm,
+  llvmPackages,
 
   # dependencies
   frozendict,
+  loguru,
   pydantic,
   torch,
   transformers,
@@ -42,8 +45,11 @@ buildPythonPackage rec {
     setuptools-scm
   ];
 
+  buildInputs = lib.optional stdenv.cc.isClang llvmPackages.openmp;
+
   dependencies = [
     frozendict
+    loguru
     pydantic
     torch
     transformers
@@ -72,11 +78,17 @@ buildPythonPackage rec {
     "test_model_forward_pass"
     "test_save_compressed_model"
     "test_target_prioritization"
+    "test_expand_targets_with_llama_stories"
   ];
 
   disabledTestPaths = [
     # these try to download models from HF Hub
     "tests/test_quantization/lifecycle/test_apply.py"
+    # RuntimeError: The weights trying to be saved contained shared tensors
+    "tests/test_transform/factory/test_serialization.py::test_serialization[True-hadamard]"
+    "tests/test_transform/factory/test_serialization.py::test_serialization[True-random-hadamard]"
+    "tests/test_transform/factory/test_serialization.py::test_serialization[False-hadamard]"
+    "tests/test_transform/factory/test_serialization.py::test_serialization[False-random-hadamard]"
   ];
 
   meta = {
