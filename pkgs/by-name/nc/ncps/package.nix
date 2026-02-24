@@ -3,7 +3,6 @@
   curl,
   dbmate,
   fetchFromGitHub,
-  go,
   jq,
   lib,
   makeWrapper,
@@ -29,15 +28,6 @@ buildGoModule (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-cu7fgzQTpo8aLpK0/kJ3xcCVFCmFMQ6RKwUWW5Zwu6s=";
   };
-
-  # XXX: ncps is built with Go 1.25.6 that is available in release-25.11 but
-  # master is currently still using 1.25.5 (update waiting in the
-  # staging/staging-next branches.) This is a workaround for this issue and
-  # will automatically becomes no-op once Go is updated.
-  preBuild = lib.optionalString (go.version == "1.25.5") ''
-    sed -e 's:go 1.25.6:go 1.25.5:g' -i go.mod
-    sed -e 's:go 1.25.6:go 1.25.5:g' -i nix/dbmate-wrapper/src/go.mod
-  '';
 
   vendorHash = "sha256-QZikr0kE/kvnI4RG02lxVpG4teTg3Uo68st9xLlbfm0=";
 
@@ -111,14 +101,6 @@ buildGoModule (finalAttrs: {
       inherit (finalAttrs) version;
 
       src = "${finalAttrs.src}/nix/dbmate-wrapper/src";
-
-      # XXX: ncps is built with Go 1.25.6 that is available in release-25.11 but
-      # master is currently still using 1.25.5 (update waiting in the
-      # staging/staging-next branches.) This is a workaround for this issue and
-      # will automatically becomes no-op once Go is updated.
-      preBuild = lib.optionalString (go.version == "1.25.5") ''
-        sed -e 's:go 1.25.6:go 1.25.5:g' -i go.mod
-      '';
 
       vendorHash = null;
 
