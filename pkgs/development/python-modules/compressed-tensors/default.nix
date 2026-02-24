@@ -22,7 +22,7 @@
   pytestCheckHook,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "compressed-tensors";
   version = "0.13.0";
   pyproject = true;
@@ -31,7 +31,7 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "neuralmagic";
     repo = "compressed-tensors";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-XsQRP186ISarMMES3P+ov4t/1KKJdl0tXBrfpjyM3XA=";
   };
 
@@ -94,8 +94,8 @@ buildPythonPackage rec {
   meta = {
     description = "Safetensors extension to efficiently store sparse quantized tensors on disk";
     homepage = "https://github.com/neuralmagic/compressed-tensors";
-    changelog = "https://github.com/neuralmagic/compressed-tensors/releases/tag/${src.tag}";
+    changelog = "https://github.com/neuralmagic/compressed-tensors/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.asl20;
     maintainers = [ ];
   };
-}
+})
