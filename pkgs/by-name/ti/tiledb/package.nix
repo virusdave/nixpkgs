@@ -26,7 +26,6 @@
   nlohmann_json,
   c-blosc2,
   useAVX2 ? stdenv.hostPlatform.avx2Support,
-  libpqxx,
 }:
 
 let
@@ -83,7 +82,6 @@ stdenv.mkDerivation (finalAttrs: {
     curl
     file
     libpng
-    libpqxx
     lz4
     nlohmann_json
     onetbb
