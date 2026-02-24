@@ -25,7 +25,10 @@ stdenv.mkDerivation {
     hash = "sha256-8NLpp/+PK3wIB5Sx0Z1185DCDQ18zsGj9Wp5YNKgX8E=";
   };
 
-  patches = [ ./cmake-minimum-required.patch ];
+  patches = [
+    ./boost-189.patch
+    ./cmake-minimum-required.patch
+  ];
 
   nativeBuildInputs = [
     cmake
