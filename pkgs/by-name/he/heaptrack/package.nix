@@ -25,6 +25,8 @@ stdenv.mkDerivation {
     hash = "sha256-8NLpp/+PK3wIB5Sx0Z1185DCDQ18zsGj9Wp5YNKgX8E=";
   };
 
+  patches = [ ./cmake-minimum-required.patch ];
+
   nativeBuildInputs = [
     cmake
     kdePackages.extra-cmake-modules
