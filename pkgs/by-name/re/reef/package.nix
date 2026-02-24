@@ -14,10 +14,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "ZStud";
     repo = "reef";
     tag = "v${finalAttrs.version}";
-    hash = lib.fakeHash;
+    hash = "sha256-ytQ/nLfqdVkdpyVVOzQuVd8Ina0DUQJjLAtMgkn1KLU=";
   };
 
-  cargoHash = lib.fakeHash;
+  cargoHash = "sha256-v/UCabpSt5weUH1+spbQFC4MCOozLXhmN/pEUZCVH84=";
 
   postInstall = ''
     install -Dm644 fish/functions/*.fish -t $out/share/fish/vendor_functions.d/
