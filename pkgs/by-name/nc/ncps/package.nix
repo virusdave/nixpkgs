@@ -20,16 +20,16 @@
 
 buildGoModule (finalAttrs: {
   pname = "ncps";
-  version = "0.9.1";
+  version = "0.9.2";
 
   src = fetchFromGitHub {
     owner = "kalbasit";
     repo = "ncps";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-cu7fgzQTpo8aLpK0/kJ3xcCVFCmFMQ6RKwUWW5Zwu6s=";
+    hash = "sha256-LRabKv+4xYQn2XH4AIacFkn3ewUd2S3UlVWCA6MUweU=";
   };
 
-  vendorHash = "sha256-QZikr0kE/kvnI4RG02lxVpG4teTg3Uo68st9xLlbfm0=";
+  vendorHash = "sha256-PpHSkD7+csPfUXoYRuKhBm1iBtTSwJhOxuW/4ayv9hY=";
 
   ldflags = [
     "-X github.com/kalbasit/ncps/pkg/ncps.Version=v${finalAttrs.version}"
