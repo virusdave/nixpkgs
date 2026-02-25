@@ -75,6 +75,7 @@ with haskellLib;
   #
 
   parallel = doDistribute self.parallel_3_3_0_0;
+  tagged = doDistribute self.tagged_0_8_10;
 
   #
   # Jailbreaks
