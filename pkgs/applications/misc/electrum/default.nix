@@ -171,6 +171,7 @@ python3.pkgs.buildPythonApplication rec {
     maintainers = with lib.maintainers; [
       np
       prusnak
+      ryand56
     ];
     mainProgram = "electrum";
   };
