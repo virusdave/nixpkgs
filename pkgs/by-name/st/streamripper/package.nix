@@ -64,5 +64,6 @@ stdenv.mkDerivation rec {
     description = "Application that lets you record streaming mp3 to your hard drive";
     license = lib.licenses.gpl2;
     mainProgram = "streamripper";
+    maintainers = with lib.maintainers; [ cybershadow ];
   };
 }
