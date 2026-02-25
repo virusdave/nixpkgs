@@ -16,14 +16,14 @@
 
 buildPythonPackage rec {
   pname = "qualysclient";
-  version = "0.0.4.8.3";
+  version = "0.0.4.8.4";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "woodtechie1428";
     repo = "qualysclient";
     tag = "v${version}";
-    hash = "sha256-+SZICysgSC4XeXC9CCl6Yxb47V9c1eMp7KcpH8J7kK0=";
+    hash = "sha256-2m/WHxkomHBudWpFpsgXHN8n+hfLU+lf9fvxhh/3HjA=";
   };
 
   postPatch = ''
