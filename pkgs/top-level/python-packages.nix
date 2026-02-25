@@ -7046,6 +7046,8 @@ self: super: with self; {
 
   homeconnect = callPackage ../development/python-modules/homeconnect { };
 
+  homelink-integration-api = callPackage ../development/python-modules/homelink-integration-api { };
+
   homematicip = callPackage ../development/python-modules/homematicip { };
 
   homepluscontrol = callPackage ../development/python-modules/homepluscontrol { };
