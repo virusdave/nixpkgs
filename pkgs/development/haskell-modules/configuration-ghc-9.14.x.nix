@@ -74,6 +74,8 @@ with haskellLib;
   # Version upgrades
   #
 
+  parallel = doDistribute self.parallel_3_3_0_0;
+
   #
   # Jailbreaks
   #
