@@ -1914,10 +1914,10 @@
   };
 
   pkl = {
-    version = "0.20.0-unstable-2025-12-12";
+    version = "0.20.0-unstable-2026-02-24";
     url = "github:apple/tree-sitter-pkl";
-    rev = "ac58931956c000d3aeefbb55a81fc3c5bd6aecf0";
-    hash = "sha256-R0p9ceNjd9xnikxaCjDFwN4HkfRr+4ezVSlXqLP/YuQ=";
+    rev = "a02fc36f6001a22e7fdf35eaabbadb7b39c74ba5";
+    hash = "sha256-t+N4oxqZpzm3qHkbjUVyGzeVS56u1oFVx0MtgTBe0bk=";
     meta = {
       license = lib.licenses.asl20;
       maintainers = with lib.maintainers; [
