@@ -26308,6 +26308,12 @@
     github = "teczito";
     githubId = 15378834;
   };
+  teeco123 = {
+    name = "Kacper Gajko";
+    email = "kacper.gajko1@icloud.com";
+    github = "teeco123";
+    githubId = 116846689;
+  };
   teh = {
     email = "tehunger@gmail.com";
     github = "teh";
