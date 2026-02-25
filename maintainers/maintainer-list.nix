@@ -4127,12 +4127,6 @@
     githubId = 486199;
     name = "Colin";
   };
-  c0bw3b = {
-    email = "c0bw3b@gmail.com";
-    github = "c0bw3b";
-    githubId = 24417923;
-    name = "Renaud";
-  };
   c0deaddict = {
     email = "josvanbakel@protonmail.com";
     github = "c0deaddict";
