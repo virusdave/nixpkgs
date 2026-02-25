@@ -2,6 +2,7 @@
   lib,
   stdenv,
   buildPythonPackage,
+  pythonAtLeast,
   fetchFromGitHub,
 
   # build-system
@@ -39,6 +40,9 @@ buildPythonPackage rec {
     tag = "v${version}";
     hash = "sha256-iUfZX51Ef1PY7roy9ER8hG34BAhCLs3Sagoasd5BT3E=";
   };
+
+  # https://github.com/PlotPyStack/guidata/issues/97
+  disabled = pythonAtLeast "3.14";
 
   build-system = [
     setuptools
