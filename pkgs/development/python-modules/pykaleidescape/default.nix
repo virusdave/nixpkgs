@@ -10,7 +10,7 @@
   setuptools,
 }:
 
-buildPythonPackage rec {
+buildPythonPackage (finalAttrs: {
   pname = "pykaleidescape";
   version = "1.1.3";
   pyproject = true;
@@ -18,13 +18,13 @@ buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "SteveEasley";
     repo = "pykaleidescape";
-    tag = "v${version}";
+    tag = "v${finalAttrs.version}";
     hash = "sha256-IA6BefKBFMfatiaw+Ye8NdYZ6BDlR1z4L+YkZ4Iy3Wg=";
   };
 
-  nativeBuildInputs = [ setuptools ];
+  build-system = [ setuptools ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     aiohttp
     dnspython
   ];
@@ -49,8 +49,8 @@ buildPythonPackage rec {
   meta = {
     description = "Module for controlling Kaleidescape devices";
     homepage = "https://github.com/SteveEasley/pykaleidescape";
-    changelog = "https://github.com/SteveEasley/pykaleidescape/releases/tag/${src.tag}";
+    changelog = "https://github.com/SteveEasley/pykaleidescape/releases/tag/${finalAttrs.src.tag}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ fab ];
   };
-}
+})
