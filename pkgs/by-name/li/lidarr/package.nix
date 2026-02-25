@@ -165,7 +165,10 @@ buildDotnetModule {
     homepage = "https://lidarr.audio";
     changelog = "https://github.com/Lidarr/Lidarr/releases/tag/v${version}";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ ramonacat ];
+    maintainers = with lib.maintainers; [
+      ramonacat
+      karaolidis
+    ];
     mainProgram = "Lidarr";
     # platforms inherited from dotnet-sdk.
   };

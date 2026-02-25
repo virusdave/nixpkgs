@@ -13561,6 +13561,12 @@
     github = "karantan";
     githubId = 7062631;
   };
+  karaolidis = {
+    name = "Nikolaos Karaolidis";
+    email = "nick@karaolidis.com";
+    github = "karaolidis";
+    githubId = 46189100;
+  };
   KarlJoad = {
     email = "karl@hallsby.com";
     github = "KarlJoad";
