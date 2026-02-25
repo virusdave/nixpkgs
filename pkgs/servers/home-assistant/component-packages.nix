@@ -1449,7 +1449,8 @@
       ];
     "egauge" =
       ps: with ps; [
-      ]; # missing inputs: egauge-async
+        egauge-async
+      ];
     "eheimdigital" =
       ps: with ps; [
         eheimdigital
@@ -7365,6 +7366,7 @@
     "ecowitt"
     "edl21"
     "efergy"
+    "egauge"
     "eheimdigital"
     "eight_sleep"
     "ekeybionyx"

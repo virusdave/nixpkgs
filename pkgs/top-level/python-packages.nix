@@ -4872,6 +4872,8 @@ self: super: with self; {
 
   effect = callPackage ../development/python-modules/effect { };
 
+  egauge-async = callPackage ../development/python-modules/egauge-async { };
+
   eggdeps = callPackage ../development/python-modules/eggdeps { };
 
   eheimdigital = callPackage ../development/python-modules/eheimdigital { };
