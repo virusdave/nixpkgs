@@ -2,6 +2,7 @@
   lib,
   fetchCrate,
   rustPlatform,
+  versionCheckHook,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -14,6 +15,11 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoHash = "sha256-w9l8dn4Ahck3NXuN4Ph9qmGoS767/mQRBgO9AT0CH3Y=";
+
+  nativeInstallCheckInputs = [
+    versionCheckHook
+  ];
+  doInstallCheck = true;
 
   meta = {
     description = "BLAKE3 cryptographic hash function";
