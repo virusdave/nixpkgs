@@ -1875,7 +1875,8 @@
       ];
     "fluss" =
       ps: with ps; [
-      ]; # missing inputs: fluss-api
+        fluss-api
+      ];
     "flux" =
       ps: with ps; [
       ];
@@ -7426,6 +7427,7 @@
     "flipr"
     "flo"
     "flume"
+    "fluss"
     "flux"
     "flux_led"
     "folder"
