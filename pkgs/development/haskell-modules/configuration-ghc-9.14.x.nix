@@ -85,6 +85,24 @@ with haskellLib;
   primitive = doJailbreak (dontCheck super.primitive); # base <4.22 and a lot of dependencies on packages not yet working.
   splitmix = doJailbreak super.splitmix; # base <4.22
 
+  # https://github.com/haskellari/indexed-traversable/issues/49
+  indexed-traversable = doJailbreak super.indexed-traversable;
+  # https://github.com/haskellari/indexed-traversable/issues/50
+  indexed-traversable-instances = doJailbreak super.indexed-traversable-instances;
+  # https://github.com/haskellari/these/issues/211
+  these = doJailbreak super.these;
+  # https://github.com/haskellari/these/issues/207
+  semialign = doJailbreak super.semialign;
+  # https://github.com/haskellari/time-compat/issues/48
+  time-compat = doJailbreak super.time-compat;
+  # https://github.com/haskell-hvr/uuid/issues/95
+  uuid-types = doJailbreak super.uuid-types;
+  # https://github.com/haskellari/qc-instances/issues/110
+  quickcheck-instances = doJailbreak super.quickcheck-instances;
+  # https://github.com/haskell/aeson/issues/1155
+  text-iso8601 = doJailbreak super.text-iso8601;
+  aeson = doJailbreak super.aeson;
+
   # https://github.com/sjakobi/newtype-generics/pull/28/files
   newtype-generics = warnAfterVersion "0.6.2" (doJailbreak super.newtype-generics);
 
