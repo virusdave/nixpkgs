@@ -704,9 +704,7 @@ in
         LIBAVFORMAT_VERSION_MAJOR = lib.strings.trim (
           builtins.readFile (
             pkgs.runCommandLocal "libavformat-major-version" { } ''
-              ${cfg.settings.ffmpeg.path}/bin/ffmpeg -version 2>&1 \
-                | sed -n 's/.*libavformat[[:space:]]*\([0-9]*\).*/\1/p' \
-                | head -1 > $out
+              ${cfg.settings.ffmpeg.path}/bin/ffmpeg -version | grep -Po "libavformat\W+\K\d+" > $out
             ''
           )
         );
