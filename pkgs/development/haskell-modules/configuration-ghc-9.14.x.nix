@@ -103,6 +103,21 @@ with haskellLib;
   text-iso8601 = doJailbreak super.text-iso8601;
   aeson = doJailbreak super.aeson;
 
+  # https://github.com/well-typed/cborg/issues/373
+  cborg = doJailbreak super.cborg;
+  serialise = doJailbreak (
+    appendPatches [
+      # This removes support for older versions of time (think GHC 8.6) and, in doing so,
+      # drops a Cabal flag that prevents jailbreak from working
+      (pkgs.fetchpatch {
+        name = "serialise-no-old-time.patch";
+        url = "https://github.com/well-typed/cborg/commit/308afc2795062f847171463958e5e1bbd9c03381.patch";
+        hash = "sha256-Gutu9c+houcwAvq2Z+ZQUQbNK+u+OCJRZfKBtx8/V4c=";
+        relative = "serialise";
+      })
+    ] super.serialise
+  );
+
   # https://github.com/sjakobi/newtype-generics/pull/28/files
   newtype-generics = warnAfterVersion "0.6.2" (doJailbreak super.newtype-generics);
 
