@@ -2133,7 +2133,8 @@
       ];
     "google_air_quality" =
       ps: with ps; [
-      ]; # missing inputs: google_air_quality_api
+        google-air-quality-api
+      ];
     "google_assistant" =
       ps: with ps; [
         aiohasupervisor
@@ -7466,6 +7467,7 @@
     "gogogate2"
     "goodwe"
     "google"
+    "google_air_quality"
     "google_assistant"
     "google_assistant_sdk"
     "google_cloud"
