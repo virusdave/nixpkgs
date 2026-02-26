@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   preConfigure = ''
-    lrelease gpxsee.pro
+    lrelease lang/*.ts
   '';
 
   postInstall = lib.optionalString stdenv.hostPlatform.isDarwin ''
