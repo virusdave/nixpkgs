@@ -3509,8 +3509,6 @@ self: super: with self; {
 
   daiquiri = callPackage ../development/python-modules/daiquiri { };
 
-  dalle-mini = callPackage ../development/python-modules/dalle-mini { };
-
   daltonlens = callPackage ../development/python-modules/daltonlens { };
 
   daphne = callPackage ../development/python-modules/daphne { };
