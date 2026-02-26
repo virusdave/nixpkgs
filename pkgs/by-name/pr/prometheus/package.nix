@@ -90,6 +90,8 @@ buildGoModule (finalAttrs: {
     src
     ;
 
+  proxyVendor = true;
+
   outputs = [
     "out"
     "doc"
