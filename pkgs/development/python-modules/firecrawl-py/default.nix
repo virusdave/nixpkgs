@@ -3,6 +3,7 @@
   aiohttp,
   buildPythonPackage,
   fetchFromGitHub,
+  httpx,
   nest-asyncio,
   pydantic,
   python-dotenv,
@@ -13,14 +14,14 @@
 
 buildPythonPackage rec {
   pname = "firecrawl-py";
-  version = "2.7.0";
+  version = "2.8.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "mendableai";
     repo = "firecrawl";
     tag = "v${version}";
-    hash = "sha256-l42FfMrkqeFuAB4Sibxe4J+lifePSu2naIySEUGPQW0=";
+    hash = "sha256-7dB3jdp5jkRiNx63C5sjs3t85fuz5vzurfvYY5jWQyU=";
   };
 
   sourceRoot = "${src.name}/apps/python-sdk";
@@ -29,6 +30,7 @@ buildPythonPackage rec {
 
   dependencies = [
     aiohttp
+    httpx
     nest-asyncio
     pydantic
     python-dotenv
