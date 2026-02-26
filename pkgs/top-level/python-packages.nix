@@ -11307,6 +11307,8 @@ self: super: with self; {
 
   omemo-dr = callPackage ../development/python-modules/omemo-dr { };
 
+  omitempty = callPackage ../development/python-modules/omitempty { };
+
   omnikinverter = callPackage ../development/python-modules/omnikinverter { };
 
   omnilogic = callPackage ../development/python-modules/omnilogic { };
