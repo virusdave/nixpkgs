@@ -9,14 +9,14 @@
 
 buildPythonPackage rec {
   pname = "py-iam-expand";
-  version = "0.2.0";
+  version = "0.3.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "prowler-cloud";
     repo = "py-iam-expand";
     tag = version;
-    hash = "sha256-P6PWf7qkc/8/BeRycYgvFApIaUrbhKq4h718Nrs817U=";
+    hash = "sha256-qe3eph3bvVy6Yql76e/OecHAXggp/KNLG1k0iWy4K1w=";
   };
 
   build-system = [ poetry-core ];
