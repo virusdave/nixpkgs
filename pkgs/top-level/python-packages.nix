@@ -538,6 +538,8 @@ self: super: with self; {
 
   aiotedee = callPackage ../development/python-modules/aiotedee { };
 
+  aiotools = callPackage ../development/python-modules/aiotools { };
+
   aiotractive = callPackage ../development/python-modules/aiotractive { };
 
   aiounifi = callPackage ../development/python-modules/aiounifi { };
