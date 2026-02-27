@@ -33,9 +33,7 @@ let
     };
   };
 in
-with py.pkgs;
-
-python3.pkgs.buildPythonApplication rec {
+python3.pkgs.buildPythonApplication (finalAttrs: {
   pname = "checkov";
   version = "3.2.504";
   pyproject = true;
@@ -43,7 +41,7 @@ python3.pkgs.buildPythonApplication rec {
   src = fetchFromGitHub {
     owner = "bridgecrewio";
     repo = "checkov";
-    tag = version;
+    tag = finalAttrs.version;
     hash = "sha256-w6U8XW/hSPy/WJy4a6N41Hu+i9OVqiwI5buAE2uFjoI=";
   };
 
@@ -195,7 +193,7 @@ python3.pkgs.buildPythonApplication rec {
   meta = {
     description = "Static code analysis tool for infrastructure-as-code";
     homepage = "https://github.com/bridgecrewio/checkov";
-    changelog = "https://github.com/bridgecrewio/checkov/releases/tag/${version}";
+    changelog = "https://github.com/bridgecrewio/checkov/releases/tag/${finalAttrs.version}";
     longDescription = ''
       Prevent cloud misconfigurations during build-time for Terraform, Cloudformation,
       Kubernetes, Serverless framework and other infrastructure-as-code-languages.
@@ -207,4 +205,4 @@ python3.pkgs.buildPythonApplication rec {
       fab
     ];
   };
-}
+})
