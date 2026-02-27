@@ -23866,6 +23866,12 @@
     githubId = 24507823;
     name = "Schahin Rouhanizadeh";
   };
+  schembriaiden = {
+    email = "aidsch@proton.me";
+    github = "schembriaiden";
+    githubId = 81376423;
+    name = "Aiden Schembri";
+  };
   schinmai-akamai = {
     email = "schinmai@akamai.com";
     github = "tchinmai7";
