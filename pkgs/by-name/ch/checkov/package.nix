@@ -48,6 +48,7 @@ python3.pkgs.buildPythonApplication rec {
   };
 
   pythonRelaxDeps = [
+    "aiodns" # breaking change is that it requires pycares >= 5.0.0, which is fine.
     "asteval"
     "bc-detect-secrets"
     "bc-python-hcl2"
