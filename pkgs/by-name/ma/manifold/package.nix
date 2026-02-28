@@ -5,7 +5,6 @@
   cmake,
   clipper2,
   gtest,
-  glm,
   onetbb,
   python3Packages,
 }:
@@ -25,7 +24,6 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs = [
     gtest
-    glm
     onetbb
   ];
 
@@ -38,9 +36,7 @@ stdenv.mkDerivation (finalAttrs: {
     "-DMANIFOLD_PAR=TBB"
   ];
 
-  excludedTestPatterns = lib.optionals stdenv.isDarwin [
-    # https://github.com/elalish/manifold/issues/1306
-    "Manifold.Simplify"
+  excludedTestPatterns = [
   ];
   doCheck = true;
   checkPhase = ''
