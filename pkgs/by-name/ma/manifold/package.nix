@@ -40,7 +40,7 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   doCheck = true;
   checkPhase = ''
-    test/manifold_test --gtest_filter=-${builtins.concatStringsSep ":" finalAttrs.excludedTestPatterns}
+    test/manifold_test --gtest_filter=-${lib.escapeShellArg (builtins.concatStringsSep ":" finalAttrs.excludedTestPatterns)}
   '';
 
   passthru = {
