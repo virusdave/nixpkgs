@@ -19389,6 +19389,12 @@
     github = "0xnook";
     githubId = 88323754;
   };
+  norbertwnuk = {
+    name = "Norbert Wnuk";
+    email = "norbert.wnuk@gmail.com";
+    github = "norbertwnuk";
+    githubId = 70071;
+  };
   norfair = {
     email = "syd@cs-syd.eu";
     github = "NorfairKing";
